@@ -1,2 +1,2 @@
 # eQuill Labs
-🪶 eQuill Labs website and digital assets
+🖋️ eQuill Labs website and digital assets
