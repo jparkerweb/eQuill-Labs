@@ -20,7 +20,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 body {
@@ -29,7 +29,7 @@ body {
     font-size: 16px;
     color: var(--color-text);
     background-color: var(--color-primary);
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 /* Navigation */
