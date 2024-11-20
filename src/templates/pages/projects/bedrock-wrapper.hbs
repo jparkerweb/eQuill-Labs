@@ -1,0 +1,120 @@
+---
+layout: project
+title: Bedrock Wrapper
+---
+<section class="project-header">
+    <h1>🪨 Bedrock Wrapper</h1>
+    <div class="project-links">
+        <a href="https://github.com/jparkerweb/bedrock-wrapper" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.npmjs.com/package/bedrock-wrapper" class="btn" target="_blank" rel="noopener noreferrer">NPM Package</a>
+    </div>
+</section>
+
+<section class="project-content">
+    <h2>Overview</h2>
+    <p>Bedrock Wrapper is a Node.js library that provides OpenAI-compatible API objects for AWS Bedrock's serverless inference LLMs. It allows you to use AWS Bedrock models with the same interface you're familiar with from OpenAI, making it easy to switch between providers or use them together.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li>OpenAI-compatible API interface</li>
+        <li>Support for multiple Bedrock models</li>
+        <li>Streaming responses</li>
+        <li>TypeScript support</li>
+        <li>Automatic retries and error handling</li>
+        <li>Custom model parameters</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <pre><code>npm install bedrock-wrapper</code></pre>
+
+    <h2>AWS Configuration</h2>
+    <p>First, configure your AWS credentials:</p>
+    <pre><code>export AWS_ACCESS_KEY_ID=your_access_key
+export AWS_SECRET_ACCESS_KEY=your_secret_key
+export AWS_REGION=your_region</code></pre>
+
+    <h2>Basic Usage</h2>
+    <pre><code>import { BedrockWrapper } from 'bedrock-wrapper';
+
+const bedrock = new BedrockWrapper({
+    model: 'anthropic.claude-v2'
+});
+
+const response = await bedrock.chat.completions.create({
+    messages: [
+        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'user', content: 'Hello!' }
+    ]
+});</code></pre>
+
+    <h2>Streaming</h2>
+    <pre><code>const stream = await bedrock.chat.completions.create({
+    messages: [{ role: 'user', content: 'Tell me a story.' }],
+    stream: true
+});
+
+for await (const chunk of stream) {
+    process.stdout.write(chunk.choices[0]?.delta?.content || '');
+}</code></pre>
+
+    <h2>Supported Models</h2>
+    <ul>
+        <li><strong>Anthropic Claude:</strong>
+            <ul>
+                <li>anthropic.claude-v2</li>
+                <li>anthropic.claude-v1</li>
+                <li>anthropic.claude-instant-v1</li>
+            </ul>
+        </li>
+        <li><strong>Amazon Titan:</strong>
+            <ul>
+                <li>amazon.titan-text-express-v1</li>
+                <li>amazon.titan-text-lite-v1</li>
+            </ul>
+        </li>
+        <li><strong>AI21 Labs:</strong>
+            <ul>
+                <li>ai21.j2-ultra-v1</li>
+                <li>ai21.j2-mid-v1</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Advanced Configuration</h2>
+    <h3>Custom Model Parameters</h3>
+    <pre><code>const bedrock = new BedrockWrapper({
+    model: 'anthropic.claude-v2',
+    modelParams: {
+        temperature: 0.7,
+        top_p: 0.9,
+        max_tokens: 1000
+    }
+});</code></pre>
+
+    <h3>Retry Configuration</h3>
+    <pre><code>const bedrock = new BedrockWrapper({
+    model: 'anthropic.claude-v2',
+    maxRetries: 3,
+    retryDelay: 1000
+});</code></pre>
+
+    <h2>Error Handling</h2>
+    <pre><code>try {
+    const response = await bedrock.chat.completions.create({
+        messages: [{ role: 'user', content: 'Hello!' }]
+    });
+} catch (error) {
+    if (error.code === 'ThrottlingException') {
+        // Handle rate limiting
+    } else if (error.code === 'ValidationException') {
+        // Handle validation errors
+    }
+    console.error('Error:', error);
+}</code></pre>
+
+    <h2>Contributing</h2>
+    <p>We welcome contributions! Please check our <a href="https://github.com/jparkerweb/bedrock-wrapper/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contribution guidelines</a> for more information.</p>
+
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License - see the <a href="https://github.com/jparkerweb/bedrock-wrapper/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">LICENSE</a> file for details.</p>
+</section>

@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "03e8a473a33d8d96",
+    "type": "split",
+    "children": [
+      {
+        "id": "5150eb83aca44a82",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "75e6f0ea2c00a1a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "✏️ Design.md",
+                "mode": "preview",
+                "backlinks": false,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "✏️ Design"
+            }
+          },
+          {
+            "id": "dbd82a01cf199c9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "prompts.md",
+                "mode": "preview",
+                "backlinks": false,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "prompts"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "585cfad3354cac95",
+    "type": "split",
+    "children": [
+      {
+        "id": "156dead3a61e04e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c87476d46ad72cf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5411a6cdfbcf4608",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "dd011a10e92c54e9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "14f0eeebda2c5dd7",
+    "type": "split",
+    "children": [
+      {
+        "id": "5663da997c1e42ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "92e71e328ba3dfda",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "prompts.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for prompts"
+            }
+          },
+          {
+            "id": "e95af4f04024f86b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "✏️ Design.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ✏️ Design"
+            }
+          },
+          {
+            "id": "890c113e158f5c8d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b31a027622ee5cfd",
+            "type": "leaf",
+            "state": {
+              "type": "Saved Queries View",
+              "state": {},
+              "icon": "feather-mouse-pointer",
+              "title": "Saved Queries"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "75e6f0ea2c00a1a8",
+  "lastOpenFiles": [
+    "prompts.md",
+    "✏️ Design.md",
+    "pixel-banner-images/design.png",
+    "pixel-banner-images",
+    "test.md"
+  ]
+}

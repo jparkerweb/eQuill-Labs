@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedrock Proxy Endpoint - eQuill Labs</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../css/utility.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stars.css">
+</head>
+<body class="dark-mode project-page">
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html"><img src="../images/logo-no-text2.png" alt="eQuill Labs Logo"></a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../projects/projects.html">Projects</a>
+                <a href="../index.html#updates">Updates</a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#community">Community</a>
+            </div>
+            <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <article class="project-detail">
+    <header class="project-header">
+        <h1>🔀 Bedrock Proxy Endpoint</h1>
+        <p class="project-subtitle">OpenAI API compatible server for AWS Bedrock LLMs</p>
+        <div class="project-links">
+            <a href="https://github.com/jparkerweb/bedrock-proxy-endpoint" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://llm.dyndns.org/" class="btn" target="_blank" rel="noopener noreferrer">Demo Endpoint</a>
+        </div>
+    </header>
+
+    <section class="project-overview">
+        <p>Bedrock Proxy Endpoint allows you to spin up your own custom OpenAI API server endpoint for AWS Bedrock LLM text inference. It makes it easy to use AWS Bedrock with existing OpenAI API compatible applications by providing a compatible proxy that handles all the format conversions.</p>
+    </section>
+
+    <section class="project-features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>OpenAI API compatibility layer for AWS Bedrock</li>
+            <li>Support for multiple Bedrock models</li>
+            <li>Format conversion between OpenAI and Bedrock</li>
+            <li>Easy integration with existing applications</li>
+            <li>Customizable endpoint configuration</li>
+            <li>Detailed error handling and logging</li>
+        </ul>
+    </section>
+
+    <section class="project-installation">
+        <h2>Installation</h2>
+        <ol>
+            <li>Clone the repository:
+                <div class="code-example">
+                    <pre><code>git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git
+cd bedrock-proxy-endpoint</code></pre>
+                </div>
+            </li>
+            <li>Install dependencies:
+                <div class="code-example">
+                    <pre><code>npm ci</code></pre>
+                </div>
+            </li>
+            <li>Configure AWS credentials:
+                <div class="code-example">
+                    <pre><code>aws configure</code></pre>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="project-usage">
+        <h2>Usage</h2>
+        <p>Start the server:</p>
+        <div class="code-example">
+            <pre><code>npm start</code></pre>
+        </div>
+
+        <p>Make requests to your endpoint:</p>
+        <div class="code-example">
+            <pre><code>curl http://localhost:3000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "anthropic.claude-v2",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'</code></pre>
+        </div>
+    </section>
+
+    <section class="project-configuration">
+        <h2>Configuration</h2>
+        <p>Configure the endpoint by setting environment variables:</p>
+        <div class="code-example">
+            <pre><code>PORT=3000
+AWS_REGION=us-east-1
+DEFAULT_MODEL=anthropic.claude-v2</code></pre>
+        </div>
+    </section>
+</article>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2024 eQuill Labs. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://discord.gg/yaurKJw4Fd" target="_blank" rel="noopener noreferrer" title="Join our Discord">
+                    <img src="../images/discord.svg" alt="Discord" class="footer-icon"> Discord
+                </a>
+                <a href="https://github.com/jparkerweb" target="_blank" rel="noopener noreferrer" title="Visit our GitHub">
+                    <svg class="footer-icon" height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24">
+                        <path fill="#87cefa" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/network.js"></script>
+    <script src="../js/stars.js"></script>
+</body>
+</html>

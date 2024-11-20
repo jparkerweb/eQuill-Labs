@@ -1,0 +1,13 @@
+{
+  "name": "equill-labs-website",
+  "version": "0.0.1",
+  "description": "eQuill Labs website",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "nodemon --watch src -e hbs,js,css,png --exec \"npm run build\""
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.8",
+    "nodemon": "^3.0.1"
+  }
+}
