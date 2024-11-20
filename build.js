@@ -128,10 +128,47 @@ function clearDirectory(dir) {
     }
 }
 
-// Build the site
-clearDirectory(outputDir);
-fs.mkdirSync(outputDir, { recursive: true });
-processDirectory(pagesDir, outputDir);
-copyStaticFiles(staticDir, outputDir);
+// Copy static files
+function copyStaticFiles() {
+    // Copy CSS, JS, images
+    fs.cpSync(path.join(__dirname, 'src/static'), path.join(__dirname, 'pages'), {
+        recursive: true,
+        force: true
+    });
+}
+
+// Main build process
+async function build() {
+    // Clean output directory but preserve CNAME if it exists
+    const cnamePath = path.join(__dirname, 'pages/CNAME');
+    const cnameExists = fs.existsSync(cnamePath);
+    let cnameContent;
+    if (cnameExists) {
+        cnameContent = fs.readFileSync(cnamePath, 'utf8');
+    }
+    
+    // Clear pages directory
+    fs.rmSync(path.join(__dirname, 'pages'), { recursive: true, force: true });
+    fs.mkdirSync(path.join(__dirname, 'pages'), { recursive: true });
+    
+    // Restore CNAME if it existed
+    if (cnameContent) {
+        fs.writeFileSync(cnamePath, cnameContent);
+    }
+
+    // Copy static files
+    copyStaticFiles();
+    
+    // Process Handlebars templates
+    processDirectory(
+        path.join(__dirname, 'src/templates/pages'),
+        path.join(__dirname, 'pages')
+    );
+}
+
+build().catch(err => {
+    console.error('Build failed:', err);
+    process.exit(1);
+});
 
 console.log('Site built successfully!');
