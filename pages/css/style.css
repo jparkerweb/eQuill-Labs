@@ -12,6 +12,51 @@
     --color-btn-gradient-end: #090979;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-secondary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b3b3b;
+    border-radius: 5px;
+    border: 2px solid var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b4b4b;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3b3b3b var(--color-secondary);
+}
+
+/* Code block scrollbars */
+.code-example pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.code-example pre::-webkit-scrollbar-track {
+    background: #1d1d1d;
+}
+
+.code-example pre::-webkit-scrollbar-thumb {
+    background: #3b3b3b;
+    border: 1px solid #1d1d1d;
+}
+
+.code-example pre::-webkit-scrollbar-thumb:hover {
+    background: #4b4b4b;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +65,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
 }
 
 body {
