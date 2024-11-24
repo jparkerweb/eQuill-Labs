@@ -1,6 +1,7 @@
 # eQuill Labs Website
 
 Static website for eQuill Labs showcasing recent projects and tools.
+Discord: https://discord.gg/sp8AQQhMJ7
 
 ## Development
 
