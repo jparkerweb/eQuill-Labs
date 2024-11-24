@@ -730,18 +730,17 @@ footer {
     will-change: transform;
 }
 
-@keyframes slide-right {
+@keyframes slide-left-right {
     0%, 100% {
-        transform: translateX(0);
-    }
-    20%, 80% {  /* Stays right for 60% of the animation */
         transform: translateX(10px);
+    }
+    20%, 80% {  /* Stays left for 60% of the animation */
+        transform: translateX(0);
     }
 }
 
-.slide-right {
-    animation: slide-right 3s ease-in-out infinite;
+.slide-left-right {
+    animation: slide-left-right 3s ease-in-out infinite;
     animation-delay: 1.5s;
-    /* Optional: smooth out animation */
     will-change: transform;
 }
