@@ -12,9 +12,10 @@
     --color-btn-gradient-end: #090979;
 }
 
-/* Marck Script Font */
-.marck-script-regular {
-    font-family: "Marck Script", cursive;
+/* Script Font */
+.script-font {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
@@ -223,6 +224,7 @@ section {
     min-height: 100vh;
 }
 
+/* section backgrounds */
 section#projects::before { background-image: url("../images/projects/projects-background.png"); }
 section#updates::before { background-image: url("../images/updates-background.png"); }
 section#about::before { background-image: url("../images/about-background.png"); }
@@ -248,6 +250,7 @@ section#community::before {
     position: relative;
     overflow: hidden;
     width: 100vw;
+    user-select: none;
 }
 
 .hero::before,
@@ -715,6 +718,10 @@ footer {
 }
 
 /* Responsive Design */
+.break-on-mobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -746,6 +753,9 @@ footer {
     }
     .colored-slashes {
         top: -3px;
+    }
+    .break-on-mobile {
+        display: block;
     }
 }
 
