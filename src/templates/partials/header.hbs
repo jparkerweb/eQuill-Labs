@@ -15,4 +15,12 @@
             <span></span>
         </button>
     </nav>
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#about" class="nav-link" data-section="about">About</a>
+            <a href="{{relative}}projects/projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#updates" class="nav-link" data-section="updates">Updates</a>
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#community" class="nav-link" data-section="community">Community</a>
+        </div>
+    </div>
 </header>

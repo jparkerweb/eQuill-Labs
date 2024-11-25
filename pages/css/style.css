@@ -98,20 +98,16 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-body.project-page .main-nav,
-.main-nav.scrolled {
     background-color: var(--color-secondary);
     border-bottom: 2px solid #000;
+    z-index: 100;
 }
 
 .logo, .logo > a {
     display: flex;
     align-items: center;
 }
+
 .logo img {
     height: 45px;
 }
@@ -122,14 +118,9 @@ body.project-page .main-nav,
 }
 
 .nav-links a {
-    color: var(--color-navlink);
+    color: var(--color-nav-link);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--color-accent);
 }
 
 #mobile-menu-toggle {
@@ -138,15 +129,72 @@ body.project-page .main-nav,
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 110;
 }
 
 #mobile-menu-toggle span {
     display: block;
     width: 25px;
     height: 2px;
-    background-color: var(--color-text);
+    background-color: white;
     margin: 5px 0;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 90;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.mobile-menu-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    #mobile-menu-toggle {
+        display: block;
+    }
+
+    #mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
 }
 
 /* eQi\\ Labs text */
@@ -676,15 +724,16 @@ footer {
         display: block;
     }
 
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--color-secondary);
-        padding: 1rem;
+    #mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 }
 
@@ -713,36 +762,6 @@ footer {
     h1 {
         font-size: 2em;
     }
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.rotate {
-    animation: rotate 20s linear infinite;
-    /* Optional: smooth out animation start/stop */
-    will-change: transform;
-}
-
-@keyframes slide-left-right {
-    0%, 100% {
-        transform: translateX(10px);
-    }
-    20%, 80% {  /* Stays left for 60% of the animation */
-        transform: translateX(0);
-    }
-}
-
-.slide-left-right {
-    animation: slide-left-right 3s ease-in-out infinite;
-    animation-delay: 1.5s;
-    will-change: transform;
 }
 
 /* About section styles */
@@ -839,4 +858,34 @@ footer {
     .about-section .icon {
         margin-bottom: 1rem;
     }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 20s linear infinite;
+    /* Optional: smooth out animation start/stop */
+    will-change: transform;
+}
+
+@keyframes slide-left-right {
+    0%, 100% {
+        transform: translateX(10px);
+    }
+    20%, 80% {  /* Stays left for 60% of the animation */
+        transform: translateX(0);
+    }
+}
+
+.slide-left-right {
+    animation: slide-left-right 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+    will-change: transform;
 }

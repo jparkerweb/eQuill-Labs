@@ -38,7 +38,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-    <script src="./js/nav.js" defer></script>
 </head>
 <body class="dark-mode" style="overflow-x: hidden !important;">
     <header>
@@ -58,6 +57,14 @@
                 <span></span>
             </button>
         </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="./projects/projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#updates" class="nav-link" data-section="updates">Updates</a>
+                <a href="#community" class="nav-link" data-section="community">Community</a>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -198,5 +205,9 @@
     
     <script src="./js/main.js"></script>
     <script src="./js/network.js"></script>
+    
+    <!-- Scripts -->
+    <script src="./js/stars.js"></script>
+    <script src="./js/main.js" defer></script>
 </body>
 </html>
