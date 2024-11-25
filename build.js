@@ -89,14 +89,28 @@ function copyDir(sourceDir, targetDir) {
     });
 }
 
-// Copy static files to root of pages directory
-function copyStaticFiles(source, target) {
-    ['css', 'js', 'images'].forEach(dir => {
-        const sourceDir = path.join(source, dir);
-        const targetDir = path.join(target, dir);
-
-        if (fs.existsSync(sourceDir)) {
-            copyDir(sourceDir, targetDir);
+// Copy static files
+function copyStaticFiles() {
+    const staticSource = path.join(__dirname, 'src/static');
+    const staticTarget = path.join(__dirname, 'pages');
+    
+    // Ensure target directory exists
+    if (!fs.existsSync(staticTarget)) {
+        fs.mkdirSync(staticTarget, { recursive: true });
+    }
+    
+    // Copy all static files and directories
+    fs.readdirSync(staticSource).forEach(item => {
+        const sourcePath = path.join(staticSource, item);
+        const targetPath = path.join(staticTarget, item);
+        
+        if (fs.statSync(sourcePath).isDirectory()) {
+            if (!fs.existsSync(targetPath)) {
+                fs.mkdirSync(targetPath, { recursive: true });
+            }
+            copyDir(sourcePath, targetPath);
+        } else {
+            fs.copyFileSync(sourcePath, targetPath);
         }
     });
 }
@@ -126,15 +140,6 @@ function clearDirectory(dir) {
             throw err;
         }
     }
-}
-
-// Copy static files
-function copyStaticFiles() {
-    // Copy CSS, JS, images
-    fs.cpSync(path.join(__dirname, 'src/static'), path.join(__dirname, 'pages'), {
-        recursive: true,
-        force: true
-    });
 }
 
 // Main build process

@@ -4,10 +4,12 @@
   "description": "eQuill Labs website",
   "scripts": {
     "build": "node build.js",
-    "watch": "nodemon --watch src -e hbs,js,css,png --exec \"npm run build\""
+    "watch": "nodemon --watch src -e hbs,js,css,png --exec \"npm run build\"",
+    "serve": "serve pages -p 4444"
   },
   "devDependencies": {
     "handlebars": "^4.7.8",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "serve": "^14.2.1"
   }
 }

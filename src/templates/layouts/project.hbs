@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {{#if isProject}}data-is-project="true"{{/if}}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{#if title}}{{title}} - {{/if}}eQuill Labs</title>
+    <title>{{#if title}}{{title}} | {{/if}}eQuill Labs</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="{{relative}}images/favicon.ico">
@@ -19,6 +19,9 @@
     
     <!-- Android home screen icon -->
     <link rel="manifest" href="{{relative}}site.webmanifest">
+    
+    <!-- Mobile web app capable -->
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- iOS specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,5 +45,6 @@
 
     {{> footer}}
     <script src="{{relative}}js/stars.js"></script>
+    <script src="{{relative}}js/main.js"></script>
 </body>
 </html>

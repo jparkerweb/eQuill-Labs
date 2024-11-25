@@ -4,11 +4,10 @@
             <a href="{{relative}}index"><img src="{{relative}}images/logo-no-text2.png" alt="eQuill Labs Logo"></a>
         </div>
         <div class="nav-links">
-            <a href="{{relative}}">Home</a>
-            <a href="{{relative}}projects/projects">Projects</a>
-            <a href="{{relative}}index#updates">Updates</a>
-            <a href="{{relative}}index#about">About</a>
-            <a href="{{relative}}index#community">Community</a>
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#about" class="nav-link" data-section="about">About</a>
+            <a href="{{relative}}projects/projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#updates" class="nav-link" data-section="updates">Updates</a>
+            <a href="{{#unless isIndex}}{{relative}}index{{/unless}}#community" class="nav-link" data-section="community">Community</a>
         </div>
         <button id="mobile-menu-toggle" aria-label="Toggle menu">
             <span></span>

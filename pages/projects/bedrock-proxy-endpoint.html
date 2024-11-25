@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bedrock Proxy Endpoint - eQuill Labs</title>
+    <title>Bedrock Proxy Endpoint | eQuill Labs</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
@@ -19,6 +19,9 @@
     
     <!-- Android home screen icon -->
     <link rel="manifest" href="../site.webmanifest">
+    
+    <!-- Mobile web app capable -->
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- iOS specific meta tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,11 +43,10 @@
                 <a href="../index"><img src="../images/logo-no-text2.png" alt="eQuill Labs Logo"></a>
             </div>
             <div class="nav-links">
-                <a href="../">Home</a>
-                <a href="../projects/projects">Projects</a>
-                <a href="../index#updates">Updates</a>
-                <a href="../index#about">About</a>
-                <a href="../index#community">Community</a>
+                <a href="../index#about" class="nav-link" data-section="about">About</a>
+                <a href="../projects/projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="../index#updates" class="nav-link" data-section="updates">Updates</a>
+                <a href="../index#community" class="nav-link" data-section="community">Community</a>
             </div>
             <button id="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -154,5 +156,6 @@ DEFAULT_MODEL=anthropic.claude-v2</code></pre>
     <script src="../js/main.js"></script>
     <script src="../js/network.js"></script>
     <script src="../js/stars.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
