@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bedrock Proxy Endpoint | eQuill Labs</title>
+    <title>Trim Style | eQuill Labs</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
@@ -65,82 +65,19 @@
     </header>
 
     <main>
-        <article class="project-detail">
-    <header class="project-header">
-        <h1>🔀 Bedrock Proxy Endpoint</h1>
-        <p class="project-subtitle">OpenAI API compatible server for AWS Bedrock LLMs</p>
+        <section class="project-header">
+    <div>
+        <h1>✂️ Trim Style</h1>
+        <p class="project-description">A lightweight tool that helps you clean and format CSS properties copied from browser dev tools. Simply right-click an element in Chrome's dev tools, select "Copy CSS", and paste it here to get clean, formatted CSS properties.</p>
         <div class="project-links">
-            <a href="https://github.com/jparkerweb/bedrock-proxy-endpoint" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://llm.dyndns.org/" class="btn" target="_blank" rel="noopener noreferrer">Demo Endpoint</a>
+            <a href="https://github.com/jparkerweb/trim-style" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://trim-style.dyndns.org" class="btn" target="_blank" rel="noopener noreferrer">Web UI Demo</a>
         </div>
-    </header>
-
-    <section class="project-overview">
-        <p>Bedrock Proxy Endpoint allows you to spin up your own custom OpenAI API server endpoint for AWS Bedrock LLM text inference. It makes it easy to use AWS Bedrock with existing OpenAI API compatible applications by providing a compatible proxy that handles all the format conversions.</p>
-    </section>
-
-    <section class="project-features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>OpenAI API compatibility layer for AWS Bedrock</li>
-            <li>Support for multiple Bedrock models</li>
-            <li>Format conversion between OpenAI and Bedrock</li>
-            <li>Easy integration with existing applications</li>
-            <li>Customizable endpoint configuration</li>
-            <li>Detailed error handling and logging</li>
-        </ul>
-    </section>
-
-    <section class="project-installation">
-        <h2>Installation</h2>
-        <ol>
-            <li>Clone the repository:
-                <div class="code-example">
-                    <pre><code>git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git
-cd bedrock-proxy-endpoint</code></pre>
-                </div>
-            </li>
-            <li>Install dependencies:
-                <div class="code-example">
-                    <pre><code>npm ci</code></pre>
-                </div>
-            </li>
-            <li>Configure AWS credentials:
-                <div class="code-example">
-                    <pre><code>aws configure</code></pre>
-                </div>
-            </li>
-        </ol>
-    </section>
-
-    <section class="project-usage">
-        <h2>Usage</h2>
-        <p>Start the server:</p>
-        <div class="code-example">
-            <pre><code>npm start</code></pre>
-        </div>
-
-        <p>Make requests to your endpoint:</p>
-        <div class="code-example">
-            <pre><code>curl http://localhost:3000/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "anthropic.claude-v2",
-    "messages": [{"role": "user", "content": "Hello!"}]
-  }'</code></pre>
-        </div>
-    </section>
-
-    <section class="project-configuration">
-        <h2>Configuration</h2>
-        <p>Configure the endpoint by setting environment variables:</p>
-        <div class="code-example">
-            <pre><code>PORT=3000
-AWS_REGION=us-east-1
-DEFAULT_MODEL=anthropic.claude-v2</code></pre>
-        </div>
-    </section>
-</article>
+    </div>
+    <div class="project-hero-image">
+        <img src="../images/projects/trim-style.gif" alt="Trim Style">
+    </div>
+</section>
 
     </main>
 
