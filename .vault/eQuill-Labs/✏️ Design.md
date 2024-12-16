@@ -30,3 +30,8 @@ content-start: "250"
 - [recraft.ai](https://www.recraft.ai/history)
 {.bullet-cards .bullet-cards--justified .bullet-cards--width7 .ul-masonry}
 
+## Site Inspiration for Colors
+
+- [Thino](https://thino.pkmer.net/en/)
+{.bullet-cards .bullet-cards--justified .bullet-cards--width7 .ul-masonry}
+
