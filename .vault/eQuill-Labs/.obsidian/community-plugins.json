@@ -5,5 +5,7 @@
   "url-into-selection",
   "obsidian-paste-image-rename",
   "markdown-attributes",
-  "css-editor"
+  "css-editor",
+  "editing-toolbar",
+  "tinypng-image"
 ]
