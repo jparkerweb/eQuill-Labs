@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "c44dcef54cb7f364",
+        "id": "65ad01cfc6921783",
         "type": "tabs",
         "children": [
           {
-            "id": "86b5bd8547d8b69c",
+            "id": "e2ff370182942da4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -271,6 +271,26 @@
             "id": "c30fe1b4b30eedf0",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "05d5a750b46fa92b",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "66024bbcfde16e82",
+            "type": "leaf",
+            "state": {
               "type": "Saved Queries View",
               "state": {},
               "icon": "feather-mouse-pointer",
@@ -278,7 +298,7 @@
             }
           },
           {
-            "id": "05d5a750b46fa92b",
+            "id": "5bf7f8cdb6a6e8b4",
             "type": "leaf",
             "state": {
               "type": "Saved Queries View",
@@ -288,7 +308,7 @@
             }
           }
         ],
-        "currentTab": 18
+        "currentTab": 20
       }
     ],
     "direction": "horizontal",
@@ -300,12 +320,19 @@
       "switcher:Open quick switcher": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "tinypng-image:Compress images": false
+      "tinypng-image:Compress images": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "86b5bd8547d8b69c",
+  "active": "e2ff370182942da4",
   "lastOpenFiles": [
+    "✏️ Design.md",
     "🖋️ eQuill Labs.md",
+    "prompts.md",
+    "projects/🐇 MCP SQLite Server/v1.0.0 - 🚀 Initial Launch.md",
+    "pixel-banner-images/MCP-SQLite-Server.jpg",
+    "projects/👽 Extract Topics/v1.0.1 - 🚀 Initial Launch.md",
+    "projects/🐇 MCP SQLite Server",
     "projects/💦 K-Batch/v1.0.0 - 🪁 Initial Release.md",
     "pixel-banner-images/k-batch.png",
     "projects/📄 Sentence Parse/v1.0.0 - 📖 Into the Wild.md",
@@ -315,14 +342,11 @@
     "pixel-banner-images/old-screens.png",
     "projects/🪨 Bedrock Wrapper/v2.3.0 - 🤯 Thinking & Seeing.md",
     "projects/🔀 Bedrock Proxy Endpoint",
-    "prompts.md",
     "pixel-banner-images/happy-little-block.png",
     "projects/📄 Sentence Parse/v1.1.0 - 🪄 Break Wizard.md",
     "projects/🧑‍🏭 Punctuation Restore/v0.1.0 - 🪁 Initial Release.md",
     "projects/🪨 Bedrock Wrapper",
     "pixel-banner-images/wooden-blocks.png",
-    "projects/👽 Extract Topics/v1.0.1 - 🚀 Initial Launch.md",
-    "✏️ Design.md",
     "projects/🧑‍🏭 Punctuation Restore",
     "pixel-banner-images/alien-text-extractor.png",
     "projects/👽 Extract Topics",
@@ -330,7 +354,6 @@
     "pixel-banner-images/break-wizard.png",
     "pixel-banner-images/design.png",
     "pixel-banner-images/letters-only.png",
-    "pixel-banner-images/owl-sky.png",
     "DANGEROUS_DO_NOT_DELETE-tinypng-image-cache.json",
     "projects/📄 Sentence Parse/v1.2.0 - 🎋 HTML Time.md",
     "projects/📄 Sentence Parse",

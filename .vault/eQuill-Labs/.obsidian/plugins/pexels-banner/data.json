@@ -1,4 +1,6 @@
 {
+  "pixelBannerPlusEmail": "",
+  "pixelBannerPlusApiKey": "",
   "apiProvider": "all",
   "pexelsApiKey": "",
   "pixabayApiKey": "",
@@ -76,6 +78,9 @@
   "customBannerIconVeritalOffsetField": [
     "icon-y"
   ],
+  "customFlagColorField": [
+    "pixel-banner-flag-color"
+  ],
   "folderImages": [],
   "contentStartPosition": 300,
   "imageDisplay": "cover",
@@ -87,10 +92,9 @@
   "showPinIcon": true,
   "pinnedImageFolder": "pixel-banner-images",
   "showReleaseNotes": true,
-  "lastVersion": "2.21.1",
+  "lastVersion": "3.2.3",
   "showRefreshIcon": true,
   "showViewImageIcon": false,
-  "showSetTargetXYPosition": true,
   "hidePixelBannerFields": true,
   "hidePropertiesSectionIfOnlyBanner": true,
   "titleColor": "var(--inline-title-color)",
@@ -98,6 +102,8 @@
   "hideEmbeddedNoteTitles": false,
   "hideEmbeddedNoteBanners": false,
   "showSelectImageIcon": true,
+  "selectImageIconOpacity": 40,
+  "selectImageIconFlag": "red",
   "defaultSelectImagePath": "",
   "useShortPath": true,
   "bannerGap": 12,
@@ -110,5 +116,8 @@
   "bannerIconPaddingX": "0",
   "bannerIconPaddingY": "0",
   "bannerIconBorderRadius": "17",
-  "bannerIconVeritalOffset": "0"
+  "bannerIconVeritalOffset": "0",
+  "openBannerIconModalAfterSelectingBanner": true,
+  "openTargetingModalAfterSelectingBannerOrIcon": true,
+  "showSetTargetXYPosition": true
 }
