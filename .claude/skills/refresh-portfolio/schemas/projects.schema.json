@@ -1,0 +1,94 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$comment": "Informational copy of the Zod projectSchema in src/content/config.ts. The Zod schema is the source of truth — keep this in sync manually.",
+	"title": "Project",
+	"type": "object",
+	"required": [
+		"id",
+		"name",
+		"tagline",
+		"description",
+		"topics",
+		"category",
+		"languages",
+		"stars",
+		"links",
+		"_source"
+	],
+	"properties": {
+		"id": { "type": "string" },
+		"name": { "type": "string" },
+		"tagline": { "type": "string", "maxLength": 160 },
+		"description": {
+			"type": "object",
+			"required": ["short", "long"],
+			"properties": {
+				"short": { "type": "string" },
+				"long": { "type": "string" }
+			}
+		},
+		"banner": {
+			"type": "object",
+			"required": ["src", "alt", "source"],
+			"properties": {
+				"src": { "type": "string" },
+				"alt": { "type": "string" },
+				"source": { "type": "string", "enum": ["repo", "local", "generated"] }
+			}
+		},
+		"topics": { "type": "array", "items": { "type": "string" } },
+		"category": { "type": "string", "enum": ["library", "tool", "app", "demo"] },
+		"theme": {
+			"type": "string",
+			"enum": ["nlp", "infra", "agents", "obsidian", "utilities"]
+		},
+		"primaryLanguage": { "type": "string" },
+		"languages": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["name", "percent"],
+				"properties": {
+					"name": { "type": "string" },
+					"percent": { "type": "number" }
+				}
+			}
+		},
+		"stars": { "type": "number" },
+		"npm": {
+			"type": "object",
+			"required": ["package", "url"],
+			"properties": {
+				"package": { "type": "string" },
+				"url": { "type": "string" }
+			}
+		},
+		"links": {
+			"type": "object",
+			"required": ["repo"],
+			"properties": {
+				"repo": { "type": "string" },
+				"demo": { "type": "string" },
+				"docs": { "type": "string" },
+				"homepage": { "type": "string" }
+			}
+		},
+		"featured": { "type": "boolean", "default": false },
+		"sortOrder": { "type": "number", "default": 100 },
+		"status": {
+			"type": "string",
+			"enum": ["active", "archived", "hidden"],
+			"default": "active"
+		},
+		"lastCommit": { "type": "string", "format": "date-time" },
+		"_source": {
+			"type": "object",
+			"required": ["repo", "sha", "fetchedAt"],
+			"properties": {
+				"repo": { "type": "string" },
+				"sha": { "type": "string" },
+				"fetchedAt": { "type": "string" }
+			}
+		}
+	}
+}

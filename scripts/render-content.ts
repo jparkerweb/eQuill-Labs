@@ -5,9 +5,25 @@ import matter from 'gray-matter';
 import { curate, type Snapshot, type Overrides, type CuratedProject } from './curate.ts';
 import { parseReadme } from '../src/lib/readme-parse.ts';
 
+import { contentHash } from './lib/hash.ts';
+
 const SNAPSHOT_PATH = 'data/github-snapshot.json';
 const FEATURED_PATH = 'site/featured.json';
 const CONTENT_DIR = 'src/content/projects';
+const AI_CACHE_PATH = 'data/ai-cache.json';
+
+type CachedBlurb = { shortDescription: string; longDescription: string };
+
+function loadAiCache(): Record<string, CachedBlurb> {
+	if (!existsSync(AI_CACHE_PATH)) return {};
+	try {
+		const raw = JSON.parse(readFileSync(AI_CACHE_PATH, 'utf8'));
+		if (raw && typeof raw === 'object') return raw as Record<string, CachedBlurb>;
+	} catch {
+		/* fall through */
+	}
+	return {};
+}
 
 const ProjectSchema = z.object({
 	id: z.string(),
@@ -64,10 +80,19 @@ function truncateTagline(src: string): string {
 	return cleaned.slice(0, 157).trimEnd() + '...';
 }
 
-function buildProject(cp: CuratedProject, snapshotFetchedAt: string) {
+function buildProject(cp: CuratedProject, snapshotFetchedAt: string, aiCache: Record<string, CachedBlurb>) {
 	const repo = cp.raw;
 	const readme = parseReadme(repo.readme?.text ?? '');
 	const tagline = truncateTagline(readme.tagline ?? repo.description ?? cp.name);
+
+	const topics = cp.topics;
+	const cacheKey = contentHash(
+		repo.description ?? '',
+		JSON.stringify(topics),
+		repo.readme?.text ?? '',
+		repo.pushedAt,
+	);
+	const cached = aiCache[cacheKey];
 
 	const languages = repo.languages.edges.map((e) => ({
 		name: e.node.name,
@@ -90,8 +115,8 @@ function buildProject(cp: CuratedProject, snapshotFetchedAt: string) {
 		slug: cp.slug,
 		tagline,
 		description: {
-			short: repo.description ?? '',
-			long: '',
+			short: cached?.shortDescription ?? repo.description ?? '',
+			long: cached?.longDescription ?? '',
 		},
 		...(banner ? { banner } : {}),
 		topics: cp.topics,
@@ -136,6 +161,7 @@ function main() {
 	}
 
 	const curated = curate(snapshot, overrides);
+	const aiCache = loadAiCache();
 
 	mkdirSync(CONTENT_DIR, { recursive: true });
 
@@ -143,7 +169,7 @@ function main() {
 	const validated: Array<{ project: ReturnType<typeof buildProject>; slug: string }> = [];
 
 	for (const cp of curated) {
-		const project = buildProject(cp, snapshot.fetchedAt);
+		const project = buildProject(cp, snapshot.fetchedAt, aiCache);
 		const parsed = ProjectSchema.safeParse(project);
 		if (!parsed.success) {
 			errors.push(`${cp.slug}: ${parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
