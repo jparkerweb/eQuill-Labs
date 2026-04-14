@@ -117,7 +117,7 @@ Complete ground-up redesign of the eQuill Labs website, powered by a Claude Code
 **Milestone 2: Skill + Design**
 
 - [x] [Phase 3: Refresh-Portfolio Skill](./phase-3.md) _(13 tasks — Milestone 2)_
-- [ ] [Phase 4: Design-Direction Mockup Gate](./phase-4.md) _(9 tasks — Milestone 2)_
+- [x] [Phase 4: Design-Direction Mockup Gate](./phase-4.md) _(9 tasks — Milestone 2)_
 
 **Milestone 3: Site Build Complete**
 

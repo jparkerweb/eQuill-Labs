@@ -1,14 +1,14 @@
-/* Light theme — placeholder values matching tokens.css; real palette arrives in Phase 4 Task 4.3. */
+/* The Quill & Slash — Light theme (locked 2026-04-14 via Phase 4) */
 
 :root[data-theme='light'] {
-  --bg: 12 14 20;
-  --surface-1: 18 21 30;
-  --surface-2: 26 30 42;
-  --border: 40 45 60;
-  --text-1: 232 236 244;
-  --text-2: 190 195 210;
-  --text-muted: 140 146 160;
-  --accent: 255 140 60;
-  --accent-contrast: 12 14 20;
-  --focus-ring: 255 180 90;
+  --bg: 247 245 239;               /* #F7F5EF */
+  --surface-1: 237 233 222;        /* #EDE9DE */
+  --surface-2: 227 222 206;        /* #E3DECE — derived step toward border */
+  --border: 214 208 192;           /* #D6D0C0 */
+  --text-1: 14 18 26;              /* #0E121A */
+  --text-2: 42 48 64;              /* #2A3040 — derived mid-weight text */
+  --text-muted: 90 98 117;         /* #5A6275 */
+  --accent: 91 79 230;             /* #5B4FE6 (same — contrasts well on warm parchment) */
+  --accent-contrast: 247 245 239;  /* #F7F5EF — bg tone as text-on-accent */
+  --focus-ring: 0 212 255;         /* #00D4FF */
 }
