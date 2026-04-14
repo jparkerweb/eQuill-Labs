@@ -1,0 +1,22 @@
+{
+  "featured": [
+    "pixel-banner",
+    "semantic-chunking",
+    "mcp-sqlite",
+    "bedrock-wrapper",
+    "fast-topic-analysis",
+    "llm-distillery"
+  ],
+  "pinned": [],
+  "hidden": [
+    "kdm-cards",
+    "card-generator-sob",
+    "clover-quilt-designer",
+    "wdw-adr-checker",
+    "caps-left-right",
+    "*-personal",
+    "dotfiles*"
+  ],
+  "hideTopics": ["not-portfolio", "private-project"],
+  "order": {}
+}

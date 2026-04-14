@@ -112,7 +112,7 @@ Complete ground-up redesign of the eQuill Labs website, powered by a Claude Code
 **Milestone 1: Foundation + Content**
 
 - [x] [Phase 1: Foundation](./phase-1.md) _(18 tasks — Milestone 1)_
-- [ ] [Phase 2: Content Pipeline](./phase-2.md) _(15 tasks — Milestone 1)_
+- [x] [Phase 2: Content Pipeline](./phase-2.md) _(15 tasks — Milestone 1)_
 
 **Milestone 2: Skill + Design**
 

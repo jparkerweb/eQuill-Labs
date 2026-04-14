@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://equilllabs.com/schemas/featured.schema.json",
+  "title": "eQuill Labs Curation Overrides",
+  "description": "Hand-edited overrides applied by scripts/curate.ts to the GitHub snapshot. JSON cannot contain comments, so this schema file is the canonical field-level documentation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["featured", "pinned", "hidden", "hideTopics", "order"],
+  "properties": {
+    "featured": {
+      "type": "array",
+      "description": "Repo names flagged featured: true. Order in this array is used as a sort-rank fallback when no explicit 'order' entry exists.",
+      "items": { "type": "string" },
+      "examples": [["pixel-banner", "semantic-chunking"]]
+    },
+    "pinned": {
+      "type": "array",
+      "description": "Repo names pinned to the top of listings regardless of stars or recency.",
+      "items": { "type": "string" },
+      "examples": [["mcp-sqlite"]]
+    },
+    "hidden": {
+      "type": "array",
+      "description": "Repo names to exclude from the site. Supports glob patterns via '*' wildcard. Examples: 'dotfiles*' matches 'dotfiles', 'dotfiles-mac', 'dotfiles-wsl'; '*-private' matches any repo ending in '-private'. Exact string match otherwise.",
+      "items": { "type": "string" },
+      "examples": [["kdm-cards", "dotfiles*", "*-personal"]]
+    },
+    "hideTopics": {
+      "type": "array",
+      "description": "Any repo tagged on GitHub with one of these topics is excluded. Tag a repo once on github.com to keep it hidden forever with no file edit.",
+      "items": { "type": "string" },
+      "examples": [["not-portfolio", "private-project"]]
+    },
+    "order": {
+      "type": "object",
+      "description": "Explicit sort-order override keyed by repo name. Lower numbers sort first. Overrides the 'featured' array index and stargazer-count fallback.",
+      "additionalProperties": { "type": "number" },
+      "examples": [{ "pixel-banner": 1, "semantic-chunking": 2 }]
+    }
+  }
+}

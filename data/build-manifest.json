@@ -1,0 +1,580 @@
+{
+  "aiModel": null,
+  "buildId": "43e93b3b-80b5-4bd8-91dd-b589421490cc",
+  "builtAt": "2026-04-14T04:26:53.970Z",
+  "generator": {
+    "name": "refresh-portfolio",
+    "version": "1.0.0"
+  },
+  "inputsHash": "805a2ba7ac1553e2f9d51e0c8290fe79901630661b540f6b39d7e77d7f1d769c",
+  "projects": [
+    {
+      "contentHash": "2efe6af4a8a3b723ca3164b61b22c3b8b90288bfea00ae3538d6e4c8ccf82dbf",
+      "hasOverride": false,
+      "slug": "add-block-to-hosts"
+    },
+    {
+      "contentHash": "e8f13df6ff02a7f70363db5f73212d417c431ca39d1fb2d97104286be46e3c3c",
+      "hasOverride": false,
+      "slug": "ai-assistant-prompts"
+    },
+    {
+      "contentHash": "c6553fede90616d587f305e100eb6c6c0d4f5fad096937089dcff8524a2b95f6",
+      "hasOverride": false,
+      "slug": "ai-skill-git-worktree"
+    },
+    {
+      "contentHash": "cd610cf98980623d0f13ea5895b19ad6432a1cf9e6ac35f94d75b81fdb78d7b1",
+      "hasOverride": false,
+      "slug": "bedrock-proxy-endpoint"
+    },
+    {
+      "contentHash": "86ebbd3bba5fe923379c811b6ee9d010217a97bb5b407eeeffb5f801c0b15a45",
+      "hasOverride": true,
+      "slug": "bedrock-wrapper"
+    },
+    {
+      "contentHash": "c0aecc5f20f61d8993c243e99162fd2823d36948f4f59925b8a77e307be666c2",
+      "hasOverride": false,
+      "slug": "bgg-keyboard-select"
+    },
+    {
+      "contentHash": "e68daf54b24e5349333cc25df618cd59e8a50d9dfd52c40058c1e0b684bd29dc",
+      "hasOverride": false,
+      "slug": "bivariate"
+    },
+    {
+      "contentHash": "02eeaa3bd8e08a991bc4d6bb90c13f4bb5dfafb59b1d9f3f47a2d7de58db6437",
+      "hasOverride": false,
+      "slug": "bivariate-test-helper"
+    },
+    {
+      "contentHash": "278e82ce631cda1fc9a513d8a776aa4a0684f4195270c50cfb1178b1defe06a7",
+      "hasOverride": false,
+      "slug": "chunk-match"
+    },
+    {
+      "contentHash": "fb539c2668436e6583e301d3457b4298b7f2b0cc8f3b50d5fafcb99ca815df6c",
+      "hasOverride": false,
+      "slug": "clip-expand"
+    },
+    {
+      "contentHash": "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721",
+      "hasOverride": false,
+      "slug": "clip-to-file"
+    },
+    {
+      "contentHash": "7786f58c991e13c9a7a76ea5a7609cd15f1dc57a9d485c96b4827fec1a07e7ff",
+      "hasOverride": false,
+      "slug": "down-craft"
+    },
+    {
+      "contentHash": "1c0d347669a8ce456ad7524ce00df09892e3c5235345aa34979eb07337ae6c12",
+      "hasOverride": false,
+      "slug": "embedding-forge"
+    },
+    {
+      "contentHash": "099c827535167b527c7213f19d069b733a3ea1aab991392803d0bca7ab336d2c",
+      "hasOverride": false,
+      "slug": "embedding-utils"
+    },
+    {
+      "contentHash": "0fca672febb0f623c97b9f1745727664c936818aff1ee6e97af3d0ff7035f140",
+      "hasOverride": false,
+      "slug": "equill-labs"
+    },
+    {
+      "contentHash": "b070b8f02146713d035917a7fcfbc791fd76a48fe96833420f1c370fa7c82817",
+      "hasOverride": false,
+      "slug": "extract-topics"
+    },
+    {
+      "contentHash": "d331dd2543b5b64ec2a9dc6965bbbbb54bdd613d5eef2cda33f9a5e4cafc2c8f",
+      "hasOverride": true,
+      "slug": "fast-topic-analysis"
+    },
+    {
+      "contentHash": "2142f82cd841d082d5f6090925b5eb0cb4017739f4e6fd44afbf49714e69cf31",
+      "hasOverride": false,
+      "slug": "htmldiff-example"
+    },
+    {
+      "contentHash": "85140e3d9a23227d53fde6e3822b7c6b518543eb276277dbaeaabf4be39a328e",
+      "hasOverride": false,
+      "slug": "indigestion"
+    },
+    {
+      "contentHash": "4479386c3266f9c4c1a587ff1f0d3a0789f75bc4f09024dc5265dfc7c54412bd",
+      "hasOverride": false,
+      "slug": "inferiq"
+    },
+    {
+      "contentHash": "fe1decf53c51fc97520dbee03901623172230142d85ac4dcdf2473ecd47efece",
+      "hasOverride": false,
+      "slug": "jparkerweb"
+    },
+    {
+      "contentHash": "31ed297b8a7f855a5b24ddb0daabe277ab5543a3af8e6229cd0a9649f5e80145",
+      "hasOverride": false,
+      "slug": "k-batch"
+    },
+    {
+      "contentHash": "0629bbca50ff719d3ea80c79cf709100e7672fdf337dfb65c8c3498826919b86",
+      "hasOverride": true,
+      "slug": "llm-distillery"
+    },
+    {
+      "contentHash": "430aef398013b1185e087fd1d71e7bc7cb0321ed3f76a627d15e93e06f8f6c27",
+      "hasOverride": false,
+      "slug": "low-voltage-generator"
+    },
+    {
+      "contentHash": "df502909686d92bd54b14f9084022c71231a70d11712fd605c7acd0e4621c3aa",
+      "hasOverride": true,
+      "slug": "mcp-sqlite"
+    },
+    {
+      "contentHash": "ea7ab1ce351f9749956af4fbfa9972785965fa37b4f619d7218a916eb954d50f",
+      "hasOverride": false,
+      "slug": "node-webkit-example"
+    },
+    {
+      "contentHash": "c7cc79abcd70e381c570b8a6933a700d7d31dc5dfdc2e97e4b58dcf51eb0739b",
+      "hasOverride": false,
+      "slug": "nzbdrone-xtender"
+    },
+    {
+      "contentHash": "af036b194e9c76856db390d548fcf414e766ee29e0a04d051592f2cac6963001",
+      "hasOverride": false,
+      "slug": "obsidian-bullet-cards"
+    },
+    {
+      "contentHash": "1c292b552f84f094b04c86bf78abe0015dd4360b68f1a448e50682d14df924a1",
+      "hasOverride": false,
+      "slug": "obsidian-element-enhancer"
+    },
+    {
+      "contentHash": "17be1df499b00145b1590c6a21486f36cde8cc05591214d3fd2bb868efa811f5",
+      "hasOverride": false,
+      "slug": "obsidian-image-from-field"
+    },
+    {
+      "contentHash": "530a5f3967e3c6b673f769b89601d4b923c470751b7cbaf8356a1fb86006bab6",
+      "hasOverride": false,
+      "slug": "ollama-structured-output-test"
+    },
+    {
+      "contentHash": "07f4080b93acd60cf4840911c5c43300c09ebe1e6fd82dcbe6b89a259153e5fb",
+      "hasOverride": true,
+      "slug": "pixel-banner"
+    },
+    {
+      "contentHash": "bf855e94fb969ca0fa23e221b00a79b8f2f093b6b4364cf4b851a7f518de4295",
+      "hasOverride": false,
+      "slug": "pptx-in-html-out"
+    },
+    {
+      "contentHash": "e55ca86e40c81886722233a300e5c45625b970137092f9aad7e5e18ab9380d0a",
+      "hasOverride": false,
+      "slug": "print-mark"
+    },
+    {
+      "contentHash": "60cb5a662e421f196bb414b679d8aa51f8569e650efc6885e1ddef802c039b86",
+      "hasOverride": false,
+      "slug": "ps-win-dir-size"
+    },
+    {
+      "contentHash": "b20d665e96e92591a57be5ab7b1d73bc75d2b7d5017cb27b42ba91fdcc53cbf2",
+      "hasOverride": false,
+      "slug": "punctuation-restore"
+    },
+    {
+      "contentHash": "f409e367bf1ec45f9d4dc73ba95f3acd4852f5af1126a24d95cabf0d4a2a11c5",
+      "hasOverride": false,
+      "slug": "purge-old-directories"
+    },
+    {
+      "contentHash": "28cf132a1e03bb3ab1d0505fb7278d201587fbfdd9f7d3b1db9d9653976a66bd",
+      "hasOverride": false,
+      "slug": "queue-tha-llama"
+    },
+    {
+      "contentHash": "b7f0d2c65f1a79d51d76728fb91cb952a4cbcb9453bef4b7f491504879fc5deb",
+      "hasOverride": false,
+      "slug": "random"
+    },
+    {
+      "contentHash": "b40e8c8aebf9dc9ecdac8d5fe1fa6ff8f27b2683fb118cfce9effb424b413fe5",
+      "hasOverride": false,
+      "slug": "random-pexels-image"
+    },
+    {
+      "contentHash": "8f7f7bb411c8c0208f27980a0c3b9b5f8eb3cfc0cb0f69438cb6e80a4119f105",
+      "hasOverride": false,
+      "slug": "ref"
+    },
+    {
+      "contentHash": "bf0dc7f920b41260013810fe3f760b666e00a9d250af4872220192055e44622f",
+      "hasOverride": false,
+      "slug": "release-notes"
+    },
+    {
+      "contentHash": "d20a2d4ddbce99dd9cc5ea52521150e6b14391f3e8050be1f10de9af3af6d850",
+      "hasOverride": false,
+      "slug": "rich-foot"
+    },
+    {
+      "contentHash": "47c91532100c80c5764eeb757c53fb94df9eb0b817553ab68a52fad3c80e7822",
+      "hasOverride": true,
+      "slug": "semantic-chunking"
+    },
+    {
+      "contentHash": "9142197e58e3e20d22a2cdba561bedf2f61053f572ea8e35a24c2f0cb7e109cc",
+      "hasOverride": false,
+      "slug": "sentence-parse"
+    },
+    {
+      "contentHash": "c7197de72a8dbacb8c26adfef4cd89fc327d61b9d7ea1cfc0f5d6633b8dd7b5f",
+      "hasOverride": false,
+      "slug": "shrinkray"
+    },
+    {
+      "contentHash": "8187ef6fb78766d348e9c142e0889ab8f6c9818538c9fbf4d23d4c48dbd288b7",
+      "hasOverride": false,
+      "slug": "simple-linkz"
+    },
+    {
+      "contentHash": "4d85a8e45b03b9036090f0d2f11ae6cd20fbd407f5a34ebab46652490a8698a9",
+      "hasOverride": false,
+      "slug": "simplesite-boilerplate"
+    },
+    {
+      "contentHash": "b7d7109517d1a249db9bea8a99a981422b559b0edd011eb747b80e72a41e86b8",
+      "hasOverride": false,
+      "slug": "simply-dark"
+    },
+    {
+      "contentHash": "064f4ccdce67ce0b32a2773c0c3628b15ca1859850b7eea765242f3e3224d036",
+      "hasOverride": false,
+      "slug": "speculative-decoding"
+    },
+    {
+      "contentHash": "e939f047068f8ce004b07a2d4fa4eca9657ec0ffa439734001c4fb38f8050a1f",
+      "hasOverride": false,
+      "slug": "splitter-vs-splitter"
+    },
+    {
+      "contentHash": "476c49e5ad174e0746357e46a2be550e03bfbb6cae35a0c47ed37ddf42a976d3",
+      "hasOverride": false,
+      "slug": "steph-shot"
+    },
+    {
+      "contentHash": "f6fc564fa6cf22430afd0a9de4abe7abda1b7c06ff24ac128452857ea15cd9f5",
+      "hasOverride": false,
+      "slug": "trim-style"
+    },
+    {
+      "contentHash": "8e706bc8ef428aec10dee17a0e33ea4a05f3d205d09db84fad5377a71ca05a5f",
+      "hasOverride": false,
+      "slug": "web-augmented-generation"
+    }
+  ],
+  "skillVersion": null,
+  "sources": [
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/add-block-to-hosts",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/ai-assistant-prompts",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/ai-skill--git-worktree",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/bedrock-proxy-endpoint",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/bedrock-wrapper",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/bgg-keyboard-select",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/Bivariate",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/Bivariate-test-helper",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/caps-left-right",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/card-generator-sob",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/chunk-match",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/clip-expand",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/clip-to-file",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/clover-quilt-designer",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/down-craft",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/embedding-forge",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/embedding-utils",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/eQuill-Labs",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/extract-topics",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/fast-topic-analysis",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/htmldiff-example",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/indigestion",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/InferIQ",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/jparkerweb",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/k-batch",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/kdm-cards",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/llm-distillery",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/Low_Voltage_Generator",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/mcp-sqlite",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/node-webkit-example",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/NzbDrone_Xtender",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/obsidian-bullet-cards",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/obsidian-element-enhancer",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/obsidian-image-from-field",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/ollama-structured-output-test",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/pixel-banner",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/pptx-in-html-out",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/print-mark",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/ps-win-dir-size",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/punctuation-restore",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/purge-old-directories",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/queue-tha-llama",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/random",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/random-pexels-image",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/ref",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/release-notes",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/rich-foot",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/semantic-chunking",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/sentence-parse",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/shrinkray",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/simple-linkz",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/SimpleSite-Boilerplate",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/simply-dark",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/speculative-decoding",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/splitter-vs-splitter",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/steph-shot",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/trim-style",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/wdw-adr-checker",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-14T04:20:41.743Z",
+      "repo": "https://github.com/jparkerweb/web-augmented-generation",
+      "sha": "HEAD"
+    }
+  ]
+}
