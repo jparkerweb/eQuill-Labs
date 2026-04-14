@@ -1,0 +1,26 @@
+---
+import ThemeScript from '@/components/layout/ThemeScript.astro';
+import '@/styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ThemeScript />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

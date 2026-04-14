@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import './themes/dark.css';
+@import './themes/light.css';
+
+@theme {
+  --color-bg: rgb(var(--bg) / <alpha-value>);
+  --color-surface-1: rgb(var(--surface-1) / <alpha-value>);
+  --color-surface-2: rgb(var(--surface-2) / <alpha-value>);
+  --color-border: rgb(var(--border) / <alpha-value>);
+  --color-text-1: rgb(var(--text-1) / <alpha-value>);
+  --color-text-2: rgb(var(--text-2) / <alpha-value>);
+  --color-text-muted: rgb(var(--text-muted) / <alpha-value>);
+  --color-accent: rgb(var(--accent) / <alpha-value>);
+  --color-accent-contrast: rgb(var(--accent-contrast) / <alpha-value>);
+  --color-focus-ring: rgb(var(--focus-ring) / <alpha-value>);
+}

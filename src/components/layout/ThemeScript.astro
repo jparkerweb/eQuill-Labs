@@ -1,0 +1,19 @@
+---
+// ThemeScript — sets `document.documentElement.dataset.theme` before first paint.
+// `is:inline` ensures Astro does not bundle/defer this script.
+---
+
+<script is:inline>
+  try {
+    var stored = localStorage.getItem('theme');
+    var theme =
+      stored === 'light' || stored === 'dark'
+        ? stored
+        : window.matchMedia('(prefers-color-scheme: light)').matches
+          ? 'light'
+          : 'dark';
+    document.documentElement.dataset.theme = theme;
+  } catch (_err) {
+    document.documentElement.dataset.theme = 'dark';
+  }
+</script>

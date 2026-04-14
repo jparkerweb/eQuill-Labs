@@ -1,0 +1,8 @@
+node_modules/
+docs/
+.astro/
+data/
+pages/
+src/templates/
+package-lock.json
+*.hbs
