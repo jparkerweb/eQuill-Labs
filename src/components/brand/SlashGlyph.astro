@@ -3,17 +3,62 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Props = {
   animate?: boolean;
+  signature?: boolean;
   role?: HTMLAttributes<'span'>['role'];
   class?: string;
 };
 
-const { animate = false, role, class: className = '' } = Astro.props;
+const { animate = false, signature = false, role, class: className = '' } = Astro.props;
 ---
 
-<span
-  class:list={['slash-glyph', className, { 'slash-animate': animate }]}
-  role={role}
-  aria-hidden={role ? undefined : 'true'}>\\</span>
+{
+  signature ? (
+    <span
+      class:list={['slash-glyph slash-signature', className]}
+      role={role}
+      aria-hidden={role ? undefined : 'true'}>
+      <svg
+        viewBox="0 0 100 140"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false">
+        <defs>
+          <linearGradient id="slashGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgb(var(--grad-1))" />
+            <stop offset="50%" stop-color="rgb(var(--grad-2))" />
+            <stop offset="100%" stop-color="rgb(var(--grad-3))" />
+          </linearGradient>
+        </defs>
+        <path
+          class="slash-path slash-path-1"
+          d="M 10 8 L 45 132"
+          pathLength="100"
+          stroke="url(#slashGradient)"
+          stroke-width="18"
+          stroke-linecap="round"
+          fill="none"
+        />
+        <path
+          class="slash-path slash-path-2"
+          d="M 52 8 L 87 132"
+          pathLength="100"
+          stroke="url(#slashGradient)"
+          stroke-width="18"
+          stroke-linecap="round"
+          fill="none"
+        />
+      </svg>
+    </span>
+  ) : (
+    <span
+      class:list={['slash-glyph', className, { 'slash-animate': animate }]}
+      role={role}
+      aria-hidden={role ? undefined : 'true'}>
+      \\
+    </span>
+  )
+}
 
 <style>
   .slash-glyph {
@@ -42,6 +87,27 @@ const { animate = false, role, class: className = '' } = Astro.props;
     animation: quill-stroke 700ms ease-out both;
   }
 
+  .slash-signature {
+    display: inline-block;
+    height: 1em;
+    width: 0.72em;
+    vertical-align: -0.08em;
+    background: none;
+  }
+  .slash-signature svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .slash-path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: slash-draw 800ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  .slash-path-2 {
+    animation-delay: 160ms;
+  }
+
   @keyframes quill-stroke {
     from {
       opacity: 0;
@@ -55,8 +121,18 @@ const { animate = false, role, class: className = '' } = Astro.props;
     }
   }
 
+  @keyframes slash-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .slash-animate {
+      animation: none;
+    }
+    .slash-path {
+      stroke-dashoffset: 0;
       animation: none;
     }
   }

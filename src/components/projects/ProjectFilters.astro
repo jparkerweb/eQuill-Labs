@@ -102,6 +102,14 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
   <p class="count" data-filter-count aria-live="polite"></p>
 </form>
 
+<div class="empty-state" data-filter-empty hidden>
+  <p>No projects match your filters.</p>
+  <button type="button" class="clear-all" data-filter-clear-empty>
+    <X size={14} aria-hidden="true" />
+    <span>Clear all filters</span>
+  </button>
+</div>
+
 <style>
   .project-filters {
     display: flex;
@@ -215,11 +223,53 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     color: rgb(var(--text-muted));
     flex-basis: 100%;
   }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 48px 24px;
+    margin-bottom: 28px;
+    background: rgb(var(--surface-1));
+    border: 1px dashed rgb(var(--border));
+    border-radius: 14px;
+    color: rgb(var(--text-2));
+    text-align: center;
+  }
+  .empty-state p {
+    margin: 0;
+    font-size: 15px;
+  }
 </style>
 
 <script>
   type FacetKey = 'theme' | 'lang' | 'type';
   const FACETS: FacetKey[] = ['theme', 'lang', 'type'];
+
+  interface PagefindResult {
+    url: string;
+    data: () => Promise<{ url: string; meta: Record<string, string> }>;
+  }
+  interface PagefindAPI {
+    search: (q: string) => Promise<{ results: PagefindResult[] }>;
+  }
+
+  let pagefindPromise: Promise<PagefindAPI | null> | null = null;
+  function loadPagefind(): Promise<PagefindAPI | null> {
+    if (!pagefindPromise) {
+      const pagefindUrl = `${window.location.origin}/pagefind/pagefind.js`;
+      pagefindPromise = import(/* @vite-ignore */ pagefindUrl)
+        .then((m) => m as PagefindAPI)
+        .catch(() => null);
+    }
+    return pagefindPromise;
+  }
+
+  function slugFromUrl(url: string): string | null {
+    const m = url.match(/\/projects\/([^/?#]+)\/?/);
+    return m ? m[1] : null;
+  }
 
   function init() {
     const roots = document.querySelectorAll<HTMLFormElement>('[data-filter-root]');
@@ -234,17 +284,25 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     const searchInput = form.querySelector<HTMLInputElement>('[data-filter-search]');
     const countEl = form.querySelector<HTMLElement>('[data-filter-count]');
     const clearBtn = form.querySelector<HTMLButtonElement>('[data-filter-clear]');
+    const clearBtnEmpty = document.querySelector<HTMLButtonElement>('[data-filter-clear-empty]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-filter-empty]');
 
     const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-slug]'));
 
-    const state = {
+    const state: {
+      q: string;
+      theme: Set<string>;
+      lang: Set<string>;
+      type: Set<string>;
+      searchSlugs: Set<string> | null;
+    } = {
       q: '',
       theme: new Set<string>(),
       lang: new Set<string>(),
       type: new Set<string>(),
+      searchSlugs: null,
     };
 
-    // Hydrate from URL
     const params = new URLSearchParams(window.location.search);
     state.q = params.get('q') ?? '';
     for (const key of FACETS) {
@@ -258,7 +316,6 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
       }
     }
 
-    // Apply state to UI
     if (searchInput) searchInput.value = state.q;
     form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((cb) => {
       const facet = cb.getAttribute('data-filter-facet');
@@ -268,10 +325,9 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     });
 
     function matches(card: HTMLElement): boolean {
-      const q = state.q.trim().toLowerCase();
-      if (q) {
-        const haystack = card.getAttribute('data-search') ?? '';
-        if (!haystack.includes(q)) return false;
+      if (state.searchSlugs) {
+        const slug = card.getAttribute('data-slug') ?? '';
+        if (!state.searchSlugs.has(slug)) return false;
       }
       if (state.theme.size > 0) {
         const t = (card.getAttribute('data-theme') ?? '').toLowerCase();
@@ -301,6 +357,7 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
       const anyActive =
         state.q.length > 0 || state.theme.size + state.lang.size + state.type.size > 0;
       if (clearBtn) clearBtn.hidden = !anyActive;
+      if (emptyEl) emptyEl.hidden = !(anyActive && shown === 0);
       syncURL();
       form.dispatchEvent(
         new CustomEvent('filter-change', {
@@ -321,18 +378,51 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
       window.history.replaceState({}, '', newUrl);
     }
 
-    // Search debounce
+    async function runSearch(query: string) {
+      const q = query.trim();
+      if (!q) {
+        state.searchSlugs = null;
+        apply();
+        return;
+      }
+      const pf = await loadPagefind();
+      if (pf) {
+        try {
+          const { results } = await pf.search(q);
+          const slugs = new Set<string>();
+          for (const r of results) {
+            const slug = slugFromUrl(r.url);
+            if (slug) slugs.add(slug);
+          }
+          state.searchSlugs = slugs;
+          apply();
+          return;
+        } catch {
+          // fall through to substring fallback
+        }
+      }
+      // Fallback (dev mode, or pagefind load failure): substring over data-search
+      const needle = q.toLowerCase();
+      const slugs = new Set<string>();
+      for (const card of cards) {
+        const haystack = card.getAttribute('data-search') ?? '';
+        const slug = card.getAttribute('data-slug') ?? '';
+        if (haystack.includes(needle) && slug) slugs.add(slug);
+      }
+      state.searchSlugs = slugs;
+      apply();
+    }
+
     let searchTimer: number | null = null;
     searchInput?.addEventListener('input', (e) => {
       const val = (e.target as HTMLInputElement).value;
+      state.q = val;
       if (searchTimer !== null) window.clearTimeout(searchTimer);
       searchTimer = window.setTimeout(() => {
-        state.q = val;
-        apply();
+        runSearch(val);
       }, 200);
     });
 
-    // Chip toggles
     form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((cb) => {
       cb.addEventListener('change', () => {
         const facet = cb.getAttribute('data-filter-facet');
@@ -345,19 +435,26 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
       });
     });
 
-    clearBtn?.addEventListener('click', () => {
+    function clearAll() {
       state.q = '';
       state.theme.clear();
       state.lang.clear();
       state.type.clear();
+      state.searchSlugs = null;
       if (searchInput) searchInput.value = '';
       form
         .querySelectorAll<HTMLInputElement>('input[type="checkbox"]')
         .forEach((cb) => (cb.checked = false));
       apply();
-    });
+    }
+    clearBtn?.addEventListener('click', clearAll);
+    clearBtnEmpty?.addEventListener('click', clearAll);
 
-    apply();
+    if (state.q) {
+      runSearch(state.q);
+    } else {
+      apply();
+    }
   }
 
   if (document.readyState === 'loading') {

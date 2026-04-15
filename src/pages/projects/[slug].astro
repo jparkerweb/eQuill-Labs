@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import ProjectLayout from '@/layouts/ProjectLayout.astro';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -32,9 +33,41 @@ const related = allProjects
       p.data.theme === data.theme,
   )
   .slice(0, 3);
+
+const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
+const canonical = new URL(`/projects/${entry.slug}/`, siteURL).toString();
 ---
 
 <ProjectLayout entry={entry}>
+  <Fragment slot="structured-data">
+    <JsonLd
+      type="SoftwareSourceCode"
+      data={{
+        name: data.name,
+        description: data.tagline ?? data.description.short,
+        url: canonical,
+        codeRepository: data.links.repo,
+        ...(data.primaryLanguage ? { programmingLanguage: data.primaryLanguage } : {}),
+        author: { '@type': 'Person', name: 'Justin Parker' },
+        ...(data.lastCommit ? { dateModified: data.lastCommit } : {}),
+      }}
+    />
+    <JsonLd
+      type="BreadcrumbList"
+      data={{
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL.toString() },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Projects',
+            item: new URL('/projects/', siteURL).toString(),
+          },
+          { '@type': 'ListItem', position: 3, name: data.name, item: canonical },
+        ],
+      }}
+    />
+  </Fragment>
   <section class="description">
     {data.description.long ? <Content /> : <p>{data.description.short}</p>}
   </section>

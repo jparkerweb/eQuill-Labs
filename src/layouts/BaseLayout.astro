@@ -1,7 +1,9 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import ThemeScript from '@/components/layout/ThemeScript.astro';
 import SiteHeader from '@/components/layout/SiteHeader.astro';
 import SiteFooter from '@/components/layout/SiteFooter.astro';
+import Meta from '@/components/seo/Meta.astro';
 import geistUrl from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
 import '@/styles/globals.css';
 
@@ -10,16 +12,17 @@ interface Props {
   description?: string;
   canonicalURL?: string | URL;
   image?: string;
+  type?: 'website' | 'article';
 }
 
-const { title, description, canonicalURL, image } = Astro.props;
+const { title, description = '', canonicalURL, image, type = 'website' } = Astro.props;
 
 const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
 const resolvedCanonical =
   canonicalURL !== undefined
-    ? new URL(canonicalURL.toString(), siteURL).toString()
-    : new URL(Astro.url.pathname, siteURL).toString();
-const resolvedImage = new URL(image ?? '/og/default.png', siteURL).toString();
+    ? new URL(canonicalURL.toString(), siteURL)
+    : new URL(Astro.url.pathname, siteURL);
+const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
 ---
 
 <!doctype html>
@@ -28,31 +31,29 @@ const resolvedImage = new URL(image ?? '/og/default.png', siteURL).toString();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <ThemeScript />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <link rel="canonical" href={resolvedCanonical} />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
-    <meta property="og:url" content={resolvedCanonical} />
-    <meta property="og:image" content={resolvedImage} />
-    <meta property="og:site_name" content="eQuill Labs" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    {description && <meta name="twitter:description" content={description} />}
-    <meta name="twitter:image" content={resolvedImage} />
+    <Meta
+      title={title}
+      description={description}
+      canonicalURL={resolvedCanonical}
+      image={resolvedImage}
+      type={type}
+    />
 
     <link rel="icon" type="image/x-icon" href="/brand/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
     <link rel="preload" href={geistUrl} as="font" type="font/woff2" crossorigin />
+    <ClientRouter />
   </head>
   <body>
     <SiteHeader />
     <main id="main"><slot /></main>
     <SiteFooter />
+    <script>
+      import { initReveal } from '@/lib/reveal';
+      initReveal();
+      document.addEventListener('astro:after-swap', () => initReveal());
+    </script>
   </body>
 </html>
 

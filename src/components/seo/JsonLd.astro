@@ -1,0 +1,16 @@
+---
+interface Props {
+  type: 'Person' | 'Organization' | 'SoftwareSourceCode' | 'BreadcrumbList';
+  data: Record<string, unknown>;
+}
+
+const { type, data } = Astro.props;
+
+const payload = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  ...data,
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(payload)} />

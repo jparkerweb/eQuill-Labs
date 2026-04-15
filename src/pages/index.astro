@@ -4,6 +4,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import LivingIndex from '@/components/hero/LivingIndex.astro';
 import ProjectGrid from '@/components/projects/ProjectGrid.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+
+const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
+const personSameAs = [
+  'https://github.com/jparkerweb',
+  'https://www.linkedin.com/in/jparkerweb/',
+  'https://x.com/jparkerweb',
+];
 
 const all = await getCollection('projects');
 const visible = all.filter((e) => e.data.status !== 'hidden');
@@ -16,19 +24,40 @@ const allLivingProjects = visible;
 
 <BaseLayout
   title="eQuill Labs — AI tools by Justin Parker"
-  description="Building tools to enrich our digital lives. Open-source AI engineering by Justin Parker.">
+  description="Building tools to enrich our digital lives. Open-source AI engineering by Justin Parker."
+  image="/og/home.png">
+  <JsonLd
+    type="Organization"
+    data={{
+      name: 'eQuill Labs',
+      url: siteURL.toString(),
+      logo: new URL('/brand/apple-touch-icon.png', siteURL).toString(),
+      founder: { '@type': 'Person', name: 'Justin Parker' },
+      sameAs: ['https://github.com/jparkerweb'],
+    }}
+  />
+  <JsonLd
+    type="Person"
+    data={{
+      name: 'Justin Parker',
+      alternateName: 'jparkerweb',
+      url: new URL('/about/', siteURL).toString(),
+      jobTitle: 'AI Engineer',
+      sameAs: personSameAs,
+    }}
+  />
   <LivingIndex projects={allLivingProjects} />
 
   <section class="featured-section" aria-labelledby="featured-heading">
     <div class="shell">
-      <header class="section-head">
+      <header class="section-head" data-reveal>
         <h2 id="featured-heading">
           Featured
           <SlashGlyph role="separator" />
         </h2>
         <p>Hand-picked highlights from {visible.length} open-source projects.</p>
       </header>
-      <ProjectGrid projects={featured} variant="featured" />
+      <div data-reveal><ProjectGrid projects={featured} variant="featured" /></div>
       <p class="cta-line">
         <a href="/projects/">View the full catalog →</a>
       </p>
@@ -37,7 +66,7 @@ const allLivingProjects = visible;
 
   <section class="about-teaser" aria-labelledby="about-teaser-heading">
     <div class="shell">
-      <div class="card">
+      <div class="card" data-reveal>
         <h2 id="about-teaser-heading">About Justin</h2>
         <p>
           AI engineer focused on LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian

@@ -15,12 +15,13 @@ const slug = entry.slug;
 
 const title = `${data.name} — eQuill Labs`;
 const description = data.tagline ?? data.description.short ?? data.name;
+const ogImage = `/og/${slug}.png`;
 
 const rawBanner = data.banner?.src;
 const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : undefined;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={ogImage} type="article">
   <article class="project">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol role="list">

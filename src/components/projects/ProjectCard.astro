@@ -74,7 +74,14 @@ const filterAttrs: Record<string, string> = {
     padding: 0;
     margin: 0;
   }
+  @property --gradient-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
   .card-link {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: rgb(var(--surface-1));
@@ -89,15 +96,63 @@ const filterAttrs: Record<string, string> = {
       box-shadow 200ms ease;
     height: 100%;
   }
+  .card-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-1))
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
   .card-link:hover,
   .card-link:focus-visible {
     transform: translateY(-2px);
-    border-color: rgb(var(--accent));
+    border-color: transparent;
     box-shadow: 0 12px 30px -18px rgb(var(--accent) / 0.6);
+  }
+  .card-link:hover::before,
+  .card-link:focus-visible::before {
+    opacity: 1;
+    animation: card-trace 4s linear infinite;
   }
   .card-link:focus-visible {
     outline: 2px solid rgb(var(--focus-ring));
     outline-offset: 2px;
+  }
+
+  @keyframes card-trace {
+    to {
+      --gradient-angle: 360deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-link:hover::before,
+    .card-link:focus-visible::before {
+      animation: none;
+    }
+    .card-link:hover,
+    .card-link:focus-visible {
+      border-color: rgb(var(--accent));
+    }
   }
   .card-featured .card-link {
     border-radius: 18px;
