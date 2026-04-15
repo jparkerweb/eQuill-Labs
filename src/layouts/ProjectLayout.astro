@@ -1,0 +1,324 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import ProjectFallbackArt from '@/components/projects/ProjectFallbackArt.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import { Github, ExternalLink, FileText, Package, Home } from 'lucide-astro';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const slug = entry.slug;
+
+const title = `${data.name} — eQuill Labs`;
+const description = data.tagline ?? data.description.short ?? data.name;
+
+const rawBanner = data.banner?.src;
+const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : undefined;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="project">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol role="list">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true"><SlashGlyph role="separator" /></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li aria-hidden="true"><SlashGlyph role="separator" /></li>
+        <li aria-current="page">{data.name}</li>
+      </ol>
+    </nav>
+
+    <slot name="structured-data" />
+
+    <header class="project-header">
+      <div class="banner">
+        {
+          bannerSrc ? (
+            <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} />
+          ) : (
+            <ProjectFallbackArt slug={slug} />
+          )
+        }
+      </div>
+      <h1 class="name">{data.name}</h1>
+      {data.tagline && <p class="tagline">{data.tagline}</p>}
+    </header>
+
+    <div class="layout">
+      <div class="body prose">
+        <slot />
+      </div>
+      <aside class="meta" aria-label="Project metadata">
+        <dl>
+          <div class="meta-row">
+            <dt>Stars</dt>
+            <dd>★ {data.stars}</dd>
+          </div>
+          {
+            data.primaryLanguage && (
+              <div class="meta-row">
+                <dt>Language</dt>
+                <dd>{data.primaryLanguage}</dd>
+              </div>
+            )
+          }
+          {
+            data.category && (
+              <div class="meta-row">
+                <dt>Type</dt>
+                <dd>{data.category}</dd>
+              </div>
+            )
+          }
+          {
+            data.theme && (
+              <div class="meta-row">
+                <dt>Theme</dt>
+                <dd>{data.theme}</dd>
+              </div>
+            )
+          }
+        </dl>
+
+        {
+          data.topics && data.topics.length > 0 && (
+            <div class="topics">
+              <h3>Topics</h3>
+              <ul role="list" class="chips">
+                {data.topics.map((t) => (
+                  <li class="chip">{t}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        <div class="links">
+          <h3>Links</h3>
+          <ul role="list">
+            <li>
+              <a href={data.links.repo} rel="noopener" target="_blank">
+                <Github size={16} aria-hidden="true" /><span>Repository</span>
+              </a>
+            </li>
+            {
+              data.links.demo && (
+                <li>
+                  <a href={data.links.demo} rel="noopener" target="_blank">
+                    <ExternalLink size={16} aria-hidden="true" />
+                    <span>Demo</span>
+                  </a>
+                </li>
+              )
+            }
+            {
+              data.links.docs && (
+                <li>
+                  <a href={data.links.docs} rel="noopener" target="_blank">
+                    <FileText size={16} aria-hidden="true" />
+                    <span>Docs</span>
+                  </a>
+                </li>
+              )
+            }
+            {
+              data.links.homepage && (
+                <li>
+                  <a href={data.links.homepage} rel="noopener" target="_blank">
+                    <Home size={16} aria-hidden="true" />
+                    <span>Homepage</span>
+                  </a>
+                </li>
+              )
+            }
+            {
+              data.npm && (
+                <li>
+                  <a href={data.npm.url} rel="noopener" target="_blank">
+                    <Package size={16} aria-hidden="true" />
+                    <span>npm</span>
+                  </a>
+                </li>
+              )
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .project {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 24px;
+    list-style: none;
+    font-size: 14px;
+    color: rgb(var(--text-muted));
+  }
+  .breadcrumb a {
+    color: rgb(var(--text-2));
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    color: rgb(var(--text-1));
+  }
+
+  .project-header {
+    margin-bottom: 32px;
+  }
+  .banner {
+    border: 1px solid rgb(var(--border));
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+    background: rgb(var(--surface-1));
+  }
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .name {
+    font-family:
+      'Geist Variable',
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(18px, 2vw, 22px);
+    color: rgb(var(--text-2));
+    margin: 0;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .prose :global(h2) {
+    font-size: 24px;
+    margin-top: 2em;
+  }
+  .prose :global(p) {
+    line-height: 1.7;
+    color: rgb(var(--text-2));
+  }
+  .prose :global(pre) {
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    font-family: 'Geist Mono Variable', ui-monospace, monospace;
+    font-size: 13px;
+  }
+  .prose :global(code) {
+    font-family: 'Geist Mono Variable', ui-monospace, monospace;
+    font-size: 0.9em;
+  }
+
+  .meta {
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 12px;
+    padding: 20px;
+    position: sticky;
+    top: 88px;
+  }
+  .meta h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(var(--text-muted));
+    margin: 20px 0 10px;
+  }
+  .meta dl {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  .meta-row dt {
+    color: rgb(var(--text-muted));
+  }
+  .meta-row dd {
+    margin: 0;
+    color: rgb(var(--text-1));
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: rgb(var(--surface-2));
+    border: 1px solid rgb(var(--border));
+    border-radius: 999px;
+    color: rgb(var(--text-2));
+  }
+
+  .links ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(var(--text-1));
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid rgb(var(--border));
+    background: rgb(var(--surface-2));
+  }
+  .links a:hover {
+    border-color: rgb(var(--accent));
+  }
+</style>

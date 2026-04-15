@@ -1,0 +1,41 @@
+---
+import { fallbackArtFor } from '@/lib/fallback-art';
+
+interface Props {
+  slug: string;
+  class?: string;
+}
+
+const { slug, class: className = '' } = Astro.props;
+const { gradient, monogram } = fallbackArtFor(slug);
+---
+
+<div
+  class:list={['fallback-art', className]}
+  style={`background-image: ${gradient};`}
+  aria-hidden="true">
+  <span class="monogram">{monogram}</span>
+</div>
+
+<style>
+  .fallback-art {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+  .monogram {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(72px, 18vw, 160px);
+    font-weight: 400;
+    color: rgb(255 255 255 / 0.92);
+    text-shadow: 0 2px 20px rgb(0 0 0 / 0.25);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+</style>

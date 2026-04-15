@@ -1,0 +1,346 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Wordmark from '@/components/brand/Wordmark.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import { Star } from 'lucide-astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { projects } = Astro.props;
+const sorted = [...projects]
+  .sort(
+    (a, b) =>
+      new Date(b.data.lastCommit ?? 0).getTime() - new Date(a.data.lastCommit ?? 0).getTime(),
+  )
+  .slice(0, 30);
+
+const mobileTop = sorted.slice(0, 8);
+
+function relativeDate(iso: string | undefined): string {
+  if (!iso) return '';
+  const then = new Date(iso).getTime();
+  if (!then) return '';
+  const now = Date.now();
+  const diff = Math.max(0, now - then);
+  const d = Math.floor(diff / 86_400_000);
+  if (d === 0) return 'today';
+  if (d === 1) return '1d ago';
+  if (d < 30) return `${d}d ago`;
+  const m = Math.floor(d / 30);
+  if (m < 12) return `${m}mo ago`;
+  const y = Math.floor(m / 12);
+  return `${y}y ago`;
+}
+
+function languageHue(lang: string | undefined): number {
+  if (!lang) return 220;
+  let h = 0;
+  for (const ch of lang) h = (h * 31 + ch.charCodeAt(0)) % 360;
+  return h;
+}
+---
+
+<section class="living-index" aria-label="Living index">
+  <div class="copy">
+    <Wordmark size="lg" as="h1" animate={true} />
+    <p class="tagline">Building tools to enrich our digital lives</p>
+    <p class="subtagline">
+      Open-source AI engineering by Justin Parker
+      <SlashGlyph role="separator" />
+      updated continuously from GitHub
+    </p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="/projects/">Browse projects</a>
+      <a class="btn btn-ghost" href="/about/">About Justin</a>
+    </div>
+  </div>
+
+  <div class="feed" data-living-feed>
+    <div class="marquee" data-marquee>
+      <ul role="list" class="marquee-track">
+        {
+          [...sorted, ...sorted].map((p) => (
+            <li class="mini-card">
+              <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
+              <div class="mini-body">
+                <a href={`/projects/${p.slug}/`} class="mini-name">
+                  {p.data.name}
+                </a>
+                <p class="mini-meta">
+                  <span class="stars">
+                    <Star size={10} aria-hidden="true" />
+                    {p.data.stars}
+                  </span>
+                  <span>{p.data.primaryLanguage ?? '—'}</span>
+                  <span>{relativeDate(p.data.lastCommit)}</span>
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <ul role="list" class="static-list">
+      {
+        mobileTop.map((p) => (
+          <li class="mini-card">
+            <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
+            <div class="mini-body">
+              <a href={`/projects/${p.slug}/`} class="mini-name">
+                {p.data.name}
+              </a>
+              <p class="mini-meta">
+                <span class="stars">
+                  <Star size={10} aria-hidden="true" />
+                  {p.data.stars}
+                </span>
+                <span>{p.data.primaryLanguage ?? '—'}</span>
+                <span>{relativeDate(p.data.lastCommit)}</span>
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .living-index {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 48px;
+    align-items: center;
+    padding: 80px 24px 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 60svh;
+  }
+  @media (max-width: 960px) {
+    .living-index {
+      grid-template-columns: 1fr;
+      padding: 48px 20px;
+      gap: 32px;
+    }
+  }
+
+  .copy :global(.wordmark) {
+    margin-bottom: 16px;
+    font-size: clamp(48px, 8vw, 72px);
+  }
+  .tagline {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(22px, 3vw, 28px);
+    color: rgb(var(--text-1));
+    margin: 0 0 12px;
+    line-height: 1.2;
+  }
+  .subtagline {
+    color: rgb(var(--text-muted));
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 24px;
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition:
+      background 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+  .btn-primary {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-contrast));
+    border: 1px solid rgb(var(--accent));
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: rgb(var(--text-1));
+    border: 1px solid rgb(var(--border));
+  }
+  .btn-ghost:hover {
+    border-color: rgb(var(--accent));
+  }
+  .btn:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+
+  .feed {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border));
+    border-radius: 16px;
+    background: rgb(var(--surface-1) / 0.5);
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+  }
+
+  .marquee {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    list-style: none;
+    padding: 16px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: scroll-y 120s linear infinite;
+  }
+
+  .marquee[data-paused='true'] .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
+  .static-list {
+    display: none;
+    list-style: none;
+    padding: 16px;
+    margin: 0;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .mini-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgb(var(--surface-2));
+    border: 1px solid rgb(var(--border));
+    border-radius: 10px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    margin-top: 6px;
+    flex: none;
+  }
+  .mini-body {
+    min-width: 0;
+    flex: 1;
+  }
+  .mini-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(var(--text-1));
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mini-name:hover {
+    color: rgb(var(--accent));
+  }
+  .mini-meta {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: rgb(var(--text-muted));
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .feed {
+      height: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    .marquee {
+      display: none;
+    }
+    .static-list {
+      display: flex;
+      position: relative;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      display: none;
+    }
+    .static-list {
+      display: flex;
+      position: relative;
+    }
+    .feed {
+      height: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+</style>
+
+<script>
+  function init() {
+    const marquees = document.querySelectorAll<HTMLElement>('[data-marquee]');
+    marquees.forEach((m) => {
+      m.addEventListener('mouseenter', () => (m.dataset.paused = 'true'));
+      m.addEventListener('mouseleave', () => (m.dataset.paused = 'false'));
+      m.addEventListener('focusin', () => (m.dataset.paused = 'true'));
+      m.addEventListener('focusout', () => (m.dataset.paused = 'false'));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

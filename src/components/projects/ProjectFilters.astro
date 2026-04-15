@@ -1,0 +1,368 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Search, X } from 'lucide-astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  gridSelector?: string;
+}
+
+const { projects, gridSelector = '#project-grid' } = Astro.props;
+
+const THEMES = ['nlp', 'infra', 'agents', 'obsidian', 'utilities'] as const;
+const TYPES = ['library', 'tool', 'app', 'demo'] as const;
+
+const languagesSet = new Set<string>();
+for (const p of projects) {
+  if (p.data.primaryLanguage) languagesSet.add(p.data.primaryLanguage);
+}
+const languages = Array.from(languagesSet).sort();
+
+const themes = THEMES.filter((t) => projects.some((p) => p.data.theme === t));
+const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty));
+---
+
+<form
+  class="project-filters"
+  data-filter-root
+  data-grid-selector={gridSelector}
+  role="search"
+  aria-label="Filter projects"
+  onsubmit="return false;">
+  <label class="search-field">
+    <Search size={16} aria-hidden="true" />
+    <input
+      type="search"
+      name="q"
+      placeholder="Search projects…"
+      autocomplete="off"
+      spellcheck="false"
+      data-filter-search
+    />
+  </label>
+
+  {
+    themes.length > 0 && (
+      <fieldset class="chip-group">
+        <legend>Theme</legend>
+        <div class="chips">
+          {themes.map((t) => (
+            <label class="chip">
+              <input type="checkbox" name="theme" value={t} data-filter-facet="theme" />
+              <span>{t}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    )
+  }
+
+  {
+    languages.length > 0 && (
+      <fieldset class="chip-group">
+        <legend>Language</legend>
+        <div class="chips">
+          {languages.map((l) => (
+            <label class="chip">
+              <input
+                type="checkbox"
+                name="lang"
+                value={l.toLowerCase()}
+                data-filter-facet="language"
+              />
+              <span>{l}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    )
+  }
+
+  {
+    types.length > 0 && (
+      <fieldset class="chip-group">
+        <legend>Type</legend>
+        <div class="chips">
+          {types.map((ty) => (
+            <label class="chip">
+              <input type="checkbox" name="type" value={ty} data-filter-facet="type" />
+              <span>{ty}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    )
+  }
+
+  <button type="button" class="clear-all" data-filter-clear hidden>
+    <X size={14} aria-hidden="true" />
+    <span>Clear all</span>
+  </button>
+
+  <p class="count" data-filter-count aria-live="polite"></p>
+</form>
+
+<style>
+  .project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 14px;
+    margin-bottom: 28px;
+  }
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    flex: 1 1 260px;
+    min-width: 220px;
+    height: 40px;
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    background: rgb(var(--bg));
+  }
+  .search-field input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: rgb(var(--text-1));
+    width: 100%;
+    font-size: 14px;
+  }
+  .search-field:focus-within {
+    border-color: rgb(var(--accent));
+    box-shadow: 0 0 0 2px rgb(var(--focus-ring) / 0.3);
+  }
+
+  .chip-group {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .chip-group legend {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--text-muted));
+    margin-bottom: 6px;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--border));
+    background: rgb(var(--surface-2));
+    color: rgb(var(--text-2));
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .chip input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+  }
+  .chip:hover {
+    border-color: rgb(var(--accent));
+  }
+  .chip:has(input:checked) {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-contrast));
+    border-color: rgb(var(--accent));
+  }
+  .chip:has(input:focus-visible) {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+
+  .clear-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 12px;
+    background: transparent;
+    color: rgb(var(--text-2));
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .clear-all:hover {
+    color: rgb(var(--text-1));
+    border-color: rgb(var(--accent));
+  }
+
+  .count {
+    margin: 0;
+    font-size: 13px;
+    color: rgb(var(--text-muted));
+    flex-basis: 100%;
+  }
+</style>
+
+<script>
+  type FacetKey = 'theme' | 'lang' | 'type';
+  const FACETS: FacetKey[] = ['theme', 'lang', 'type'];
+
+  function init() {
+    const roots = document.querySelectorAll<HTMLFormElement>('[data-filter-root]');
+    roots.forEach(setupRoot);
+  }
+
+  function setupRoot(form: HTMLFormElement) {
+    const gridSel = form.dataset.gridSelector ?? '#project-grid';
+    const grid = document.querySelector<HTMLElement>(gridSel);
+    if (!grid) return;
+
+    const searchInput = form.querySelector<HTMLInputElement>('[data-filter-search]');
+    const countEl = form.querySelector<HTMLElement>('[data-filter-count]');
+    const clearBtn = form.querySelector<HTMLButtonElement>('[data-filter-clear]');
+
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-slug]'));
+
+    const state = {
+      q: '',
+      theme: new Set<string>(),
+      lang: new Set<string>(),
+      type: new Set<string>(),
+    };
+
+    // Hydrate from URL
+    const params = new URLSearchParams(window.location.search);
+    state.q = params.get('q') ?? '';
+    for (const key of FACETS) {
+      const raw = params.get(key);
+      if (raw) {
+        raw
+          .split(',')
+          .map((s) => s.trim().toLowerCase())
+          .filter(Boolean)
+          .forEach((v) => state[key].add(v));
+      }
+    }
+
+    // Apply state to UI
+    if (searchInput) searchInput.value = state.q;
+    form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((cb) => {
+      const facet = cb.getAttribute('data-filter-facet');
+      if (!facet) return;
+      const facetKey: FacetKey = facet === 'language' ? 'lang' : (facet as FacetKey);
+      cb.checked = state[facetKey].has(cb.value.toLowerCase());
+    });
+
+    function matches(card: HTMLElement): boolean {
+      const q = state.q.trim().toLowerCase();
+      if (q) {
+        const haystack = card.getAttribute('data-search') ?? '';
+        if (!haystack.includes(q)) return false;
+      }
+      if (state.theme.size > 0) {
+        const t = (card.getAttribute('data-theme') ?? '').toLowerCase();
+        if (!state.theme.has(t)) return false;
+      }
+      if (state.lang.size > 0) {
+        const l = (card.getAttribute('data-language') ?? '').toLowerCase();
+        if (!state.lang.has(l)) return false;
+      }
+      if (state.type.size > 0) {
+        const ty = (card.getAttribute('data-type') ?? '').toLowerCase();
+        if (!state.type.has(ty)) return false;
+      }
+      return true;
+    }
+
+    function apply() {
+      let shown = 0;
+      for (const card of cards) {
+        const visible = matches(card);
+        if (visible) shown++;
+        card.hidden = !visible;
+      }
+      if (countEl) {
+        countEl.textContent = `${shown} of ${cards.length} projects`;
+      }
+      const anyActive =
+        state.q.length > 0 || state.theme.size + state.lang.size + state.type.size > 0;
+      if (clearBtn) clearBtn.hidden = !anyActive;
+      syncURL();
+      form.dispatchEvent(
+        new CustomEvent('filter-change', {
+          detail: { visible: shown, total: cards.length },
+          bubbles: true,
+        }),
+      );
+    }
+
+    function syncURL() {
+      const p = new URLSearchParams();
+      if (state.q) p.set('q', state.q);
+      for (const key of FACETS) {
+        if (state[key].size > 0) p.set(key, Array.from(state[key]).join(','));
+      }
+      const qs = p.toString();
+      const newUrl = window.location.pathname + (qs ? `?${qs}` : '');
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    // Search debounce
+    let searchTimer: number | null = null;
+    searchInput?.addEventListener('input', (e) => {
+      const val = (e.target as HTMLInputElement).value;
+      if (searchTimer !== null) window.clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(() => {
+        state.q = val;
+        apply();
+      }, 200);
+    });
+
+    // Chip toggles
+    form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((cb) => {
+      cb.addEventListener('change', () => {
+        const facet = cb.getAttribute('data-filter-facet');
+        if (!facet) return;
+        const facetKey: FacetKey = facet === 'language' ? 'lang' : (facet as FacetKey);
+        const val = cb.value.toLowerCase();
+        if (cb.checked) state[facetKey].add(val);
+        else state[facetKey].delete(val);
+        apply();
+      });
+    });
+
+    clearBtn?.addEventListener('click', () => {
+      state.q = '';
+      state.theme.clear();
+      state.lang.clear();
+      state.type.clear();
+      if (searchInput) searchInput.value = '';
+      form
+        .querySelectorAll<HTMLInputElement>('input[type="checkbox"]')
+        .forEach((cb) => (cb.checked = false));
+      apply();
+    });
+
+    apply();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

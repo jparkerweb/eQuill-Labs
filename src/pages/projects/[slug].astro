@@ -1,0 +1,112 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import ProjectLayout from '@/layouts/ProjectLayout.astro';
+import ProjectCard from '@/components/projects/ProjectCard.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects
+    .filter((p) => p.data.status !== 'hidden')
+    .map((p) => ({
+      params: { slug: p.slug },
+      props: { entry: p },
+    }));
+}
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const allProjects = await getCollection('projects');
+const related = allProjects
+  .filter(
+    (p) =>
+      p.slug !== entry.slug &&
+      p.data.status !== 'hidden' &&
+      data.theme &&
+      p.data.theme === data.theme,
+  )
+  .slice(0, 3);
+---
+
+<ProjectLayout entry={entry}>
+  <section class="description">
+    {data.description.long ? <Content /> : <p>{data.description.short}</p>}
+  </section>
+
+  {
+    data.npm && (
+      <section class="install">
+        <h2>Install</h2>
+        <pre><code>npm install {data.npm.package}</code></pre>
+      </section>
+    )
+  }
+
+  {
+    related.length > 0 && (
+      <section class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">
+          Related
+          <SlashGlyph role="separator" />
+        </h2>
+        <ul role="list" class="related-grid">
+          {related.map((p) => (
+            <ProjectCard project={p} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</ProjectLayout>
+
+<style>
+  .description :global(h2) {
+    margin-top: 1.5em;
+  }
+  .install {
+    margin-top: 40px;
+  }
+  .install h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+  .install pre {
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Geist Mono Variable', ui-monospace, monospace;
+    font-size: 13px;
+    overflow-x: auto;
+  }
+
+  .related {
+    margin-top: 64px;
+  }
+  .related h2 {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+  .related-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  @media (min-width: 640px) {
+    .related-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

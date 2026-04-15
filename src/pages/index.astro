@@ -1,8 +1,122 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import LivingIndex from '@/components/hero/LivingIndex.astro';
+import ProjectGrid from '@/components/projects/ProjectGrid.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+
+const all = await getCollection('projects');
+const visible = all.filter((e) => e.data.status !== 'hidden');
+const featured = visible
+  .filter((e) => e.data.featured)
+  .sort((a, b) => (a.data.sortOrder ?? 100) - (b.data.sortOrder ?? 100));
+
+const allLivingProjects = visible;
 ---
 
-<BaseLayout title="eQuill Labs">
-  <h1>eQuill Labs</h1>
-  <p>Under reconstruction.</p>
+<BaseLayout
+  title="eQuill Labs — AI tools by Justin Parker"
+  description="Building tools to enrich our digital lives. Open-source AI engineering by Justin Parker.">
+  <LivingIndex projects={allLivingProjects} />
+
+  <section class="featured-section" aria-labelledby="featured-heading">
+    <div class="shell">
+      <header class="section-head">
+        <h2 id="featured-heading">
+          Featured
+          <SlashGlyph role="separator" />
+        </h2>
+        <p>Hand-picked highlights from {visible.length} open-source projects.</p>
+      </header>
+      <ProjectGrid projects={featured} variant="featured" />
+      <p class="cta-line">
+        <a href="/projects/">View the full catalog →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="about-teaser" aria-labelledby="about-teaser-heading">
+    <div class="shell">
+      <div class="card">
+        <h2 id="about-teaser-heading">About Justin</h2>
+        <p>
+          AI engineer focused on LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian
+          ecosystem. eQuill Labs is the umbrella for the tools shipped along the way.
+        </p>
+        <a class="more" href="/about/">Read more →</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .featured-section {
+    padding: 40px 0 32px;
+  }
+  .section-head {
+    margin-bottom: 32px;
+  }
+  .section-head h2 {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .section-head p {
+    color: rgb(var(--text-muted));
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+
+  .cta-line {
+    margin: 32px 0 0;
+  }
+  .cta-line a {
+    color: rgb(var(--text-1));
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3))
+    );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 2px;
+    padding-bottom: 2px;
+  }
+
+  .about-teaser {
+    padding: 32px 0 64px;
+  }
+  .card {
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 640px;
+  }
+  .card h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+  }
+  .card p {
+    margin: 0 0 16px;
+    color: rgb(var(--text-2));
+    line-height: 1.65;
+  }
+  .card .more {
+    color: rgb(var(--accent));
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>

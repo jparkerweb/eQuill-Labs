@@ -1,0 +1,53 @@
+---
+import SlashGlyph from './SlashGlyph.astro';
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  as?: 'h1' | 'div' | 'span';
+  animate?: boolean;
+  class?: string;
+}
+
+const { size = 'md', as: Tag = 'div', animate = false, class: className = '' } = Astro.props;
+
+const sizeClass = size === 'sm' ? 'wm-sm' : size === 'lg' ? 'wm-lg' : 'wm-md';
+---
+
+<Tag class:list={['wordmark', sizeClass, className]} aria-label="eQuill Labs">
+  <span class="wm-prefix">eQui</span><SlashGlyph animate={animate} /><span class="wm-suffix"
+    >Labs</span
+  >
+</Tag>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.05em;
+    line-height: 1;
+    font-weight: 500;
+  }
+  .wm-prefix {
+    font-family:
+      'Geist Variable',
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .wm-suffix {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 0.08em;
+  }
+  .wm-sm {
+    font-size: 18px;
+  }
+  .wm-md {
+    font-size: 32px;
+  }
+  .wm-lg {
+    font-size: 72px;
+  }
+</style>

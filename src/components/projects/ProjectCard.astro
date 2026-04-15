@@ -1,0 +1,194 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectFallbackArt from './ProjectFallbackArt.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import { Star } from 'lucide-astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  variant?: 'default' | 'featured';
+}
+
+const { project, variant = 'default' } = Astro.props;
+const { data, slug } = project;
+const primaryTopic = data.topics?.[0];
+const extraTopics = (data.topics?.length ?? 0) - 1;
+
+const rawBanner = data.banner?.src;
+const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : undefined;
+
+const filterAttrs: Record<string, string> = {
+  'data-slug': slug,
+  'data-language': (data.primaryLanguage ?? '').toLowerCase(),
+  'data-type': data.category,
+  'data-theme': data.theme ?? '',
+  'data-topics': (data.topics ?? []).join(',').toLowerCase(),
+  'data-search': `${data.name} ${data.tagline ?? ''} ${data.description.short ?? ''} ${(data.topics ?? []).join(' ')}`.toLowerCase(),
+};
+---
+
+<li class:list={['project-card', `card-${variant}`]} {...filterAttrs}>
+  <a href={`/projects/${slug}/`} class="card-link">
+    <div class="banner">
+      {
+        bannerSrc ? (
+          <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} loading="lazy" />
+        ) : (
+          <ProjectFallbackArt slug={slug} />
+        )
+      }
+    </div>
+    <div class="body">
+      <h3 class="name">
+        <span class="name-text">{data.name}</span>
+        <span class="name-underline" aria-hidden="true"><SlashGlyph /></span>
+      </h3>
+      {data.tagline && <p class="tagline">{data.tagline}</p>}
+      {
+        variant === 'featured' && data.description.short && (
+          <p class="desc">{data.description.short}</p>
+        )
+      }
+      <div class="meta">
+        {data.primaryLanguage && <span class="chip lang">{data.primaryLanguage}</span>}
+        <span class="chip stars">
+          <Star size={12} aria-hidden="true" />
+          {data.stars}
+        </span>
+        {
+          primaryTopic && (
+            <span class="chip topic">
+              {primaryTopic}
+              {extraTopics > 0 && <span class="more">+{extraTopics}</span>}
+            </span>
+          )
+        }
+      </div>
+    </div>
+  </a>
+</li>
+
+<style>
+  .project-card {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: rgb(var(--text-1));
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+    height: 100%;
+  }
+  .card-link:hover,
+  .card-link:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgb(var(--accent));
+    box-shadow: 0 12px 30px -18px rgb(var(--accent) / 0.6);
+  }
+  .card-link:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+  .card-featured .card-link {
+    border-radius: 18px;
+  }
+
+  .banner {
+    aspect-ratio: 16 / 9;
+    background: rgb(var(--surface-2));
+    overflow: hidden;
+  }
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+  .card-featured .body {
+    padding: 24px;
+    gap: 14px;
+  }
+
+  .name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.01em;
+  }
+  .card-featured .name {
+    font-size: 22px;
+  }
+  .name-underline {
+    opacity: 0;
+    transition: opacity 150ms ease;
+    font-size: 0.9em;
+  }
+  .card-link:hover .name-underline,
+  .card-link:focus-visible .name-underline {
+    opacity: 1;
+  }
+
+  .tagline {
+    margin: 0;
+    color: rgb(var(--text-2));
+    font-size: 14px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .desc {
+    margin: 0;
+    color: rgb(var(--text-muted));
+    font-size: 13px;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    padding: 3px 8px;
+    background: rgb(var(--surface-2));
+    border: 1px solid rgb(var(--border));
+    border-radius: 999px;
+    color: rgb(var(--text-2));
+  }
+  .more {
+    margin-left: 4px;
+    color: rgb(var(--text-muted));
+  }
+</style>

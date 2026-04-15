@@ -9,3 +9,5 @@ data/logs/
 Thumbs.db
 mockups/
 .playwright-cli/
+specs/
+specs--completed/

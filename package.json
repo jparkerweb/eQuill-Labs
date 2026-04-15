@@ -36,6 +36,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.18.1",
     "gray-matter": "^4.0.3",
+    "lucide-astro": "^0.556.0",
     "mdast-util-to-string": "^4.0.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",

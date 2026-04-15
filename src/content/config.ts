@@ -57,7 +57,7 @@ const pages = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string().optional(),
-		layout: z.enum(['default', 'about', 'project']).default('default'),
+		layout: z.enum(['default', 'about', 'project', 'prose']).default('default'),
 		order: z.number().optional(),
 		draft: z.boolean().default(false),
 	}),

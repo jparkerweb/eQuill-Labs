@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  variant?: 'default' | 'featured';
+}
+
+const { projects, variant = 'default' } = Astro.props;
+---
+
+<ul role="list" class:list={['project-grid', `grid-${variant}`]}>
+  {projects.map((p) => <ProjectCard project={p} variant={variant} />)}
+</ul>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  @media (min-width: 640px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-default {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-featured {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+</style>
