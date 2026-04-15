@@ -1,0 +1,62 @@
+---
+import quillSvgRaw from '/public/brand/quill.svg?raw';
+
+interface Props {
+  size?: number;
+  linked?: boolean;
+  label?: string;
+  class?: string;
+}
+
+const {
+  size = 32,
+  linked = true,
+  label = 'eQuill Labs home',
+  class: className = '',
+} = Astro.props;
+
+const style = `--quill-size: ${size}px`;
+---
+
+{
+  linked ? (
+    <a
+      href="/"
+      class:list={['quill-mark', className]}
+      aria-label={label}
+      style={style}
+      set:html={quillSvgRaw}
+    />
+  ) : (
+    <span
+      class:list={['quill-mark', className]}
+      role="img"
+      aria-label={label}
+      style={style}
+      set:html={quillSvgRaw}
+    />
+  )
+}
+
+<style>
+  .quill-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--quill-size, 32px);
+    height: var(--quill-size, 32px);
+    line-height: 0;
+    color: inherit;
+  }
+  .quill-mark :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+  a.quill-mark {
+    border-radius: 6px;
+  }
+  a.quill-mark:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 3px;
+  }
+</style>

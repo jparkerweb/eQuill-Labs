@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist/index.css';
+@import '@fontsource-variable/geist-mono/index.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import './tokens.css';
+@import './themes/dark.css';
+@import './themes/light.css';
+
+@theme {
+  --color-bg: rgb(var(--bg) / <alpha-value>);
+  --color-surface-1: rgb(var(--surface-1) / <alpha-value>);
+  --color-surface-2: rgb(var(--surface-2) / <alpha-value>);
+  --color-border: rgb(var(--border) / <alpha-value>);
+  --color-text-1: rgb(var(--text-1) / <alpha-value>);
+  --color-text-2: rgb(var(--text-2) / <alpha-value>);
+  --color-text-muted: rgb(var(--text-muted) / <alpha-value>);
+  --color-accent: rgb(var(--accent) / <alpha-value>);
+  --color-accent-contrast: rgb(var(--accent-contrast) / <alpha-value>);
+  --color-focus-ring: rgb(var(--focus-ring) / <alpha-value>);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

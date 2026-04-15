@@ -1,0 +1,14 @@
+/* The Quill & Slash — Dark theme (locked 2026-04-14 via Phase 4) */
+
+:root[data-theme='dark'] {
+  --bg: 12 14 20;                  /* #0C0E14 */
+  --surface-1: 20 24 34;           /* #141822 */
+  --surface-2: 26 31 44;           /* #1A1F2C */
+  --border: 35 40 56;              /* #232838 */
+  --text-1: 232 236 244;           /* #E8ECF4 */
+  --text-2: 184 192 206;           /* #B8C0CE */
+  --text-muted: 122 132 153;       /* #7A8499 */
+  --accent: 91 79 230;             /* #5B4FE6 */
+  --accent-contrast: 232 236 244;  /* #E8ECF4 */
+  --focus-ring: 0 212 255;         /* #00D4FF */
+}

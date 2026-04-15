@@ -1,0 +1,33 @@
+/* Design Direction: The Quill & Slash — locked 2026-04-14 via Phase 4 */
+/* Source of truth: specs/equill-labs-v2/DESIGN-DECISION.md */
+/* Values stored as space-separated RGB channels so Tailwind's `rgb(... / <alpha-value>)` binding resolves. */
+
+:root[data-theme='dark'] {
+  --bg: 12 14 20;          /* #0C0E14 */
+  --surface-1: 20 24 34;    /* #141822 */
+  --surface-2: 26 31 44;    /* #1A1F2C — derived step between surface-1 and border */
+  --border: 35 40 56;       /* #232838 */
+  --text-1: 232 236 244;    /* #E8ECF4 */
+  --text-2: 184 192 206;    /* #B8C0CE — derived mid-weight text */
+  --text-muted: 122 132 153; /* #7A8499 */
+  --accent: 91 79 230;      /* #5B4FE6 — solid accent (indigo mid of gradient) */
+  --accent-contrast: 232 236 244; /* #E8ECF4 — text color when drawn on solid accent */
+  --focus-ring: 0 212 255;  /* #00D4FF — cyan start of gradient */
+}
+
+/*
+ * Quill & Slash gradient stops — RESERVED use only.
+ * Apply exclusively to: `\\` glyphs, heading underlines, focus rings, link decorations.
+ * Never on buttons, backgrounds, or large fills.
+ */
+:root {
+  --grad-1: 0 212 255;      /* #00D4FF cyan */
+  --grad-2: 91 79 230;      /* #5B4FE6 indigo */
+  --grad-3: 9 9 121;        /* #090979 deep blue */
+  --gradient-brand: linear-gradient(
+    135deg,
+    rgb(var(--grad-1)) 0%,
+    rgb(var(--grad-2)) 55%,
+    rgb(var(--grad-3)) 100%
+  );
+}

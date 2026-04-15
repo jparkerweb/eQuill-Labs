@@ -1,0 +1,126 @@
+---
+import { Monitor, Moon, Sun } from 'lucide-astro';
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-label="Theme: system — click to switch to dark"
+  aria-pressed="false"
+  data-state="system">
+  <span class="icon icon-system" aria-hidden="true">
+    <Monitor size={18} />
+  </span>
+  <span class="icon icon-dark" aria-hidden="true" hidden>
+    <Moon size={18} />
+  </span>
+  <span class="icon icon-light" aria-hidden="true" hidden>
+    <Sun size={18} />
+  </span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid rgb(var(--border));
+    background: rgb(var(--surface-1));
+    color: rgb(var(--text-1));
+    cursor: pointer;
+    transition:
+      background 150ms ease,
+      border-color 150ms ease,
+      transform 150ms ease;
+  }
+  .theme-toggle:hover {
+    background: rgb(var(--surface-2));
+    border-color: rgb(var(--accent));
+  }
+  .theme-toggle:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+  .icon {
+    display: inline-flex;
+  }
+</style>
+
+<script>
+  const STATES = ['system', 'dark', 'light'] as const;
+  type ThemeState = (typeof STATES)[number];
+
+  function resolveNextState(current: ThemeState): ThemeState {
+    const idx = STATES.indexOf(current);
+    return STATES[(idx + 1) % STATES.length]!;
+  }
+
+  function resolveTheme(state: ThemeState): 'dark' | 'light' {
+    if (state === 'system') {
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    return state;
+  }
+
+  function applyState(button: HTMLButtonElement, state: ThemeState) {
+    button.dataset.state = state;
+    const next = resolveNextState(state);
+    button.setAttribute('aria-label', `Theme: ${state} — click to switch to ${next}`);
+    button.setAttribute('aria-pressed', String(state !== 'system'));
+
+    const iconMap: Record<ThemeState, string> = {
+      system: 'icon-system',
+      dark: 'icon-dark',
+      light: 'icon-light',
+    };
+    for (const s of STATES) {
+      const iconEl = button.querySelector<HTMLElement>(`.${iconMap[s]}`);
+      if (iconEl) iconEl.hidden = s !== state;
+    }
+
+    const theme = resolveTheme(state);
+    document.documentElement.dataset.theme = theme;
+
+    if (state === 'system') {
+      localStorage.removeItem('theme');
+    } else {
+      localStorage.setItem('theme', state);
+    }
+  }
+
+  function initialState(): ThemeState {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') return stored;
+    return 'system';
+  }
+
+  function init() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]');
+    buttons.forEach((btn) => {
+      applyState(btn, initialState());
+      btn.addEventListener('click', () => {
+        const current = (btn.dataset.state as ThemeState) ?? 'system';
+        applyState(btn, resolveNextState(current));
+      });
+    });
+
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    mq.addEventListener('change', () => {
+      buttons.forEach((btn) => {
+        if ((btn.dataset.state as ThemeState) === 'system') {
+          applyState(btn, 'system');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

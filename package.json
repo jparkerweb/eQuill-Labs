@@ -1,15 +1,48 @@
 {
-  "name": "equill-labs-website",
-  "version": "0.0.1",
-  "description": "eQuill Labs website",
+  "name": "equill-labs",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "build": "node build.js",
-    "watch": "nodemon --watch src -e hbs,js,css,png --exec \"npm run build\"",
-    "serve": "serve pages -p 4444"
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site docs --output-subdir pagefind",
+    "preview": "astro preview",
+    "check": "astro check",
+    "format": "prettier --write .",
+    "refresh:fetch": "tsx scripts/fetch-github.ts",
+    "refresh:render": "tsx scripts/render-content.ts",
+    "refresh:all": "npm run refresh:fetch && npm run refresh:render"
   },
   "devDependencies": {
-    "handlebars": "^4.7.8",
-    "nodemon": "^3.0.1",
-    "serve": "^14.2.1"
+    "@astrojs/check": "^0.9.8",
+    "@types/node": "^25.6.0",
+    "pagefind": "^1.5.2",
+    "prettier": "^3.8.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.2.7",
+    "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/instrument-serif": "^5.2.8",
+    "@octokit/graphql": "^9.0.3",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^5.18.1",
+    "gray-matter": "^4.0.3",
+    "lucide-astro": "^0.556.0",
+    "mdast-util-to-string": "^4.0.0",
+    "motion": "^12.38.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "satori": "^0.26.0",
+    "tailwindcss": "^4.2.2",
+    "unified": "^11.0.5"
   }
 }

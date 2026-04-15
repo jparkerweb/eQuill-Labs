@@ -1,0 +1,84 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import ThemeScript from '@/components/layout/ThemeScript.astro';
+import SiteHeader from '@/components/layout/SiteHeader.astro';
+import SiteFooter from '@/components/layout/SiteFooter.astro';
+import Meta from '@/components/seo/Meta.astro';
+import geistUrl from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
+import '@/styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalURL?: string | URL;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description = '', canonicalURL, image, type = 'website' } = Astro.props;
+
+const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
+const resolvedCanonical =
+  canonicalURL !== undefined
+    ? new URL(canonicalURL.toString(), siteURL)
+    : new URL(Astro.url.pathname, siteURL);
+const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ThemeScript />
+    <Meta
+      title={title}
+      description={description}
+      canonicalURL={resolvedCanonical}
+      image={resolvedImage}
+      type={type}
+    />
+
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <link rel="preload" href={geistUrl} as="font" type="font/woff2" crossorigin />
+    <ClientRouter />
+  </head>
+  <body>
+    <SiteHeader />
+    <main id="main"><slot /></main>
+    <SiteFooter />
+    <script>
+      import { initReveal } from '@/lib/reveal';
+      initReveal();
+      document.addEventListener('astro:after-swap', () => initReveal());
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html,
+  body {
+    background: rgb(var(--bg));
+    color: rgb(var(--text-1));
+    font-family:
+      'Geist Variable',
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+  }
+  a {
+    color: rgb(var(--accent));
+  }
+</style>

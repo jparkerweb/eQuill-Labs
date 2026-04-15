@@ -1,0 +1,148 @@
+---
+import Wordmark from '@/components/brand/Wordmark.astro';
+import SlashGlyph from '@/components/brand/SlashGlyph.astro';
+import { Github, Mail, Rss } from 'lucide-astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-brand">
+      <Wordmark size="sm" as="div" />
+      <p class="tagline">Building tools to enrich our digital lives</p>
+    </div>
+
+    <nav class="footer-cols" aria-label="Footer">
+      <div class="col">
+        <h2>Site</h2>
+        <ul role="list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Code</h2>
+        <ul role="list">
+          <li>
+            <a
+              href="https://github.com/jparkerweb"
+              rel="noopener"
+              target="_blank"
+              aria-label="GitHub profile"
+              ><Github size={16} aria-hidden="true" /><span>GitHub</span></a>
+          </li>
+          <li>
+            <a href="/rss.xml" aria-label="RSS feed"
+              ><Rss size={16} aria-hidden="true" /><span>RSS</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Connect</h2>
+        <ul role="list">
+          <li>
+            <a href="mailto:hello@equilllabs.com" aria-label="Email Justin"
+              ><Mail size={16} aria-hidden="true" /><span>Contact</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="shell copyright">
+    <SlashGlyph role="separator" />
+    <p>© {year} Justin Parker · eQuill Labs</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid rgb(var(--border));
+    background: rgb(var(--surface-1));
+    margin-top: 80px;
+    padding: 48px 0 32px;
+  }
+  .shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .shell + .shell {
+    margin-top: 32px;
+  }
+  .site-footer .shell:first-child {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 2fr;
+    gap: 48px;
+  }
+  @media (max-width: 720px) {
+    .site-footer .shell:first-child {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .tagline {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgb(var(--text-2));
+    margin-top: 12px;
+    max-width: 28ch;
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .col h2 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--text-muted));
+    margin: 0 0 12px;
+  }
+  .col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .col a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(var(--text-2));
+    text-decoration: none;
+    font-size: 14px;
+    min-height: 32px;
+    border-radius: 6px;
+    transition: color 150ms ease;
+  }
+  .col a:hover {
+    color: rgb(var(--text-1));
+  }
+  .col a:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+
+  .copyright {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgb(var(--text-muted));
+    font-size: 13px;
+    border-top: 1px solid rgb(var(--border));
+    padding-top: 20px;
+  }
+  .copyright p {
+    margin: 0;
+  }
+</style>

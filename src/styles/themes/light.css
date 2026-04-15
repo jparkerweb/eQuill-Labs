@@ -1,0 +1,14 @@
+/* The Quill & Slash — Light theme (locked 2026-04-14 via Phase 4) */
+
+:root[data-theme='light'] {
+  --bg: 247 245 239;               /* #F7F5EF */
+  --surface-1: 237 233 222;        /* #EDE9DE */
+  --surface-2: 227 222 206;        /* #E3DECE — derived step toward border */
+  --border: 214 208 192;           /* #D6D0C0 */
+  --text-1: 14 18 26;              /* #0E121A */
+  --text-2: 42 48 64;              /* #2A3040 — derived mid-weight text */
+  --text-muted: 90 98 117;         /* #5A6275 */
+  --accent: 91 79 230;             /* #5B4FE6 (same — contrasts well on warm parchment) */
+  --accent-contrast: 247 245 239;  /* #F7F5EF — bg tone as text-on-accent */
+  --focus-ring: 0 212 255;         /* #00D4FF */
+}

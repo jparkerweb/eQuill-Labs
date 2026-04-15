@@ -1,0 +1,171 @@
+---
+import QuillMark from '@/components/brand/QuillMark.astro';
+import Wordmark from '@/components/brand/Wordmark.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const path = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/about/', label: 'About' },
+];
+
+function isCurrent(href: string) {
+  if (href === '/') return path === '/' || path === '';
+  return path === href || path.startsWith(href);
+}
+---
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell">
+    <div class="brand">
+      <QuillMark size={36} linked={true} />
+      <a href="/" class="wordmark-link" aria-label="eQuill Labs home">
+        <Wordmark size="sm" as="span" />
+      </a>
+    </div>
+    <nav aria-label="Primary" class="primary-nav">
+      <ul role="list">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                class:list={['nav-link', { 'is-current': isCurrent(item.href) }]}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    background: rgb(var(--surface-1));
+    color: rgb(var(--text-1));
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(var(--accent));
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 8px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgb(var(--bg) / 0.8);
+    border-bottom: 1px solid rgb(var(--border));
+  }
+
+  .shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wordmark-link {
+    text-decoration: none;
+    color: rgb(var(--text-1));
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0 4px;
+    border-radius: 6px;
+  }
+  .wordmark-link:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .primary-nav ul {
+    display: flex;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 12px;
+    text-decoration: none;
+    color: rgb(var(--text-2));
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition:
+      color 150ms ease,
+      background 150ms ease;
+  }
+  .nav-link:hover {
+    color: rgb(var(--text-1));
+    background: rgb(var(--surface-1));
+  }
+  .nav-link.is-current {
+    color: rgb(var(--text-1));
+    position: relative;
+  }
+  .nav-link.is-current::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3))
+    );
+  }
+  .nav-link:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .shell {
+      padding: 10px 16px;
+    }
+    .nav-link {
+      padding: 0 8px;
+      font-size: 14px;
+    }
+  }
+</style>

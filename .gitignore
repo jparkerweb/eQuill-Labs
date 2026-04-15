@@ -1,2 +1,13 @@
 node_modules/
+.astro/
+dist/
+data/logs/
+.env
+.env.*
+*.log
 .DS_Store
+Thumbs.db
+mockups/
+.playwright-cli/
+specs/
+specs--completed/
