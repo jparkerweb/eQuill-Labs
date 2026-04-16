@@ -6,8 +6,14 @@ tagline: >-
   NPM Package for Semantically creating chunks from large texts. Useful for
   workflows involving large language models (LLMs).
 description:
-  short: "\U0001F371 semantic-chunking ⇢ semantically create chunks from large document for passing to LLM workflows"
-  long: ''
+  short: >-
+    NPM Package for semantically creating chunks from large texts, useful for
+    workflows involving LLMs.
+  long: >-
+    Features semantic chunking based on sentence similarity, dynamic similarity
+    thresholds, configurable chunk sizes, and multiple embedding model options
+    with quantized model support. Includes chunk prefix support for RAG
+    workflows and a Web UI for experimenting with settings.
 banner:
   src: ./img/semantic-chunking_web-ui.gif
   alt: semantic-chunking banner
@@ -38,12 +44,12 @@ links:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   homepage: 'https://www.npmjs.com/package/semantic-chunking'
 featured: true
-sortOrder: 1
+sortOrder: 0
 status: active
 lastCommit: '2026-04-11T03:31:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

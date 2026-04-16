@@ -7,8 +7,15 @@ tagline: >-
   frequently visited links. Built with vanilla JavaScript, Node.js, and Tailwind
   CSS.
 description:
-  short: "\U0001F587️ Simple Dashboard Page for common Linkz to Pages you visit Daily"
-  long: ''
+  short: >-
+    Lightweight, self-hosted web application for curating and managing your
+    frequently visited links.
+  long: >-
+    Built with vanilla JavaScript, Node.js, and Tailwind CSS. Supports grid,
+    list, or cards layout, password-hashed login with session management,
+    dark/light themes, tag-based organization, drag and drop reordering, and
+    JSON import/export. Includes Docker support, PWA install, rate limiting, and
+    CSRF protection.
 topics: []
 category: demo
 theme: utilities
@@ -32,6 +39,6 @@ lastCommit: '2026-03-06T16:20:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

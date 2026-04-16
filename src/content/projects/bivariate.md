@@ -4,8 +4,13 @@ name: Bivariate
 slug: bivariate
 tagline: 'An opinionated interface for writing, running, and saving BackstopJS tests'
 description:
-  short: 'An opinionated interface for writing, running, and saving BackstopJS tests'
-  long: ''
+  short: 'An opinionated interface for writing, running, and saving BackstopJS tests.'
+  long: >-
+    Goal is to allow for an approachable Visual Regression Testing suite that
+    can be organized to accommodate small and large projects. Enforces an
+    opinionated grouping structure, provides a method to write tests via
+    manageable object files, and allows all of BackstopJS's commands to be run
+    from an interface. Utilizes headless Chrome.
 banner:
   src: bivariate.png
   alt: Bivariate banner
@@ -38,6 +43,6 @@ lastCommit: '2023-05-25T14:33:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

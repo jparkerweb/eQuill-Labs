@@ -6,8 +6,14 @@ tagline: >-
   Rich Foot is an Obsidian plugin that enhances the footer of your notes by
   adding backlinks, outlinks, and created/modified dates.
 description:
-  short: "\U0001F9B6 Obsidian plugin that adds backlink/outlink tags and created/modified dates to the footer of your notes"
-  long: ''
+  short: >-
+    Obsidian plugin that enhances the footer of your notes by adding backlinks,
+    outlinks, and created/modified dates.
+  long: >-
+    Adds backlinks (links FROM other notes TO this note) and outlinks (links
+    FROM this note TO other notes) to the footer. Displays created and modified
+    dates for each note, supports links in frontmatter, and offers customization
+    through opacity and border controls, plus options to exclude folders.
 banner:
   src: rich-foot.jpg
   alt: rich-foot banner
@@ -32,6 +38,6 @@ lastCommit: '2025-12-26T05:29:33Z'
 _source:
   repo: 'https://github.com/jparkerweb/rich-foot'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

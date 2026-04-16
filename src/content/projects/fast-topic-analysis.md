@@ -6,8 +6,16 @@ tagline: >-
   A tool for analyzing text against predefined topics using average weight
   embeddings and cosine similarity.
 description:
-  short: "\U0001F3F7️ Fast Topic Analysis is a tool for analyzing text against predefined topics using average weight embeddings and cosine similarity"
-  long: ''
+  short: >-
+    A tool for analyzing text against predefined topics using average weight
+    embeddings and cosine similarity.
+  long: >-
+    Uses embedding-based semantic analysis with a clustering approach to detect
+    nuanced topic variations. Creates multiple weighted average embeddings per
+    topic and groups similar phrases using agglomerative or HDBSCAN algorithms,
+    with cluster quality measured via per-cluster cohesion and global silhouette
+    score. Powered by the embedding-utils library for vector math, clustering,
+    similarity, and embedding generation.
 banner:
   src: ./.readme/buckets.jpg
   alt: fast-topic-analysis banner
@@ -33,12 +41,12 @@ links:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   homepage: 'https://www.equilllabs.com/projects/fast-topic-analysis'
 featured: true
-sortOrder: 4
+sortOrder: 2
 status: active
 lastCommit: '2026-04-06T23:03:03Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

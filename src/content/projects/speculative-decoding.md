@@ -20,6 +20,6 @@ lastCommit: '2024-11-22T06:26:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/speculative-decoding'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

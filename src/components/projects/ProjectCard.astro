@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { project, variant = 'default' } = Astro.props;
-const { data, slug } = project;
+const { data, id: slug } = project;
 const primaryTopic = data.topics?.[0];
 const extraTopics = (data.topics?.length ?? 0) - 1;
 
@@ -39,10 +39,10 @@ const filterAttrs: Record<string, string> = {
       }
     </div>
     <div class="body">
-      <h3 class="name">
+      <h2 class="name">
         <span class="name-text">{data.name}</span>
         <span class="name-underline" aria-hidden="true"><SlashGlyph /></span>
-      </h3>
+      </h2>
       {data.tagline && <p class="tagline">{data.tagline}</p>}
       {
         variant === 'featured' && data.description.short && (

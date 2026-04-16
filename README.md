@@ -1,88 +1,145 @@
-# eQuill Labs Website
+# eQuill Labs
 
-Static website for eQuill Labs showcasing recent projects and tools.
+Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.
+
+Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.
+
 Discord: https://discord.gg/sp8AQQhMJ7
 
-## Development
+---
 
-The website uses a lightweight build system with Handlebars for templating and a dark mode design.
+## Tech Stack
 
-### Project Structure
+| Layer | Tools |
+|-------|-------|
+| Framework | Astro 6, TypeScript |
+| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |
+| Content | Astro Content Collections, Markdown, gray-matter, remark |
+| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |
+| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |
+| Search | Pagefind (static search index) |
+| Icons | Lucide |
+| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |
+| Hosting | GitHub Pages |
 
-Source files:
+## Project Structure
+
 ```
 src/
-├── static/          # Static assets (CSS, JS, images)
-│   ├── css/        # Stylesheets
-│   ├── js/         # JavaScript files
-│   └── images/     # Image assets
-└── templates/       # Handlebars templates
-    ├── layouts/    # Layout templates (default, project)
-    ├── pages/      # Page content
-    └── partials/   # Reusable components (header, footer)
+├── components/
+│   ├── brand/          # Logo, wordmark, slash glyph
+│   ├── hero/           # Homepage hero (LivingIndex)
+│   ├── layout/         # Header, footer, theme toggle
+│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art
+│   └── seo/            # Meta tags, JSON-LD structured data
+├── content/
+│   ├── projects/       # Markdown files for each project (auto-generated)
+│   └── pages/          # Static page content (about)
+├── layouts/            # BaseLayout, ProjectLayout
+├── lib/                # Utilities (OG rendering, README parsing, animations)
+├── pages/              # File-based routing
+│   ├── index.astro
+│   ├── about.astro
+│   ├── 404.astro
+│   ├── projects/       # Listing + dynamic [slug] detail pages
+│   └── og/             # Dynamic OG image endpoints
+└── styles/             # Global CSS, design tokens, dark/light themes
+
+scripts/                # Data pipeline (fetch, curate, render, blurbs)
+data/                   # GitHub snapshot, build manifest, AI cache
+site/                   # Curation config (featured.json)
+docs/                   # Production build output (GitHub Pages)
+public/                 # Static assets (brand, favicons, project images)
+tests/                  # E2E accessibility tests
 ```
 
-Build output:
+## Getting Started
+
+**Requirements:** Node.js >= 20
+
+```bash
+# Install dependencies
+npm ci
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
-pages/             # Production build output
-├── css/           # Processed stylesheets
-├── js/            # Processed scripts
-├── images/        # Optimized images
-├── index.html     # Homepage
-└── projects/      # Project pages
-    ├── project-xyz.html
-    ├── project-abc.html
+
+## Data Pipeline
+
+Project content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).
+
+```bash
+# Fetch repos from GitHub → data/github-snapshot.json
+npm run refresh:fetch
+
+# Render snapshot into content markdown → src/content/projects/*.md
+npm run refresh:render
+
+# Run both steps
+npm run refresh:all
 ```
 
-### Setup
+**Flow:**
+1. `refresh:fetch` queries the GitHub GraphQL API for all public repos
+2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)
+3. `astro build` compiles the site to `docs/`
+4. Pagefind indexes the output for client-side search
 
-1. Install dependencies:
-   ```bash
-   npm ci
-   ```
+### Curation
 
-2. Start development server:
-   ```bash
-   npm run watch
-   ```
+`site/featured.json` controls which projects are featured, hidden, or reordered:
 
-3. Build for production:
-   ```bash
-   npm run build
-   ```
+```json
+{
+  "featured": ["pixel-banner", "semantic-chunking", "mcp-sqlite"],
+  "hidden": ["dotfiles*", "*-personal"],
+  "hideTopics": ["not-portfolio", "private-project"],
+  "order": { "semantic-chunking": 1 }
+}
+```
 
-### Adding New Pages
+## Scripts
 
-1. Create a new `.hbs` file in `src/templates/pages/`
-2. Add frontmatter:
-   ```yaml
-   ---
-   layout: default|project  # Use 'project' layout for project pages
-   title: Page Title
-   relative: ../           # Relative path to root from page location
-   ---
-   ```
-3. Add your page content using HTML and Handlebars syntax
-4. Run build command
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Astro dev server with hot reload |
+| `npm run build` | Production build + Pagefind indexing |
+| `npm run preview` | Serve production build locally |
+| `npm run check` | Type-check Astro files |
+| `npm run format` | Format code with Prettier |
+| `npm run refresh:fetch` | Fetch GitHub data |
+| `npm run refresh:render` | Generate content from snapshot |
+| `npm run refresh:all` | Fetch + render |
+| `npm run validate:html` | Validate build output HTML |
+| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |
+| `npm run test:lighthouse` | Lighthouse CI performance audit |
 
-## Projects
+## Pages
 
-### Obsidian Plugins
-- Pixel Banner - Custom banner images for notes
-- Rich Foot - Enhanced note footers with backlinks and metadata
+- **Home** (`/`) — Featured projects grid, hero section, about teaser
+- **Projects** (`/projects/`) — Full catalog with search and filtering
+- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links
+- **About** (`/about/`) — Bio, focus areas, timeline
+- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images
 
-### NPM Packages
-- Semantic Chunking - Text chunking for LLM processing
-- Chunk Match - Semantic text matching using cosine similarity
-- Bedrock Wrapper - OpenAI-compatible wrapper for AWS Bedrock
+## Theming
 
-### NodeJS Apps
-- Bedrock Proxy Endpoint - AWS Bedrock API proxy server
-- Web Augmented Generation - LLM responses with web search integration
+Dark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.
 
-## Features
-- Responsive design with mobile navigation
-- Dark mode theme
-- Interactive project pages
-- Community links (Discord, GitHub)
-- Automatic build system
+## Deployment
+
+The site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.
+
+```bash
+npm run build    # outputs to docs/
+git add docs/
+git commit -m "build: update site"
+git push
+```

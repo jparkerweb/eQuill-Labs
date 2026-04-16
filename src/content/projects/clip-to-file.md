@@ -6,8 +6,14 @@ tagline: >-
   PowerShell utility that instantly saves your clipboard content to organized
   files with timestamped names.
 description:
-  short: "\U0001F4CB PowerShell utility that instantly saves your clipboard content to organized files with timestamped names"
-  long: ''
+  short: >-
+    PowerShell utility that instantly saves your clipboard content to organized
+    files with timestamped names.
+  long: >-
+    Automatically detects images and text in your clipboard, and one command
+    saves clipboard content with zero configuration. Files are saved with clean
+    timestamps and duplicate filenames get a number appended. INI-based
+    configuration with sensible defaults.
 topics:
   - clipboard
   - downloads
@@ -33,6 +39,6 @@ lastCommit: '2025-12-24T06:05:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import ProjectLayout from '@/layouts/ProjectLayout.astro';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   return projects
     .filter((p) => p.data.status !== 'hidden')
     .map((p) => ({
-      params: { slug: p.slug },
+      params: { slug: p.id },
       props: { entry: p },
     }));
 }
@@ -20,14 +20,14 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const data = entry.data;
 
 const allProjects = await getCollection('projects');
 const related = allProjects
   .filter(
     (p) =>
-      p.slug !== entry.slug &&
+      p.id !== entry.id &&
       p.data.status !== 'hidden' &&
       data.theme &&
       p.data.theme === data.theme,
@@ -35,7 +35,7 @@ const related = allProjects
   .slice(0, 3);
 
 const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
-const canonical = new URL(`/projects/${entry.slug}/`, siteURL).toString();
+const canonical = new URL(`/projects/${entry.id}/`, siteURL).toString();
 ---
 
 <ProjectLayout entry={entry}>

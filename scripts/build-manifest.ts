@@ -50,7 +50,7 @@ export function writeManifest() {
 	const manifest = {
 		buildId: randomUUID(),
 		builtAt: new Date().toISOString(),
-		generator: { name: 'refresh-portfolio', version: '1.0.0' },
+		generator: { name: 'equill-labs-update', version: '1.0.0' },
 		skillVersion: null,
 		aiModel: null,
 		sources,

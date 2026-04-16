@@ -4,7 +4,7 @@ name: embedding-forge
 slug: embedding-forge
 tagline: embedding-forge
 description:
-  short: ''
+  short: Embedding Forge.
   long: ''
 topics: []
 category: demo
@@ -27,6 +27,6 @@ lastCommit: '2024-12-13T05:28:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-forge'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

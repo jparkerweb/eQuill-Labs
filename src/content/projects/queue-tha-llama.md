@@ -7,8 +7,13 @@ tagline: >-
   (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent
   chat s...
 description:
-  short: "\U0001F999 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking "
-  long: ''
+  short: >-
+    Web-based chat application that integrates LLM capabilities with Bull Queue,
+    Redis, and Chroma.
+  long: >-
+    Handles concurrent chat sessions with queue management, maintains
+    client-server communication with heartbeat signals, and utilizes a RAG model
+    for chat memory. Manages inactive clients and job cleanups.
 topics: []
 category: demo
 theme: utilities
@@ -32,6 +37,6 @@ lastCommit: '2024-10-09T23:36:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

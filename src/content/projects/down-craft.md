@@ -7,8 +7,13 @@ tagline: >-
   PPTX, and XLSX) into Markdown format. It uses tesseract.js, mammoth, pdf.js,
   and...
 description:
-  short: "\U0001F4D1 npm pacakge to Craft files into Markdown with ease"
-  long: ''
+  short: >-
+    Node.js package to simplify converting documents (PDF, DOCX, PPTX, and XLSX)
+    into Markdown format.
+  long: >-
+    Uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to
+    Markdown format. For PDFs, it also provides an option to use vLLMs (Vision
+    Large Language Models) for advanced OCR capabilities using the OpenAI API.
 banner:
   src: 'https://raw.githubusercontent.com/jparkerweb/down-craft/main/down-craft.jpg'
   alt: down-craft banner
@@ -45,6 +50,6 @@ lastCommit: '2025-01-03T14:48:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/down-craft'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

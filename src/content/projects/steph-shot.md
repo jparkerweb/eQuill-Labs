@@ -4,8 +4,14 @@ name: steph-shot
 slug: steph-shot
 tagline: "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard. \U0001F4F7"
 description:
-  short: "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard.  \U0001F4F7"
-  long: ''
+  short: >-
+    Steph-Shot allows you to quickly save a screen shot to disk and copy it to
+    your clipboard (Windows OS required).
+  long: >-
+    Once installed, a shortcut is added to your desktop and by default can be
+    launched by pressing Ctrl + Shift + A. All screen shots are automatically
+    saved to your Downloads directory in a folder named Steph-Shots, and also
+    copied to your clipboard.
 topics:
   - screenshot
   - windows
@@ -26,6 +32,6 @@ lastCommit: '2023-07-17T19:01:34Z'
 _source:
   repo: 'https://github.com/jparkerweb/steph-shot'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

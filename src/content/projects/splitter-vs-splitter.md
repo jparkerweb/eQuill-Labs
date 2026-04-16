@@ -6,8 +6,14 @@ tagline: >-
   A web-based tool to compare different sentence splitting libraries side by
   side. Currently compares:
 description:
-  short: "\U0001FA93 simple app to pit two sentence splitters against one another to understand their differences"
-  long: ''
+  short: >-
+    Web-based tool to compare different sentence splitting libraries side by
+    side.
+  long: >-
+    Currently compares @stdlib/nlp-sentencize and sentence-parse. Features
+    real-time comparison, visual color-coding of sentences for easy comparison,
+    sentence count display, and keyboard shortcuts (Ctrl + Enter to split).
+    Built with an Express.js backend and a vanilla JavaScript frontend.
 banner:
   src: ./docs/example.png
   alt: splitter-vs-splitter banner
@@ -37,6 +43,6 @@ lastCommit: '2025-01-30T21:55:54Z'
 _source:
   repo: 'https://github.com/jparkerweb/splitter-vs-splitter'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

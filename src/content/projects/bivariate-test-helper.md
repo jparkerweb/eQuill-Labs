@@ -4,8 +4,12 @@ name: Bivariate-test-helper
 slug: bivariate-test-helper
 tagline: Chrome Extension - class list grabber / Puppeteer script generator
 description:
-  short: Chrome Extension - class list grabber / Puppeteer script generator
-  long: ''
+  short: >-
+    Chrome Extension that grabs class lists and generates Puppeteer scripts for
+    use in Bivariate onBefore and onReady scripts.
+  long: >-
+    In-browser tool to help gather class names and generate Puppeteer scripts
+    for use with Bivariate.
 topics: []
 category: demo
 theme: utilities
@@ -23,6 +27,6 @@ lastCommit: '2020-08-11T20:42:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate-test-helper'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

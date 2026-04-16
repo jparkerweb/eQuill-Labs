@@ -3,7 +3,7 @@ import { basename, dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const PROPOSALS_DIR = 'data/proposals';
-const TEMPLATE_PATH = '.claude/skills/refresh-portfolio/templates/proposal.diff.tmpl';
+const TEMPLATE_PATH = '.claude/skills/equill-labs-update/templates/proposal.diff.tmpl';
 
 type Args = { target?: string; proposal?: string; reason?: string };
 

@@ -4,8 +4,15 @@ name: indigestion
 slug: indigestion
 tagline: "\U0001F525 CLI interface for creating and sending test emails to be used in terst automation"
 description:
-  short: "\U0001F525 CLI interface for creating and sending test emails to be used in terst automation"
-  long: ''
+  short: >-
+    CLI that allows users a quick and easy method for creating and sending test
+    emails in various test automation environments.
+  long: >-
+    Creates a userconfig.json file on first run to hold your SMTP server and
+    authentication values. Loops through all email .json files in the ./emails
+    directory and sends them using your SMTP server, and can create new email
+    .json files with UI prompts for fields like from, to, cc, bcc, subject,
+    text, html, and attachments.
 banner:
   src: ./docs/indigestion.png
   alt: indigestion banner
@@ -31,6 +38,6 @@ lastCommit: '2024-10-10T16:43:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 
