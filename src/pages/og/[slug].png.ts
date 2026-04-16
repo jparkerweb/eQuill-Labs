@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const projectPaths = projects
     .filter((p) => p.data.status !== 'hidden')
     .map((p) => ({
-      params: { slug: p.slug },
+      params: { slug: p.id },
       props: {
         title: p.data.name,
         tagline: p.data.tagline ?? p.data.description.short ?? '',

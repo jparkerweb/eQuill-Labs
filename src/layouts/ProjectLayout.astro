@@ -11,7 +11,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const data = entry.data;
-const slug = entry.slug;
+const slug = entry.id;
 
 const title = `${data.name} — eQuill Labs`;
 const description = data.tagline ?? data.description.short ?? data.name;

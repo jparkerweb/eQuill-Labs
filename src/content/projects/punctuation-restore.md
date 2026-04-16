@@ -7,8 +7,14 @@ tagline: >-
   using the punctuation_fullstop_truecase_english ONNX model:
   https://huggingface.c...
 description:
-  short: "\U0001F9D1‍\U0001F3ED Node.js package for restoring punctuation and casing to strings via ONNX Model `punctuation_fullstop_truecase_english`"
-  long: ''
+  short: >-
+    Node.js package that restores punctuation and casing to unpunctuated text
+    using the punctuation_fullstop_truecase_english ONNX model.
+  long: >-
+    Restores punctuation marks (periods, commas, question marks, etc.) and
+    handles casing. Supports batch processing of multiple texts and uses ONNX
+    runtime for inference. Models are automatically downloaded from Hugging Face
+    on first use and saved locally to the ./models directory.
 banner:
   src: ./punctuation-restore.jpg
   alt: punctuation-restore banner
@@ -38,6 +44,6 @@ lastCommit: '2025-01-27T21:04:32Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

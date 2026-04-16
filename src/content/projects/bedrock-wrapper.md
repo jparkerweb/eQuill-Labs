@@ -7,8 +7,13 @@ tagline: >-
   OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.
   Fol...
 description:
-  short: "\U0001FAA8 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs."
-  long: ''
+  short: >-
+    npm package that simplifies the integration of existing OpenAI-compatible
+    API objects with AWS Bedrock's serverless inference LLMs.
+  long: >-
+    Use with your existing OpenAI chat completions object and AWS credentials.
+    Alternatively use the Bedrock Proxy Endpoint project to spin up a custom
+    OpenAI server endpoint using standard baseUrl and apiKey params.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg
@@ -34,12 +39,12 @@ links:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   homepage: 'https://www.equilllabs.com/projects/bedrock-wrapper'
 featured: true
-sortOrder: 3
+sortOrder: 5
 status: active
 lastCommit: '2026-03-18T20:02:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

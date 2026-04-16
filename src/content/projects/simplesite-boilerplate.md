@@ -7,8 +7,8 @@ tagline: >-
   workflow with sass, autoprefix, js, webpack, browser-sync and cache busting
 description:
   short: >-
-    Simple Boilerplate Site -  Single Page, Owl Carousel, Smooth Scroll, Gulp
-    workflow with cache busting
+    Simple Boilerplate Site - Single Page, Owl Carousel, Smooth Scroll, Gulp
+    workflow with sass, autoprefix, webpack, browser-sync and cache busting.
   long: ''
 topics: []
 category: demo
@@ -32,6 +32,6 @@ lastCommit: '2015-04-13T16:17:50Z'
 _source:
   repo: 'https://github.com/jparkerweb/SimpleSite-Boilerplate'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

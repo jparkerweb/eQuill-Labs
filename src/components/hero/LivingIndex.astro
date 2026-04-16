@@ -65,7 +65,7 @@ function languageHue(lang: string | undefined): number {
             <li class="mini-card">
               <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
               <div class="mini-body">
-                <a href={`/projects/${p.slug}/`} class="mini-name">
+                <a href={`/projects/${p.id}/`} class="mini-name">
                   {p.data.name}
                 </a>
                 <p class="mini-meta">
@@ -89,7 +89,7 @@ function languageHue(lang: string | undefined): number {
           <li class="mini-card">
             <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
             <div class="mini-body">
-              <a href={`/projects/${p.slug}/`} class="mini-name">
+              <a href={`/projects/${p.id}/`} class="mini-name">
                 {p.data.name}
               </a>
               <p class="mini-meta">

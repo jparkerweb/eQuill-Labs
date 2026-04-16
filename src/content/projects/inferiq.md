@@ -4,8 +4,12 @@ name: InferIQ
 slug: inferiq
 tagline: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs
 description:
-  short: "\U0001F9E0 InferIQ is an LLM Evaluation framework that leverages LLMs to Evaluate other LLMs"
-  long: ''
+  short: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.
+  long: >-
+    NodeJS application designed to generate answers to questions using your
+    sample dataset. A group of Judge LLMs assesses and rates each response, with
+    results visualized in graphs. Metrics such as BERT Score and Inference Time
+    are also provided.
 banner:
   src: ./docs/home.png
   alt: InferIQ banner
@@ -31,6 +35,6 @@ lastCommit: '2024-10-31T23:03:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

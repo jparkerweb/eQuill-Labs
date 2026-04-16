@@ -7,9 +7,11 @@ tagline: >-
   using keyboard shortcuts.
 description:
   short: >-
-    ⌨ Select and delete forum posts from your subscription list on Board Game
-    Geek using keyboard shortcuts
-  long: ''
+    Select and delete forum posts from your subscription list on Board Game Geek
+    using keyboard shortcuts.
+  long: >-
+    Google Chrome extension. Extension hotkeys work on the forum Subscriptions
+    page and a forum Thread Page.
 topics: []
 category: demo
 theme: utilities
@@ -29,6 +31,6 @@ lastCommit: '2022-12-01T22:09:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

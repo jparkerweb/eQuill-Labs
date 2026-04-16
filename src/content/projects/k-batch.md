@@ -10,7 +10,11 @@ description:
   short: >-
     Intelligent text batching library that uses k-means clustering to group
     sentences by length for optimal processing.
-  long: ''
+  long: >-
+    Useful for NLP tasks, machine learning batch processing, and scenarios where
+    processing similar-length texts together improves efficiency. Uses k-means
+    clustering to group sentences into optimal batches based on length, while
+    ensuring each batch meets minimum size requirements.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/k-batch/refs/heads/main/.readme/k-batch.jpg
@@ -43,6 +47,6 @@ lastCommit: '2025-03-18T02:38:13Z'
 _source:
   repo: 'https://github.com/jparkerweb/k-batch'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

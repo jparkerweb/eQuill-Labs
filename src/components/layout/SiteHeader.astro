@@ -161,11 +161,23 @@ function isCurrent(href: string) {
 
   @media (max-width: 640px) {
     .shell {
-      padding: 10px 16px;
+      padding: 10px 12px;
+      gap: 8px;
     }
     .nav-link {
-      padding: 0 8px;
+      padding: 0 6px;
       font-size: 14px;
+    }
+    .primary-nav ul {
+      gap: 0;
+    }
+    .primary-nav {
+      gap: 4px;
+    }
+  }
+  @media (max-width: 420px) {
+    .wordmark-link {
+      display: none;
     }
   }
 </style>

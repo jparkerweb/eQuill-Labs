@@ -7,7 +7,7 @@
   --border: 35 40 56;              /* #232838 */
   --text-1: 232 236 244;           /* #E8ECF4 */
   --text-2: 184 192 206;           /* #B8C0CE */
-  --text-muted: 122 132 153;       /* #7A8499 */
+  --text-muted: 141 151 171;       /* #8D97AB — bumped for AA contrast on --surface-2 */
   --accent: 91 79 230;             /* #5B4FE6 */
   --accent-contrast: 232 236 244;  /* #E8ECF4 */
   --focus-ring: 0 212 255;         /* #00D4FF */

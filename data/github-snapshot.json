@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-14T04:20:41.743Z",
+  "fetchedAt": "2026-04-16T03:55:11.010Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,96 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2026-03-22T03:47:16Z",
+      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "forkCount": 0,
+      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "Ruby"
+            },
+            "size": 1516
+          },
+          {
+            "node": {
+              "name": "Makefile"
+            },
+            "size": 707
+          },
+          {
+            "node": {
+              "name": "Go"
+            },
+            "size": 388320
+          },
+          {
+            "node": {
+              "name": "PowerShell"
+            },
+            "size": 9700
+          },
+          {
+            "node": {
+              "name": "Shell"
+            },
+            "size": 12426
+          }
+        ],
+        "totalSize": 412669
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "shrinkray",
+      "primaryLanguage": {
+        "color": "#00ADD8",
+        "name": "Go"
+      },
+      "pushedAt": "2026-04-16T03:53:43Z",
+      "readme": {
+        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "topic": {
+              "name": "golang"
+            }
+          },
+          {
+            "topic": {
+              "name": "movie-processing"
+            }
+          },
+          {
+            "topic": {
+              "name": "shrink"
+            }
+          },
+          {
+            "topic": {
+              "name": "video-compression"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-04-16T03:53:47Z",
+      "url": "https://github.com/jparkerweb/shrinkray"
+    },
     {
       "createdAt": "2024-11-16T21:22:07Z",
       "description": "🖋️ eQuill Labs website and digital assets",
@@ -24,36 +114,48 @@
             "node": {
               "name": "JavaScript"
             },
-            "size": 26382
+            "size": 820
           },
           {
             "node": {
               "name": "CSS"
             },
-            "size": 44890
+            "size": 3807
           },
           {
             "node": {
               "name": "HTML"
             },
-            "size": 77900
+            "size": 2608
           },
           {
             "node": {
-              "name": "Handlebars"
+              "name": "Go Template"
             },
-            "size": 32608
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 41953
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 70774
           }
         ],
-        "totalSize": 181780
+        "totalSize": 120128
       },
       "licenseInfo": null,
       "name": "eQuill-Labs",
       "primaryLanguage": {
-        "color": "#e34c26",
-        "name": "HTML"
+        "color": "#ff5a03",
+        "name": "Astro"
       },
-      "pushedAt": "2026-04-14T03:53:26Z",
+      "pushedAt": "2026-04-15T04:13:38Z",
       "readme": {
         "text": "# eQuill Labs Website\n\nStatic website for eQuill Labs showcasing recent projects and tools.\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n## Development\n\nThe website uses a lightweight build system with Handlebars for templating and a dark mode design.\n\n### Project Structure\n\nSource files:\n```\nsrc/\n├── static/          # Static assets (CSS, JS, images)\n│   ├── css/        # Stylesheets\n│   ├── js/         # JavaScript files\n│   └── images/     # Image assets\n└── templates/       # Handlebars templates\n    ├── layouts/    # Layout templates (default, project)\n    ├── pages/      # Page content\n    └── partials/   # Reusable components (header, footer)\n```\n\nBuild output:\n```\npages/             # Production build output\n├── css/           # Processed stylesheets\n├── js/            # Processed scripts\n├── images/        # Optimized images\n├── index.html     # Homepage\n└── projects/      # Project pages\n    ├── project-xyz.html\n    ├── project-abc.html\n```\n\n### Setup\n\n1. Install dependencies:\n   ```bash\n   npm ci\n   ```\n\n2. Start development server:\n   ```bash\n   npm run watch\n   ```\n\n3. Build for production:\n   ```bash\n   npm run build\n   ```\n\n### Adding New Pages\n\n1. Create a new `.hbs` file in `src/templates/pages/`\n2. Add frontmatter:\n   ```yaml\n   ---\n   layout: default|project  # Use 'project' layout for project pages\n   title: Page Title\n   relative: ../           # Relative path to root from page location\n   ---\n   ```\n3. Add your page content using HTML and Handlebars syntax\n4. Run build command\n\n## Projects\n\n### Obsidian Plugins\n- Pixel Banner - Custom banner images for notes\n- Rich Foot - Enhanced note footers with backlinks and metadata\n\n### NPM Packages\n- Semantic Chunking - Text chunking for LLM processing\n- Chunk Match - Semantic text matching using cosine similarity\n- Bedrock Wrapper - OpenAI-compatible wrapper for AWS Bedrock\n\n### NodeJS Apps\n- Bedrock Proxy Endpoint - AWS Bedrock API proxy server\n- Web Augmented Generation - LLM responses with web search integration\n\n## Features\n- Responsive design with mobile navigation\n- Dark mode theme\n- Interactive project pages\n- Community links (Discord, GitHub)\n- Automatic build system\n"
       },
@@ -61,7 +163,7 @@
         "nodes": []
       },
       "stargazerCount": 1,
-      "updatedAt": "2026-04-14T03:53:32Z",
+      "updatedAt": "2026-04-15T04:13:47Z",
       "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
@@ -372,99 +474,9 @@
           }
         ]
       },
-      "stargazerCount": 96,
-      "updatedAt": "2026-04-08T18:45:58Z",
+      "stargazerCount": 97,
+      "updatedAt": "2026-04-14T13:28:45Z",
       "url": "https://github.com/jparkerweb/mcp-sqlite"
-    },
-    {
-      "createdAt": "2026-03-22T03:47:16Z",
-      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
-      "forkCount": 0,
-      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "Ruby"
-            },
-            "size": 1516
-          },
-          {
-            "node": {
-              "name": "Makefile"
-            },
-            "size": 707
-          },
-          {
-            "node": {
-              "name": "Go"
-            },
-            "size": 388320
-          },
-          {
-            "node": {
-              "name": "PowerShell"
-            },
-            "size": 9700
-          },
-          {
-            "node": {
-              "name": "Shell"
-            },
-            "size": 12426
-          }
-        ],
-        "totalSize": 412669
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "shrinkray",
-      "primaryLanguage": {
-        "color": "#00ADD8",
-        "name": "Go"
-      },
-      "pushedAt": "2026-04-01T04:29:06Z",
-      "readme": {
-        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n<img src=\"docs/shrinkray.jpg\" width=\"600\">\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ffmpeg"
-            }
-          },
-          {
-            "topic": {
-              "name": "golang"
-            }
-          },
-          {
-            "topic": {
-              "name": "movie-processing"
-            }
-          },
-          {
-            "topic": {
-              "name": "shrink"
-            }
-          },
-          {
-            "topic": {
-              "name": "video-compression"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-04-01T04:29:09Z",
-      "url": "https://github.com/jparkerweb/shrinkray"
     },
     {
       "createdAt": "2024-05-01T13:00:04Z",
@@ -729,7 +741,7 @@
       "isArchived": false,
       "isFork": false,
       "issues": {
-        "totalCount": 24
+        "totalCount": 25
       },
       "languages": {
         "edges": [

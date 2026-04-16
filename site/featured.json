@@ -1,10 +1,11 @@
 {
   "featured": [
-    "pixel-banner",
     "semantic-chunking",
+    "embedding-utils",
+    "fast-topic-analysis",
+    "pixel-banner",
     "mcp-sqlite",
     "bedrock-wrapper",
-    "fast-topic-analysis",
     "llm-distillery"
   ],
   "pinned": [],

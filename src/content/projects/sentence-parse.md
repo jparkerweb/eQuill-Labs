@@ -4,8 +4,12 @@ name: sentence-parse
 slug: sentence-parse
 tagline: A simple utility to parse text into sentences.
 description:
-  short: "\U0001F4C4 parse sentences from input text"
-  long: ''
+  short: A simple utility to parse text into sentences.
+  long: >-
+    Options include observing multiple line breaks as separate sentences,
+    removing specified start-of-line sequences, preserving HTML <br> and <p>
+    tags as line breaks, and preserving list items by adding a prefix to each
+    <li> element.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/sentence-parse/refs/heads/main/docs/sentence-parse.jpg
@@ -34,6 +38,6 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

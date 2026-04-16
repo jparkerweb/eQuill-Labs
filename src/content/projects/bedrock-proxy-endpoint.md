@@ -6,8 +6,14 @@ tagline: >-
   Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM
   text inference (using standard baseUrl, and apiKey params)
 description:
-  short: "\U0001F500 Bedrock Proxy Endpoint  ⇢ Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock inference (using standard baseUrl, and apiKey params)"
-  long: ''
+  short: >-
+    Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM
+    text inference.
+  long: >-
+    Uses standard baseUrl and apiKey params so you can keep the OpenAI API
+    client you are used to while proxying calls to Bedrock in a compatible way.
+    Great for getting existing OpenAI API compatible applications working with
+    AWS Bedrock.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg
@@ -47,6 +53,6 @@ lastCommit: '2026-03-19T23:44:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-proxy-endpoint'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

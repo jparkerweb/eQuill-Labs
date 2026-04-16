@@ -6,7 +6,9 @@ tagline: >-
   Chrome Extension for adding scene search links for tv episodes when viewing
   NzbDrone's show page
 description:
-  short: Chrome Extension for NzbDrone
+  short: >-
+    Chrome Extension for adding scene search links for tv episodes when viewing
+    NzbDrone's show page.
   long: ''
 topics: []
 category: demo
@@ -27,6 +29,6 @@ lastCommit: '2016-07-14T20:16:53Z'
 _source:
   repo: 'https://github.com/jparkerweb/NzbDrone_Xtender'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

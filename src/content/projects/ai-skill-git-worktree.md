@@ -6,8 +6,14 @@ tagline: >-
   Interactive installer for Git Worktree Management skill. Creates proper
   SKILL.md files following the Agent Skills standard.
 description:
-  short: ai skill to create/manage git worktrees
-  long: ''
+  short: >-
+    Interactive installer for Git Worktree Management skill, creating SKILL.md
+    files following the Agent Skills standard.
+  long: >-
+    Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline,
+    Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support
+    both project and global installation, with CLI options for non-interactive
+    install, global or project paths, and force overwrite.
 topics: []
 category: app
 theme: utilities
@@ -28,6 +34,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

@@ -7,8 +7,14 @@ tagline: >-
   map-reduce approach. This ensures that the text fits within a specified token
   limit,...
 description:
-  short: "\U0001F376 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met."
-  long: ''
+  short: >-
+    Use LLMs to distill large texts down to a manageable size by utilizing a
+    map-reduce approach.
+  long: >-
+    Reduces the size of text based on token count without losing the essence of
+    the content. Uses the semantic-chunking library to split text into
+    manageable chunks that are then summarized. Allows fine-tuning of parameters
+    like target token size, API base URL, and chunking thresholds.
 topics:
   - large-language-model
   - llm
@@ -36,12 +42,12 @@ links:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   homepage: 'https://www.npmjs.com/package/llm-distillery'
 featured: true
-sortOrder: 5
+sortOrder: 6
 status: active
 lastCommit: '2025-10-15T03:15:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

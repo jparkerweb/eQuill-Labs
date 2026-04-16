@@ -6,8 +6,13 @@ tagline: >-
   A NodeJS library that semantically chunks text and matches it against a user
   query using cosine similarity for precise and relevant text retrieval.
 description:
-  short: "\U0001F575️‍♂️ chunk-match is a NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval."
-  long: ''
+  short: >-
+    NodeJS library that semantically chunks text and matches it against a user
+    query using cosine similarity for text retrieval.
+  long: >-
+    Offers configurable similarity thresholds and chunk sizes, and returns
+    chunks sorted by relevance with similarity scores. Built on top of
+    semantic-chunking, with support for various ONNX embedding models.
 banner:
   src: /img/chunk-match_web-ui.gif
   alt: chunk-match banner
@@ -36,6 +41,6 @@ lastCommit: '2025-01-30T21:48:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

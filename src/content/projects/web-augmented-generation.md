@@ -6,8 +6,15 @@ tagline: >-
   This Node.js application performs web-augmented generation using various LLM
   providers and web search results from SearXNG.
 description:
-  short: "\U0001F310 Node.js app that performs web-augmented generation using SearXNG and any OpenAI API compatible LLM"
-  long: ''
+  short: >-
+    Node.js application that performs web-augmented generation using various LLM
+    providers and web search results from SearXNG.
+  long: >-
+    Rephrases user queries for optimal web searching, fetches and summarizes
+    content from search results, and generates responses via OpenAI-compatible
+    API calls. Supports streaming responses, content similarity checking, an
+    interactive CLI, and multiple LLM providers (Ollama, together.ai,
+    llama.cpp).
 banner:
   src: wag.jpg
   alt: web-augmented-generation banner
@@ -41,6 +48,6 @@ lastCommit: '2025-12-24T06:16:17Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

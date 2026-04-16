@@ -1,0 +1,6 @@
+{
+  "http://localhost:58837/": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1776227824208-96087.report.html",
+  "http://localhost:58837/projects/": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1776227824818-62695.report.html",
+  "http://localhost:58837/projects/semantic-chunking/": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1776227825549-78792.report.html",
+  "http://localhost:58837/about/": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1776227826073-86511.report.html"
+}

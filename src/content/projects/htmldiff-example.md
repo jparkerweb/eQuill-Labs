@@ -4,7 +4,7 @@ name: htmldiff-example
 slug: htmldiff-example
 tagline: htmldiff-example
 description:
-  short: ''
+  short: Example project to show htmldiff.js in the browser.
   long: ''
 banner:
   src: >-
@@ -31,6 +31,6 @@ lastCommit: '2014-10-31T20:34:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 

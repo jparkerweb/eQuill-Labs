@@ -6,8 +6,12 @@ tagline: >-
   A Node.js application that demonstrates how to get structured JSON responses
   from Ollama using Zod schemas.
 description:
-  short: "\U0001F97C test app to demonstrate Ollama's structured ouput feature"
-  long: ''
+  short: >-
+    Node.js application that demonstrates how to get structured JSON responses
+    from Ollama using Zod schemas.
+  long: >-
+    The example queries Ollama about Disney World and returns a structured
+    response containing name, city, attractions, rides, and fun facts.
 topics: []
 category: demo
 theme: utilities
@@ -25,6 +29,6 @@ lastCommit: '2024-12-18T19:19:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/ollama-structured-output-test'
   sha: HEAD
-  fetchedAt: '2026-04-14T04:20:41.743Z'
+  fetchedAt: '2026-04-16T03:55:11.010Z'
 ---
 
