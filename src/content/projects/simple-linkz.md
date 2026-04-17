@@ -43,6 +43,6 @@ lastCommit: '2026-03-06T16:20:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 Built with vanilla JavaScript, Node.js, and Tailwind CSS. Supports grid, list, or cards layout, password-hashed login with session management, dark/light themes, tag-based organization, drag and drop reordering, and JSON import/export. Includes Docker support, PWA install, rate limiting, and CSRF protection.

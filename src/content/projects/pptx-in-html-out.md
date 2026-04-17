@@ -34,6 +34,6 @@ lastCommit: '2024-12-27T01:28:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 High-fidelity conversion of PowerPoint presentations to HTML with OCR support for text extraction from images. Preserves images, shapes, and text formatting, and produces responsive output that works across devices. Modern ESM package.

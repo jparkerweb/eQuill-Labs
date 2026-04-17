@@ -7,15 +7,15 @@ tagline: >-
   Windows hosts file.
 description:
   short: >-
-    PowerShell script to block websites and domains by adding entries to your
+    A PowerShell script to block websites and domains by adding entries to your
     Windows hosts file.
   long: >-
-    Blocks access to specific websites or domains by redirecting them to 0.0.0.0
-    in your Windows hosts file. Features automatic administrator privilege
-    elevation, input validation and duplicate detection, optional backup
-    creation with timestamps, and DNS cache flushing after modification.
+    Redirects domains to 0.0.0.0 with automatic administrator privilege
+    elevation, input validation, duplicate detection, optional timestamped
+    backups, and DNS cache flushing after modification.
 banner:
-  src: ./.readme/add-block-to-hosts.jpg
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/add-block-to-hosts/main/.readme/add-block-to-hosts.jpg
   alt: add-block-to-hosts banner
   source: repo
 topics:
@@ -35,10 +35,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2025-09-13T19:52:48Z'
+lastCommit: '2026-04-17T16:06:31Z'
 _source:
   repo: 'https://github.com/jparkerweb/add-block-to-hosts'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Blocks access to specific websites or domains by redirecting them to 0.0.0.0 in your Windows hosts file. Features automatic administrator privilege elevation, input validation and duplicate detection, optional backup creation with timestamps, and DNS cache flushing after modification.
+Redirects domains to 0.0.0.0 with automatic administrator privilege elevation, input validation, duplicate detection, optional timestamped backups, and DNS cache flushing after modification.

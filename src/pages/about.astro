@@ -46,7 +46,8 @@ const timeline = [
 const links = [
   { icon: 'github', label: 'GitHub', href: 'https://github.com/jparkerweb', sub: 'github.com/jparkerweb' },
   { icon: 'globe', label: 'eQuill Labs', href: 'https://www.equilllabs.com', sub: 'equilllabs.com' },
-  { icon: 'mail', label: 'Email', href: 'mailto:hello@equilllabs.com', sub: 'hello@equilllabs.com' },
+  { icon: 'discord', label: 'Discord', href: 'https://discord.gg/sp8AQQhMJ7', sub: 'Join our community' },
+  { icon: 'mail', label: 'Email', href: 'mailto:equilllabs@gmail.com', sub: 'equilllabs@gmail.com' },
 ];
 ---
 
@@ -212,6 +213,7 @@ const links = [
             <span class="link-icon" aria-hidden="true">
               {link.icon === 'github' && <Github size={20} />}
               {link.icon === 'globe' && <Globe size={20} />}
+              {link.icon === 'discord' && <img src="/brand/discord.svg" alt="" width="20" height="20" />}
               {link.icon === 'mail' && <Mail size={20} />}
             </span>
             <span class="link-label">{link.label}</span>

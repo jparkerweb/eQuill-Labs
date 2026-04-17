@@ -2,13 +2,13 @@
 id: htmldiff-example
 name: htmldiff-example
 slug: htmldiff-example
-tagline: htmldiff-example
+tagline: This is an example project to show htmldiff.js in the browser.
 description:
-  short: Example project to show htmldiff.js in the browser.
+  short: An example project to show htmldiff.js in the browser.
   long: ''
 banner:
   src: >-
-    https://raw.githubusercontent.com/jparkerweb/htmldiff-example/gh-pages/img/example.png
+    https://github.com/jparkerweb/htmldiff-example/blob/master/htmldiff.jpg?raw=true
   alt: htmldiff-example banner
   source: repo
 topics: []
@@ -17,20 +17,21 @@ theme: utilities
 primaryLanguage: JavaScript
 languages:
   - name: JavaScript
-    percent: 72.96
-  - name: CSS
-    percent: 27.04
+    percent: 52.47
+  - name: HTML
+    percent: 28.07
+  - name: SCSS
+    percent: 19.45
 stars: 4
 links:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
-  demo: 'http://jparkerweb.github.io/htmldiff-example/index.html'
 featured: false
 sortOrder: 996
 status: active
-lastCommit: '2014-10-31T20:34:57Z'
+lastCommit: '2026-04-17T15:12:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 

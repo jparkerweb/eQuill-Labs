@@ -1,50 +1,51 @@
 {
   "changeSet": {
     "added": [
-      "equill-labs",
+      "splitter-vs-splitter",
+      "ollama-structured-output-test",
+      "inferiq",
+      "random-pexels-image",
+      "obsidian-image-from-field",
+      "punctuation-restore",
+      "add-block-to-hosts",
+      "indigestion",
+      "trim-style",
+      "chunk-match",
+      "htmldiff-example",
+      "pixel-banner",
       "semantic-chunking",
+      "equill-labs",
+      "web-augmented-generation",
+      "llm-distillery",
       "fast-topic-analysis",
-      "embedding-utils",
-      "mcp-sqlite",
-      "shrinkray",
+      "extract-topics",
       "bedrock-proxy-endpoint",
       "bedrock-wrapper",
+      "shrinkray",
+      "embedding-utils",
+      "mcp-sqlite",
       "ps-win-dir-size",
-      "pixel-banner",
       "simple-linkz",
       "ai-skill-git-worktree",
       "rich-foot",
-      "web-augmented-generation",
       "clip-to-file",
       "print-mark",
       "ai-assistant-prompts",
-      "llm-distillery",
       "clip-expand",
-      "trim-style",
-      "add-block-to-hosts",
       "ref",
       "clover-quilt-designer",
-      "extract-topics",
       "random",
       "release-notes",
       "k-batch",
-      "splitter-vs-splitter",
-      "chunk-match",
       "sentence-parse",
-      "punctuation-restore",
       "down-craft",
       "pptx-in-html-out",
-      "random-pexels-image",
-      "ollama-structured-output-test",
       "embedding-forge",
       "jparkerweb",
       "speculative-decoding",
-      "inferiq",
       "wdw-adr-checker",
       "caps-left-right",
-      "indigestion",
       "obsidian-bullet-cards",
-      "obsidian-image-from-field",
       "obsidian-element-enhancer",
       "queue-tha-llama",
       "simply-dark",
@@ -58,8 +59,7 @@
       "card-generator-sob",
       "low-voltage-generator",
       "nzbdrone-xtender",
-      "simplesite-boilerplate",
-      "htmldiff-example"
+      "simplesite-boilerplate"
     ],
     "modified": [],
     "removed": [
@@ -120,54 +120,359 @@
     ],
     "unchangedCount": 0
   },
-  "generatedAt": "2026-04-16T03:21:16.934Z",
+  "generatedAt": "2026-04-17T16:29:59.402Z",
   "missingFromCache": [],
-  "requests": [],
+  "requests": [
+    {
+      "contentHash": "0d9b63a90c2ec076837fc44d0068056e57a8e92c3a302d55d8d7394698fcff78",
+      "description": "🪓 simple app to pit two sentence splitters against one another to understand their differences",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🪓 Splitter vs Splitter\n\n<img src=\"https://github.com/jparkerweb/splitter-vs-splitter/blob/main/splitter-vs-splitter.jpg?raw=true\" alt=\"banner\">\n\nA web-based tool to compare different sentence splitting libraries side by side. Currently compares:\n- [@stdlib/nlp-sentencize](https://www.npmjs.com/package/@stdlib/nlp-sentencize)\n- [sentence-parse](https://www.npmjs.com/package/sentence-parse)\n\n## Features\n- Real-time sentence splitting comparison\n- Visual color-coding of sentences for easy comparison\n- Sentence count display\n- Responsive design\n- Keyboard shortcuts (Ctrl + Enter to split)\n\n## Tech Stack\n- Express.js backend\n- Vanilla JavaScript frontend\n- CSS3 with Flexbox\n- No external UI libraries or frameworks\n\n## Getting Started\n\n### Prerequisites\n- Node.js (v14 or higher)\n- npm (v6 or higher)\n\n### Installation\n1. Clone the repository:\n```bash\ngit clone https://github.com/yourusername/splitter-vs-splitter.git\ncd splitter-vs-splitter\n```\n\n2. Install dependencies:\n```bash\nnpm install\n```\n\n3. Create a `.env` file with the following (edit the port as needed):\n```bash\ncp .env.example .env\n```\n\n### Development\nRun the development server with auto-reload:\n```bash\nnpm run dev\n```\n\n### Production\nRun the production server:\n```bash\nnpm start\n```\n\n## Usage\n1. Enter or paste your text in the input area\n2. Click \"Process Text\" or press Ctrl + Enter\n3. Compare the results from both libraries side by side\n4. Each sentence is highlighted with a matching color in both outputs for easy comparison\n\n## Example\n![Example](./docs/example.png)\n",
+      "slug": "splitter-vs-splitter",
+      "topics": [
+        "comparer",
+        "npm",
+        "sentence-splitting"
+      ]
+    },
+    {
+      "contentHash": "b5f5ce8344efc1149671d191cb46ee8530ce23a9ed06c8691f0be9133b4d2632",
+      "description": "🥼 test app to demonstrate Ollama's structured ouput feature",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🥼 Ollama Structured Output Test\r\n\r\nA Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.\r\n\r\n<img src=\"https://github.com/jparkerweb/ollama-structured-output-test/blob/main/ollama-structured-output-test.jpg?raw=true\" alt=\"banner\">\r\n\r\n## Prerequisites\r\n\r\n- Node.js 18+\r\n- [Ollama](https://ollama.ai/) running locally or remotely\r\n- Ollama model installed (e.g. `llama3.2:1b`)\r\n  - `ollama pull llama3.2:1b`\r\n\r\n## Setup\r\n\r\n1. Clone the repository\r\n2. Install dependencies: \r\n\r\n```bash\r\nnpm ci\r\n```\r\n\r\n3. Update the `.env` file in the root directory with your Ollama host and model:\r\n\r\n```env\r\nOLLAMA_HOST=http://localhost:11434  # Or your Ollama host\r\nOLLAMA_MODEL=llama3.2:1b            # Or your preferred model\r\n```\r\n\r\n## Usage\r\n\r\nRun the application:\r\n```bash\r\nnpm start\r\n```\r\n\r\nThe example queries Ollama about Disney World and returns a structured response containing:\r\n- Name\r\n- City\r\n- Attractions\r\n- Rides\r\n- Fun facts\r\n\r\n### Example Output\r\n\r\n```json\r\n{\r\n  \"name\": \"Disney World\",\r\n  \"city\": \"Orlando, FL\",\r\n  \"attractions\": [\"Magic Kingdom\", \"EPCOT\", \"Hollywood Studios\", \"Animal Kingdom\"],\r\n  \"rides\": [\"Space Mountain\", \"Test Track\", \"Avatar Flight of Passage\", \"Kilimanjaro Safaris\"],\r\n  \"fun_facts\": [\"Disney World is the most visited theme park in the world.\", \"The Magic Kingdom is the most popular park at Disney World.\"]\r\n}\r\n```\r\n\r\n## Dependencies\r\n\r\n- [ollama](https://github.com/ollama/ollama-js) - Ollama JavaScript client\r\n- [zod](https://github.com/colinhacks/zod) - TypeScript-first schema validation\r\n- [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema) - Converts Zod schemas to JSON Schema\r\n- [dotenv](https://github.com/motdotla/dotenv) - Environment variable management\r\n\r\n## License\r\n\r\nMIT\r\n\r\n\r\n",
+      "slug": "ollama-structured-output-test",
+      "topics": []
+    },
+    {
+      "contentHash": "111d6362e4f622de5b5872bbf5fd0c0b3fb0084ae034f65df307696f666a9b84",
+      "description": "🧠 InferIQ is an LLM Evaluation framework that leverages LLMs to Evaluate other LLMs",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🧠 InferIQ\r\nLLM Evaluation framework that leverages LLMs to Evaluate other LLMs\r\n\r\n<img src=\"https://github.com/jparkerweb/InferIQ/blob/main/InferIQ.jpg?raw=true\" alt=\"banner\">\r\n\r\n## Description\r\nInferIQ is a NodeJS application designed to generate answers to questions using your sample dataset. After answering all dataset questions across the selected LLMs in your evaluation pool, a group of Judge LLMs will assess and rate each response. The results are then visualized in several graphs, providing a clearer picture of the overall accuracy of the LLMs. Additionally, metrics such as BERT Score and Inference Time are provided to further enhance your understanding of each LLM's performance.\r\n\r\n---\r\n\r\n## Setup\r\n\r\n- run the npm setup script:  \r\n    `npm run setup`\r\n\r\n---\r\n\r\n## Run\r\n\r\n- start the application:\r\n  `npm run server` or `npm start`\r\n\r\n---\r\n\r\n![home](./docs/home.png)\r\n\r\n---\r\n\r\nPlease consider sending me a tip to support my work 😀\r\n# [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n",
+      "slug": "inferiq",
+      "topics": []
+    },
+    {
+      "contentHash": "e027de31b325b3779bd6976eca66bdd1b734212307273d162524ab166aeacc8b",
+      "description": "🖼️ Simple Node.js app that provides an endpoint to search Pexels and return a randomly selected image.",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🎰 Random Pexels Image\r\n\r\nSimple Node.js application that provides an endpoint to search Pexels and return a randomly selected image. It allows hotlinking images by directly returning the image data.\r\n\r\n<img src=\"https://github.com/jparkerweb/random-pexels-image/blob/master/random-pexels-image.jpg?raw=true\" alt=\"banner\">\r\n\r\n## Use Case\r\n\r\nThis API is designed to fetch images from the Pexels API based on specified query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used. This API can be useful for web applications or services that need to dynamically fetch and display images from Pexels without storing them locally.\r\n\r\n## Prerequisites\r\n\r\n- Node.js installed on your machine\r\n- Pexels API key (You can get it by signing up on [Pexels](https://www.pexels.com/api/))\r\n\r\n## Installation\r\n\r\n1. Clone the repository\r\n    ```bash\r\n    git clone https://github.com/jparkerweb/pexels-image-search-api.git\r\n    cd pexels-image-search-api\r\n    ```\r\n\r\n2. Install the dependencies\r\n    ```bash\r\n    npm install\r\n    ```\r\n\r\n3. Create a `.env` file in the root directory and add your Pexels API key and server port\r\n    ```plaintext\r\n    PEXELS_API_KEY=your_pexels_api_key\r\n\tPORT=8000\r\n    ```\r\n\r\n4. Optionally adjust the `random-words.json` file with random words if a keyword is not submited with each search request\r\n\r\n## Usage\r\n\r\n1. Start the server\r\n    ```bash\r\n    npm start\r\n    ```\r\n\r\n2. Make a GET request to the `/search-image` endpoint with the following query parameters:\r\n    - `apikey` (optional): Your Pexels API key. If not provided, the key from the `.env` file will be used.\r\n    - `size` (optional): The size of the image (e.g., `large`, `medium`, `small`). Defaults to `small`.\r\n    - `keyword` (optional): The search keyword. If not provided, a random keyword will be selected from the `random-words.json` array.\r\n    - `orientation` (optional): The orientation of the image (e.g., `landscape`, `por",
+      "slug": "random-pexels-image",
+      "topics": []
+    },
+    {
+      "contentHash": "760780bc1ea3b566cd54ed9ff63bca1b780791db6623679e59462e79f45372a9",
+      "description": "🌅 Obsidian Image From Field ⇢ DataviewJS Script to render a Markdown image using filed data for the source",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🌅 Obsidian Image From Field\n_DataviewJS Script to render a Markdown image in Reading View using a local field for the source_\n\n<img src=\"https://github.com/jparkerweb/obsidian-image-from-field/blob/main/obsidian-image-from-field.jpg?raw=true\" alt=\"banner\">\n\nI often include an image URL for a note in my frontmatter or inline field. This allows me to render it using `dataview` queries in other notes. This is handy, but sometimes I also want that image to be displayed on its note as well. I could easily just embedd the image as well as having it in a field, but this creates duplication, and is harder to maintain if the URL needs to be updated. This `dataviewjs` script will read the URL from your supplied field and reder the image using that source. Additionally, there are some quality of life improvements as it also accepts size and alignment values.\n\n## Instalation\n1. Install the `Dataview` plugin and enable `JavaScript Queries`\n  ![dataview](docs/dataview.png)\n2. copy the [scripts/obsidian-image-from-field](./scripts/obsidian-image-from-field) folder to your Obsidian vault (suggested to save it to a \"./scripts\" folder).\n\n## Usage\n- Use the following in your note where you want the image to be displayed:\n\n    ```javascript\n    `$= await dv.view(\"scripts/obsidian-image-from-field\", [\"<size>\", \"<alignment>\", \"<field>\"])`\n    ```\n\n    - `size` ⇢ number (eg: 250, 300, 825, etc.)\n    - `alignment` ⇢ `left`, `float-left`, `float-left-with-margin`, `center`, `right`, `float-right`, `float-right-with-margin`\n    - `field` ⇢ name of field that holds the image source url (can be inline or frontmatter field)\n\n<br>\n\n---\n\n<br>\n\n## Example\n\n  ![example](docs/example.png)\n\n---\n\n_note: live preview is not supported_\n\n---\n\n### My Obsidian GitHub Projects\n\n- 🚩 [Obsidian Pexels Banner](https://github.com/jparkerweb/pexels-banner)\n- 🦶 [Obsidian Rich Foot](https://github.com/jparkerweb/rich-foot)\n- 🌅 [Obsidian Image From Field](https://github.com/jparkerweb/obsidian-image-from-field",
+      "slug": "obsidian-image-from-field",
+      "topics": []
+    },
+    {
+      "contentHash": "168174b4fa8d8f0b3d869011ad56bf072b15186f2e35b2a8fcb0f88b2f61a60e",
+      "description": "🧑‍🏭 Node.js package for restoring punctuation and casing to strings via ONNX Model `punctuation_fullstop_truecase_english`",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🧑‍🏭 Punctuation Restore\n\nA Node.js package that restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model:\nhttps://huggingface.co/1-800-BAD-CODE/punctuation_fullstop_truecase_english\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/punctuation-restore/main/punctuation-restore.jpg\" alt=\"banner\">\n\n## Features\n\n- Restores punctuation marks (periods, commas, question marks, etc.)\n- Handles casing\n- Supports batch processing of multiple texts\n- Uses efficient ONNX runtime for inference\n- Automatically downloads required models\n\n### _Notes_\n- Models are automatically downloaded from Hugging Face on first use and saved locally to the `./models` directory for future use.\n- Punctuation correction isn't perfect, but it's good enough for most use cases (use with caution).\n\n\n## Installation\n\n```bash\nnpm install punctuation-restore\n```\n\n## Quick Start\n\n```javascript\nimport PunctuationRestorer from 'punctuation-restore';\n\nconst restorer = new PunctuationRestorer();\n\nconst texts = [\n  \"this is a string without any punctuation or casing yesterday i went to disneyworld and had a great time\",\n  \"washing your dog once a month is important nothing quite beats a walk on the beach\"\n];\n\nconst results = await restorer.restore(texts);\nconsole.log(results);\n```\n\n## API Reference\n\n### `PunctuationRestorer`\n\nThe main class for handling punctuation restoration.\n\n#### Methods\n\n- `async restore(texts: string[]): Promise<string[]>`\n  - Takes an array of unpunctuated texts\n  - Returns an array of punctuated and cased sentences\n  - Automatically handles model initialization and cleanup\n\n- `async cleanup()`\n  - Manually release ONNX session resources\n  - Called automatically after `restore()`, but can be called explicitly if needed\n\n### Model Architecture\n\nThe package uses two main models:\n- `model.onnx`: Main ONNX model for punctuation and casing prediction\n- `tokenizer.model`: Tokenizer model for text preprocessing\n\nModels are autom",
+      "slug": "punctuation-restore",
+      "topics": [
+        "nlp",
+        "nodejs",
+        "onnx",
+        "onnxruntime",
+        "punctuation",
+        "punctuation-restoration",
+        "text-processing"
+      ]
+    },
+    {
+      "contentHash": "b8765e655b75a0c728130f9229cfa14a3473833b234164f57673e522baaeaee6",
+      "description": "🚫 pwsh script to add a blocked address to your Windows hosts file",
+      "primaryLanguage": "PowerShell",
+      "readmeExcerpt": "# 🚫 add-block-to-hosts\nA PowerShell script to block websites and domains by adding entries to your Windows hosts file.\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/add-block-to-hosts/main/.readme/add-block-to-hosts.jpg\" alt=\"banner\" style=\"max-width: 600px;\">\n\n## What it does\n\nThis script allows you to quickly block access to specific websites or domains by redirecting them to `0.0.0.0` in your Windows hosts file. Perfect for blocking distracting websites, malicious domains, or testing purposes.\n\n## Features\n\n- ✅ Automatic administrator privilege elevation\n- ✅ Input validation and duplicate detection\n- ✅ Optional backup creation with timestamps\n- ✅ DNS cache flushing after modification\n- ✅ User-friendly prompts and colored output\n- ✅ Error handling for common issues\n\n## Usage\n\n1. Run the script:\n   ```powershell\n   .\\add-block-to-hosts.ps1\n   ```\n\n2. The script will automatically request administrator privileges if needed\n\n3. Enter the address you want to block when prompted:\n   ```\n   Enter the address to block: example.com\n   ```\n\n4. Choose whether to create a backup of your hosts file:\n   ```\n   Create backup of hosts file? (y/N): y\n   ```\n\n5. The script will add the entry and flush your DNS cache\n\n## Requirements\n\n- Windows operating system\n- PowerShell (any version)\n- Administrator privileges (automatically requested)\n\n## What gets added\n\nThe script adds entries in this format to your hosts file:\n```\n0.0.0.0 example.com\n```\n\nThis redirects any requests to the specified domain to the null route (0.0.0.0), effectively blocking access.\n\n## Safety features\n\n- **Duplicate prevention**: Checks if the address is already blocked\n- **File locking detection**: Waits for locked files and prevents \"file in use\" errors\n- **Atomic write operations**: Uses temporary files to prevent corruption during write operations\n- **Multi-level validation**: Validates file integrity, size, and content before and after modifications\n- **Automatic rollback**: Restores from emer",
+      "slug": "add-block-to-hosts",
+      "topics": [
+        "block",
+        "hostsfile",
+        "network",
+        "powershell"
+      ]
+    },
+    {
+      "contentHash": "b4bcf1236aad7e07639ea5df2dcbcc63672569c7ab1fc93604913985f7857d80",
+      "description": "🔥 CLI interface for creating and sending test emails to be used in terst automation",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "### ***🔥 Create and Send Emails for test automation***\r\n\r\n<img src=\"https://github.com/jparkerweb/indigestion/raw/master/docs/indigestion.png\" alt=\"banner\">\r\n\r\n---\r\n\r\n## Goal\r\n**Indigestion**'s goal is to provide a CLI that allows users a quick and easy method for creating and sending `test emails` in various test automation environments.\r\n\r\n---\r\n\r\n## Installation\r\n**Indigestion** runs in [Node](https://nodejs.org).\r\n\r\n* Install [NodeJS](https://nodejs.org)\r\n\r\n* Install Indigestion node_module dependencies:\r\n  `npm install`\r\n\r\n---\r\n\r\n## Run Indigestion\r\n* `npm run indigestion`\r\n* or `node app`\r\n* or `bash indigestion.sh`\r\n* or `indigestion.cmd` (windows)\r\n\r\n#### Send All Emails from command line\r\nrequires you to have a pre-configured `userconfig.json` (run indigestion once without this option to create it)\r\n- Pass the `--email` option to `node app` to send emails without using the UI.\r\n- Run one of the following:  \r\n  - `node app --email`\r\n  - `npm run indigestion-email`\r\n  - `bash indigestion-email.sh`\r\n  - `indigestion-email.cmd` (windows)\r\n\r\n---\r\n\r\n## Initial Configuration\r\n\r\n`Indigestion` creates a `userconfig.json` file the first time it is run.  This file holds your SMTP server and authentication values for sending test emails.  The UI will walk you through setting up the initial values, and you can also choose to update it at any time.  This is your personal `userconfig` file as it holds your authentication to the sending SMTP server (it is in the `.gitignore` and should never to added to `git`)\r\n\r\n---\r\n\r\n## UI Menu Options\r\n\r\n![Indigestion](./docs/command-send-all-test-emails.png)\r\n* Loops through all email `.json` files in the `./emails` directory and attempts to send them using your SMTP server and authentication values stored in 'userconfig.json`.\r\n\r\n![Indigestion](./docs/command-create-new-email-file.png)\r\n  * Creates a new email `.json` file and stores it in the `./emails` folder.  The UI will prompt you for all possible email field values (`from`, `to",
+      "slug": "indigestion",
+      "topics": []
+    },
+    {
+      "contentHash": "27bdfcec2d9af09ec2867b555ea7ec18e54925640d2691fa983fa833084a9aec",
+      "description": "✂️ Simple web app for extracting only the essential styles from raw style properties",
+      "primaryLanguage": "CSS",
+      "readmeExcerpt": "# trim-style\n✂️ Simple web app for extracting only the essential styles from raw style properties\n\n<img src=\"https://github.com/jparkerweb/trim-style/blob/main/time-style.jpg?raw=true\" alt=\"banner\">\n\n## About\nA lightweight tool that helps you clean and format CSS properties copied from browser dev tools. Simply right-click an element in Chrome's dev tools, select \"Copy CSS\", and paste it here to get clean, formatted CSS properties.\n\n## Features\n- Removes unnecessary class wrappers\n- Formats CSS properties consistently\n- Handles CSS variables\n- Preserves hex colors and complex values\n- Beautiful floating triangles animation in the background\n- One-click copy to clipboard\n- Instant page reload to clear input\n\n## Usage\n1. Open Chrome dev tools (F12)\n2. Right-click any element\n3. Click \"Copy CSS\"\n4. Paste into trim-style\n5. Get clean CSS properties!\n\n![trim-style](img/trim-style.gif)\n\n<a href=\"https://trim-style.equilllabs.com/\" data-tag=\"demo\">DEMO</a>\n",
+      "slug": "trim-style",
+      "topics": []
+    },
+    {
+      "contentHash": "0ea0830b9b17bcba9d3dd2fd8724eaaedd5f9209885f528f218f98bc97c904c9",
+      "description": "🕵️‍♂️ chunk-match is a NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval.",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🕵️‍♂️ chunk-match\n\n<img src=\"https://github.com/jparkerweb/chunk-match/blob/main/chunk-match.jpg?raw=true\" alt=\"banner\">\n\nA NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n## Features\n\n- Semantic text chunking with configurable options\n- Query matching using cosine similarity\n- Configurable similarity thresholds and chunk sizes\n- Returns chunks sorted by relevance with similarity scores\n- Built on top of semantic-chunking for robust text processing\n- Support for various ONNX embedding models\n\n## Installation\n\n```bash\nnpm install chunk-match\n```\n\n## Usage\n\n```javascript\nimport { matchChunks } from 'chunk-match';\n\nconst documents = [\n    {\n        document_name: \"doc1.txt\",\n        document_text: \"Your document text here...\"\n    },\n    {\n        document_name: \"doc2.txt\",\n        document_text: \"Another document text...\"\n    }\n];\n\nconst query = \"What are the key points?\";\n\nconst options = {\n    maxResults: 5,\n    minSimilarity: 0.5,\n    chunkingOptions: {\n        maxTokenSize: 500,\n        similarityThreshold: 0.5,\n        dynamicThresholdLowerBound: 0.4,\n        dynamicThresholdUpperBound: 0.8,\n        numSimilaritySentencesLookahead: 3,\n        combineChunks: true,\n        combineChunksSimilarityThreshold: 0.8,\n        onnxEmbeddingModel: \"nomic-ai/nomic-embed-text-v1.5\",\n        dtype: 'q8',\n        chunkPrefixDocument: \"search_document\",\n        chunkPrefixQuery: \"search_query\"\n    }\n};\n\nconst results = await matchChunks(documents, query, options);\nconsole.log(results);\n```\n\n## API\n\n### matchChunks(documents, query, options)\n\n#### Parameters\n\n- `documents` **required** (Array): Array of document objects with properties:\n  - `document_name",
+      "slug": "chunk-match",
+      "topics": []
+    },
+    {
+      "contentHash": "18be21b95b6365247fbaa3d368079454c6852c97677eec69a6407315926e693e",
+      "description": "",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# htmldiff-example\n\n<img src=\"https://github.com/jparkerweb/htmldiff-example/blob/master/htmldiff.jpg?raw=true\" alt=\"banner\">\n\nThis is an example project to show `htmldiff.js` in the browser.\n\n<a href=\"http://jparkerweb.github.io/htmldiff-example/index.html\" data-tag=\"demo\">DEMO</a>\n\n![](https://raw.githubusercontent.com/jparkerweb/htmldiff-example/gh-pages/img/example.png)\n",
+      "slug": "htmldiff-example",
+      "topics": []
+    },
+    {
+      "contentHash": "dc85e7c92ef4cbe4b4eeb9a6fe5e8987486eabd497473a1e677473b0cde9dbe7",
+      "description": "🚩 Enhance your Obsidian notes with customizable banner images, including AI-generated designs and a curated store of downloadable banners. Transform your workspace with visually stunning headers that add context, improve aesthetics, and take your note-taking beyond the ordinary.",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🚩 Pixel Banner for Obsidian\n\nPixel Banner is a powerful Obsidian plugin that transforms your notes with customizable banner images, creating visually stunning headers that enhance your knowledge workspace. Go beyond simple note-taking with banners that provide visual context and improved aesthetics.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/pixel-banner/main/img/pixel-banner.jpg\" alt=\"banner\">\n\n## Key Features\n\n### ✨ Smart Banner Creation\n- **AI-Generated Banners**: Create stunning, custom banners using AI generation without design skills.\n- **Banner Collection**: Browse and use professional banner images and videos from the integrated Pixel Banner Plus Collection, including many free options.\n- **3rd Party APIs**: Connect to Pexels, Pixabay, Flickr, and Unsplash to automatically fetch banner images based on keywords.\n- **Local Image Support**: Use images from your vault as banners with advanced customization options.\n- **External File Support**: Reference images outside your vault using the `file:///` protocol (e.g., `file:///C:\\Images\\banner.jpg` on Windows or `file:///Users/username/Images/banner.jpg` on macOS/Linux).\n- **Video Banner Support**: Add dynamic MP4 and MOV videos from your vault as animated banners, with full download support from the Pixel Banner Plus Collection.\n- **Direct URL Banners**: Apply banners from any web URL for maximum flexibility.\n- **Note Properties Integration**: Control all banner aspects through Obsidian's `properties` feature.\n\n### 🎨 Visual Customization\n- **Position Control**: Fine-tune banner placement with precise vertical and horizontal positioning for perfect alignment.\n- **Appearance Options**: Customize transparency, border radius, animation effects, and spacing for seamless integration",
+      "slug": "pixel-banner",
+      "topics": [
+        "obsidian",
+        "pexels-api",
+        "plugin",
+        "banner",
+        "banner-image",
+        "pixabay-api"
+      ]
+    },
+    {
+      "contentHash": "e20adcbb0e6596e5a5dd9c5984a546beead0b3259590a29c5ca4309699c14890",
+      "description": "🍱 semantic-chunking ⇢ semantically create chunks from large document for passing to LLM workflows",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🍱 semantic-chunking\n\n<img src=\"https://github.com/jparkerweb/semantic-chunking/blob/main/semantic-chunking.jpg?raw=true\" alt=\"banner\">\n\nNPM Package for Semantically creating chunks from large texts. Useful for workflows involving large language models (LLMs).\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"32\">\n</a>\n\n## Features\n\n- Semantic chunking based on sentence similarity\n- Dynamic similarity thresholds\n- Configurable chunk sizes\n- Multiple embedding model options\n- Quantized model support\n- Chunk prefix support for RAG workflows\n- Web UI for experimenting with settings\n\n## Semantic Chunking Workflow\n_how it works_\n\n1. **Sentence Splitting**: The input text is split into an array of sentences.\n2. **Embedding Generation**: A vector is created for each sentence using the specified ONNX model.\n3. **Similarity Calculation**: Cosine similarity scores are calculated for each sentence pair.\n4. **Chunk Formation**: Sentences are grouped into chunks based on the similarity threshold and max token size.\n5. **Chunk Rebalancing**: Optionally, similar adjacent chunks are combined into larger ones up to the max token size.\n6. **Output**: The final chunks are returned as an array of objects, each containing the properties described above.\n\n#### Online Demo ⇢ <a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">https://semantic-chunking.equilllabs.com</a>\n\n## Installation\n\n```bash\nnpm install semantic-chunking\n```\n\n## Docker Usage\n\nThe easiest way to run semantic-chunking is using Docker Compose:\n\n### Docker Compose (Recommended)\n\n```bash\n# Start the Web UI server\nnpm run docker:compose:up\n\n# Access the Web UI at http://localhost:3000\n\n# Stop the server\nnpm run docker:compose:down\n```\n\nThe `docker-compose.yml` configuration includes:\n- Port mapping: `3000:3000` for the Web UI\n- Volume mapping: `./mod",
+      "slug": "semantic-chunking",
+      "topics": [
+        "chunking",
+        "embeddings",
+        "llm",
+        "semantic-chunking",
+        "text-chunking",
+        "text-splitter",
+        "text-splitting",
+        "vector"
+      ]
+    },
+    {
+      "contentHash": "61b7941d3a08cefabeda3e4d4ddd918414c8482341a1c460765fa3b62cbe09fe",
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "primaryLanguage": "HTML",
+      "readmeExcerpt": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # ",
+      "slug": "equill-labs",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "ecd8ece9edb8e70672fda48f4c938a0bb1cc995fb6bfa67d9281ff3a322eaf73",
+      "description": "🌐 Node.js app that performs web-augmented generation using SearXNG and any OpenAI API compatible LLM",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🌐 Web-Augmented Generation\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/web-augmented-generation/refs/heads/main/web-augmented-generation.jpg\" alt=\"banner\">\n\nThis Node.js application performs web-augmented generation using various LLM providers and web search results from SearXNG.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n## Features\n\n- Rephrases user queries for optimal web searching\n- Searches the web using SearXNG\n- Fetches and summarizes content from search results\n- Generates responses using various LLM providers via OpenAI-compatible API calls\n- Supports streaming responses for real-time output\n- Logs detailed information about the process\n- Implements content similarity checking and repetition detection\n- Features an interactive CLI\n- Includes comprehensive error handling and logging\n- Supports multiple LLM providers (Ollama, together.ai, llama.cpp)\n\n![screenshot](wag.jpg)\n\n## Prerequisites\n\n- Node.js (version 16 or higher)\n- npm (Node Package Manager)\n- LLM provider running locally or remotely (or any LLM Inference Service that is compatible with OpenAI API calls)\n- Access to a SearXNG instance\n\n## Setup\n\n1. Clone the repository:\n   ```\n   git clone https://github.com/jparkerweb/web-augmented-generation.git\n   cd web-augmented-generation\n   ```\n\n2. Install dependencies:\n   ```\n   npm ci\n   ```\n\n3. Copy the `.env.example` file to `.env`:\n   ```\n   cp .env.example .env\n   ```\n\n4. Edit the `.env` file and update the values as needed:\n\n```env\n######################\n## General Settings ##\n######################\nNUM_URLS=10                                                           # Number of URLs to fetch\nSEARXNG_URL=https://searx.be/                                         # URL of the SearXNG server\nSEARXNG_URL_EXTRA_PARAMETER=\"key=optional_auth_key_here&languag",
+      "slug": "web-augmented-generation",
+      "topics": [
+        "genai",
+        "llm",
+        "search",
+        "searxng",
+        "web-augmentation"
+      ]
+    },
+    {
+      "contentHash": "c4435b639b60916043f73aa365b81b3873e0b5a4e0937addd504f661e2a54eec",
+      "description": "🍶 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met.",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🍶 LLM Distillery\r\n\r\n<img src=\"https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg\" alt=\"banner\">\r\n\r\nUse LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach. This ensures that the text fits within a specified token limit, which is crucial when interfacing with Large Language Models (LLMs) in downstreams tasks.\r\n\r\n---\r\n\r\n## Features\r\n\r\n- **Text Distillation**: Reduces the size of text based on token count without losing the essence of the content.\r\n- **Chunking and Summarization**: Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized.\r\n- **Customizable Parameters**: Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds.\r\n\r\n## Getting Started\r\n\r\n### Prerequisites\r\n\r\n- Node.js installed on your system.\r\n- An API key for running inference of OpenAI API compatible LLM models (together.ai, etc.).\r\n\r\n### Installation\r\n\r\nAdd this lib to your code page via npm install\r\n\r\n```bash\r\nnpm install llm-distillery\r\n```\r\n\r\n---\r\n\r\n## Basic Usage\r\n\r\nThe `llmDistillery` function can be imported and used in your Node.js applications as follows:\r\n\r\n```javascript\r\nimport { llmDistillery } from 'llm-distillery';\r\n\r\nconst text = \"Your long text here...\";\r\nconst options = {\r\n    targetTokenSize: 2048,                          // adjust as needed\r\n    baseUrl: \"<openai-api-compatible-url-endpoint>\" // example: https://api.together.xyz/v1\r\n    apiKey: \"<your_llm_api_key>\",\r\n    llmModel: \"<llm_model>\",                        // example: meta-llama/Llama-3-70b-chat-hf (Llama 3 model name on together.ai)\r\n    stopTokens: [\"<|eot_id|>\"],                     // stop tokens for Llama 3\r\n    logging: true                                   // set to true for verbose logging\r\n};\r\n\r\nllmDistillery(text, options)\r\n    .then(processedText => console.log(processedText))\r\n    .catch(error => console.error(error));\r\n```\r\n",
+      "slug": "llm-distillery",
+      "topics": [
+        "large-language-model",
+        "llm",
+        "openai-api",
+        "semantic-chunking",
+        "text-compression",
+        "text-processing",
+        "text-summarization",
+        "token-management",
+        "tokenization",
+        "ai-text-reduction",
+        "text-distillation"
+      ]
+    },
+    {
+      "contentHash": "47d847adc1822303ecbcfc12f908470976f1e3a3666ccc5ac344e9d782b54199",
+      "description": "🏷️ Fast Topic Analysis is a tool for analyzing text against predefined topics using average weight embeddings and cosine similarity",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🏷️ Fast Topic Analysis\n\nA tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/fast-topic-analysis/main/.readme/buckets.jpg\" alt=\"banner\">\n\n#### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"30\">\n</a>\n\n<br>\n<br>\n\n## Overview\n\nFast Topic Analysis is a powerful tool for identifying topic matches in text with high precision. It uses embedding-based semantic analysis with an advanced clustering approach to detect nuanced topic variations.\n\nKey features:\n- **Multiple Embeddings Per Topic**: Creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations\n- **Embedding Clustering**: Groups similar phrases within topics to form coherent semantic clusters using agglomerative or HDBSCAN algorithms\n- **Cohesion & Silhouette Scoring**: Measures cluster quality via per-cluster cohesion and global silhouette score\n- **Configurable Precision**: Offers preset configurations for different use cases (high precision, balanced, performance)\n- **Fast Processing**: Optimized for efficient text analysis with minimal processing time\n- **Powered by `embedding-utils`**: All vector math, clustering, similarity, and embedding generation provided by the [`embedding-utils`](https://www.npmjs.com/package/embedding-utils) library\n\nThe project has two main .js files:\n1. A generator (`generate.js`) that creates topic embeddings from training data\n2. An interactive demo (`run-demo.js`) that analyzes text against these topic embeddings\n\n### New Feature: Embedding Clustering and Cohesion Score\n\nThe tool now supports **clustering** of embeddings within each\n![Clustering Visualization](./.readme/clustering.jpg)\n\n## Setup\n\nInstall dependencies:\n\n```bash\nnpm install\n```\n\n#",
+      "slug": "fast-topic-analysis",
+      "topics": [
+        "embeddings",
+        "huggingface",
+        "nlp",
+        "onnx",
+        "semantic-analysis",
+        "text-analysis",
+        "text-classfication",
+        "topic-detection",
+        "transformers"
+      ]
+    },
+    {
+      "contentHash": "40b09eac0400c01ce6bbb6b9f3534b8a525227036e1104537c0643ab699ef7e3",
+      "description": "👽 Extract Topics ⇢ use LDA (Latent Dirichlet Allocation) to extract topics from text",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 👽 Extract Topics\nUse LDA (Latent Dirichlet Allocation) to extract topics from text\n\nSimple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs.\n\n<img src=\"https://github.com/jparkerweb/extract-topics/blob/main/extractTopics.jpg?raw=true\" alt=\"banner\">\n\n## Install\n\nInstall dependencies:\n\n```bash\nnpm install extractTopics\n```\n\n## Usage\n\n```bash\nimport { extractTopics } from 'extractTopics';\n\nconst result = await extractTopics(text, { numTopics, numTerms });\n\nconsole.log(result);\n```\n\n## API\n\n### topicExtraction(text, options)\n\nExtracts topics from input text using LDA.\n\n#### Parameters\n\n- `text` (string): The input text to analyze\n- `options` (object):\n  - `numTopics` (number, optional): Number of topics to extract. Default: 2\n  - `numTerms` (number, optional): Number of terms per topic. Default: 5\n\n#### Returns\n\nReturns a Promise that resolves to the LDA analysis result.\n\n### Example script\n\n```bash\nnpm run example\n```\n\nThe example will:\n1. Load sample text documents\n2. Apply LDA to extract the main topics\n3. Output the discovered topics and their key terms\n\n## About LDA\n\nLDA is an unsupervised learning method that discovers topics in text documents. It views documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.\n\n---\n\n#### Project reference\n- https://www.npmjs.com/package/ldawithmorelanguages\n",
+      "slug": "extract-topics",
+      "topics": [
+        "extraction",
+        "lda",
+        "nlp",
+        "text",
+        "topic",
+        "topic-extraction"
+      ]
+    },
+    {
+      "contentHash": "3159ccd6d9e2d51a1daf2b66348d9becb8cbf7e4fea800823dda78470738d5f8",
+      "description": "🔀 Bedrock Proxy Endpoint  ⇢ Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock inference (using standard baseUrl, and apiKey params)",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🔀 Bedrock Proxy Endpoint\r\nSpin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)\r\n\r\n![bedrock-proxy-endpoint](https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg)\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\" style=\"max-height: 40px\">\r\n</a>\r\n\r\n---\r\n\r\n### Why Bedrock Proxy Endpoint?\r\n\r\nAre you are stuck with using AWS Bedrock for all LLM text inference, but you want to keep your application platform agnostic?  Are you tired of figuring out how to format your LLM inference calls to work with the Bedrock SDK? Are you going crazy with all the differences between configuration from model to model?\r\n\r\n- `Bedrock Proxy Endpoint` makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock in a compatible way.\r\n\r\n- Great for getting existing OpenAI API compatible applications working with AWS Bedrock.\r\n\r\n\r\n### Prerequisites\r\n\r\nBefore getting started, make sure you have the following installed:\r\n\r\n- Node.js (version 12 or higher)\r\n- npm (Node Package Manager)\r\n\r\n### Installation\r\n\r\n1. Clone the repository:\r\n\r\n    ```bash\r\n    git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git\r\n    ```\r\n\r\n2. Navigate to the project directory:\r\n\r\n    ```bash\r\n    cd bedrock-proxy-endpoint\r\n    ```\r\n\r\n3. Install the dependencies:\r\n\r\n    ```bash\r\n    npm ci\r\n    ```\r\n\r\n### Docker Usage\r\n\r\nYou can run Bedrock Proxy Endpoint using Docker in two ways:\r\n\r\n#### Option 1: Using Pre-built Image from GitHub Container Registry\r\n\r\nPull and run the latest image from GHCR:\r\n\r\n```bash\r\n# Pull the latest image\r\ndocker pull ghcr.io/jparkerweb/bedrock-proxy-endpoint:l",
+      "slug": "bedrock-proxy-endpoint",
+      "topics": [
+        "api",
+        "aws-bedrock",
+        "endpoint",
+        "inference",
+        "llama3",
+        "llm",
+        "inference-api",
+        "mistral",
+        "mixtral",
+        "openai-api",
+        "proxy",
+        "serverless",
+        "wrapper"
+      ]
+    },
+    {
+      "contentHash": "e4065e0df562e6f1b4a872d0fd6384d1ac0ac49beef0d5883dcc4712540d7a0b",
+      "description": "🪨 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "# 🪨 Bedrock Wrapper\r\n\r\nBedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.  Follow the steps below to integrate into your own application, or alternativly use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard `baseUrl`, and `apiKey` params).\r\n\r\n![bedrock-wrapper](https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg)\r\n\r\n---\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\r\n</a>\r\n\r\n---\r\n\r\n### Install\r\n\r\n- install package: `npm install bedrock-wrapper`\r\n\r\n---\r\n\r\n### Usage\r\n\r\n1. import `bedrockWrapper`  \r\n    ```javascript\r\n    import { bedrockWrapper } from \"bedrock-wrapper\";\r\n    ```\r\n\r\n2. create an `awsCreds` object and fill in your AWS credentials  \r\n    ```javascript\r\n    const awsCreds = {\r\n        region: AWS_REGION,\r\n        accessKeyId: AWS_ACCESS_KEY_ID,\r\n        secretAccessKey: AWS_SECRET_ACCESS_KEY,\r\n    };\r\n    ```\r\n\r\n3. clone your openai chat completions object into `openaiChatCompletionsCreateObject` or create a new one and edit the values  \r\n    ```javascript\r\n    const openaiChatCompletionsCreateObject = {\r\n        \"messages\": messages,\r\n        \"model\": \"Claude-4-5-Sonnet\",\r\n        \"max_tokens\": LLM_MAX_GEN_TOKENS,\r\n        \"stream\": true,\r\n        \"temperature\": LLM_TEMPERATURE,\r\n        \"stop_sequences\": [\"STOP\", \"END\"], // Optional: sequences that will stop generation\r\n    };\r\n    ```\r\n\r\n    the `messages` variable should be in openai's role/content format (not all models support system prompts)\r\n    ```javascript\r\n    messages = [\r\n        {\r\n            role: \"system\",\r\n            content: \"Y",
+      "slug": "bedrock-wrapper",
+      "topics": [
+        "aws",
+        "bedrock",
+        "inference",
+        "llm",
+        "openai-api",
+        "proxy",
+        "serverless",
+        "wrapper"
+      ]
+    },
+    {
+      "contentHash": "f579a1e86380302e0c7ab511b9812ece1273186da8922630688d46d4e5b01c9b",
+      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "primaryLanguage": "Go",
+      "readmeExcerpt": "# Shrinkray\n\n**Less bytes, same vibes.**\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellen",
+      "slug": "shrinkray",
+      "topics": [
+        "ffmpeg",
+        "golang",
+        "movie-processing",
+        "shrink",
+        "video-compression"
+      ]
+    },
+    {
+      "contentHash": "f4f271660fb298a644f6ba45286f8999744d620280d16d25611bf32ac9e96cf7",
+      "description": "🔥 hotlink wut?",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "nothing to see here.... move along... \n",
+      "slug": "ref",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "b8f9b129db04336c36760b1c79a3467397a6345fa54e6602ea7193f3c0ffd27f",
+      "description": "📄 Simple web app for generating formatted release notes with support for multiple platforms. Designed to be used with projects from jparkerweb 😆.",
+      "primaryLanguage": "CSS",
+      "readmeExcerpt": "# Release Notes Generator 📝\n\nSimple web app for generating formatted release notes with support for multiple platforms. Designed to be used with projects from jparkerweb 😆.\n\n## Features 🚀\n\n- **Multiple Output Formats**\n  - Discord-formatted release notes\n  - GitHub release notes\n  - Ko-Fi updates\n  - X (Twitter) updates\n  - Obsidian notes with CSS styling\n\n- **Project Management**\n  - Predefined project list\n  - Support for multiple project types:\n    - NPM packages\n    - Obsidian plugins\n    - Demo links\n    - GitHub repositories\n\n- **Smart Validation**\n  - Semantic version validation\n  - HTTPS URL validation\n  - Required field checks\n\n- **Modern UI**\n  - Dark mode with neon accents\n  - Animated background\n  - Responsive design\n  - Copy to clipboard functionality\n  - Form reset option\n\n![screenshot](img/release-notes.jpg)\n\n## Usage 💡\n\n1. Select your project from the dropdown\n2. Enter the version number (e.g., 1.0.0)\n3. (Optional) Add a tag line - a brief description that appears at the top of your release notes\n4. Write your release notes using the following format:\n   ```markdown\n   ### 🫧 Added\n   - new feature one\n   - new feature two\n\n   ### 🐛 Fixed\n   - bug that was fixed\n\n   ### 📦 Updated\n   - dependency updates\n   ```\n5. (Optional) Add an image URL\n6. Choose your output format:\n   - Generate for Obsidian (includes CSS snippet)\n   - Generate for Discord\n   - Generate for GitHub\n   - Generate for Ko-Fi\n   - Generate for X\n7. Click on the generated notes to copy to clipboard\n8. Reset the form when done\n\n## Release Notes Structure 📋\n\nThe release notes consist of three main parts:\n1. **Version Header** - Automatically formatted based on project and version\n2. **Tag Line** (Optional) - A brief description or highlight of the release\n3. **Change List** - Categorized list of changes\n\nThe change list follows a specific format:\n- Section headers start with `### ` followed by an emoji and section name\n- Each item starts with a `-` bullet point\n- Common sections:",
+      "slug": "release-notes",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "7b3640f870d6a2bf73c9d68c711379343c4f33cce916679b8431a52077ac1dbf",
+      "description": "",
+      "primaryLanguage": "HTML",
+      "readmeExcerpt": "",
+      "slug": "jparkerweb",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "d896c6c9b5c96ef846009e5c2695af7d07e117042f5f133af1cbf3154543f0ee",
+      "description": "gen search links for finding scene content",
+      "primaryLanguage": "CSS",
+      "readmeExcerpt": "Low Voltage Generator\n=====================\nLow Voltage Generator is a simple html page that uses javascript to generate links to commonly used \"scene\" search engines.  The various links generated are grouped into sections (e.g., nzb, newznab, torrent, xdcc, predb, etc.).  Each link will open the respective search page in a new window and pass in your searched for term (e.g., Dexter s07e11).  This makes life easier :)  This should save you time, as you can use Low Voltage Generator as your jumping off point, without having to visit each search site and search for your content seperatly.\n\nDemo / Public Site\n------------------\n<a href=\"http://jparkerweb.github.io/Low_Voltage_Generator/\" target=\"_blank\">Public Site: Low Voltage Generator</a>\n\nInstallation\n------------\nBecause Low Voltage Generator is a static html page utilizing javascript, just simply download the package and open lowvoltagegenerator.html with your favorite browser.  Static html and javascript was used to enable more people to run it without knowing how to setup a web server, etc.\n",
+      "slug": "low-voltage-generator",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "174bb424600dd7551ea1f5e78bb470daae57a4dd33b7136e3b52df421ac2e2b9",
+      "description": "Chrome Extension for NzbDrone",
+      "primaryLanguage": "JavaScript",
+      "readmeExcerpt": "NzbDrone Xtender\n================\n\nChrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page\n\nInstall the NzbDrone Xtender Google Extension here\n----\nhttps://chrome.google.com/webstore/detail/nzbdrone-xtender/koaenifojgcodjmhlnhihpclekeegkce\n\nWiki\n----\nhttps://github.com/jparkerweb/NzbDrone_Xtender/wiki\n",
+      "slug": "nzbdrone-xtender",
+      "topics": [
+        "not-portfolio"
+      ]
+    },
+    {
+      "contentHash": "e065208c48520366bc2d94d1f5aaa81f39f024212767e617b2f57a91c2aceff8",
+      "description": "Simple Boilerplate Site -  Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with cache busting",
+      "primaryLanguage": "HTML",
+      "readmeExcerpt": "SimpleSite-Boilerplate\n===================\n\nSimple Boilerplate Site -  Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with sass, autoprefix, js, webpack, browser-sync and cache busting\n\n\n\n## Demo\nExample output created in the `dist` directory: [Demo Link](http://jparkerweb.github.io/SimpleSite-Boilerplate/)\n\n\n## Usage\n* run `npm install`\n* requires ruby sass (look at the sass lang install site for install instructions: http://sass-lang.com/install)\n* run:\n  * `gulp` (dev mode which will compile all assets and put them in the build directory unminified as well start spin up browser-sync with live reload functionality and watch for any changes)\n    * `gulp --tunnel` will spin up the normal dev mode but with a public tunnel URL for browser-sync \n  * `gulp build` (build assets minified and place into build directory)\n  * `gulp dist` (build assets minified with appened hash file names to cache bust, as well as auto updated your html files with references to the new generated files)\n",
+      "slug": "simplesite-boilerplate",
+      "topics": [
+        "not-portfolio"
+      ]
+    }
+  ],
   "reusedFromCache": [
-    "equill-labs",
-    "semantic-chunking",
-    "fast-topic-analysis",
     "embedding-utils",
     "mcp-sqlite",
-    "shrinkray",
-    "bedrock-proxy-endpoint",
-    "bedrock-wrapper",
     "ps-win-dir-size",
-    "pixel-banner",
     "simple-linkz",
     "ai-skill-git-worktree",
     "rich-foot",
-    "web-augmented-generation",
     "clip-to-file",
     "print-mark",
     "ai-assistant-prompts",
-    "llm-distillery",
     "clip-expand",
-    "trim-style",
-    "add-block-to-hosts",
-    "ref",
     "clover-quilt-designer",
-    "extract-topics",
     "random",
-    "release-notes",
     "k-batch",
-    "splitter-vs-splitter",
-    "chunk-match",
     "sentence-parse",
-    "punctuation-restore",
     "down-craft",
     "pptx-in-html-out",
-    "random-pexels-image",
-    "ollama-structured-output-test",
     "embedding-forge",
-    "jparkerweb",
     "speculative-decoding",
-    "inferiq",
     "wdw-adr-checker",
     "caps-left-right",
-    "indigestion",
     "obsidian-bullet-cards",
-    "obsidian-image-from-field",
     "obsidian-element-enhancer",
     "queue-tha-llama",
     "simply-dark",
@@ -178,10 +483,6 @@
     "bivariate-test-helper",
     "kdm-cards",
     "node-webkit-example",
-    "card-generator-sob",
-    "low-voltage-generator",
-    "nzbdrone-xtender",
-    "simplesite-boilerplate",
-    "htmldiff-example"
+    "card-generator-sob"
   ]
 }

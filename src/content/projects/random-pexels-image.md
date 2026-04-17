@@ -11,10 +11,14 @@ description:
     Simple Node.js application that provides an endpoint to search Pexels and
     return a randomly selected image.
   long: >-
-    Allows hotlinking images by directly returning the image data. Fetches
-    images from the Pexels API based on query parameters such as size, keyword,
-    and orientation. If no keyword is provided, a random keyword from a list of
-    300 random words is used.
+    Fetches images from the Pexels API based on query parameters such as size,
+    keyword, and orientation. If no keyword is provided, a random keyword from a
+    list of 300 random words is used.
+banner:
+  src: >-
+    https://github.com/jparkerweb/random-pexels-image/blob/master/random-pexels-image.jpg?raw=true
+  alt: random-pexels-image banner
+  source: repo
 topics: []
 category: demo
 theme: utilities
@@ -30,10 +34,10 @@ links:
 featured: false
 sortOrder: 998
 status: active
-lastCommit: '2024-12-19T19:28:00Z'
+lastCommit: '2026-04-17T16:13:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/random-pexels-image'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Allows hotlinking images by directly returning the image data. Fetches images from the Pexels API based on query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used.
+Fetches images from the Pexels API based on query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used.

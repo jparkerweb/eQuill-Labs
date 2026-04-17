@@ -1,6 +1,4 @@
 ---
-import QuillMark from '@/components/brand/QuillMark.astro';
-import Wordmark from '@/components/brand/Wordmark.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
 const path = Astro.url.pathname;
@@ -22,9 +20,14 @@ function isCurrent(href: string) {
 <header class="site-header">
   <div class="shell">
     <div class="brand">
-      <QuillMark size={36} linked={true} />
-      <a href="/" class="wordmark-link" aria-label="eQuill Labs home">
-        <Wordmark size="sm" as="span" />
+      <a href="/" class="brand-link" aria-label="eQuill Labs home">
+        <img
+          src="/brand/logo-text-outline.png"
+          alt="eQuill Labs"
+          class="brand-logo"
+          width="533"
+          height="85"
+        />
       </a>
     </div>
     <nav aria-label="Primary" class="primary-nav">
@@ -89,7 +92,7 @@ function isCurrent(href: string) {
     gap: 12px;
   }
 
-  .wordmark-link {
+  .brand-link {
     text-decoration: none;
     color: rgb(var(--text-1));
     display: inline-flex;
@@ -98,9 +101,14 @@ function isCurrent(href: string) {
     padding: 0 4px;
     border-radius: 6px;
   }
-  .wordmark-link:focus-visible {
+  .brand-link:focus-visible {
     outline: 2px solid rgb(var(--focus-ring));
     outline-offset: 2px;
+  }
+  .brand-logo {
+    display: block;
+    height: 36px;
+    width: auto;
   }
 
   .primary-nav {
@@ -175,9 +183,9 @@ function isCurrent(href: string) {
       gap: 4px;
     }
   }
-  @media (max-width: 420px) {
-    .wordmark-link {
-      display: none;
+  @media (max-width: 640px) {
+    .brand-logo {
+      height: 28px;
     }
   }
 </style>

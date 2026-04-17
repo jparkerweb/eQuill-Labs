@@ -47,6 +47,57 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
 
     <div class="content">
       <aside class="meta" aria-label="Project metadata">
+        <div class="links">
+          <h3>Links</h3>
+          <ul role="list">
+            {
+              data.links.demo && (
+                <li>
+                  <a href={data.links.demo} rel="noopener" target="_blank">
+                    <ExternalLink size={16} aria-hidden="true" />
+                    <span>Demo</span>
+                  </a>
+                </li>
+              )
+            }
+            <li>
+              <a href={data.links.repo} rel="noopener" target="_blank">
+                <Github size={16} aria-hidden="true" /><span>Repository</span>
+              </a>
+            </li>
+            {
+              data.links.docs && (
+                <li>
+                  <a href={data.links.docs} rel="noopener" target="_blank">
+                    <FileText size={16} aria-hidden="true" />
+                    <span>Docs</span>
+                  </a>
+                </li>
+              )
+            }
+            {
+              data.links.homepage && (
+                <li>
+                  <a href={data.links.homepage} rel="noopener" target="_blank">
+                    <Home size={16} aria-hidden="true" />
+                    <span>Homepage</span>
+                  </a>
+                </li>
+              )
+            }
+            {
+              data.npm && (
+                <li>
+                  <a href={data.npm.url} rel="noopener" target="_blank">
+                    <Package size={16} aria-hidden="true" />
+                    <span>npm</span>
+                  </a>
+                </li>
+              )
+            }
+          </ul>
+        </div>
+
         <dl>
           <div class="meta-row">
             <dt>Stars</dt>
@@ -112,57 +163,6 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
             </div>
           )
         }
-
-        <div class="links">
-          <h3>Links</h3>
-          <ul role="list">
-            <li>
-              <a href={data.links.repo} rel="noopener" target="_blank">
-                <Github size={16} aria-hidden="true" /><span>Repository</span>
-              </a>
-            </li>
-            {
-              data.links.demo && (
-                <li>
-                  <a href={data.links.demo} rel="noopener" target="_blank">
-                    <ExternalLink size={16} aria-hidden="true" />
-                    <span>Demo</span>
-                  </a>
-                </li>
-              )
-            }
-            {
-              data.links.docs && (
-                <li>
-                  <a href={data.links.docs} rel="noopener" target="_blank">
-                    <FileText size={16} aria-hidden="true" />
-                    <span>Docs</span>
-                  </a>
-                </li>
-              )
-            }
-            {
-              data.links.homepage && (
-                <li>
-                  <a href={data.links.homepage} rel="noopener" target="_blank">
-                    <Home size={16} aria-hidden="true" />
-                    <span>Homepage</span>
-                  </a>
-                </li>
-              )
-            }
-            {
-              data.npm && (
-                <li>
-                  <a href={data.npm.url} rel="noopener" target="_blank">
-                    <Package size={16} aria-hidden="true" />
-                    <span>npm</span>
-                  </a>
-                </li>
-              )
-            }
-          </ul>
-        </div>
       </aside>
 
       <h1 class="name">{data.name}</h1>
@@ -286,6 +286,10 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     letter-spacing: 0.08em;
     color: rgb(var(--text-muted));
     margin: 20px 0 10px;
+  }
+  .meta > :first-child h3,
+  .meta > h3:first-child {
+    margin-top: 0;
   }
   .meta dl {
     margin: 0;

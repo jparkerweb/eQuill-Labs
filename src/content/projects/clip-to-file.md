@@ -43,6 +43,6 @@ lastCommit: '2025-12-24T06:05:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 Automatically detects images and text in your clipboard, and one command saves clipboard content with zero configuration. Files are saved with clean timestamps and duplicate filenames get a number appended. INI-based configuration with sensible defaults.

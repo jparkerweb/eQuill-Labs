@@ -26,6 +26,6 @@ lastCommit: '2025-11-29T21:19:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-assistant-prompts'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 Planning Prompts are fundamental instructions to start projects, update functionality, and write documentation and implementation plans. Global Rules shape AI behavior across all interactions, covering communication style, code formatting preferences, and general interaction guidelines. Behavior Rules are project-specific instructions that work in tandem with the global rules.

@@ -43,8 +43,23 @@ const year = new Date().getFullYear();
         <h2>Connect</h2>
         <ul role="list">
           <li>
-            <a href="mailto:hello@equilllabs.com"
+            <a href="mailto:equilllabs@gmail.com"
               ><Mail size={16} aria-hidden="true" /><span>Contact</span></a>
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/sp8AQQhMJ7"
+              rel="noopener"
+              target="_blank"
+              aria-label="eQuill Labs Discord server"
+              ><img
+                src="/brand/discord.svg"
+                alt=""
+                aria-hidden="true"
+                width="16"
+                height="16"
+                class="discord-icon"
+              /><span>Discord</span></a>
           </li>
         </ul>
       </div>
@@ -127,6 +142,11 @@ const year = new Date().getFullYear();
   }
   .col a:hover {
     color: rgb(var(--text-1));
+  }
+  .discord-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
   }
   .col a:focus-visible {
     outline: 2px solid rgb(var(--focus-ring));
