@@ -38,6 +38,6 @@ lastCommit: '2025-04-05T20:00:35Z'
 _source:
   repo: 'https://github.com/jparkerweb/release-notes'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Output formats include Discord, GitHub, Ko-Fi, X (Twitter), and Obsidian notes with CSS styling. Supports project types like NPM packages, Obsidian plugins, demo links, and GitHub repositories, with semantic version and HTTPS URL validation.

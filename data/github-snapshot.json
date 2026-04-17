@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-16T03:55:11.010Z",
+  "fetchedAt": "2026-04-17T04:24:14.581Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,534 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2024-05-10T01:48:03Z",
+      "description": "🍶 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met.",
+      "forkCount": 1,
+      "homepageUrl": "https://www.npmjs.com/package/llm-distillery",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 42758
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 13200
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 12340
+          }
+        ],
+        "totalSize": 68298
+      },
+      "licenseInfo": null,
+      "name": "llm-distillery",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-17T04:23:50Z",
+      "readme": {
+        "text": "# 🍶 LLM Distillery\r\n\r\n<img src=\"https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg\" alt=\"banner\">\r\n\r\nUse LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach. This ensures that the text fits within a specified token limit, which is crucial when interfacing with Large Language Models (LLMs) in downstreams tasks.\r\n\r\n---\r\n\r\n## Features\r\n\r\n- **Text Distillation**: Reduces the size of text based on token count without losing the essence of the content.\r\n- **Chunking and Summarization**: Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized.\r\n- **Customizable Parameters**: Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds.\r\n\r\n## Getting Started\r\n\r\n### Prerequisites\r\n\r\n- Node.js installed on your system.\r\n- An API key for running inference of OpenAI API compatible LLM models (together.ai, etc.).\r\n\r\n### Installation\r\n\r\nAdd this lib to your code page via npm install\r\n\r\n```bash\r\nnpm install llm-distillery\r\n```\r\n\r\n---\r\n\r\n## Basic Usage\r\n\r\nThe `llmDistillery` function can be imported and used in your Node.js applications as follows:\r\n\r\n```javascript\r\nimport { llmDistillery } from 'llm-distillery';\r\n\r\nconst text = \"Your long text here...\";\r\nconst options = {\r\n    targetTokenSize: 2048,                          // adjust as needed\r\n    baseUrl: \"<openai-api-compatible-url-endpoint>\" // example: https://api.together.xyz/v1\r\n    apiKey: \"<your_llm_api_key>\",\r\n    llmModel: \"<llm_model>\",                        // example: meta-llama/Llama-3-70b-chat-hf (Llama 3 model name on together.ai)\r\n    stopTokens: [\"<|eot_id|>\"],                     // stop tokens for Llama 3\r\n    logging: true                                   // set to true for verbose logging\r\n};\r\n\r\nllmDistillery(text, options)\r\n    .then(processedText => console.log(processedText))\r\n    .catch(error => console.error(error));\r\n```\r\n\r\n### Options Object Parameters\r\n- `targetTokenSize`: Desired token size limit for distilled text. (default: `2048`)\r\n- `baseUrl`: The base URL for the OpenAI API compatible endpoint. (default: `\"https://api.together.xyz/v1\"`)\r\n- `apiKey`: Your API key for accessing LLM endpoint.\r\n- `llmModel`: The model identifier of the LLM for your chosen endpoint. (default: `\"meta-llama/Llama-3-70b-chat-hf\"` on together.ai)\r\n- `stopTokens`: Array representing stopping tokens for LLM responses based on your chosen model. (default `[\"<|eot_id|>\"]`) May not be needed for all models.\r\n- `maxDistillationLoops`: Maximum number of iterations while running distillation (default: `5`)\r\n- `tokenizerModel`: Tokenizer model used to calculate token sizes. (See table below for options; default `\"Xenova/paraphrase-multilingual-MiniLM-L12-v2\"`)\r\n- `semanticEmbeddingModel`: Semantic embedding model used to calculate text similarity. (See https://github.com/jparkerweb/semantic-chunking?tab=readme-ov-file#curated-onnx-embedding-models for options; default `\"Xenova/paraphrase-multilingual-MiniLM-L12-v2\"`)\r\n- `semanticEmbeddingModelQuantized`: Whether to use the quantized version of the embedding model. (default `true`)\r\n- `modelCacheDir`: Directory to cache models in. (default `null`; set to a string for a custom cache dir, example: `\"models/\"`)\r\n- `chunkingThreshold`: Threshold for segmenting text into chunks for summarization and distillation. Can be a number between 0 and 1. A lower number will result in greater distillation for each iteration, and will be faster. (default `.25`)\r\n- `llmContextLength`: Context length for the large language model (LLM) you are using. It denotes the maximum number of tokens the LLM can accept when generating chunk summaries. (default `4096`, but most LLM's have larger default windows. Llama 3's context window is 8k),\r\n- `llmMaxGenLength`: Maximum generation length for the large language model (LLM) you are using. It denotes the maximum number of tokens the LLM can generate in a single response. (default `2048`),\r\n- `llmApiRateLimit`: Delay in milliseconds between API calls to your chosen LLM provider. This helps to manage the rate at which requests are sent, ensuring that your application does not overload the service or exceed usage policies. (default `500`; set to 0 to disable)\r\n- `logging`: Enable logging to monitor the various stages of distillation, compression percentages of the original text, etc. (default `false`)\r\n\r\n### Tokenizer Models\r\n\r\n| model name                                   |\r\n|----------------------------------------------|\r\n| Xenova/all-MiniLM-L6-v2                      |\r\n| Xenova/paraphrase-multilingual-MiniLM-L12-v2 |\r\n| Xenova/bert-base-uncased                     |\r\n| Xenova/gpt2                                  |\r\n| Xenova/roberta-base                          |\r\n| Xenova/all-distilroberta-v1                  |\r\n| Xenova/multilingual-e5-large                 |\r\n| Xenova/bert-base-multilingual-uncased        |\r\n| Xenova/xlm-roberta-base                      |\r\n| BAAI/bge-base-en-v1.5                        |\r\n  \r\nNOTE 🚨 The initial run of `llm-distillery` might take a moment as the Tokenizer Model will be downloaded and saved to this package's cache directory.\r\n\r\n---\r\n\r\n## Examples\r\n\r\nThe `example/` directory contains additional resources to help you get started:\r\n\r\n- **Example Scripts**: See `example.js` and `example2.js` for different configuration examples\r\n- **Web Playground**: An interactive web UI to test parameters and visualize results\r\n  - Install dependencies: `cd example && npm install`\r\n  - Run server: `node server.js`\r\n  - Visit http://localhost:3000/\r\n  - Features live distillation, configuration export, and code generation\r\n\r\nVisit the [example directory](https://github.com/jparkerweb/llm-distillery/tree/main/example) on GitHub for more details.\r\n\r\n---\r\n\r\n## Appreciation\r\nIf you enjoy this plugin please consider sending me a tip to support my work 😀\r\n### [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "large-language-model"
+            }
+          },
+          {
+            "topic": {
+              "name": "llm"
+            }
+          },
+          {
+            "topic": {
+              "name": "openai-api"
+            }
+          },
+          {
+            "topic": {
+              "name": "semantic-chunking"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-compression"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-processing"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-summarization"
+            }
+          },
+          {
+            "topic": {
+              "name": "token-management"
+            }
+          },
+          {
+            "topic": {
+              "name": "tokenization"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-text-reduction"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-distillation"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 12,
+      "updatedAt": "2026-04-17T04:23:54Z",
+      "url": "https://github.com/jparkerweb/llm-distillery"
+    },
+    {
+      "createdAt": "2024-12-14T19:24:31Z",
+      "description": "🏷️ Fast Topic Analysis is a tool for analyzing text against predefined topics using average weight embeddings and cosine similarity",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/projects/fast-topic-analysis",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 84927
+          }
+        ],
+        "totalSize": 84927
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "fast-topic-analysis",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-17T03:52:04Z",
+      "readme": {
+        "text": "# 🏷️ Fast Topic Analysis\n\nA tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/fast-topic-analysis/main/.readme/buckets.jpg\" alt=\"banner\">\n\n#### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"30\">\n</a>\n\n<br>\n<br>\n\n## Overview\n\nFast Topic Analysis is a powerful tool for identifying topic matches in text with high precision. It uses embedding-based semantic analysis with an advanced clustering approach to detect nuanced topic variations.\n\nKey features:\n- **Multiple Embeddings Per Topic**: Creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations\n- **Embedding Clustering**: Groups similar phrases within topics to form coherent semantic clusters using agglomerative or HDBSCAN algorithms\n- **Cohesion & Silhouette Scoring**: Measures cluster quality via per-cluster cohesion and global silhouette score\n- **Configurable Precision**: Offers preset configurations for different use cases (high precision, balanced, performance)\n- **Fast Processing**: Optimized for efficient text analysis with minimal processing time\n- **Powered by `embedding-utils`**: All vector math, clustering, similarity, and embedding generation provided by the [`embedding-utils`](https://www.npmjs.com/package/embedding-utils) library\n\nThe project has two main .js files:\n1. A generator (`generate.js`) that creates topic embeddings from training data\n2. An interactive demo (`run-demo.js`) that analyzes text against these topic embeddings\n\n### New Feature: Embedding Clustering and Cohesion Score\n\nThe tool now supports **clustering** of embeddings within each\n![Clustering Visualization](./.readme/clustering.jpg)\n\n## Setup\n\nInstall dependencies:\n\n```bash\nnpm install\n```\n\n## Usage\n\n### Generating Topic Embeddings\n\n```bash\nnode generate.js\n```\n\nThis will:\n- Clean the `data/topic_embeddings` directory\n- Process training data from `data/training_data.jsonl`\n- Generate embeddings for each topic defined in `labels-config.js`\n- Cluster similar embeddings within each topic\n- Save multiple embeddings per topic as JSON files in `data/topic_embeddings/`\n\n#### Clustering Configuration\n\nYou can customize the clustering behavior using command-line arguments:\n\n```bash\n# Use a predefined configuration preset\nnode generate.js --preset high-precision\n\n# Customize individual parameters\nnode generate.js --similarity-threshold 0.92 --max-clusters 3\n```\n\nAvailable presets:\n- `high-precision`: Optimized for maximum accuracy with more granular clusters\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.95`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=3`\n  - `CLUSTERING_MAX_CLUSTERS=8`\n- `balanced`: Default settings for good precision and performance\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.9`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=5`\n  - `CLUSTERING_MAX_CLUSTERS=5`\n- `performance`: Optimized for speed with fewer clusters\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.85`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=10`\n  - `CLUSTERING_MAX_CLUSTERS=3`\n- `legacy`: Disables clustering for backward compatibility\n  - `ENABLE_CLUSTERING=false`\n\nCommand-line options for `generate.js`:\n- `--preset, -p <name>`: Use a predefined configuration preset\n- `--enable-clustering <bool>`: Enable or disable clustering (true/false)\n- `--similarity-threshold <num>`: Set similarity threshold for clustering (0-1)\n- `--min-cluster-size <num>`: Set minimum cluster size\n- `--max-clusters <num>`: Set maximum number of clusters per topic\n- `--algorithm <name>`: Clustering algorithm to use (`default` or `hdbscan`)\n- `--incremental`: Update clusters incrementally (new JSONL entries only)\n- `--help`: Show help message\n\nFor more options, run:\n```bash\nnode generate.js --help\n```\n\n#### Incremental Updates\n\nAfter an initial full generation, you can incrementally update clusters when new training phrases are added:\n\n1. Append new phrases to `data/training_data.jsonl`\n2. Run incremental generation:\n\n```bash\nnode generate.js --incremental\n```\n\nThis will:\n- Validate the manifest (data integrity + model consistency)\n- Embed only the new phrases\n- Assign each new embedding to the nearest existing cluster using `assignToCluster()`\n- Update cluster centroids via incremental weighted averaging\n- Update the manifest for future incremental runs\n\nIncremental mode requires a prior full generation (which creates a manifest file). If training data has been edited (not just appended), or the model/precision has changed, a full regeneration is required.\n\n### Running Analysis\n\n```bash\nnode run-demo.js\n```\n\nThe test runner provides an interactive interface to:\n1. Choose logging verbosity\n2. Optionally show matched sentences if verbose logging is disabled\n3. Select a test message file to analyze\n\nYou can also specify a test message directly:\n```bash\nnode run-demo.js 1\nnode run-demo.js message-1.txt\n```\n\nCommand-line options for `run-demo.js`:\n- `--verbose, -v`: Enable verbose logging\n- `--quiet, -q`: Disable verbose logging\n- `--show-matches, -s`: Show matched sentences\n- `--hide-matches, -h`: Hide matched sentences\n- `--help`: Show help message\n\nConfiguration preferences (last used file, verbosity, etc.) are automatically saved in `run-demo-config.json`.\n\n#### 🚨 First Run Model Download\n\nThe first time a model is used (e.g. `generate.js` or `run-demo.js`), it will be downloaded and cached to the directory speciifed in `.env`. All subsequent runs will be fast as the model will be loaded from the cache.\n\n\n### Output\n\nThe analysis will show:\n- Similarity scores between the test text and each topic cluster\n- Which specific cluster matched each sentence\n- Execution time\n- Total comparisons made\n- Number of matches found\n- Model information\n\n## File Structure\n\n```\n├── data/\n│   ├── training_data.jsonl          # Training data\n│   ├── incremental-manifest.json    # Incremental processing state\n│   └── topic_embeddings/            # Generated embeddings\n├── test-messages/                   # Test files\n├── modules/\n│   ├── embedding.js                 # Thin wrapper around embedding-utils provider\n│   ├── manifest.js                  # Incremental manifest operations\n│   └── utils.js                     # Utility functions (toBoolean)\n├── test/\n│   ├── cluster-test.js              # Unit tests for clustering\n│   ├── v030-features-test.js        # Tests for EU v0.3.0 features (assignToCluster, silhouetteScore, HDBSCAN, Float32Array)\n│   ├── manifest-test.js             # Unit tests for manifest module\n│   ├── incremental-integration-test.js  # Integration test for incremental gen\n│   └── incremental-edge-cases-test.js   # Edge case tests for incremental mode\n├── generate.js                      # Embedding generator\n├── run-demo.js                      # Interactive analysis demo\n└── labels-config.js                 # Topic definitions\n```\n\n## Customizing\n\n### Model Settings\n\nChange the model settings in `.env` to use different embedding models and configurations:\n```env\n# Model and precision\nONNX_EMBEDDING_MODEL=\"Xenova/all-MiniLM-L12-v2\"\nONNX_EMBEDDING_MODEL_PRECISION=fp32\n\n# Available Models and their configurations:\n# | Model                                        | Precision      | Size                   | Requires Prefix | Data Prefix     | Search Prefix |\n# | -------------------------------------------- | -------------- | ---------------------- | --------------- | --------------- | ------------- |\n# | Xenova/all-MiniLM-L6-v2                      | fp32, fp16, q8 | 90 MB, 45 MB, 23 MB    | false           | null            | null          |\n# | Xenova/all-MiniLM-L12-v2                     | fp32, fp16, q8 | 133 MB, 67 MB, 34 MB   | false           | null            | null          |\n# | Xenova/paraphrase-multilingual-MiniLM-L12-v2 | fp32, fp16, q8 | 470 MB, 235 MB, 118 MB | false           | null            | null          |\n# | nomic-ai/modernbert-embed-base               | fp32, fp16, q8 | 568 MB, 284 MB, 146 MB | true            | search_document | search_query  |\n```\n\n### Clustering Configuration\n\nConfigure clustering behavior in `.env`:\n\n| Variable | Description | Default | Example |\n|----------|-------------|---------|---------|\n| `ENABLE_CLUSTERING` | Enable or disable clustering functionality | `true` | `ENABLE_CLUSTERING=true` |\n| `CLUSTERING_ALGORITHM` | Clustering algorithm (`default` or `hdbscan`) | `default` | `CLUSTERING_ALGORITHM=hdbscan` |\n| `CLUSTERING_SIMILARITY_THRESHOLD` | Threshold for considering embeddings similar (0-1) | `0.9` | `CLUSTERING_SIMILARITY_THRESHOLD=0.85` |\n| `CLUSTERING_MIN_CLUSTER_SIZE` | Minimum number of phrases per cluster | `5` | `CLUSTERING_MIN_CLUSTER_SIZE=3` |\n| `CLUSTERING_MAX_CLUSTERS` | Maximum number of clusters per topic | `5` | `CLUSTERING_MAX_CLUSTERS=8` |\n\nExample configuration:\n```env\n# Clustering Configuration\nENABLE_CLUSTERING=true\nCLUSTERING_ALGORITHM=default\nCLUSTERING_SIMILARITY_THRESHOLD=0.9\nCLUSTERING_MIN_CLUSTER_SIZE=5\nCLUSTERING_MAX_CLUSTERS=5\n```\n\n### Other Customizations\n\n- Change the thresholds defined in `labels-config.js` per topic to change the similarity score that triggers a match.\n- Add more test messages to the `test-messages` directory to test against.\n- Add more training data to `data/training_data.jsonl` to improve the topic embeddings.\n\n### Task Instruction Prefixes\n\nSome models require specific prefixes to optimize their performance for different tasks. When a model has `Requires Prefix: true`, you must use the appropriate prefix:\n\n- `Data Prefix`: Used when generating embeddings from training data\n- `Search Prefix`: Used when generating embeddings for search/query text\n\nFor example, `nomic-ai/modernbert-embed-base` requires:\n- `search_document` prefix for training data\n- `search_query` prefix for search queries\n\nModels with `Requires Prefix: false` will ignore any prefix settings.\n\n### Training Data\n\nThe training data is a JSONL file that contains the training data. Each line is a JSON object with the following fields:\n- `text`: The text to be analyzed\n- `label`: The label of the topic\n\n```jsonl\n{\"text\": \"amphibians, croaks, wetlands, camouflage, metamorphosis\", \"label\": \"frogs\"}\n{\"text\": \"jumping, ponds, tadpoles, moist skin, diverse habitats\", \"label\": \"frogs\"}\n{\"text\": \"waterfowl, quacking, ponds, waddling, migration\", \"label\": \"ducks\"}\n{\"text\": \"feathers, webbed feet, lakes, nesting, foraging\", \"label\": \"ducks\"}\n{\"text\": \"dabbling, flocks, wetlands, bills, swimming\", \"label\": \"ducks\"}\n```\n\nThe training data is used to generate the topic embeddings. The more training data you have, the better the topic embeddings will be.\nThe labels to be used when generating the topic embeddings are defined in `labels-config.js`.\n\n## How Clustering Works\n\nTwo clustering algorithms are available, selectable via `--algorithm` or `CLUSTERING_ALGORITHM`:\n\n### Default Algorithm (Agglomerative)\n\nGroups similar embeddings based on cosine similarity:\n\n1. Calculate embeddings for all phrases in a topic\n2. Initialize the first cluster with the first embedding\n3. For each remaining embedding:\n   - Calculate average similarity to each existing cluster\n   - If similarity exceeds the threshold, add to the most similar cluster\n   - If no cluster is similar enough and we haven't reached max clusters, create a new cluster\n   - If we've reached max clusters, add to the most similar cluster regardless of threshold\n4. Process clusters that are smaller than the minimum size:\n   - If the combined small clusters are still smaller than the minimum and we have valid clusters, distribute them to the most similar valid clusters\n   - Otherwise, create a new \"miscellaneous\" cluster containing all small cluster items\n5. Calculate the average embedding for each final cluster\n6. Calculate a cohesion score for each cluster (average similarity between all embeddings and the centroid)\n\n### HDBSCAN Algorithm\n\nDensity-based clustering that automatically determines the number of clusters:\n\n1. Calculate embeddings for all phrases in a topic\n2. Run HDBSCAN with the configured `minClusterSize` parameter\n3. Any noise points (not assigned to a cluster by HDBSCAN) are reassigned to the nearest cluster using `assignToCluster()`\n4. Centroids and cohesion scores are recomputed after noise absorption\n5. If HDBSCAN finds no clusters, falls back to a single cluster containing all embeddings\n\nHDBSCAN is more conservative about cluster formation and works best with larger datasets. Use `--algorithm hdbscan` to enable it.\n\n### Quality Metrics\n\n**Cohesion Score** (per-cluster): Measures how tightly grouped the embeddings are within a cluster. Calculated as the average cosine similarity between each embedding and the cluster's centroid. Higher values (closer to 1.0) indicate tighter clusters.\n\n**Silhouette Score** (global): Measures how well-separated clusters are from each other. Ranges from -1 to +1, where higher values indicate better-defined clusters. Returns 0 for single-cluster topics. Both metrics are saved to the cluster JSON files and displayed during generation.\n\nThese scores are useful for:\n- Evaluating the quality of clusters\n- Comparing clustering algorithms and configurations\n- Identifying topics that might benefit from more training data\n- Understanding why certain matches might be less reliable than others\n\n## 📺 Video Demo\n[![video](https://img.youtube.com/vi/SsPKA2Sy1pE/0.jpg)](https://www.youtube.com/watch?v=SsPKA2Sy1pE)\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "embeddings"
+            }
+          },
+          {
+            "topic": {
+              "name": "huggingface"
+            }
+          },
+          {
+            "topic": {
+              "name": "nlp"
+            }
+          },
+          {
+            "topic": {
+              "name": "onnx"
+            }
+          },
+          {
+            "topic": {
+              "name": "semantic-analysis"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-analysis"
+            }
+          },
+          {
+            "topic": {
+              "name": "text-classfication"
+            }
+          },
+          {
+            "topic": {
+              "name": "topic-detection"
+            }
+          },
+          {
+            "topic": {
+              "name": "transformers"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 9,
+      "updatedAt": "2026-04-17T03:52:08Z",
+      "url": "https://github.com/jparkerweb/fast-topic-analysis"
+    },
+    {
+      "createdAt": "2024-12-16T06:06:58Z",
+      "description": "👽 Extract Topics ⇢ use LDA (Latent Dirichlet Allocation) to extract topics from text",
+      "forkCount": 1,
+      "homepageUrl": "https://www.npmjs.com/package/extract-topics",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 1325
+          }
+        ],
+        "totalSize": 1325
+      },
+      "licenseInfo": null,
+      "name": "extract-topics",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-17T03:48:39Z",
+      "readme": {
+        "text": "# 👽 Extract Topics\nUse LDA (Latent Dirichlet Allocation) to extract topics from text\n\nSimple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs.\n\n<img src=\"https://github.com/jparkerweb/extract-topics/blob/main/extractTopics.jpg?raw=true\" alt=\"banner\">\n\n## Install\n\nInstall dependencies:\n\n```bash\nnpm install extractTopics\n```\n\n## Usage\n\n```bash\nimport { extractTopics } from 'extractTopics';\n\nconst result = await extractTopics(text, { numTopics, numTerms });\n\nconsole.log(result);\n```\n\n## API\n\n### topicExtraction(text, options)\n\nExtracts topics from input text using LDA.\n\n#### Parameters\n\n- `text` (string): The input text to analyze\n- `options` (object):\n  - `numTopics` (number, optional): Number of topics to extract. Default: 2\n  - `numTerms` (number, optional): Number of terms per topic. Default: 5\n\n#### Returns\n\nReturns a Promise that resolves to the LDA analysis result.\n\n### Example script\n\n```bash\nnpm run example\n```\n\nThe example will:\n1. Load sample text documents\n2. Apply LDA to extract the main topics\n3. Output the discovered topics and their key terms\n\n## About LDA\n\nLDA is an unsupervised learning method that discovers topics in text documents. It views documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.\n\n---\n\n#### Project reference\n- https://www.npmjs.com/package/ldawithmorelanguages\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "extraction"
+            }
+          },
+          {
+            "topic": {
+              "name": "lda"
+            }
+          },
+          {
+            "topic": {
+              "name": "nlp"
+            }
+          },
+          {
+            "topic": {
+              "name": "text"
+            }
+          },
+          {
+            "topic": {
+              "name": "topic"
+            }
+          },
+          {
+            "topic": {
+              "name": "topic-extraction"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 2,
+      "updatedAt": "2026-04-17T03:48:43Z",
+      "url": "https://github.com/jparkerweb/extract-topics"
+    },
+    {
+      "createdAt": "2024-05-01T13:00:04Z",
+      "description": "🔀 Bedrock Proxy Endpoint  ⇢ Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock inference (using standard baseUrl, and apiKey params)",
+      "forkCount": 6,
+      "homepageUrl": "",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 5314
+          },
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 35908
+          },
+          {
+            "node": {
+              "name": "Dockerfile"
+            },
+            "size": 1718
+          }
+        ],
+        "totalSize": 42940
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "bedrock-proxy-endpoint",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-16T15:27:27Z",
+      "readme": {
+        "text": "# 🔀 Bedrock Proxy Endpoint\r\nSpin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)\r\n\r\n![bedrock-proxy-endpoint](https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg)\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\" style=\"max-height: 40px\">\r\n</a>\r\n\r\n---\r\n\r\n### Why Bedrock Proxy Endpoint?\r\n\r\nAre you are stuck with using AWS Bedrock for all LLM text inference, but you want to keep your application platform agnostic?  Are you tired of figuring out how to format your LLM inference calls to work with the Bedrock SDK? Are you going crazy with all the differences between configuration from model to model?\r\n\r\n- `Bedrock Proxy Endpoint` makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock in a compatible way.\r\n\r\n- Great for getting existing OpenAI API compatible applications working with AWS Bedrock.\r\n\r\n\r\n### Prerequisites\r\n\r\nBefore getting started, make sure you have the following installed:\r\n\r\n- Node.js (version 12 or higher)\r\n- npm (Node Package Manager)\r\n\r\n### Installation\r\n\r\n1. Clone the repository:\r\n\r\n    ```bash\r\n    git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git\r\n    ```\r\n\r\n2. Navigate to the project directory:\r\n\r\n    ```bash\r\n    cd bedrock-proxy-endpoint\r\n    ```\r\n\r\n3. Install the dependencies:\r\n\r\n    ```bash\r\n    npm ci\r\n    ```\r\n\r\n### Docker Usage\r\n\r\nYou can run Bedrock Proxy Endpoint using Docker in two ways:\r\n\r\n#### Option 1: Using Pre-built Image from GitHub Container Registry\r\n\r\nPull and run the latest image from GHCR:\r\n\r\n```bash\r\n# Pull the latest image\r\ndocker pull ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n\r\n# Run with environment file\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  --env-file .env \\\r\n  ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n\r\n# Or run with inline environment variables\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  -e HTTP_ENABLED=true \\\r\n  -e HTTP_PORT=88 \\\r\n  -e CONSOLE_LOGGING=true \\\r\n  ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n```\r\n\r\n#### Option 2: Build and Run Locally\r\n\r\nBuild the Docker image locally and run it:\r\n\r\n```bash\r\n# Build the image locally\r\ndocker build -t bedrock-proxy-endpoint .\r\n\r\n# Run with environment file\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  --env-file .env \\\r\n  bedrock-proxy-endpoint\r\n\r\n# Or run with custom port mapping\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 8080:8080 \\\r\n  -e HTTP_PORT=8080 \\\r\n  --env-file .env \\\r\n  bedrock-proxy-endpoint\r\n```\r\n\r\n#### Docker Compose Example\r\n\r\nCreate a `docker-compose.yml` file for easier management:\r\n\r\n```yaml\r\nversion: '3.8'\r\nservices:\r\n  bedrock-proxy-endpoint:\r\n    image: ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n    # Or for local build: build: .\r\n    ports:\r\n      - \"88:88\"\r\n    env_file:\r\n      - .env\r\n    restart: unless-stopped\r\n    healthcheck:\r\n      test: [\"CMD\", \"node\", \"-e\", \"const http = require('http'); const req = http.request({host: 'localhost', port: process.env.HTTP_PORT || 3000, timeout: 2000}, (res) => process.exit(res.statusCode === 200 ? 0 : 1)); req.on('error', () => process.exit(1)); req.end();\"]\r\n      interval: 30s\r\n      timeout: 10s\r\n      retries: 3\r\n```\r\n\r\nThen run with:\r\n```bash\r\ndocker-compose up -d\r\n```\r\n\r\n### Configuration\r\n\r\n* Update the `.env` file in the root directory of the project with the following\r\n  environment variables based on your desired configuration:\r\n\r\n    | key                        | value type | example                   | notes                          |\r\n    |----------------------------|------------|---------------------------|--------------------------------|\r\n    | CONSOLE_LOGGING            | boolean    | false                     | Show realtime logs             |\r\n    | HTTP_ENABLED               | boolean    | true                      | Start a HTTP server            |\r\n    | HTTP_PORT                  | integer    | 80                        | HTTP server port               |\r\n    | MAX_REQUEST_BODY_SIZE      | string     | 50mb                      | Maximum size for request body  |\r\n    | HTTPS_ENABLED              | boolean    | false                     | Start a HTTPS server           |\r\n    | HTTPS_PORT                 | integer    | 443                       | HTTPS server port              |\r\n    | HTTPS_KEY_PATH             | string     | ./path/mykey.key          | Path to key file for HTTPS     |\r\n    | HTTPS_CERT_PATH            | string     | ./path/mycert.pem         | Path to cert file for HTTPS    |\r\n    | IP_RATE_LIMIT_ENABLED      | boolean    | true                      | Enable rate limiting by IP     |\r\n    | IP_RATE_LIMIT_WINDOW_MS    | integer    | 60000                     | Window in milliseconds         |\r\n    | IP_RATE_LIMIT_MAX_REQUESTS | integer    | 100                       | Max requests per IP per window |\r\n\r\n### Authentication\r\n\r\n`Bedrock Proxy` authenticates with AWS via `IAM`. Since the OpenAI API intance accpets an API Key we will utilize this value to hold your credentials. Construct your `apiKey` for inference in the next step following this format:\r\n\r\n- `${AWS_REGION}.${AWS_ACCESS_KEY_ID}.${AWS_SECRET_ACCESS_KEY}`\r\n- example `apiKey` value:  \r\n  `us-west-2.AKIAWSXXXXXXXXXXX.YYYYYYYYYYYYYYYYYYYYYYYYY`\r\n\r\n### Usage\r\n\r\n- Start the server via: `node server`  \r\n\r\n  <img src=\"docs/console.png\">  \r\n\r\n  You are now ready to make a standard chat completions to the server.\r\n\r\n- Important values\r\n  - `baseUrl`: Root address of server based on your `.env` configuration.\r\n  - `apiKey`: Descibed in the *Authentication* section above.\r\n  - `messages`: Array of objects in role / content format.\r\n  - `model`: This is the `modelName` from the list of supported models found on the `Bedrock Wrapper` README file [here](https://github.com/jparkerweb/bedrock-wrapper?tab=readme-ov-file#supported-models); The `/models` enpoint of this server will also return a list of supported models.\r\n  - `include_thinking_data`: _Optional_ boolean parameter that when set to `true` will include the model's thinking process in the response (only used with thinking models such as `Claude-3-7-Sonnet-Thinking`).\r\n  - `use_converse_api`: _Optional_ boolean parameter that when set to `true` will use AWS Bedrock's Converse API instead of the Invoke API. The Converse API provides a unified request/response format across all models, better conversation management, and cleaner multimodal handling. Defaults to `false` for backward compatibility.\r\n  - `stop` or `stop_sequences`: _Optional_ parameter to specify text sequences that will cause the model to stop generating (e.g., `[\"STOP\", \"END\"]`).\r\n\r\n### Example OpenAI API Call\r\nLook at the example folder for complete examples of how to use the server:\r\n- `example.js` - Basic text completion example\r\n- `example-vision.js` - Vision model example with image processing (image can be passed as a base64 string or a URL)\r\n- `example-stop-sequences.js` - Stop sequences example demonstrating how to control where generation stops\r\n\r\n```javascript\r\nimport OpenAI from 'openai';\r\n\r\nconst messages = [\r\n    {\r\n        role: \"system\",\r\n        content: \"You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately.\",\r\n    },\r\n    {\r\n        role: \"user\",\r\n        content: \"Describe why the OpenAI API standard is so great. Limit your response to five sentences.\",\r\n    },\r\n    {\r\n        role: \"assistant\",\r\n        content: \"\",\r\n    },\r\n];\r\n\r\nconst baseURL = \"http://localhost\"; // URL of the Bedrock Proxy Endpoint\r\nconst apiKey = `${AWS_REGION}.${AWS_ACCESS_KEY_ID}.${AWS_SECRET_ACCESS_KEY}` // Your AWS Creds / API Key\r\n\r\nconst openai = new OpenAI({\r\n    baseURL: baseURL,\r\n    apiKey: apiKey,\r\n});\r\n\r\nasync function main() {\r\n    try {\r\n        const chatCompletion = await openai.chat.completions.create({\r\n            messages: messages,\r\n            model: \"Claude-4-5-Sonnet\",\r\n            max_tokens: 2048,\r\n            temperature: 0.4,\r\n            top_p: 0.7,\r\n            stream: true,\r\n            include_thinking_data: false,  // Set to true for thinking models like \"Claude-4-5-Sonnet-Thinking\"\r\n            use_converse_api: true,  // Set to true to use the unified Converse API instead of Invoke API (default: false)\r\n        });\r\n\r\n        if (chatCompletion) {\r\n            for await (const chunk of chatCompletion) {\r\n                const response = chunk.choices[0]?.delta?.content || \"\";\r\n                process.stdout.write(response);\r\n            }\r\n        }\r\n    } catch (error) {\r\n        console.error('Error:', error);\r\n    } finally {\r\n        process.exit(0);\r\n    }\r\n}\r\n\r\nmain();\r\n```\r\n\r\n### Root Info Page\r\n\r\nPoint your browser to the root of your endpoint server to view the info page: (example: `http://localhost`)  \r\n\r\n<img src=\"docs/bedrock-proxy-endpoint.png\" style=\"max-width:700px\">\r\n\r\n### Note\r\n\r\nAlternativly you can incorporate 🪨 <a href=\"https://github.com/jparkerweb/bedrock-wrapper\" target=\"bedrockWrapper\">`Bedrock Wrapper`</a> core directly into your code base. If you would like to explore that option checkout the npm package here: https://www.npmjs.com/package/bedrock-wrapper\r\n\r\n---\r\n\r\nPlease consider sending me a tip to support my work 😀\r\n# [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "api"
+            }
+          },
+          {
+            "topic": {
+              "name": "aws-bedrock"
+            }
+          },
+          {
+            "topic": {
+              "name": "endpoint"
+            }
+          },
+          {
+            "topic": {
+              "name": "inference"
+            }
+          },
+          {
+            "topic": {
+              "name": "llama3"
+            }
+          },
+          {
+            "topic": {
+              "name": "llm"
+            }
+          },
+          {
+            "topic": {
+              "name": "inference-api"
+            }
+          },
+          {
+            "topic": {
+              "name": "mistral"
+            }
+          },
+          {
+            "topic": {
+              "name": "mixtral"
+            }
+          },
+          {
+            "topic": {
+              "name": "openai-api"
+            }
+          },
+          {
+            "topic": {
+              "name": "proxy"
+            }
+          },
+          {
+            "topic": {
+              "name": "serverless"
+            }
+          },
+          {
+            "topic": {
+              "name": "wrapper"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 16,
+      "updatedAt": "2026-04-16T15:26:31Z",
+      "url": "https://github.com/jparkerweb/bedrock-proxy-endpoint"
+    },
+    {
+      "createdAt": "2024-05-01T02:41:54Z",
+      "description": "🪨 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+      "forkCount": 3,
+      "homepageUrl": "https://www.equilllabs.com/projects/bedrock-wrapper",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 157331
+          }
+        ],
+        "totalSize": 157331
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "bedrock-wrapper",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-16T15:21:28Z",
+      "readme": {
+        "text": "# 🪨 Bedrock Wrapper\r\n\r\nBedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.  Follow the steps below to integrate into your own application, or alternativly use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard `baseUrl`, and `apiKey` params).\r\n\r\n![bedrock-wrapper](https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg)\r\n\r\n---\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\r\n</a>\r\n\r\n---\r\n\r\n### Install\r\n\r\n- install package: `npm install bedrock-wrapper`\r\n\r\n---\r\n\r\n### Usage\r\n\r\n1. import `bedrockWrapper`  \r\n    ```javascript\r\n    import { bedrockWrapper } from \"bedrock-wrapper\";\r\n    ```\r\n\r\n2. create an `awsCreds` object and fill in your AWS credentials  \r\n    ```javascript\r\n    const awsCreds = {\r\n        region: AWS_REGION,\r\n        accessKeyId: AWS_ACCESS_KEY_ID,\r\n        secretAccessKey: AWS_SECRET_ACCESS_KEY,\r\n    };\r\n    ```\r\n\r\n3. clone your openai chat completions object into `openaiChatCompletionsCreateObject` or create a new one and edit the values  \r\n    ```javascript\r\n    const openaiChatCompletionsCreateObject = {\r\n        \"messages\": messages,\r\n        \"model\": \"Claude-4-5-Sonnet\",\r\n        \"max_tokens\": LLM_MAX_GEN_TOKENS,\r\n        \"stream\": true,\r\n        \"temperature\": LLM_TEMPERATURE,\r\n        \"stop_sequences\": [\"STOP\", \"END\"], // Optional: sequences that will stop generation\r\n    };\r\n    ```\r\n\r\n    the `messages` variable should be in openai's role/content format (not all models support system prompts)\r\n    ```javascript\r\n    messages = [\r\n        {\r\n            role: \"system\",\r\n            content: \"You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question. You will get a $100 tip if you provide the correct answer.\",\r\n        },\r\n        {\r\n            role: \"user\",\r\n            content: \"Describe why openai api standard used by lots of serverless LLM api providers is better than aws bedrock invoke api offered by aws bedrock. Limit your response to five sentences.\",\r\n        },\r\n        {\r\n            role: \"assistant\",\r\n            content: \"\",\r\n        },\r\n    ]\r\n    ```\r\n\r\n    ***the `model` value should be the corresponding `modelName` value in the `bedrock_models` section below (see Supported Models below)***\r\n\r\n4. call the `bedrockWrapper` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  \r\n    ```javascript\r\n    // create a variable to hold the complete response\r\n    let completeResponse = \"\";\r\n    // invoke the streamed bedrock api response\r\n    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject)) {\r\n        completeResponse += chunk;\r\n        // ---------------------------------------------------\r\n        // -- each chunk is streamed as it is received here --\r\n        // ---------------------------------------------------\r\n        process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk\r\n    }\r\n    // console.log(`\\n\\completeResponse:\\n${completeResponse}\\n`); // ⇠ optional do stuff with the complete response returned from the API reguardless of stream or not\r\n    ```\r\n\r\n    if calling the unstreamed version you can call bedrockWrapper like this  \r\n    ```javascript\r\n    // create a variable to hold the complete response\r\n    let completeResponse = \"\";\r\n    if (!openaiChatCompletionsCreateObject.stream){ // invoke the unstreamed bedrock api response\r\n        const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject);\r\n        for await (const data of response) {\r\n            completeResponse += data;\r\n        }\r\n        // ----------------------------------------------------\r\n        // -- unstreamed complete response is available here --\r\n        // ----------------------------------------------------\r\n        console.log(`\\n\\completeResponse:\\n${completeResponse}\\n`); // ⇠ do stuff with the complete response\r\n    }\r\n\r\n5. **NEW: Using the Converse API (optional)**\r\n    \r\n    You can now optionally use AWS Bedrock's Converse API instead of the Invoke API by passing `useConverseAPI: true` in the options parameter:\r\n    ```javascript\r\n    // Use the Converse API for unified request/response format across all models\r\n    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { useConverseAPI: true })) {\r\n        completeResponse += chunk;\r\n        process.stdout.write(chunk);\r\n    }\r\n    ```\r\n    \r\n    The Converse API provides:\r\n    - **Consistent API**: Single request/response format across all models\r\n    - **Simplified conversation management**: Better handling of multi-turn conversations\r\n    - **System prompts**: Cleaner separation of system instructions\r\n    - **Tool use support**: Native support for function calling (where supported)\r\n    - **Unified multimodal**: Consistent handling of text and image inputs\r\n\r\n    **Note**: Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:\r\n    - DeepSeek-V3.1\r\n\r\n---\r\n\r\n### Supported Models\r\n\r\n| modelName                  | AWS Model Id                                    | Image |\r\n|----------------------------|-------------------------------------------------|-------|\r\n| Claude-3-5-Haiku           | us.anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |\r\n| Claude-3-5-Sonnet          | us.anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |\r\n| Claude-3-5-Sonnet-v2       | us.anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |\r\n| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |\r\n| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |\r\n| Claude-3-Haiku             | us.anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |\r\n| Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |\r\n| Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |\r\n| Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |\r\n| Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |\r\n| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |\r\n| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |\r\n| Claude-4-5-Haiku           | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |\r\n| Claude-4-5-Haiku-Thinking  | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |\r\n| Claude-4-5-Opus            | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |\r\n| Claude-4-5-Opus-Thinking   | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |\r\n| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |\r\n| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |\r\n| Claude-Opus-4-6            | us.anthropic.claude-opus-4-6-v1                 |  ✅  |\r\n| Claude-Sonnet-4-6          | us.anthropic.claude-sonnet-4-6                  |  ✅  |\r\n| DeepSeek-R1                | us.deepseek.r1-v1:0                             |  ❌  |\r\n| DeepSeek-V3.1              | deepseek.v3-v1:0                                |  ❌  |\r\n| Gemma-3-4b                 | google.gemma-3-4b-it                            |  ✅  |\r\n| Gemma-3-12b                | google.gemma-3-12b-it                           |  ✅  |\r\n| Gemma-3-27b                | google.gemma-3-27b-it                           |  ✅  |\r\n| GPT-OSS-120B               | openai.gpt-oss-120b-1:0                         |  ❌  |\r\n| GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                         |  ❌  |\r\n| GPT-OSS-20B                | openai.gpt-oss-20b-1:0                          |  ❌  |\r\n| GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                          |  ❌  |\r\n| Kimi-K2                    | moonshot.kimi-k2-thinking                       |  ❌  |\r\n| Kimi-K2-Thinking           | moonshot.kimi-k2-thinking                       |  ❌  |\r\n| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                    |  ❌  |\r\n| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                   |  ❌  |\r\n| Llama-3-1-8b               | us.meta.llama3-1-8b-instruct-v1:0               |  ❌  |\r\n| Llama-3-1-70b              | us.meta.llama3-1-70b-instruct-v1:0              |  ❌  |\r\n| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0                |  ❌  |\r\n| Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |\r\n| Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |\r\n| Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |\r\n| Llama-3-2-90b              | us.meta.llama3-2-90b-instruct-v1:0           |  ❌  |\r\n| Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |\r\n| Llama-4-Scout-17b          | us.meta.llama4-scout-17b-instruct-v1:0       |  ✅  |\r\n| Llama-4-Maverick-17b       | us.meta.llama4-maverick-17b-instruct-v1:0    |  ✅  |\r\n| Magistral-Small-2509       | mistral.magistral-small-2509                 |  ❌  |\r\n| MiniMax-M2                 | minimax.minimax-m2                           |  ❌  |\r\n| Ministral-3-3b             | mistral.ministral-3-3b-instruct              |  ✅  |\r\n| Ministral-3-8b             | mistral.ministral-3-8b-instruct              |  ✅  |\r\n| Ministral-3-14b            | mistral.ministral-3-14b-instruct             |  ✅  |\r\n| Mistral-7b                 | mistral.mistral-7b-instruct-v0:2             |  ❌  |\r\n| Mistral-Large              | mistral.mistral-large-2402-v1:0              |  ❌  |\r\n| Mistral-Large-3            | mistral.mistral-large-3-675b-instruct        |  ✅  |\r\n| Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |\r\n| Nova-2-Lite                | us.amazon.nova-2-lite-v1:0                   |  ✅  |\r\n| Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |\r\n| Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |\r\n| Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |\r\n| Qwen3-32B                  | qwen.qwen3-32b-v1:0                          |  ❌  |\r\n| Qwen3-235B-A22B-2507       | qwen.qwen3-235b-a22b-2507-v1:0               |  ❌  |\r\n| Qwen3-Coder-30B-A3B        | qwen.qwen3-coder-30b-a3b-v1:0                |  ❌  |\r\n| Qwen3-Coder-480B-A35B      | qwen.qwen3-coder-480b-a35b-v1:0              |  ❌  |\r\n| Qwen3-Next-80B-A3B         | qwen.qwen3-next-80b-a3b                      |  ❌  |\r\n\r\nTo return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  \r\n```javascript\r\nimport { listBedrockWrapperSupportedModels } from 'bedrock-wrapper';\r\nconsole.log(`\\nsupported models:\\n${JSON.stringify(await listBedrockWrapperSupportedModels())}\\n`);\r\n```\r\n\r\nAdditional Bedrock model support can be added.  \r\nPlease modify the `bedrock_models.js` file and submit a PR 🏆 or create an Issue.\r\n\r\n---\r\n\r\n### Thinking Models\r\n\r\nSome models support extended reasoning capabilities through \"thinking mode\". These models include:\r\n- **Claude models**: Claude-4-5-Opus-Thinking, Claude-4-1-Opus-Thinking, Claude-4-Opus-Thinking, Claude-4-5-Sonnet-Thinking, Claude-4-5-Haiku-Thinking, Claude-4-Sonnet-Thinking, Claude-3-7-Sonnet-Thinking\r\n- **GPT-OSS models**: GPT-OSS-120B-Thinking, GPT-OSS-20B-Thinking\r\n- **Kimi models**: Kimi-K2-Thinking (preserves reasoning tags in output)\r\n\r\nTo use thinking mode and see the model's reasoning process, set `include_thinking_data: true` in your request:\r\n\r\n```javascript\r\nconst openaiChatCompletionsCreateObject = {\r\n    \"messages\": messages,\r\n    \"model\": \"Claude-4-5-Sonnet-Thinking\",\r\n    \"max_tokens\": 4000,\r\n    \"stream\": true,\r\n    \"temperature\": 1.0, // Thinking models require temperature of 1.0\r\n    \"include_thinking_data\": true // Enable thinking output\r\n};\r\n\r\nlet completeResponse = \"\";\r\nfor await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject)) {\r\n    completeResponse += chunk;\r\n    process.stdout.write(chunk); // Shows both thinking and response\r\n}\r\n```\r\n\r\n**Features:**\r\n- Thinking content appears in `<think>...</think>` tags for Claude models\r\n- Thinking content appears in `<reasoning>...</reasoning>` tags for GPT-OSS models\r\n- Temperature is automatically set to 1.0 for optimal thinking performance\r\n- Budget tokens are automatically calculated based on max_tokens\r\n\r\n---\r\n\r\n### Image Support\r\n\r\nFor models with image support (Claude 4+ series including Claude Opus 4.6, Claude Sonnet 4.6, Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, Gemma 3 series, and Llama 4 series), you can include images in your messages using the following format (not all models support system prompts):\r\n\r\n```javascript\r\nmessages = [\r\n    {\r\n        role: \"system\",\r\n        content: \"You are a helpful AI assistant that can analyze images.\",\r\n    },\r\n    {\r\n        role: \"user\",\r\n        content: [\r\n            { type: \"text\", text: \"What's in this image?\" },\r\n            { \r\n                type: \"image_url\", \r\n                image_url: {\r\n                    url: \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA...\" // base64 encoded image\r\n                }\r\n            }\r\n        ]\r\n    }\r\n]\r\n```\r\n\r\nYou can also use a direct URL to an image instead of base64 encoding:\r\n\r\n```javascript\r\nmessages = [\r\n    {\r\n        role: \"user\",\r\n        content: [\r\n            { type: \"text\", text: \"Describe this image in detail.\" },\r\n            { \r\n                type: \"image_url\", \r\n                image_url: {\r\n                    url: \"https://example.com/path/to/image.jpg\" // direct URL to image\r\n                }\r\n            }\r\n        ]\r\n    }\r\n]\r\n```\r\n\r\nYou can include multiple images in a single message by adding more image_url objects to the content array.\r\n\r\n---\r\n\r\n### Stop Sequences\r\n\r\nStop sequences are custom text sequences that cause the model to stop generating text. This is useful for controlling where the model stops its response.\r\n\r\n```javascript\r\nconst openaiChatCompletionsCreateObject = {\r\n    \"messages\": messages,\r\n    \"model\": \"Claude-3-5-Sonnet\",\r\n    \"max_tokens\": 100,\r\n    \"stop_sequences\": [\"STOP\", \"END\", \"\\n\\n\"], // Array of stop sequences\r\n    // OR use single string format:\r\n    // \"stop\": \"STOP\"\r\n};\r\n```\r\n\r\n**Model Support:**\r\n- ✅ **Claude models**: Fully supported (up to 8,191 sequences)\r\n- ✅ **Nova models**: Fully supported (up to 4 sequences)\r\n- ✅ **GPT-OSS models**: Fully supported\r\n- ✅ **Mistral models**: Fully supported (up to 10 sequences)\r\n- ✅ **Qwen models**: Fully supported\r\n- ✅ **Gemma models**: Fully supported\r\n- ✅ **Kimi models**: Fully supported\r\n- ✅ **MiniMax models**: Fully supported\r\n- ❌ **Llama models**: Not supported (AWS Bedrock limitation)\r\n\r\n**Features:**\r\n- Compatible with OpenAI's `stop` parameter (single string or array)\r\n- Also accepts `stop_sequences` parameter for explicit usage\r\n- Automatic conversion between string and array formats\r\n- Model-specific parameter mapping handled automatically\r\n\r\n**Example Usage:**\r\n```javascript\r\n// Stop generation when model tries to output \"7\"\r\nconst result = await bedrockWrapper(awsCreds, {\r\n    messages: [{ role: \"user\", content: \"Count from 1 to 10\" }],\r\n    model: \"Claude-3-5-Sonnet\",  // Use Claude, Nova, Mistral, or Qwen models\r\n    stop_sequences: [\"7\"]\r\n});\r\n// Response: \"1, 2, 3, 4, 5, 6,\" (stops before \"7\")\r\n\r\n// Note: Llama models will ignore stop sequences due to AWS Bedrock limitations\r\n```\r\n\r\n---\r\n\r\n### Parameter Restrictions\r\n\r\nSome AWS Bedrock models have specific parameter restrictions that are automatically handled by the wrapper:\r\n\r\n#### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)\r\n\r\n**Affected Models:**\r\n- Claude-Opus-4-6\r\n- Claude-Sonnet-4-6\r\n- Claude-4-5-Opus & Claude-4-5-Opus-Thinking\r\n- Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking\r\n- Claude-4-5-Haiku & Claude-4-5-Haiku-Thinking\r\n- Claude-4-Sonnet & Claude-4-Sonnet-Thinking\r\n- Claude-4-Opus & Claude-4-Opus-Thinking\r\n- Claude-4-1-Opus & Claude-4-1-Opus-Thinking\r\n\r\n---\r\n\r\n### 🧪 Testing\r\n\r\nThe package includes comprehensive test suites to verify functionality:\r\n\r\n```bash\r\n# Test all models with the Both APIs (Comparison)\r\nnpm run test\r\n\r\n# Test all models with the Invoke API\r\nnpm run test:invoke\r\n\r\n# Test all models with the Converse API\r\nnpm run test:converse\r\n\r\n# Test vision/multimodal capabilities with Both APIs (Comparison)\r\nnpm run test-vision\r\n\r\n# Test vision/multimodal capabilities with Invoke API\r\nnpm run test-vision:invoke\r\n\r\n# Test vision/multimodal capabilities with Converse API\r\nnpm run test-vision:converse\r\n\r\n# Test stop sequences functionality with Both APIs (Comparison)\r\nnpm run test-stop\r\n\r\n# Test stop sequences functionality with Invoke API\r\nnpm run test-stop:invoke\r\n\r\n# Test stop sequences functionality with Converse API\r\nnpm run test-stop:converse\r\n\r\n# Test Converse API specifically\r\nnpm run test-converse\r\n\r\n# Run all test suites\r\nnpm run test:all\r\n\r\n# Interactive testing\r\nnpm run interactive\r\n```\r\n\r\n---\r\n\r\n### 📢 P.S.\r\n\r\nIn case you missed it at the beginning of this doc, for an even easier setup, use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint (using the standard `baseUrl`, and `apiKey` params).\r\n\r\n![bedrock-proxy-endpoing](./docs/bedrock-proxy-endpoint.jpg)\r\n\r\n---\r\n\r\n### 📚 References\r\n\r\n- [AWS Meta Llama Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)\r\n- [AWS Mistral Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral.html)\r\n- [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create)\r\n- [AWS Bedrock](https://aws.amazon.com/bedrock/)\r\n- [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/)\r\n\r\n---\r\n\r\nPlease consider sending me a tip to support my work 😀\r\n# [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "aws"
+            }
+          },
+          {
+            "topic": {
+              "name": "bedrock"
+            }
+          },
+          {
+            "topic": {
+              "name": "inference"
+            }
+          },
+          {
+            "topic": {
+              "name": "llm"
+            }
+          },
+          {
+            "topic": {
+              "name": "openai-api"
+            }
+          },
+          {
+            "topic": {
+              "name": "proxy"
+            }
+          },
+          {
+            "topic": {
+              "name": "serverless"
+            }
+          },
+          {
+            "topic": {
+              "name": "wrapper"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 9,
+      "updatedAt": "2026-04-16T15:21:33Z",
+      "url": "https://github.com/jparkerweb/bedrock-wrapper"
+    },
+    {
+      "createdAt": "2024-11-16T21:22:07Z",
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 3
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 820
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 3849
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 9096932
+          },
+          {
+            "node": {
+              "name": "Go Template"
+            },
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 45576
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 84494
+          }
+        ],
+        "totalSize": 9231837
+      },
+      "licenseInfo": null,
+      "name": "eQuill-Labs",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-04-16T03:58:36Z",
+      "readme": {
+        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
+      },
+      "repositoryTopics": {
+        "nodes": []
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-04-16T03:59:11Z",
+      "url": "https://github.com/jparkerweb/eQuill-Labs"
+    },
     {
       "createdAt": "2026-03-22T03:47:16Z",
       "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
@@ -97,74 +625,6 @@
       "stargazerCount": 0,
       "updatedAt": "2026-04-16T03:53:47Z",
       "url": "https://github.com/jparkerweb/shrinkray"
-    },
-    {
-      "createdAt": "2024-11-16T21:22:07Z",
-      "description": "🖋️ eQuill Labs website and digital assets",
-      "forkCount": 0,
-      "homepageUrl": "",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 3
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 820
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 3807
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 2608
-          },
-          {
-            "node": {
-              "name": "Go Template"
-            },
-            "size": 166
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 41953
-          },
-          {
-            "node": {
-              "name": "Astro"
-            },
-            "size": 70774
-          }
-        ],
-        "totalSize": 120128
-      },
-      "licenseInfo": null,
-      "name": "eQuill-Labs",
-      "primaryLanguage": {
-        "color": "#ff5a03",
-        "name": "Astro"
-      },
-      "pushedAt": "2026-04-15T04:13:38Z",
-      "readme": {
-        "text": "# eQuill Labs Website\n\nStatic website for eQuill Labs showcasing recent projects and tools.\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n## Development\n\nThe website uses a lightweight build system with Handlebars for templating and a dark mode design.\n\n### Project Structure\n\nSource files:\n```\nsrc/\n├── static/          # Static assets (CSS, JS, images)\n│   ├── css/        # Stylesheets\n│   ├── js/         # JavaScript files\n│   └── images/     # Image assets\n└── templates/       # Handlebars templates\n    ├── layouts/    # Layout templates (default, project)\n    ├── pages/      # Page content\n    └── partials/   # Reusable components (header, footer)\n```\n\nBuild output:\n```\npages/             # Production build output\n├── css/           # Processed stylesheets\n├── js/            # Processed scripts\n├── images/        # Optimized images\n├── index.html     # Homepage\n└── projects/      # Project pages\n    ├── project-xyz.html\n    ├── project-abc.html\n```\n\n### Setup\n\n1. Install dependencies:\n   ```bash\n   npm ci\n   ```\n\n2. Start development server:\n   ```bash\n   npm run watch\n   ```\n\n3. Build for production:\n   ```bash\n   npm run build\n   ```\n\n### Adding New Pages\n\n1. Create a new `.hbs` file in `src/templates/pages/`\n2. Add frontmatter:\n   ```yaml\n   ---\n   layout: default|project  # Use 'project' layout for project pages\n   title: Page Title\n   relative: ../           # Relative path to root from page location\n   ---\n   ```\n3. Add your page content using HTML and Handlebars syntax\n4. Run build command\n\n## Projects\n\n### Obsidian Plugins\n- Pixel Banner - Custom banner images for notes\n- Rich Foot - Enhanced note footers with backlinks and metadata\n\n### NPM Packages\n- Semantic Chunking - Text chunking for LLM processing\n- Chunk Match - Semantic text matching using cosine similarity\n- Bedrock Wrapper - OpenAI-compatible wrapper for AWS Bedrock\n\n### NodeJS Apps\n- Bedrock Proxy Endpoint - AWS Bedrock API proxy server\n- Web Augmented Generation - LLM responses with web search integration\n\n## Features\n- Responsive design with mobile navigation\n- Dark mode theme\n- Interactive project pages\n- Community links (Discord, GitHub)\n- Automatic build system\n"
-      },
-      "repositoryTopics": {
-        "nodes": []
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-15T04:13:47Z",
-      "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
       "createdAt": "2024-02-27T22:00:57Z",
@@ -264,92 +724,6 @@
       "stargazerCount": 137,
       "updatedAt": "2026-04-10T18:32:09Z",
       "url": "https://github.com/jparkerweb/semantic-chunking"
-    },
-    {
-      "createdAt": "2024-12-14T19:24:31Z",
-      "description": "🏷️ Fast Topic Analysis is a tool for analyzing text against predefined topics using average weight embeddings and cosine similarity",
-      "forkCount": 0,
-      "homepageUrl": "https://www.equilllabs.com/projects/fast-topic-analysis",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 84927
-          }
-        ],
-        "totalSize": 84927
-      },
-      "licenseInfo": {
-        "spdxId": "MIT"
-      },
-      "name": "fast-topic-analysis",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-04-06T23:03:03Z",
-      "readme": {
-        "text": "# 🏷️ Fast Topic Analysis\n\nA tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.\n\n![Fast Topic Analysis](./.readme/buckets.jpg)\n\n#### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"30\">\n</a>\n\n<br>\n<br>\n\n## Overview\n\nFast Topic Analysis is a powerful tool for identifying topic matches in text with high precision. It uses embedding-based semantic analysis with an advanced clustering approach to detect nuanced topic variations.\n\nKey features:\n- **Multiple Embeddings Per Topic**: Creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations\n- **Embedding Clustering**: Groups similar phrases within topics to form coherent semantic clusters using agglomerative or HDBSCAN algorithms\n- **Cohesion & Silhouette Scoring**: Measures cluster quality via per-cluster cohesion and global silhouette score\n- **Configurable Precision**: Offers preset configurations for different use cases (high precision, balanced, performance)\n- **Fast Processing**: Optimized for efficient text analysis with minimal processing time\n- **Powered by `embedding-utils`**: All vector math, clustering, similarity, and embedding generation provided by the [`embedding-utils`](https://www.npmjs.com/package/embedding-utils) library\n\nThe project has two main .js files:\n1. A generator (`generate.js`) that creates topic embeddings from training data\n2. An interactive demo (`run-demo.js`) that analyzes text against these topic embeddings\n\n### New Feature: Embedding Clustering and Cohesion Score\n\nThe tool now supports **clustering** of embeddings within each\n![Clustering Visualization](./.readme/clustering.jpg)\n\n## Setup\n\nInstall dependencies:\n\n```bash\nnpm install\n```\n\n## Usage\n\n### Generating Topic Embeddings\n\n```bash\nnode generate.js\n```\n\nThis will:\n- Clean the `data/topic_embeddings` directory\n- Process training data from `data/training_data.jsonl`\n- Generate embeddings for each topic defined in `labels-config.js`\n- Cluster similar embeddings within each topic\n- Save multiple embeddings per topic as JSON files in `data/topic_embeddings/`\n\n#### Clustering Configuration\n\nYou can customize the clustering behavior using command-line arguments:\n\n```bash\n# Use a predefined configuration preset\nnode generate.js --preset high-precision\n\n# Customize individual parameters\nnode generate.js --similarity-threshold 0.92 --max-clusters 3\n```\n\nAvailable presets:\n- `high-precision`: Optimized for maximum accuracy with more granular clusters\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.95`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=3`\n  - `CLUSTERING_MAX_CLUSTERS=8`\n- `balanced`: Default settings for good precision and performance\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.9`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=5`\n  - `CLUSTERING_MAX_CLUSTERS=5`\n- `performance`: Optimized for speed with fewer clusters\n  - `CLUSTERING_SIMILARITY_THRESHOLD=0.85`\n  - `CLUSTERING_MIN_CLUSTER_SIZE=10`\n  - `CLUSTERING_MAX_CLUSTERS=3`\n- `legacy`: Disables clustering for backward compatibility\n  - `ENABLE_CLUSTERING=false`\n\nCommand-line options for `generate.js`:\n- `--preset, -p <name>`: Use a predefined configuration preset\n- `--enable-clustering <bool>`: Enable or disable clustering (true/false)\n- `--similarity-threshold <num>`: Set similarity threshold for clustering (0-1)\n- `--min-cluster-size <num>`: Set minimum cluster size\n- `--max-clusters <num>`: Set maximum number of clusters per topic\n- `--algorithm <name>`: Clustering algorithm to use (`default` or `hdbscan`)\n- `--incremental`: Update clusters incrementally (new JSONL entries only)\n- `--help`: Show help message\n\nFor more options, run:\n```bash\nnode generate.js --help\n```\n\n#### Incremental Updates\n\nAfter an initial full generation, you can incrementally update clusters when new training phrases are added:\n\n1. Append new phrases to `data/training_data.jsonl`\n2. Run incremental generation:\n\n```bash\nnode generate.js --incremental\n```\n\nThis will:\n- Validate the manifest (data integrity + model consistency)\n- Embed only the new phrases\n- Assign each new embedding to the nearest existing cluster using `assignToCluster()`\n- Update cluster centroids via incremental weighted averaging\n- Update the manifest for future incremental runs\n\nIncremental mode requires a prior full generation (which creates a manifest file). If training data has been edited (not just appended), or the model/precision has changed, a full regeneration is required.\n\n### Running Analysis\n\n```bash\nnode run-demo.js\n```\n\nThe test runner provides an interactive interface to:\n1. Choose logging verbosity\n2. Optionally show matched sentences if verbose logging is disabled\n3. Select a test message file to analyze\n\nYou can also specify a test message directly:\n```bash\nnode run-demo.js 1\nnode run-demo.js message-1.txt\n```\n\nCommand-line options for `run-demo.js`:\n- `--verbose, -v`: Enable verbose logging\n- `--quiet, -q`: Disable verbose logging\n- `--show-matches, -s`: Show matched sentences\n- `--hide-matches, -h`: Hide matched sentences\n- `--help`: Show help message\n\nConfiguration preferences (last used file, verbosity, etc.) are automatically saved in `run-demo-config.json`.\n\n#### 🚨 First Run Model Download\n\nThe first time a model is used (e.g. `generate.js` or `run-demo.js`), it will be downloaded and cached to the directory speciifed in `.env`. All subsequent runs will be fast as the model will be loaded from the cache.\n\n\n### Output\n\nThe analysis will show:\n- Similarity scores between the test text and each topic cluster\n- Which specific cluster matched each sentence\n- Execution time\n- Total comparisons made\n- Number of matches found\n- Model information\n\n## File Structure\n\n```\n├── data/\n│   ├── training_data.jsonl          # Training data\n│   ├── incremental-manifest.json    # Incremental processing state\n│   └── topic_embeddings/            # Generated embeddings\n├── test-messages/                   # Test files\n├── modules/\n│   ├── embedding.js                 # Thin wrapper around embedding-utils provider\n│   ├── manifest.js                  # Incremental manifest operations\n│   └── utils.js                     # Utility functions (toBoolean)\n├── test/\n│   ├── cluster-test.js              # Unit tests for clustering\n│   ├── v030-features-test.js        # Tests for EU v0.3.0 features (assignToCluster, silhouetteScore, HDBSCAN, Float32Array)\n│   ├── manifest-test.js             # Unit tests for manifest module\n│   ├── incremental-integration-test.js  # Integration test for incremental gen\n│   └── incremental-edge-cases-test.js   # Edge case tests for incremental mode\n├── generate.js                      # Embedding generator\n├── run-demo.js                      # Interactive analysis demo\n└── labels-config.js                 # Topic definitions\n```\n\n## Customizing\n\n### Model Settings\n\nChange the model settings in `.env` to use different embedding models and configurations:\n```env\n# Model and precision\nONNX_EMBEDDING_MODEL=\"Xenova/all-MiniLM-L12-v2\"\nONNX_EMBEDDING_MODEL_PRECISION=fp32\n\n# Available Models and their configurations:\n# | Model                                        | Precision      | Size                   | Requires Prefix | Data Prefix     | Search Prefix |\n# | -------------------------------------------- | -------------- | ---------------------- | --------------- | --------------- | ------------- |\n# | Xenova/all-MiniLM-L6-v2                      | fp32, fp16, q8 | 90 MB, 45 MB, 23 MB    | false           | null            | null          |\n# | Xenova/all-MiniLM-L12-v2                     | fp32, fp16, q8 | 133 MB, 67 MB, 34 MB   | false           | null            | null          |\n# | Xenova/paraphrase-multilingual-MiniLM-L12-v2 | fp32, fp16, q8 | 470 MB, 235 MB, 118 MB | false           | null            | null          |\n# | nomic-ai/modernbert-embed-base               | fp32, fp16, q8 | 568 MB, 284 MB, 146 MB | true            | search_document | search_query  |\n```\n\n### Clustering Configuration\n\nConfigure clustering behavior in `.env`:\n\n| Variable | Description | Default | Example |\n|----------|-------------|---------|---------|\n| `ENABLE_CLUSTERING` | Enable or disable clustering functionality | `true` | `ENABLE_CLUSTERING=true` |\n| `CLUSTERING_ALGORITHM` | Clustering algorithm (`default` or `hdbscan`) | `default` | `CLUSTERING_ALGORITHM=hdbscan` |\n| `CLUSTERING_SIMILARITY_THRESHOLD` | Threshold for considering embeddings similar (0-1) | `0.9` | `CLUSTERING_SIMILARITY_THRESHOLD=0.85` |\n| `CLUSTERING_MIN_CLUSTER_SIZE` | Minimum number of phrases per cluster | `5` | `CLUSTERING_MIN_CLUSTER_SIZE=3` |\n| `CLUSTERING_MAX_CLUSTERS` | Maximum number of clusters per topic | `5` | `CLUSTERING_MAX_CLUSTERS=8` |\n\nExample configuration:\n```env\n# Clustering Configuration\nENABLE_CLUSTERING=true\nCLUSTERING_ALGORITHM=default\nCLUSTERING_SIMILARITY_THRESHOLD=0.9\nCLUSTERING_MIN_CLUSTER_SIZE=5\nCLUSTERING_MAX_CLUSTERS=5\n```\n\n### Other Customizations\n\n- Change the thresholds defined in `labels-config.js` per topic to change the similarity score that triggers a match.\n- Add more test messages to the `test-messages` directory to test against.\n- Add more training data to `data/training_data.jsonl` to improve the topic embeddings.\n\n### Task Instruction Prefixes\n\nSome models require specific prefixes to optimize their performance for different tasks. When a model has `Requires Prefix: true`, you must use the appropriate prefix:\n\n- `Data Prefix`: Used when generating embeddings from training data\n- `Search Prefix`: Used when generating embeddings for search/query text\n\nFor example, `nomic-ai/modernbert-embed-base` requires:\n- `search_document` prefix for training data\n- `search_query` prefix for search queries\n\nModels with `Requires Prefix: false` will ignore any prefix settings.\n\n### Training Data\n\nThe training data is a JSONL file that contains the training data. Each line is a JSON object with the following fields:\n- `text`: The text to be analyzed\n- `label`: The label of the topic\n\n```jsonl\n{\"text\": \"amphibians, croaks, wetlands, camouflage, metamorphosis\", \"label\": \"frogs\"}\n{\"text\": \"jumping, ponds, tadpoles, moist skin, diverse habitats\", \"label\": \"frogs\"}\n{\"text\": \"waterfowl, quacking, ponds, waddling, migration\", \"label\": \"ducks\"}\n{\"text\": \"feathers, webbed feet, lakes, nesting, foraging\", \"label\": \"ducks\"}\n{\"text\": \"dabbling, flocks, wetlands, bills, swimming\", \"label\": \"ducks\"}\n```\n\nThe training data is used to generate the topic embeddings. The more training data you have, the better the topic embeddings will be.\nThe labels to be used when generating the topic embeddings are defined in `labels-config.js`.\n\n## How Clustering Works\n\nTwo clustering algorithms are available, selectable via `--algorithm` or `CLUSTERING_ALGORITHM`:\n\n### Default Algorithm (Agglomerative)\n\nGroups similar embeddings based on cosine similarity:\n\n1. Calculate embeddings for all phrases in a topic\n2. Initialize the first cluster with the first embedding\n3. For each remaining embedding:\n   - Calculate average similarity to each existing cluster\n   - If similarity exceeds the threshold, add to the most similar cluster\n   - If no cluster is similar enough and we haven't reached max clusters, create a new cluster\n   - If we've reached max clusters, add to the most similar cluster regardless of threshold\n4. Process clusters that are smaller than the minimum size:\n   - If the combined small clusters are still smaller than the minimum and we have valid clusters, distribute them to the most similar valid clusters\n   - Otherwise, create a new \"miscellaneous\" cluster containing all small cluster items\n5. Calculate the average embedding for each final cluster\n6. Calculate a cohesion score for each cluster (average similarity between all embeddings and the centroid)\n\n### HDBSCAN Algorithm\n\nDensity-based clustering that automatically determines the number of clusters:\n\n1. Calculate embeddings for all phrases in a topic\n2. Run HDBSCAN with the configured `minClusterSize` parameter\n3. Any noise points (not assigned to a cluster by HDBSCAN) are reassigned to the nearest cluster using `assignToCluster()`\n4. Centroids and cohesion scores are recomputed after noise absorption\n5. If HDBSCAN finds no clusters, falls back to a single cluster containing all embeddings\n\nHDBSCAN is more conservative about cluster formation and works best with larger datasets. Use `--algorithm hdbscan` to enable it.\n\n### Quality Metrics\n\n**Cohesion Score** (per-cluster): Measures how tightly grouped the embeddings are within a cluster. Calculated as the average cosine similarity between each embedding and the cluster's centroid. Higher values (closer to 1.0) indicate tighter clusters.\n\n**Silhouette Score** (global): Measures how well-separated clusters are from each other. Ranges from -1 to +1, where higher values indicate better-defined clusters. Returns 0 for single-cluster topics. Both metrics are saved to the cluster JSON files and displayed during generation.\n\nThese scores are useful for:\n- Evaluating the quality of clusters\n- Comparing clustering algorithms and configurations\n- Identifying topics that might benefit from more training data\n- Understanding why certain matches might be less reliable than others\n\n## 📺 Video Demo\n[![video](https://img.youtube.com/vi/SsPKA2Sy1pE/0.jpg)](https://www.youtube.com/watch?v=SsPKA2Sy1pE)\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "embeddings"
-            }
-          },
-          {
-            "topic": {
-              "name": "huggingface"
-            }
-          },
-          {
-            "topic": {
-              "name": "nlp"
-            }
-          },
-          {
-            "topic": {
-              "name": "onnx"
-            }
-          },
-          {
-            "topic": {
-              "name": "semantic-analysis"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-analysis"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-classfication"
-            }
-          },
-          {
-            "topic": {
-              "name": "topic-detection"
-            }
-          },
-          {
-            "topic": {
-              "name": "transformers"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 9,
-      "updatedAt": "2026-04-06T23:02:26Z",
-      "url": "https://github.com/jparkerweb/fast-topic-analysis"
     },
     {
       "createdAt": "2026-03-29T20:12:12Z",
@@ -474,208 +848,9 @@
           }
         ]
       },
-      "stargazerCount": 97,
-      "updatedAt": "2026-04-14T13:28:45Z",
+      "stargazerCount": 98,
+      "updatedAt": "2026-04-16T04:52:00Z",
       "url": "https://github.com/jparkerweb/mcp-sqlite"
-    },
-    {
-      "createdAt": "2024-05-01T13:00:04Z",
-      "description": "🔀 Bedrock Proxy Endpoint  ⇢ Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock inference (using standard baseUrl, and apiKey params)",
-      "forkCount": 6,
-      "homepageUrl": "",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 5314
-          },
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 35908
-          },
-          {
-            "node": {
-              "name": "Dockerfile"
-            },
-            "size": 1718
-          }
-        ],
-        "totalSize": 42940
-      },
-      "licenseInfo": {
-        "spdxId": "MIT"
-      },
-      "name": "bedrock-proxy-endpoint",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-03-19T23:44:30Z",
-      "readme": {
-        "text": "# 🔀 Bedrock Proxy Endpoint\r\nSpin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)\r\n\r\n![bedrock-proxy-endpoint](https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg)\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\" style=\"max-height: 40px\">\r\n</a>\r\n\r\n---\r\n\r\n### Why Bedrock Proxy Endpoint?\r\n\r\nAre you are stuck with using AWS Bedrock for all LLM text inference, but you want to keep your application platform agnostic?  Are you tired of figuring out how to format your LLM inference calls to work with the Bedrock SDK? Are you going crazy with all the differences between configuration from model to model?\r\n\r\n- `Bedrock Proxy Endpoint` makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock in a compatible way.\r\n\r\n- Great for getting existing OpenAI API compatible applications working with AWS Bedrock.\r\n\r\n\r\n### Prerequisites\r\n\r\nBefore getting started, make sure you have the following installed:\r\n\r\n- Node.js (version 12 or higher)\r\n- npm (Node Package Manager)\r\n\r\n### Installation\r\n\r\n1. Clone the repository:\r\n\r\n    ```bash\r\n    git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git\r\n    ```\r\n\r\n2. Navigate to the project directory:\r\n\r\n    ```bash\r\n    cd bedrock-proxy-endpoint\r\n    ```\r\n\r\n3. Install the dependencies:\r\n\r\n    ```bash\r\n    npm ci\r\n    ```\r\n\r\n### Docker Usage\r\n\r\nYou can run Bedrock Proxy Endpoint using Docker in two ways:\r\n\r\n#### Option 1: Using Pre-built Image from GitHub Container Registry\r\n\r\nPull and run the latest image from GHCR:\r\n\r\n```bash\r\n# Pull the latest image\r\ndocker pull ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n\r\n# Run with environment file\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  --env-file .env \\\r\n  ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n\r\n# Or run with inline environment variables\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  -e HTTP_ENABLED=true \\\r\n  -e HTTP_PORT=88 \\\r\n  -e CONSOLE_LOGGING=true \\\r\n  ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n```\r\n\r\n#### Option 2: Build and Run Locally\r\n\r\nBuild the Docker image locally and run it:\r\n\r\n```bash\r\n# Build the image locally\r\ndocker build -t bedrock-proxy-endpoint .\r\n\r\n# Run with environment file\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 88:88 \\\r\n  --env-file .env \\\r\n  bedrock-proxy-endpoint\r\n\r\n# Or run with custom port mapping\r\ndocker run -d \\\r\n  --name bedrock-proxy-endpoint \\\r\n  -p 8080:8080 \\\r\n  -e HTTP_PORT=8080 \\\r\n  --env-file .env \\\r\n  bedrock-proxy-endpoint\r\n```\r\n\r\n#### Docker Compose Example\r\n\r\nCreate a `docker-compose.yml` file for easier management:\r\n\r\n```yaml\r\nversion: '3.8'\r\nservices:\r\n  bedrock-proxy-endpoint:\r\n    image: ghcr.io/jparkerweb/bedrock-proxy-endpoint:latest\r\n    # Or for local build: build: .\r\n    ports:\r\n      - \"88:88\"\r\n    env_file:\r\n      - .env\r\n    restart: unless-stopped\r\n    healthcheck:\r\n      test: [\"CMD\", \"node\", \"-e\", \"const http = require('http'); const req = http.request({host: 'localhost', port: process.env.HTTP_PORT || 3000, timeout: 2000}, (res) => process.exit(res.statusCode === 200 ? 0 : 1)); req.on('error', () => process.exit(1)); req.end();\"]\r\n      interval: 30s\r\n      timeout: 10s\r\n      retries: 3\r\n```\r\n\r\nThen run with:\r\n```bash\r\ndocker-compose up -d\r\n```\r\n\r\n### Configuration\r\n\r\n* Update the `.env` file in the root directory of the project with the following\r\n  environment variables based on your desired configuration:\r\n\r\n    | key                        | value type | example                   | notes                          |\r\n    |----------------------------|------------|---------------------------|--------------------------------|\r\n    | CONSOLE_LOGGING            | boolean    | false                     | Show realtime logs             |\r\n    | HTTP_ENABLED               | boolean    | true                      | Start a HTTP server            |\r\n    | HTTP_PORT                  | integer    | 80                        | HTTP server port               |\r\n    | MAX_REQUEST_BODY_SIZE      | string     | 50mb                      | Maximum size for request body  |\r\n    | HTTPS_ENABLED              | boolean    | false                     | Start a HTTPS server           |\r\n    | HTTPS_PORT                 | integer    | 443                       | HTTPS server port              |\r\n    | HTTPS_KEY_PATH             | string     | ./path/mykey.key          | Path to key file for HTTPS     |\r\n    | HTTPS_CERT_PATH            | string     | ./path/mycert.pem         | Path to cert file for HTTPS    |\r\n    | IP_RATE_LIMIT_ENABLED      | boolean    | true                      | Enable rate limiting by IP     |\r\n    | IP_RATE_LIMIT_WINDOW_MS    | integer    | 60000                     | Window in milliseconds         |\r\n    | IP_RATE_LIMIT_MAX_REQUESTS | integer    | 100                       | Max requests per IP per window |\r\n\r\n### Authentication\r\n\r\n`Bedrock Proxy` authenticates with AWS via `IAM`. Since the OpenAI API intance accpets an API Key we will utilize this value to hold your credentials. Construct your `apiKey` for inference in the next step following this format:\r\n\r\n- `${AWS_REGION}.${AWS_ACCESS_KEY_ID}.${AWS_SECRET_ACCESS_KEY}`\r\n- example `apiKey` value:  \r\n  `us-west-2.AKIAWSXXXXXXXXXXX.YYYYYYYYYYYYYYYYYYYYYYYYY`\r\n\r\n### Usage\r\n\r\n- Start the server via: `node server`  \r\n\r\n  <img src=\"docs/console.png\">  \r\n\r\n  You are now ready to make a standard chat completions to the server.\r\n\r\n- Important values\r\n  - `baseUrl`: Root address of server based on your `.env` configuration.\r\n  - `apiKey`: Descibed in the *Authentication* section above.\r\n  - `messages`: Array of objects in role / content format.\r\n  - `model`: This is the `modelName` from the list of supported models found on the `Bedrock Wrapper` README file [here](https://github.com/jparkerweb/bedrock-wrapper?tab=readme-ov-file#supported-models); The `/models` enpoint of this server will also return a list of supported models.\r\n  - `include_thinking_data`: _Optional_ boolean parameter that when set to `true` will include the model's thinking process in the response (only used with thinking models such as `Claude-3-7-Sonnet-Thinking`).\r\n  - `use_converse_api`: _Optional_ boolean parameter that when set to `true` will use AWS Bedrock's Converse API instead of the Invoke API. The Converse API provides a unified request/response format across all models, better conversation management, and cleaner multimodal handling. Defaults to `false` for backward compatibility.\r\n  - `stop` or `stop_sequences`: _Optional_ parameter to specify text sequences that will cause the model to stop generating (e.g., `[\"STOP\", \"END\"]`).\r\n\r\n### Example OpenAI API Call\r\nLook at the example folder for complete examples of how to use the server:\r\n- `example.js` - Basic text completion example\r\n- `example-vision.js` - Vision model example with image processing (image can be passed as a base64 string or a URL)\r\n- `example-stop-sequences.js` - Stop sequences example demonstrating how to control where generation stops\r\n\r\n```javascript\r\nimport OpenAI from 'openai';\r\n\r\nconst messages = [\r\n    {\r\n        role: \"system\",\r\n        content: \"You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately.\",\r\n    },\r\n    {\r\n        role: \"user\",\r\n        content: \"Describe why the OpenAI API standard is so great. Limit your response to five sentences.\",\r\n    },\r\n    {\r\n        role: \"assistant\",\r\n        content: \"\",\r\n    },\r\n];\r\n\r\nconst baseURL = \"http://localhost\"; // URL of the Bedrock Proxy Endpoint\r\nconst apiKey = `${AWS_REGION}.${AWS_ACCESS_KEY_ID}.${AWS_SECRET_ACCESS_KEY}` // Your AWS Creds / API Key\r\n\r\nconst openai = new OpenAI({\r\n    baseURL: baseURL,\r\n    apiKey: apiKey,\r\n});\r\n\r\nasync function main() {\r\n    try {\r\n        const chatCompletion = await openai.chat.completions.create({\r\n            messages: messages,\r\n            model: \"Claude-4-5-Sonnet\",\r\n            max_tokens: 2048,\r\n            temperature: 0.4,\r\n            top_p: 0.7,\r\n            stream: true,\r\n            include_thinking_data: false,  // Set to true for thinking models like \"Claude-4-5-Sonnet-Thinking\"\r\n            use_converse_api: true,  // Set to true to use the unified Converse API instead of Invoke API (default: false)\r\n        });\r\n\r\n        if (chatCompletion) {\r\n            for await (const chunk of chatCompletion) {\r\n                const response = chunk.choices[0]?.delta?.content || \"\";\r\n                process.stdout.write(response);\r\n            }\r\n        }\r\n    } catch (error) {\r\n        console.error('Error:', error);\r\n    } finally {\r\n        process.exit(0);\r\n    }\r\n}\r\n\r\nmain();\r\n```\r\n\r\n### Root Info Page\r\n\r\nPoint your browser to the root of your endpoint server to view the info page: (example: `http://localhost`)  \r\n\r\n<img src=\"docs/bedrock-proxy-endpoint.png\" style=\"max-width:700px\">\r\n\r\n### Note\r\n\r\nAlternativly you can incorporate 🪨 <a href=\"https://github.com/jparkerweb/bedrock-wrapper\" target=\"bedrockWrapper\">`Bedrock Wrapper`</a> core directly into your code base. If you would like to explore that option checkout the npm package here: https://www.npmjs.com/package/bedrock-wrapper\r\n\r\n---\r\n\r\nPlease consider sending me a tip to support my work 😀\r\n# [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "api"
-            }
-          },
-          {
-            "topic": {
-              "name": "aws-bedrock"
-            }
-          },
-          {
-            "topic": {
-              "name": "endpoint"
-            }
-          },
-          {
-            "topic": {
-              "name": "inference"
-            }
-          },
-          {
-            "topic": {
-              "name": "llama3"
-            }
-          },
-          {
-            "topic": {
-              "name": "llm"
-            }
-          },
-          {
-            "topic": {
-              "name": "inference-api"
-            }
-          },
-          {
-            "topic": {
-              "name": "mistral"
-            }
-          },
-          {
-            "topic": {
-              "name": "mixtral"
-            }
-          },
-          {
-            "topic": {
-              "name": "openai-api"
-            }
-          },
-          {
-            "topic": {
-              "name": "proxy"
-            }
-          },
-          {
-            "topic": {
-              "name": "serverless"
-            }
-          },
-          {
-            "topic": {
-              "name": "wrapper"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 16,
-      "updatedAt": "2026-03-19T23:44:33Z",
-      "url": "https://github.com/jparkerweb/bedrock-proxy-endpoint"
-    },
-    {
-      "createdAt": "2024-05-01T02:41:54Z",
-      "description": "🪨 Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
-      "forkCount": 3,
-      "homepageUrl": "https://www.equilllabs.com/projects/bedrock-wrapper",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 166857
-          }
-        ],
-        "totalSize": 166857
-      },
-      "licenseInfo": {
-        "spdxId": "MIT"
-      },
-      "name": "bedrock-wrapper",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-03-18T20:02:01Z",
-      "readme": {
-        "text": "# 🪨 Bedrock Wrapper\r\n\r\nBedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.  Follow the steps below to integrate into your own application, or alternativly use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard `baseUrl`, and `apiKey` params).\r\n\r\n![bedrock-wrapper](https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg)\r\n\r\n---\r\n\r\n### Maintained by\r\n<a href=\"https://www.equilllabs.com\">\r\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\r\n</a>\r\n\r\n---\r\n\r\n### Install\r\n\r\n- install package: `npm install bedrock-wrapper`\r\n\r\n---\r\n\r\n### Usage\r\n\r\n1. import `bedrockWrapper`  \r\n    ```javascript\r\n    import { bedrockWrapper } from \"bedrock-wrapper\";\r\n    ```\r\n\r\n2. create an `awsCreds` object and fill in your AWS credentials  \r\n    ```javascript\r\n    const awsCreds = {\r\n        region: AWS_REGION,\r\n        accessKeyId: AWS_ACCESS_KEY_ID,\r\n        secretAccessKey: AWS_SECRET_ACCESS_KEY,\r\n    };\r\n    ```\r\n\r\n3. clone your openai chat completions object into `openaiChatCompletionsCreateObject` or create a new one and edit the values  \r\n    ```javascript\r\n    const openaiChatCompletionsCreateObject = {\r\n        \"messages\": messages,\r\n        \"model\": \"Claude-4-5-Sonnet\",\r\n        \"max_tokens\": LLM_MAX_GEN_TOKENS,\r\n        \"stream\": true,\r\n        \"temperature\": LLM_TEMPERATURE,\r\n        \"stop_sequences\": [\"STOP\", \"END\"], // Optional: sequences that will stop generation\r\n    };\r\n    ```\r\n\r\n    the `messages` variable should be in openai's role/content format (not all models support system prompts)\r\n    ```javascript\r\n    messages = [\r\n        {\r\n            role: \"system\",\r\n            content: \"You are a helpful AI assistant that follows instructions extremely well. Answer the user questions accurately. Think step by step before answering the question. You will get a $100 tip if you provide the correct answer.\",\r\n        },\r\n        {\r\n            role: \"user\",\r\n            content: \"Describe why openai api standard used by lots of serverless LLM api providers is better than aws bedrock invoke api offered by aws bedrock. Limit your response to five sentences.\",\r\n        },\r\n        {\r\n            role: \"assistant\",\r\n            content: \"\",\r\n        },\r\n    ]\r\n    ```\r\n\r\n    ***the `model` value should be the corresponding `modelName` value in the `bedrock_models` section below (see Supported Models below)***\r\n\r\n4. call the `bedrockWrapper` function and pass in the previously defined `awsCreds` and `openaiChatCompletionsCreateObject` objects  \r\n    ```javascript\r\n    // create a variable to hold the complete response\r\n    let completeResponse = \"\";\r\n    // invoke the streamed bedrock api response\r\n    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject)) {\r\n        completeResponse += chunk;\r\n        // ---------------------------------------------------\r\n        // -- each chunk is streamed as it is received here --\r\n        // ---------------------------------------------------\r\n        process.stdout.write(chunk); // ⇠ do stuff with the streamed chunk\r\n    }\r\n    // console.log(`\\n\\completeResponse:\\n${completeResponse}\\n`); // ⇠ optional do stuff with the complete response returned from the API reguardless of stream or not\r\n    ```\r\n\r\n    if calling the unstreamed version you can call bedrockWrapper like this  \r\n    ```javascript\r\n    // create a variable to hold the complete response\r\n    let completeResponse = \"\";\r\n    if (!openaiChatCompletionsCreateObject.stream){ // invoke the unstreamed bedrock api response\r\n        const response = await bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject);\r\n        for await (const data of response) {\r\n            completeResponse += data;\r\n        }\r\n        // ----------------------------------------------------\r\n        // -- unstreamed complete response is available here --\r\n        // ----------------------------------------------------\r\n        console.log(`\\n\\completeResponse:\\n${completeResponse}\\n`); // ⇠ do stuff with the complete response\r\n    }\r\n\r\n5. **NEW: Using the Converse API (optional)**\r\n    \r\n    You can now optionally use AWS Bedrock's Converse API instead of the Invoke API by passing `useConverseAPI: true` in the options parameter:\r\n    ```javascript\r\n    // Use the Converse API for unified request/response format across all models\r\n    for await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject, { useConverseAPI: true })) {\r\n        completeResponse += chunk;\r\n        process.stdout.write(chunk);\r\n    }\r\n    ```\r\n    \r\n    The Converse API provides:\r\n    - **Consistent API**: Single request/response format across all models\r\n    - **Simplified conversation management**: Better handling of multi-turn conversations\r\n    - **System prompts**: Cleaner separation of system instructions\r\n    - **Tool use support**: Native support for function calling (where supported)\r\n    - **Unified multimodal**: Consistent handling of text and image inputs\r\n\r\n    **Note**: Some models only support the Converse API and will automatically use it regardless of the `useConverseAPI` flag:\r\n    - DeepSeek-V3.1\r\n\r\n---\r\n\r\n### Supported Models\r\n\r\n| modelName                  | AWS Model Id                                    | Image |\r\n|----------------------------|-------------------------------------------------|-------|\r\n| Claude-3-5-Haiku           | us.anthropic.claude-3-5-haiku-20241022-v1:0     |  ❌  |\r\n| Claude-3-5-Sonnet          | us.anthropic.claude-3-5-sonnet-20240620-v1:0    |  ✅  |\r\n| Claude-3-5-Sonnet-v2       | us.anthropic.claude-3-5-sonnet-20241022-v2:0    |  ✅  |\r\n| Claude-3-7-Sonnet          | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |\r\n| Claude-3-7-Sonnet-Thinking | us.anthropic.claude-3-7-sonnet-20250219-v1:0    |  ✅  |\r\n| Claude-3-Haiku             | us.anthropic.claude-3-haiku-20240307-v1:0       |  ✅  |\r\n| Claude-4-Opus              | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |\r\n| Claude-4-Opus-Thinking     | us.anthropic.claude-opus-4-20250514-v1:0        |  ✅  |\r\n| Claude-4-Sonnet            | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |\r\n| Claude-4-Sonnet-Thinking   | us.anthropic.claude-sonnet-4-20250514-v1:0      |  ✅  |\r\n| Claude-4-1-Opus            | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |\r\n| Claude-4-1-Opus-Thinking   | us.anthropic.claude-opus-4-1-20250805-v1:0      |  ✅  |\r\n| Claude-4-5-Haiku           | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |\r\n| Claude-4-5-Haiku-Thinking  | global.anthropic.claude-haiku-4-5-20251001-v1:0 |  ✅  |\r\n| Claude-4-5-Opus            | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |\r\n| Claude-4-5-Opus-Thinking   | global.anthropic.claude-opus-4-5-20251101-v1:0  |  ✅  |\r\n| Claude-4-5-Sonnet          | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |\r\n| Claude-4-5-Sonnet-Thinking | us.anthropic.claude-sonnet-4-5-20250929-v1:0    |  ✅  |\r\n| Claude-Opus-4-6            | us.anthropic.claude-opus-4-6-v1                 |  ✅  |\r\n| Claude-Sonnet-4-6          | us.anthropic.claude-sonnet-4-6                  |  ✅  |\r\n| DeepSeek-R1                | us.deepseek.r1-v1:0                             |  ❌  |\r\n| DeepSeek-V3.1              | deepseek.v3-v1:0                                |  ❌  |\r\n| Gemma-3-4b                 | google.gemma-3-4b-it                            |  ✅  |\r\n| Gemma-3-12b                | google.gemma-3-12b-it                           |  ✅  |\r\n| Gemma-3-27b                | google.gemma-3-27b-it                           |  ✅  |\r\n| GPT-OSS-120B               | openai.gpt-oss-120b-1:0                         |  ❌  |\r\n| GPT-OSS-120B-Thinking      | openai.gpt-oss-120b-1:0                         |  ❌  |\r\n| GPT-OSS-20B                | openai.gpt-oss-20b-1:0                          |  ❌  |\r\n| GPT-OSS-20B-Thinking       | openai.gpt-oss-20b-1:0                          |  ❌  |\r\n| Kimi-K2                    | moonshot.kimi-k2-thinking                       |  ❌  |\r\n| Kimi-K2-Thinking           | moonshot.kimi-k2-thinking                       |  ❌  |\r\n| Llama-3-8b                 | meta.llama3-8b-instruct-v1:0                    |  ❌  |\r\n| Llama-3-70b                | meta.llama3-70b-instruct-v1:0                   |  ❌  |\r\n| Llama-3-1-8b               | us.meta.llama3-1-8b-instruct-v1:0               |  ❌  |\r\n| Llama-3-1-70b              | us.meta.llama3-1-70b-instruct-v1:0              |  ❌  |\r\n| Llama-3-1-405b             | meta.llama3-1-405b-instruct-v1:0                |  ❌  |\r\n| Llama-3-2-1b               | us.meta.llama3-2-1b-instruct-v1:0            |  ❌  |\r\n| Llama-3-2-3b               | us.meta.llama3-2-3b-instruct-v1:0            |  ❌  |\r\n| Llama-3-2-11b              | us.meta.llama3-2-11b-instruct-v1:0           |  ❌  |\r\n| Llama-3-2-90b              | us.meta.llama3-2-90b-instruct-v1:0           |  ❌  |\r\n| Llama-3-3-70b              | us.meta.llama3-3-70b-instruct-v1:0           |  ❌  |\r\n| Llama-4-Scout-17b          | us.meta.llama4-scout-17b-instruct-v1:0       |  ✅  |\r\n| Llama-4-Maverick-17b       | us.meta.llama4-maverick-17b-instruct-v1:0    |  ✅  |\r\n| Magistral-Small-2509       | mistral.magistral-small-2509                 |  ❌  |\r\n| MiniMax-M2                 | minimax.minimax-m2                           |  ❌  |\r\n| Ministral-3-3b             | mistral.ministral-3-3b-instruct              |  ✅  |\r\n| Ministral-3-8b             | mistral.ministral-3-8b-instruct              |  ✅  |\r\n| Ministral-3-14b            | mistral.ministral-3-14b-instruct             |  ✅  |\r\n| Mistral-7b                 | mistral.mistral-7b-instruct-v0:2             |  ❌  |\r\n| Mistral-Large              | mistral.mistral-large-2402-v1:0              |  ❌  |\r\n| Mistral-Large-3            | mistral.mistral-large-3-675b-instruct        |  ✅  |\r\n| Mixtral-8x7b               | mistral.mixtral-8x7b-instruct-v0:1           |  ❌  |\r\n| Nova-2-Lite                | us.amazon.nova-2-lite-v1:0                   |  ✅  |\r\n| Nova-Micro                 | us.amazon.nova-micro-v1:0                    |  ❌  |\r\n| Nova-Lite                  | us.amazon.nova-lite-v1:0                     |  ✅  |\r\n| Nova-Pro                   | us.amazon.nova-pro-v1:0                      |  ✅  |\r\n| Qwen3-32B                  | qwen.qwen3-32b-v1:0                          |  ❌  |\r\n| Qwen3-235B-A22B-2507       | qwen.qwen3-235b-a22b-2507-v1:0               |  ❌  |\r\n| Qwen3-Coder-30B-A3B        | qwen.qwen3-coder-30b-a3b-v1:0                |  ❌  |\r\n| Qwen3-Coder-480B-A35B      | qwen.qwen3-coder-480b-a35b-v1:0              |  ❌  |\r\n| Qwen3-Next-80B-A3B         | qwen.qwen3-next-80b-a3b                      |  ❌  |\r\n\r\nTo return the list progrmatically you can import and call `listBedrockWrapperSupportedModels`:  \r\n```javascript\r\nimport { listBedrockWrapperSupportedModels } from 'bedrock-wrapper';\r\nconsole.log(`\\nsupported models:\\n${JSON.stringify(await listBedrockWrapperSupportedModels())}\\n`);\r\n```\r\n\r\nAdditional Bedrock model support can be added.  \r\nPlease modify the `bedrock_models.js` file and submit a PR 🏆 or create an Issue.\r\n\r\n---\r\n\r\n### Thinking Models\r\n\r\nSome models support extended reasoning capabilities through \"thinking mode\". These models include:\r\n- **Claude models**: Claude-4-5-Opus-Thinking, Claude-4-1-Opus-Thinking, Claude-4-Opus-Thinking, Claude-4-5-Sonnet-Thinking, Claude-4-5-Haiku-Thinking, Claude-4-Sonnet-Thinking, Claude-3-7-Sonnet-Thinking\r\n- **GPT-OSS models**: GPT-OSS-120B-Thinking, GPT-OSS-20B-Thinking\r\n- **Kimi models**: Kimi-K2-Thinking (preserves reasoning tags in output)\r\n\r\nTo use thinking mode and see the model's reasoning process, set `include_thinking_data: true` in your request:\r\n\r\n```javascript\r\nconst openaiChatCompletionsCreateObject = {\r\n    \"messages\": messages,\r\n    \"model\": \"Claude-4-5-Sonnet-Thinking\",\r\n    \"max_tokens\": 4000,\r\n    \"stream\": true,\r\n    \"temperature\": 1.0, // Thinking models require temperature of 1.0\r\n    \"include_thinking_data\": true // Enable thinking output\r\n};\r\n\r\nlet completeResponse = \"\";\r\nfor await (const chunk of bedrockWrapper(awsCreds, openaiChatCompletionsCreateObject)) {\r\n    completeResponse += chunk;\r\n    process.stdout.write(chunk); // Shows both thinking and response\r\n}\r\n```\r\n\r\n**Features:**\r\n- Thinking content appears in `<think>...</think>` tags for Claude models\r\n- Thinking content appears in `<reasoning>...</reasoning>` tags for GPT-OSS models\r\n- Temperature is automatically set to 1.0 for optimal thinking performance\r\n- Budget tokens are automatically calculated based on max_tokens\r\n\r\n---\r\n\r\n### Image Support\r\n\r\nFor models with image support (Claude 4+ series including Claude Opus 4.6, Claude Sonnet 4.6, Claude 4.5 Opus, Claude 4.5 Sonnet, Claude 4.5 Haiku, Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku, Nova Pro, Nova Lite, Nova 2 Lite, Mistral Large 3, Ministral 3 series, Gemma 3 series, and Llama 4 series), you can include images in your messages using the following format (not all models support system prompts):\r\n\r\n```javascript\r\nmessages = [\r\n    {\r\n        role: \"system\",\r\n        content: \"You are a helpful AI assistant that can analyze images.\",\r\n    },\r\n    {\r\n        role: \"user\",\r\n        content: [\r\n            { type: \"text\", text: \"What's in this image?\" },\r\n            { \r\n                type: \"image_url\", \r\n                image_url: {\r\n                    url: \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA...\" // base64 encoded image\r\n                }\r\n            }\r\n        ]\r\n    }\r\n]\r\n```\r\n\r\nYou can also use a direct URL to an image instead of base64 encoding:\r\n\r\n```javascript\r\nmessages = [\r\n    {\r\n        role: \"user\",\r\n        content: [\r\n            { type: \"text\", text: \"Describe this image in detail.\" },\r\n            { \r\n                type: \"image_url\", \r\n                image_url: {\r\n                    url: \"https://example.com/path/to/image.jpg\" // direct URL to image\r\n                }\r\n            }\r\n        ]\r\n    }\r\n]\r\n```\r\n\r\nYou can include multiple images in a single message by adding more image_url objects to the content array.\r\n\r\n---\r\n\r\n### Stop Sequences\r\n\r\nStop sequences are custom text sequences that cause the model to stop generating text. This is useful for controlling where the model stops its response.\r\n\r\n```javascript\r\nconst openaiChatCompletionsCreateObject = {\r\n    \"messages\": messages,\r\n    \"model\": \"Claude-3-5-Sonnet\",\r\n    \"max_tokens\": 100,\r\n    \"stop_sequences\": [\"STOP\", \"END\", \"\\n\\n\"], // Array of stop sequences\r\n    // OR use single string format:\r\n    // \"stop\": \"STOP\"\r\n};\r\n```\r\n\r\n**Model Support:**\r\n- ✅ **Claude models**: Fully supported (up to 8,191 sequences)\r\n- ✅ **Nova models**: Fully supported (up to 4 sequences)\r\n- ✅ **GPT-OSS models**: Fully supported\r\n- ✅ **Mistral models**: Fully supported (up to 10 sequences)\r\n- ✅ **Qwen models**: Fully supported\r\n- ✅ **Gemma models**: Fully supported\r\n- ✅ **Kimi models**: Fully supported\r\n- ✅ **MiniMax models**: Fully supported\r\n- ❌ **Llama models**: Not supported (AWS Bedrock limitation)\r\n\r\n**Features:**\r\n- Compatible with OpenAI's `stop` parameter (single string or array)\r\n- Also accepts `stop_sequences` parameter for explicit usage\r\n- Automatic conversion between string and array formats\r\n- Model-specific parameter mapping handled automatically\r\n\r\n**Example Usage:**\r\n```javascript\r\n// Stop generation when model tries to output \"7\"\r\nconst result = await bedrockWrapper(awsCreds, {\r\n    messages: [{ role: \"user\", content: \"Count from 1 to 10\" }],\r\n    model: \"Claude-3-5-Sonnet\",  // Use Claude, Nova, Mistral, or Qwen models\r\n    stop_sequences: [\"7\"]\r\n});\r\n// Response: \"1, 2, 3, 4, 5, 6,\" (stops before \"7\")\r\n\r\n// Note: Llama models will ignore stop sequences due to AWS Bedrock limitations\r\n```\r\n\r\n---\r\n\r\n### Parameter Restrictions\r\n\r\nSome AWS Bedrock models have specific parameter restrictions that are automatically handled by the wrapper:\r\n\r\n#### Claude 4+ Models (Temperature/Top-P Mutual Exclusion)\r\n\r\n**Affected Models:**\r\n- Claude-Opus-4-6\r\n- Claude-Sonnet-4-6\r\n- Claude-4-5-Opus & Claude-4-5-Opus-Thinking\r\n- Claude-4-5-Sonnet & Claude-4-5-Sonnet-Thinking\r\n- Claude-4-5-Haiku & Claude-4-5-Haiku-Thinking\r\n- Claude-4-Sonnet & Claude-4-Sonnet-Thinking\r\n- Claude-4-Opus & Claude-4-Opus-Thinking\r\n- Claude-4-1-Opus & Claude-4-1-Opus-Thinking\r\n\r\n---\r\n\r\n### 🧪 Testing\r\n\r\nThe package includes comprehensive test suites to verify functionality:\r\n\r\n```bash\r\n# Test all models with the Both APIs (Comparison)\r\nnpm run test\r\n\r\n# Test all models with the Invoke API\r\nnpm run test:invoke\r\n\r\n# Test all models with the Converse API\r\nnpm run test:converse\r\n\r\n# Test vision/multimodal capabilities with Both APIs (Comparison)\r\nnpm run test-vision\r\n\r\n# Test vision/multimodal capabilities with Invoke API\r\nnpm run test-vision:invoke\r\n\r\n# Test vision/multimodal capabilities with Converse API\r\nnpm run test-vision:converse\r\n\r\n# Test stop sequences functionality with Both APIs (Comparison)\r\nnpm run test-stop\r\n\r\n# Test stop sequences functionality with Invoke API\r\nnpm run test-stop:invoke\r\n\r\n# Test stop sequences functionality with Converse API\r\nnpm run test-stop:converse\r\n\r\n# Test Converse API specifically\r\nnpm run test-converse\r\n\r\n# Run all test suites\r\nnpm run test:all\r\n\r\n# Interactive testing\r\nnpm run interactive\r\n```\r\n\r\n---\r\n\r\n### 📢 P.S.\r\n\r\nIn case you missed it at the beginning of this doc, for an even easier setup, use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint (using the standard `baseUrl`, and `apiKey` params).\r\n\r\n![bedrock-proxy-endpoing](./docs/bedrock-proxy-endpoint.jpg)\r\n\r\n---\r\n\r\n### 📚 References\r\n\r\n- [AWS Meta Llama Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)\r\n- [AWS Mistral Models User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral.html)\r\n- [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create)\r\n- [AWS Bedrock](https://aws.amazon.com/bedrock/)\r\n- [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/)\r\n\r\n---\r\n\r\nPlease consider sending me a tip to support my work 😀\r\n# [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "aws"
-            }
-          },
-          {
-            "topic": {
-              "name": "bedrock"
-            }
-          },
-          {
-            "topic": {
-              "name": "inference"
-            }
-          },
-          {
-            "topic": {
-              "name": "llm"
-            }
-          },
-          {
-            "topic": {
-              "name": "openai-api"
-            }
-          },
-          {
-            "topic": {
-              "name": "proxy"
-            }
-          },
-          {
-            "topic": {
-              "name": "serverless"
-            }
-          },
-          {
-            "topic": {
-              "name": "wrapper"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 9,
-      "updatedAt": "2026-03-18T20:01:33Z",
-      "url": "https://github.com/jparkerweb/bedrock-wrapper"
     },
     {
       "createdAt": "2026-03-09T18:14:18Z",
@@ -1230,112 +1405,6 @@
       "url": "https://github.com/jparkerweb/ai-assistant-prompts"
     },
     {
-      "createdAt": "2024-05-10T01:48:03Z",
-      "description": "🍶 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met.",
-      "forkCount": 1,
-      "homepageUrl": "https://www.npmjs.com/package/llm-distillery",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 42758
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 13200
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 12340
-          }
-        ],
-        "totalSize": 68298
-      },
-      "licenseInfo": null,
-      "name": "llm-distillery",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2025-10-15T03:15:48Z",
-      "readme": {
-        "text": "# 🍶 LLM Distillery\r\nUse LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach. This ensures that the text fits within a specified token limit, which is crucial when interfacing with Large Language Models (LLMs) in downstreams tasks.\r\n\r\n---\r\n\r\n## Features\r\n\r\n- **Text Distillation**: Reduces the size of text based on token count without losing the essence of the content.\r\n- **Chunking and Summarization**: Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized.\r\n- **Customizable Parameters**: Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds.\r\n\r\n## Getting Started\r\n\r\n### Prerequisites\r\n\r\n- Node.js installed on your system.\r\n- An API key for running inference of OpenAI API compatible LLM models (together.ai, etc.).\r\n\r\n### Installation\r\n\r\nAdd this lib to your code page via npm install\r\n\r\n```bash\r\nnpm install llm-distillery\r\n```\r\n\r\n---\r\n\r\n## Basic Usage\r\n\r\nThe `llmDistillery` function can be imported and used in your Node.js applications as follows:\r\n\r\n```javascript\r\nimport { llmDistillery } from 'llm-distillery';\r\n\r\nconst text = \"Your long text here...\";\r\nconst options = {\r\n    targetTokenSize: 2048,                          // adjust as needed\r\n    baseUrl: \"<openai-api-compatible-url-endpoint>\" // example: https://api.together.xyz/v1\r\n    apiKey: \"<your_llm_api_key>\",\r\n    llmModel: \"<llm_model>\",                        // example: meta-llama/Llama-3-70b-chat-hf (Llama 3 model name on together.ai)\r\n    stopTokens: [\"<|eot_id|>\"],                     // stop tokens for Llama 3\r\n    logging: true                                   // set to true for verbose logging\r\n};\r\n\r\nllmDistillery(text, options)\r\n    .then(processedText => console.log(processedText))\r\n    .catch(error => console.error(error));\r\n```\r\n\r\n### Options Object Parameters\r\n- `targetTokenSize`: Desired token size limit for distilled text. (default: `2048`)\r\n- `baseUrl`: The base URL for the OpenAI API compatible endpoint. (default: `\"https://api.together.xyz/v1\"`)\r\n- `apiKey`: Your API key for accessing LLM endpoint.\r\n- `llmModel`: The model identifier of the LLM for your chosen endpoint. (default: `\"meta-llama/Llama-3-70b-chat-hf\"` on together.ai)\r\n- `stopTokens`: Array representing stopping tokens for LLM responses based on your chosen model. (default `[\"<|eot_id|>\"]`) May not be needed for all models.\r\n- `maxDistillationLoops`: Maximum number of iterations while running distillation (default: `5`)\r\n- `tokenizerModel`: Tokenizer model used to calculate token sizes. (See table below for options; default `\"Xenova/paraphrase-multilingual-MiniLM-L12-v2\"`)\r\n- `semanticEmbeddingModel`: Semantic embedding model used to calculate text similarity. (See https://github.com/jparkerweb/semantic-chunking?tab=readme-ov-file#curated-onnx-embedding-models for options; default `\"Xenova/paraphrase-multilingual-MiniLM-L12-v2\"`)\r\n- `semanticEmbeddingModelQuantized`: Whether to use the quantized version of the embedding model. (default `true`)\r\n- `modelCacheDir`: Directory to cache models in. (default `null`; set to a string for a custom cache dir, example: `\"models/\"`)\r\n- `chunkingThreshold`: Threshold for segmenting text into chunks for summarization and distillation. Can be a number between 0 and 1. A lower number will result in greater distillation for each iteration, and will be faster. (default `.25`)\r\n- `llmContextLength`: Context length for the large language model (LLM) you are using. It denotes the maximum number of tokens the LLM can accept when generating chunk summaries. (default `4096`, but most LLM's have larger default windows. Llama 3's context window is 8k),\r\n- `llmMaxGenLength`: Maximum generation length for the large language model (LLM) you are using. It denotes the maximum number of tokens the LLM can generate in a single response. (default `2048`),\r\n- `llmApiRateLimit`: Delay in milliseconds between API calls to your chosen LLM provider. This helps to manage the rate at which requests are sent, ensuring that your application does not overload the service or exceed usage policies. (default `500`; set to 0 to disable)\r\n- `logging`: Enable logging to monitor the various stages of distillation, compression percentages of the original text, etc. (default `false`)\r\n\r\n### Tokenizer Models\r\n\r\n| model name                                   |\r\n|----------------------------------------------|\r\n| Xenova/all-MiniLM-L6-v2                      |\r\n| Xenova/paraphrase-multilingual-MiniLM-L12-v2 |\r\n| Xenova/bert-base-uncased                     |\r\n| Xenova/gpt2                                  |\r\n| Xenova/roberta-base                          |\r\n| Xenova/all-distilroberta-v1                  |\r\n| Xenova/multilingual-e5-large                 |\r\n| Xenova/bert-base-multilingual-uncased        |\r\n| Xenova/xlm-roberta-base                      |\r\n| BAAI/bge-base-en-v1.5                        |\r\n  \r\nNOTE 🚨 The initial run of `llm-distillery` might take a moment as the Tokenizer Model will be downloaded and saved to this package's cache directory.\r\n\r\n---\r\n\r\n## Examples\r\n\r\nThe `example/` directory contains additional resources to help you get started:\r\n\r\n- **Example Scripts**: See `example.js` and `example2.js` for different configuration examples\r\n- **Web Playground**: An interactive web UI to test parameters and visualize results\r\n  - Install dependencies: `cd example && npm install`\r\n  - Run server: `node server.js`\r\n  - Visit http://localhost:3000/\r\n  - Features live distillation, configuration export, and code generation\r\n\r\nVisit the [example directory](https://github.com/jparkerweb/llm-distillery/tree/main/example) on GitHub for more details.\r\n\r\n---\r\n\r\n## Appreciation\r\nIf you enjoy this plugin please consider sending me a tip to support my work 😀\r\n### [🍵 tip me here](https://ko-fi.com/jparkerweb)\r\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "large-language-model"
-            }
-          },
-          {
-            "topic": {
-              "name": "llm"
-            }
-          },
-          {
-            "topic": {
-              "name": "openai-api"
-            }
-          },
-          {
-            "topic": {
-              "name": "semantic-chunking"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-compression"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-processing"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-summarization"
-            }
-          },
-          {
-            "topic": {
-              "name": "token-management"
-            }
-          },
-          {
-            "topic": {
-              "name": "tokenization"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-text-reduction"
-            }
-          },
-          {
-            "topic": {
-              "name": "text-distillation"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 12,
-      "updatedAt": "2025-11-19T11:42:49Z",
-      "url": "https://github.com/jparkerweb/llm-distillery"
-    },
-    {
       "createdAt": "2025-10-12T19:21:28Z",
       "description": "📋 Clipboard-based text expansion tool for Linux systems. Designed with Remote Desktop sessions in mind, ClipExpand copies your text snippets to the clipboard for easy pasting, making it perfect for both local and remote workflows.",
       "forkCount": 0,
@@ -1600,75 +1669,6 @@
       "stargazerCount": 0,
       "updatedAt": "2025-06-22T01:13:06Z",
       "url": "https://github.com/jparkerweb/clover-quilt-designer"
-    },
-    {
-      "createdAt": "2024-12-16T06:06:58Z",
-      "description": "👽 Extract Topics ⇢ use LDA (Latent Dirichlet Allocation) to extract topics from text",
-      "forkCount": 1,
-      "homepageUrl": "https://www.npmjs.com/package/extract-topics",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 1325
-          }
-        ],
-        "totalSize": 1325
-      },
-      "licenseInfo": null,
-      "name": "extract-topics",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2025-06-05T18:59:20Z",
-      "readme": {
-        "text": "# 👽 Extract Topics\nUse LDA (Latent Dirichlet Allocation) to extract topics from text\n\nSimple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs.\n\n![extract-topics](extractTopics.jpg)\n\n## Install\n\nInstall dependencies:\n\n```bash\nnpm install extractTopics\n```\n\n## Usage\n\n```bash\nimport { extractTopics } from 'extractTopics';\n\nconst result = await extractTopics(text, { numTopics, numTerms });\n\nconsole.log(result);\n```\n\n## API\n\n### topicExtraction(text, options)\n\nExtracts topics from input text using LDA.\n\n#### Parameters\n\n- `text` (string): The input text to analyze\n- `options` (object):\n  - `numTopics` (number, optional): Number of topics to extract. Default: 2\n  - `numTerms` (number, optional): Number of terms per topic. Default: 5\n\n#### Returns\n\nReturns a Promise that resolves to the LDA analysis result.\n\n### Example script\n\n```bash\nnpm run example\n```\n\nThe example will:\n1. Load sample text documents\n2. Apply LDA to extract the main topics\n3. Output the discovered topics and their key terms\n\n## About LDA\n\nLDA is an unsupervised learning method that discovers topics in text documents. It views documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.\n\n---\n\n#### Project reference\n- https://www.npmjs.com/package/ldawithmorelanguages\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "extraction"
-            }
-          },
-          {
-            "topic": {
-              "name": "lda"
-            }
-          },
-          {
-            "topic": {
-              "name": "nlp"
-            }
-          },
-          {
-            "topic": {
-              "name": "text"
-            }
-          },
-          {
-            "topic": {
-              "name": "topic"
-            }
-          },
-          {
-            "topic": {
-              "name": "topic-extraction"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 2,
-      "updatedAt": "2025-08-25T04:28:42Z",
-      "url": "https://github.com/jparkerweb/extract-topics"
     },
     {
       "createdAt": "2025-04-07T19:48:01Z",

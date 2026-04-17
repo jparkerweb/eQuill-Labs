@@ -29,6 +29,6 @@ lastCommit: '2024-12-18T19:19:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/ollama-structured-output-test'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts.

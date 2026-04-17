@@ -47,6 +47,6 @@ lastCommit: '2025-03-18T02:38:13Z'
 _source:
   repo: 'https://github.com/jparkerweb/k-batch'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Useful for NLP tasks, machine learning batch processing, and scenarios where processing similar-length texts together improves efficiency. Uses k-means clustering to group sentences into optimal batches based on length, while ensuring each batch meets minimum size requirements.

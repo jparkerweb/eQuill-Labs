@@ -12,6 +12,10 @@ description:
   long: >-
     Google Chrome extension. Extension hotkeys work on the forum Subscriptions
     page and a forum Thread Page.
+banner:
+  src: ./images/keyboard-shortcuts.png
+  alt: bgg-keyboard-select banner
+  source: repo
 topics: []
 category: demo
 theme: utilities
@@ -31,6 +35,6 @@ lastCommit: '2022-12-01T22:09:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Google Chrome extension. Extension hotkeys work on the forum Subscriptions page and a forum Thread Page.

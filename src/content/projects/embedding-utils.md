@@ -16,6 +16,11 @@ description:
     vector databases. Zero production dependencies, provider-agnostic across
     local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with
     strict types.
+banner:
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/embedding-utils/refs/heads/main/embedding-utils.jpg
+  alt: embedding-utils banner
+  source: repo
 topics: []
 category: app
 theme: utilities
@@ -36,6 +41,6 @@ lastCommit: '2026-04-06T20:37:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Zero production dependencies, provider-agnostic across local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with strict types.

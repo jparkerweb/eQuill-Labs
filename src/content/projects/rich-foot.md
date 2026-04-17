@@ -15,7 +15,8 @@ description:
     dates for each note, supports links in frontmatter, and offers customization
     through opacity and border controls, plus options to exclude folders.
 banner:
-  src: rich-foot.jpg
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png
   alt: rich-foot banner
   source: repo
 topics: []
@@ -38,6 +39,6 @@ lastCommit: '2025-12-26T05:29:33Z'
 _source:
   repo: 'https://github.com/jparkerweb/rich-foot'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Adds backlinks (links FROM other notes TO this note) and outlinks (links FROM this note TO other notes) to the footer. Displays created and modified dates for each note, supports links in frontmatter, and offers customization through opacity and border controls, plus options to exclude folders.

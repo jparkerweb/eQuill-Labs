@@ -35,24 +35,17 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
 
     <slot name="structured-data" />
 
-    <header class="project-header">
-      <div class="banner">
-        {
-          bannerSrc ? (
-            <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} />
-          ) : (
-            <ProjectFallbackArt slug={slug} />
-          )
-        }
-      </div>
-      <h1 class="name">{data.name}</h1>
-      {data.tagline && <p class="tagline">{data.tagline}</p>}
-    </header>
+    <div class="banner">
+      {
+        bannerSrc ? (
+          <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} />
+        ) : (
+          <ProjectFallbackArt slug={slug} />
+        )
+      }
+    </div>
 
-    <div class="layout">
-      <div class="body prose">
-        <slot />
-      </div>
+    <div class="content">
       <aside class="meta" aria-label="Project metadata">
         <dl>
           <div class="meta-row">
@@ -63,7 +56,13 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
             data.primaryLanguage && (
               <div class="meta-row">
                 <dt>Language</dt>
-                <dd>{data.primaryLanguage}</dd>
+                <dd>
+                  <a
+                    class="facet-link"
+                    href={`/projects/?lang=${encodeURIComponent(data.primaryLanguage.toLowerCase())}`}>
+                    {data.primaryLanguage}
+                  </a>
+                </dd>
               </div>
             )
           }
@@ -71,7 +70,13 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
             data.category && (
               <div class="meta-row">
                 <dt>Type</dt>
-                <dd>{data.category}</dd>
+                <dd>
+                  <a
+                    class="facet-link"
+                    href={`/projects/?type=${encodeURIComponent(data.category)}`}>
+                    {data.category}
+                  </a>
+                </dd>
               </div>
             )
           }
@@ -79,7 +84,13 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
             data.theme && (
               <div class="meta-row">
                 <dt>Theme</dt>
-                <dd>{data.theme}</dd>
+                <dd>
+                  <a
+                    class="facet-link"
+                    href={`/projects/?theme=${encodeURIComponent(data.theme)}`}>
+                    {data.theme}
+                  </a>
+                </dd>
               </div>
             )
           }
@@ -91,7 +102,11 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
               <h3>Topics</h3>
               <ul role="list" class="chips">
                 {data.topics.map((t) => (
-                  <li class="chip">{t}</li>
+                  <li>
+                    <a class="chip chip-link" href={`/projects/?q=${encodeURIComponent(t)}`}>
+                      {t}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -149,6 +164,14 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
           </ul>
         </div>
       </aside>
+
+      <h1 class="name">{data.name}</h1>
+      {data.tagline && <p class="tagline">{data.tagline}</p>}
+
+      <div class="body prose">
+        <slot />
+      </div>
+      <div class="clearfix"></div>
     </div>
   </article>
 </BaseLayout>
@@ -178,15 +201,12 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     color: rgb(var(--text-1));
   }
 
-  .project-header {
-    margin-bottom: 32px;
-  }
   .banner {
     border: 1px solid rgb(var(--border));
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 20px;
+    aspect-ratio: 3 / 1;
+    margin-bottom: 24px;
     background: rgb(var(--surface-1));
   }
   .banner img {
@@ -194,6 +214,10 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .content {
+    position: relative;
   }
 
   .name {
@@ -211,20 +235,11 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     font-style: italic;
     font-size: clamp(18px, 2vw, 22px);
     color: rgb(var(--text-2));
-    margin: 0;
+    margin: 0 0 24px;
   }
 
-  .layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: 48px;
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .layout {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
+  .clearfix {
+    clear: both;
   }
 
   .prose :global(h2) {
@@ -250,12 +265,20 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
   }
 
   .meta {
+    float: right;
+    width: 280px;
+    margin: 0 0 20px 32px;
     background: rgb(var(--surface-1));
     border: 1px solid rgb(var(--border));
     border-radius: 12px;
     padding: 20px;
-    position: sticky;
-    top: 88px;
+  }
+  @media (max-width: 900px) {
+    .meta {
+      float: none;
+      width: auto;
+      margin: 0 0 24px;
+    }
   }
   .meta h3 {
     font-size: 12px;
@@ -297,6 +320,32 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     border: 1px solid rgb(var(--border));
     border-radius: 999px;
     color: rgb(var(--text-2));
+  }
+  .chip-link {
+    display: inline-block;
+    text-decoration: none;
+    transition:
+      border-color 150ms ease,
+      color 150ms ease;
+  }
+  .chip-link:hover,
+  .chip-link:focus-visible {
+    border-color: rgb(var(--accent));
+    color: rgb(var(--text-1));
+  }
+
+  .facet-link {
+    color: rgb(var(--text-1));
+    text-decoration: none;
+    border-bottom: 1px dashed rgb(var(--border));
+    transition:
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+  .facet-link:hover,
+  .facet-link:focus-visible {
+    color: rgb(var(--accent));
+    border-bottom-color: rgb(var(--accent));
   }
 
   .links ul {

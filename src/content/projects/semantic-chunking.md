@@ -15,7 +15,8 @@ description:
     with quantized model support. Includes chunk prefix support for RAG
     workflows and a Web UI for experimenting with settings.
 banner:
-  src: ./img/semantic-chunking_web-ui.gif
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png
   alt: semantic-chunking banner
   source: repo
 topics:
@@ -50,6 +51,6 @@ lastCommit: '2026-04-11T03:31:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Features semantic chunking based on sentence similarity, dynamic similarity thresholds, configurable chunk sizes, and multiple embedding model options with quantized model support. Includes chunk prefix support for RAG workflows and a Web UI for experimenting with settings.

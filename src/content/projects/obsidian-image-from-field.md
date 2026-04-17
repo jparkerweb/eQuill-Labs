@@ -35,6 +35,6 @@ lastCommit: '2024-10-09T23:41:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Reads the URL from your supplied field and renders the image using that source. Also accepts size and alignment values.

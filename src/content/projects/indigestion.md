@@ -38,6 +38,6 @@ lastCommit: '2024-10-10T16:43:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Creates a userconfig.json file on first run to hold your SMTP server and authentication values. Loops through all email .json files in the ./emails directory and sends them using your SMTP server, and can create new email .json files with UI prompts for fields like from, to, cc, bcc, subject, text, html, and attachments.

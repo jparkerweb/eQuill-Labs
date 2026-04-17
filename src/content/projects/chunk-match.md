@@ -14,7 +14,8 @@ description:
     chunks sorted by relevance with similarity scores. Built on top of
     semantic-chunking, with support for various ONNX embedding models.
 banner:
-  src: /img/chunk-match_web-ui.gif
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png
   alt: chunk-match banner
   source: repo
 topics: []
@@ -41,6 +42,6 @@ lastCommit: '2025-01-30T21:48:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Offers configurable similarity thresholds and chunk sizes, and returns chunks sorted by relevance with similarity scores. Built on top of semantic-chunking, with support for various ONNX embedding models.

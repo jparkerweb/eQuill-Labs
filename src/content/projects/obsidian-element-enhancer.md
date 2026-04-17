@@ -30,6 +30,6 @@ lastCommit: '2024-10-09T23:39:12Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-element-enhancer'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Implements a simple script that enables the ability to apply custom css classes to any adjacent Markdown element for styling. Install the Dataview plugin and enable JavaScript Queries, then copy the script to your vault.

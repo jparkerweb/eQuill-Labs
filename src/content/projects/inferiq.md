@@ -35,6 +35,6 @@ lastCommit: '2024-10-31T23:03:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+NodeJS application designed to generate answers to questions using your sample dataset. A group of Judge LLMs assesses and rates each response, with results visualized in graphs. Metrics such as BERT Score and Inference Time are also provided.

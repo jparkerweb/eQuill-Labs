@@ -14,6 +14,11 @@ description:
     Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support
     both project and global installation, with CLI options for non-interactive
     install, global or project paths, and force overwrite.
+banner:
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/ai-skill--git-worktree/main/docs/banner.jpg
+  alt: ai-skill--git-worktree banner
+  source: repo
 topics: []
 category: app
 theme: utilities
@@ -34,6 +39,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support both project and global installation, with CLI options for non-interactive install, global or project paths, and force overwrite.

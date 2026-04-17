@@ -3,41 +3,40 @@ id: equill-labs
 name: eQuill-Labs
 slug: equill-labs
 tagline: >-
-  Static website for eQuill Labs showcasing recent projects and tools. Discord:
-  https://discord.gg/sp8AQQhMJ7
+  Portfolio site for eQuill Labs — a catalog of open-source projects by Justin
+  Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the
+  Obsidian...
 description:
-  short: Static website for eQuill Labs showcasing recent projects and tools.
-  long: >-
-    The website uses a lightweight build system with Handlebars for templating
-    and a dark mode design. Source files live under src/ with templates,
-    layouts, and static assets; production output is built to pages/.
+  short: "\U0001F58B️ eQuill Labs website and digital assets"
+  long: ''
 topics: []
-category: demo
+category: app
 theme: utilities
-primaryLanguage: Astro
+primaryLanguage: HTML
 languages:
   - name: JavaScript
-    percent: 0.68
+    percent: 0.01
   - name: CSS
-    percent: 3.17
+    percent: 0.04
   - name: HTML
-    percent: 2.17
+    percent: 98.54
   - name: Go Template
-    percent: 0.14
+    percent: 0
   - name: TypeScript
-    percent: 34.92
+    percent: 0.49
   - name: Astro
-    percent: 58.92
+    percent: 0.92
 stars: 1
 links:
   repo: 'https://github.com/jparkerweb/eQuill-Labs'
+  homepage: 'https://www.equilllabs.com/'
 featured: false
 sortOrder: 999
 status: active
-lastCommit: '2026-04-15T04:13:38Z'
+lastCommit: '2026-04-16T03:58:36Z'
 _source:
   repo: 'https://github.com/jparkerweb/eQuill-Labs'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
 
