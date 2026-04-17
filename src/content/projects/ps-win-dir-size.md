@@ -14,6 +14,10 @@ description:
     directories are scanned, and if a scan is interrupted can resume from where
     it left off. Displays the largest directories ranked by size including
     last-modified date.
+banner:
+  src: ps-win-dir-size.jpg
+  alt: ps-win-dir-size banner
+  source: repo
 topics:
   - directory-analyzer
   - disk-usage
@@ -34,6 +38,6 @@ lastCommit: '2026-03-09T20:36:31Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Quickly identify which top-level subdirectories consume the most storage space. Supports network paths (SMB shares), shows real-time progress as directories are scanned, and if a scan is interrupted can resume from where it left off. Displays the largest directories ranked by size including last-modified date.

@@ -34,6 +34,6 @@ lastCommit: '2024-12-19T19:28:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/random-pexels-image'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Allows hotlinking images by directly returning the image data. Fetches images from the Pexels API based on query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used.

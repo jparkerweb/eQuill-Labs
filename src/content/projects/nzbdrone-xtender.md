@@ -29,6 +29,6 @@ lastCommit: '2016-07-14T20:16:53Z'
 _source:
   repo: 'https://github.com/jparkerweb/NzbDrone_Xtender'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
 

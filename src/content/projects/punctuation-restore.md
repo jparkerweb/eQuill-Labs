@@ -44,6 +44,6 @@ lastCommit: '2025-01-27T21:04:32Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Restores punctuation marks (periods, commas, question marks, etc.) and handles casing. Supports batch processing of multiple texts and uses ONNX runtime for inference. Models are automatically downloaded from Hugging Face on first use and saved locally to the ./models directory.

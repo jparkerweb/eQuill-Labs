@@ -11,6 +11,10 @@ description:
     syntax highlighting powered by Shiki. Supports drag and drop file upload for
     .md, .markdown, or .txt files, and a stateless, privacy-focused design with
     no account required.
+banner:
+  src: .readme/print-mark.jpg
+  alt: print-mark banner
+  source: repo
 topics:
   - markdown
   - print
@@ -42,6 +46,6 @@ lastCommit: '2025-12-22T21:13:51Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Features live preview with real-time rendering, 9 print-optimized themes, PDF export with customizable page sizes, margins, and page numbers, and syntax highlighting powered by Shiki. Supports drag and drop file upload for .md, .markdown, or .txt files, and a stateless, privacy-focused design with no account required.

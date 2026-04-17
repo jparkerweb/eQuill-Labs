@@ -46,6 +46,6 @@ lastCommit: '2026-03-09T16:06:59Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Features AI-generated banners, a Pixel Banner Plus Collection of images and videos, and 3rd party APIs for Pexels, Pixabay, Flickr, and Unsplash. Supports local images, external files via the file:/// protocol, MP4/MOV video banners, and direct URL banners. Customization covers position control, transparency, border radius, animation effects, and display modes.

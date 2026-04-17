@@ -29,14 +29,29 @@ export function parseReadme(markdown: string): ReadmeExtract {
 
 	const children = tree.children as Content[];
 
-	// hero: first image with alt containing "banner", else first image in document
-	let firstImage: Image | undefined;
-	let bannerImage: Image | undefined;
+	// hero: first image with alt containing "banner", else first image in document.
+	// Matches both markdown images (![alt](url)) and raw HTML <img> tags.
+	type ImgRef = { url: string; alt: string };
+	let firstImage: ImgRef | undefined;
+	let bannerImage: ImgRef | undefined;
+	const consider = (ref: ImgRef) => {
+		if (!firstImage) firstImage = ref;
+		if (!bannerImage && /banner/i.test(ref.alt)) bannerImage = ref;
+	};
 	walk(tree, (node) => {
 		if (node.type === 'image') {
 			const img = node as Image;
-			if (!firstImage) firstImage = img;
-			if (!bannerImage && /banner/i.test(img.alt ?? '')) bannerImage = img;
+			consider({ url: img.url, alt: img.alt ?? '' });
+		} else if (node.type === 'html') {
+			const html = (node as { value?: string }).value ?? '';
+			const imgTagRe = /<img\b[^>]*>/gi;
+			for (const match of html.matchAll(imgTagRe)) {
+				const tag = match[0];
+				const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
+				if (!src) continue;
+				const alt = /\balt\s*=\s*["']([^"']*)["']/i.exec(tag)?.[1] ?? '';
+				consider({ url: src, alt });
+			}
 		}
 	});
 	const hero = (bannerImage ?? firstImage)?.url;

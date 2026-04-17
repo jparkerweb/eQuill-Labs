@@ -14,6 +14,10 @@ description:
     in your Windows hosts file. Features automatic administrator privilege
     elevation, input validation and duplicate detection, optional backup
     creation with timestamps, and DNS cache flushing after modification.
+banner:
+  src: ./.readme/add-block-to-hosts.jpg
+  alt: add-block-to-hosts banner
+  source: repo
 topics:
   - block
   - hostsfile
@@ -35,6 +39,6 @@ lastCommit: '2025-09-13T19:52:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/add-block-to-hosts'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Blocks access to specific websites or domains by redirecting them to 0.0.0.0 in your Windows hosts file. Features automatic administrator privilege elevation, input validation and duplicate detection, optional backup creation with timestamps, and DNS cache flushing after modification.

@@ -10,6 +10,10 @@ description:
   long: >-
     In-browser tool to help gather class names and generate Puppeteer scripts
     for use with Bivariate.
+banner:
+  src: ./docs/helper-1.png
+  alt: Bivariate-test-helper banner
+  source: repo
 topics: []
 category: demo
 theme: utilities
@@ -27,6 +31,6 @@ lastCommit: '2020-08-11T20:42:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate-test-helper'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+In-browser tool to help gather class names and generate Puppeteer scripts for use with Bivariate.

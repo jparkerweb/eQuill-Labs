@@ -14,6 +14,10 @@ description:
     into the Reading View, then copy bullet-cards.css to your Obsidian snippets
     folder and enable the snippet. Modifier classes cover vertical stacking,
     alignment of cards, card width, and alignment of card contents.
+banner:
+  src: ./docs/bullet-cards--example--source-view.jpg
+  alt: obsidian-bullet-cards banner
+  source: repo
 topics: []
 category: demo
 theme: utilities
@@ -31,6 +35,6 @@ lastCommit: '2024-10-09T23:43:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-bullet-cards'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Install obsidian-element-enhancer to allow custom classes to be injected into the Reading View, then copy bullet-cards.css to your Obsidian snippets folder and enable the snippet. Modifier classes cover vertical stacking, alignment of cards, card width, and alignment of card contents.

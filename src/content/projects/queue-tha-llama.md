@@ -14,6 +14,10 @@ description:
     Handles concurrent chat sessions with queue management, maintains
     client-server communication with heartbeat signals, and utilizes a RAG model
     for chat memory. Manages inactive clients and job cleanups.
+banner:
+  src: ./docs/chat.jpg
+  alt: queue-tha-llama banner
+  source: repo
 topics: []
 category: demo
 theme: utilities
@@ -37,6 +41,6 @@ lastCommit: '2024-10-09T23:36:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and utilizes a RAG model for chat memory. Manages inactive clients and job cleanups.

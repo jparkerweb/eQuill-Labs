@@ -190,7 +190,8 @@ function main() {
 
 	for (const { project, slug } of validated) {
 		keepSlugs.add(slug);
-		const md = matter.stringify('', project);
+		const body = project.description.long ? `${project.description.long}\n` : '';
+		const md = matter.stringify(body, project);
 		const outPath = join(CONTENT_DIR, `${slug}.md`);
 		if (existsSync(outPath)) {
 			const existing = readFileSync(outPath, 'utf8');

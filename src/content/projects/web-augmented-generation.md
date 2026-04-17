@@ -16,7 +16,8 @@ description:
     interactive CLI, and multiple LLM providers (Ollama, together.ai,
     llama.cpp).
 banner:
-  src: wag.jpg
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png
   alt: web-augmented-generation banner
   source: repo
 topics:
@@ -48,6 +49,6 @@ lastCommit: '2025-12-24T06:16:17Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-04-16T03:55:11.010Z'
+  fetchedAt: '2026-04-17T04:24:14.581Z'
 ---
-
+Rephrases user queries for optimal web searching, fetches and summarizes content from search results, and generates responses via OpenAI-compatible API calls. Supports streaming responses, content similarity checking, an interactive CLI, and multiple LLM providers (Ollama, together.ai, llama.cpp).
