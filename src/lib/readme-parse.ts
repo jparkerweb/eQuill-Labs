@@ -93,7 +93,28 @@ export function parseReadme(markdown: string): ReadmeExtract {
 		}
 	}
 
-	// demos: link nodes matching demo text/url
+	// demos: HTML <a data-tag="demo"> takes priority (explicit marker authored by repo owner),
+	// followed by markdown links whose label or URL matches demo-ish text.
+	const taggedDemos: Array<{ label: string; url: string }> = [];
+	walk(tree, (node) => {
+		if (node.type !== 'html') return;
+		const html = (node as { value?: string }).value ?? '';
+		const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+		for (const match of html.matchAll(anchorRe)) {
+			const attrs = match[1] ?? '';
+			const inner = match[2] ?? '';
+			const dataTag = /\bdata-tag\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
+			if (!dataTag || dataTag.toLowerCase() !== 'demo') continue;
+			const href = /\bhref\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
+			if (!href) continue;
+			const label = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() || href;
+			if (!taggedDemos.some((d) => d.url === href)) {
+				taggedDemos.push({ label, url: href });
+			}
+		}
+	});
+	for (const d of taggedDemos) result.demos.push(d);
+
 	walk(tree, (node) => {
 		if (node.type === 'link') {
 			const link = node as Link;

@@ -39,4 +39,5 @@ Outside the terminal, I'm a husband to **Stephanie** and a dad to **Ella** and *
 
 - **GitHub** — [github.com/jparkerweb](https://github.com/jparkerweb)
 - **eQuill Labs** — [equilllabs.com](https://www.equilllabs.com)
-- **Email** — [hello@equilllabs.com](mailto:hello@equilllabs.com)
+- **Discord** — [Join our community](https://discord.gg/sp8AQQhMJ7)
+- **Email** — [equilllabs@gmail.com](mailto:equilllabs@gmail.com)
