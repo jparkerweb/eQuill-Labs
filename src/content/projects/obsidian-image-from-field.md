@@ -7,13 +7,15 @@ tagline: >-
   field for the source
 description:
   short: >-
-    DataviewJS script to render a Markdown image in Reading View using a local
-    field for the source.
+    DataviewJS script that renders a Markdown image in Reading View using a
+    local field for the source.
   long: >-
-    Reads the URL from your supplied field and renders the image using that
-    source. Also accepts size and alignment values.
+    Reads an image URL from a frontmatter or inline field and renders the image
+    in the note, accepting size and alignment values. Live preview is not
+    supported.
 banner:
-  src: docs/dataview.png
+  src: >-
+    https://github.com/jparkerweb/obsidian-image-from-field/blob/main/obsidian-image-from-field.jpg?raw=true
   alt: obsidian-image-from-field banner
   source: repo
 topics: []
@@ -31,10 +33,10 @@ links:
 featured: false
 sortOrder: 998
 status: active
-lastCommit: '2024-10-09T23:41:30Z'
+lastCommit: '2026-04-17T16:11:07Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Reads the URL from your supplied field and renders the image using that source. Also accepts size and alignment values.
+Reads an image URL from a frontmatter or inline field and renders the image in the note, accepting size and alignment values. Live preview is not supported.

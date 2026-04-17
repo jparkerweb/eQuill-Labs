@@ -4,8 +4,12 @@ name: extract-topics
 slug: extract-topics
 tagline: Use LDA (Latent Dirichlet Allocation) to extract topics from text
 description:
-  short: "\U0001F47D Extract Topics ⇢ use LDA (Latent Dirichlet Allocation) to extract topics from text"
-  long: ''
+  short: Use LDA (Latent Dirichlet Allocation) to extract topics from text.
+  long: >-
+    Simple NPM package for using LDA for topic modeling on text inputs. LDA is
+    an unsupervised learning method that discovers topics by viewing documents
+    as random mixtures over latent topics, where each topic is characterized by
+    a distribution over words.
 banner:
   src: >-
     https://github.com/jparkerweb/extract-topics/blob/main/extractTopics.jpg?raw=true
@@ -35,6 +39,6 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-
+Simple NPM package for using LDA for topic modeling on text inputs. LDA is an unsupervised learning method that discovers topics by viewing documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.

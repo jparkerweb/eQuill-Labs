@@ -6,8 +6,14 @@ tagline: >-
   A tool for analyzing text against predefined topics using average weight
   embeddings and cosine similarity.
 description:
-  short: "\U0001F3F7️ Fast Topic Analysis is a tool for analyzing text against predefined topics using average weight embeddings and cosine similarity"
-  long: ''
+  short: >-
+    A tool for analyzing text against predefined topics using average weight
+    embeddings and cosine similarity.
+  long: >-
+    Creates multiple weighted average embeddings per topic to capture semantic
+    variations, groups similar phrases via agglomerative or HDBSCAN clustering,
+    and measures cluster quality via cohesion and silhouette scoring. Preset
+    configurations cover high precision, balanced, and performance use cases.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/fast-topic-analysis/main/.readme/buckets.jpg
@@ -40,6 +46,6 @@ lastCommit: '2026-04-17T03:52:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-
+Creates multiple weighted average embeddings per topic to capture semantic variations, groups similar phrases via agglomerative or HDBSCAN clustering, and measures cluster quality via cohesion and silhouette scoring. Preset configurations cover high precision, balanced, and performance use cases.

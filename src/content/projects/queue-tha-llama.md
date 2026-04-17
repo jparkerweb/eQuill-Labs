@@ -41,6 +41,6 @@ lastCommit: '2024-10-09T23:36:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 Handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and utilizes a RAG model for chat memory. Manages inactive clients and job cleanups.

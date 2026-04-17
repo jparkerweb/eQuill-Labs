@@ -6,12 +6,12 @@ tagline: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs
 description:
   short: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.
   long: >-
-    NodeJS application designed to generate answers to questions using your
-    sample dataset. A group of Judge LLMs assesses and rates each response, with
-    results visualized in graphs. Metrics such as BERT Score and Inference Time
-    are also provided.
+    Generates answers to questions using a sample dataset across an evaluation
+    pool of LLMs, then a group of Judge LLMs assesses and rates each response.
+    Results are visualized in graphs, with additional metrics such as BERT Score
+    and Inference Time.
 banner:
-  src: ./docs/home.png
+  src: 'https://github.com/jparkerweb/InferIQ/blob/main/InferIQ.jpg?raw=true'
   alt: InferIQ banner
   source: repo
 topics: []
@@ -31,10 +31,10 @@ links:
 featured: false
 sortOrder: 999
 status: active
-lastCommit: '2024-10-31T23:03:37Z'
+lastCommit: '2026-04-17T16:15:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-NodeJS application designed to generate answers to questions using your sample dataset. A group of Judge LLMs assesses and rates each response, with results visualized in graphs. Metrics such as BERT Score and Inference Time are also provided.
+Generates answers to questions using a sample dataset across an evaluation pool of LLMs, then a group of Judge LLMs assesses and rates each response. Results are visualized in graphs, with additional metrics such as BERT Score and Inference Time.

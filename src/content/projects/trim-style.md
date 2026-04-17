@@ -10,13 +10,11 @@ description:
     Simple web app for extracting only the essential styles from raw style
     properties.
   long: >-
-    A lightweight tool that helps you clean and format CSS properties copied
-    from browser dev tools. Right-click an element in Chrome's dev tools, select
-    Copy CSS, and paste it here to get clean, formatted CSS properties. Removes
-    unnecessary class wrappers, formats properties consistently, handles CSS
+    Cleans and formats CSS properties copied from browser dev tools. Removes
+    unnecessary class wrappers, formats CSS properties consistently, handles CSS
     variables, and preserves hex colors and complex values.
 banner:
-  src: img/trim-style.gif
+  src: 'https://github.com/jparkerweb/trim-style/blob/main/time-style.jpg?raw=true'
   alt: trim-style banner
   source: repo
 topics: []
@@ -39,10 +37,10 @@ links:
 featured: false
 sortOrder: 999
 status: active
-lastCommit: '2025-09-25T17:34:08Z'
+lastCommit: '2026-04-17T15:21:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/trim-style'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-A lightweight tool that helps you clean and format CSS properties copied from browser dev tools. Right-click an element in Chrome's dev tools, select Copy CSS, and paste it here to get clean, formatted CSS properties. Removes unnecessary class wrappers, formats properties consistently, handles CSS variables, and preserves hex colors and complex values.
+Cleans and formats CSS properties copied from browser dev tools. Removes unnecessary class wrappers, formats CSS properties consistently, handles CSS variables, and preserves hex colors and complex values.

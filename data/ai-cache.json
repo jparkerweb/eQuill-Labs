@@ -1,19 +1,19 @@
 {
   "02eeaa3bd8e08a991bc4d6bb90c13f4bb5dfafb59b1d9f3f47a2d7de58db6437": {
-    "slug": "bivariate-test-helper",
-    "shortDescription": "Chrome Extension that grabs class lists and generates Puppeteer scripts for use in Bivariate onBefore and onReady scripts.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "In-browser tool to help gather class names and generate Puppeteer scripts for use with Bivariate.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Chrome Extension - class list grabber / Puppeteer script generator",
       "In browser tool to help gather class names and generate Puppeteer scripts for use in Bivariate `onBefore` & `onReady` scripts."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Chrome Extension that grabs class lists and generates Puppeteer scripts for use in Bivariate onBefore and onReady scripts.",
+    "slug": "bivariate-test-helper"
   },
   "04d1c350c43ee535c8195f2a0cf643bfe4b89430b9e9811244cc0ce607d5e299": {
-    "slug": "equill-labs",
-    "shortDescription": "Static website for eQuill Labs showcasing recent projects and tools.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "The website uses a lightweight build system with Handlebars for templating and a dark mode design. Source files live under src/ with templates, layouts, and static assets; production output is built to pages/.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Static website for eQuill Labs showcasing recent projects and tools.",
       "The website uses a lightweight build system with Handlebars for templating and a dark mode design.",
@@ -21,45 +21,45 @@
       "Build output:",
       "pages/             # Production build output"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Static website for eQuill Labs showcasing recent projects and tools.",
+    "slug": "equill-labs"
   },
   "0629bbca50ff719d3ea80c79cf709100e7672fdf337dfb65c8c3498826919b86": {
-    "slug": "llm-distillery",
-    "shortDescription": "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Reduces the size of text based on token count without losing the essence of the content. Uses the semantic-chunking library to split text into manageable chunks that are then summarized. Allows fine-tuning of parameters like target token size, API base URL, and chunking thresholds.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach.",
       "Reduces the size of text based on token count without losing the essence of the content.",
       "Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized.",
       "Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach.",
+    "slug": "llm-distillery"
   },
   "064f4ccdce67ce0b32a2773c0c3628b15ca1859850b7eea765242f3e3224d036": {
-    "slug": "speculative-decoding",
-    "shortDescription": "",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
-    "quotedSpans": [],
     "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "quotedSpans": [],
+    "shortDescription": "",
+    "slug": "speculative-decoding"
   },
   "072179269d89112bff9ac061f80a944c897e1279531138ce66b932f1bc1ac867": {
-    "slug": "kdm-cards",
-    "shortDescription": "Generate disorder, fighting arts, secret fighting arts and abilities cards to upload to a print on demand service.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "The generated cards are intended to be printed on 2\" x 2\" side cards.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Generate `disorder`, `fighting arts`, `secret fighting arts` and `abilities` cards, to upload to a print on demand service",
       "The generated cards are intended to be printed on 2\" x 2\" side cards."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Generate disorder, fighting arts, secret fighting arts and abilities cards to upload to a print on demand service.",
+    "slug": "kdm-cards"
   },
   "07f4080b93acd60cf4840911c5c43300c09ebe1e6fd82dcbe6b89a259153e5fb": {
-    "slug": "pixel-banner",
-    "shortDescription": "Obsidian plugin that transforms notes with customizable banner images, creating headers that enhance your knowledge workspace.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Features AI-generated banners, a Pixel Banner Plus Collection of images and videos, and 3rd party APIs for Pexels, Pixabay, Flickr, and Unsplash. Supports local images, external files via the file:/// protocol, MP4/MOV video banners, and direct URL banners. Customization covers position control, transparency, border radius, animation effects, and display modes.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Pixel Banner is a powerful Obsidian plugin that transforms your notes with customizable banner images, creating visually stunning headers that enhance your knowledge workspace.",
       "AI-Generated Banners",
@@ -73,13 +73,13 @@
       "Customize transparency, border radius, animation effects, and spacing",
       "Choose between display modes"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Obsidian plugin that transforms notes with customizable banner images, creating headers that enhance your knowledge workspace.",
+    "slug": "pixel-banner"
   },
   "099c827535167b527c7213f19d069b733a3ea1aab991392803d0bca7ab336d2c": {
-    "slug": "embedding-utils",
-    "shortDescription": "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Zero production dependencies, provider-agnostic across local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with strict types.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation",
       "Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases.",
@@ -87,68 +87,148 @@
       "Provider-agnostic -- swap between local ONNX, OpenAI, Cohere, and Google Vertex",
       "TypeScript-first -- strict types, full inference"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation.",
+    "slug": "embedding-utils"
+  },
+  "0d9b63a90c2ec076837fc44d0068056e57a8e92c3a302d55d8d7394698fcff78": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Pits two sentence splitters against one another with real-time comparison and visual color-coding for easy comparison. Built on an Express.js backend with a vanilla JavaScript frontend.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A web-based tool to compare different sentence splitting libraries side by side",
+      "simple app to pit two sentence splitters against one another",
+      "Real-time sentence splitting comparison",
+      "Visual color-coding of sentences for easy comparison",
+      "Express.js backend",
+      "Vanilla JavaScript frontend"
+    ],
+    "shortDescription": "A web-based tool to compare different sentence splitting libraries side by side.",
+    "slug": "splitter-vs-splitter"
+  },
+  "0ea0830b9b17bcba9d3dd2fd8724eaaedd5f9209885f528f218f98bc97c904c9": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Offers configurable similarity thresholds and chunk sizes, returning chunks sorted by relevance with similarity scores. Built on top of semantic-chunking and supports various ONNX embedding models.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval",
+      "Query matching using cosine similarity",
+      "Configurable similarity thresholds and chunk sizes",
+      "Returns chunks sorted by relevance with similarity scores",
+      "Built on top of semantic-chunking",
+      "Support for various ONNX embedding models"
+    ],
+    "shortDescription": "A NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval.",
+    "slug": "chunk-match"
   },
   "0fffde29dffe3734cac2c148d1ad20b5bce1c3af9a4f871cc62c391525b22603": {
-    "slug": "card-generator-sob",
-    "shortDescription": "Card Generator for Shadows of Brimstone.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Card Generator for Shadows of Brimstone"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Card Generator for Shadows of Brimstone.",
+    "slug": "card-generator-sob"
+  },
+  "111d6362e4f622de5b5872bbf5fd0c0b3fb0084ae034f65df307696f666a9b84": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Generates answers to questions using a sample dataset across an evaluation pool of LLMs, then a group of Judge LLMs assesses and rates each response. Results are visualized in graphs, with additional metrics such as BERT Score and Inference Time.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs",
+      "designed to generate answers to questions using your sample dataset",
+      "After answering all dataset questions across the selected LLMs in your evaluation pool, a group of Judge LLMs will assess and rate each response",
+      "results are then visualized in several graphs",
+      "metrics such as BERT Score and Inference Time"
+    ],
+    "shortDescription": "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.",
+    "slug": "inferiq"
+  },
+  "168174b4fa8d8f0b3d869011ad56bf072b15186f2e35b2a8fcb0f88b2f61a60e": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Restores periods, commas, question marks, and casing via ONNX runtime inference. Supports batch processing of multiple texts and automatically downloads required models from Hugging Face on first use.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A Node.js package that restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model",
+      "Restores punctuation marks (periods, commas, question marks, etc.)",
+      "Handles casing",
+      "Supports batch processing of multiple texts",
+      "Uses efficient ONNX runtime for inference",
+      "Automatically downloads required models",
+      "Models are automatically downloaded from Hugging Face on first use"
+    ],
+    "shortDescription": "A Node.js package that restores punctuation and casing to unpunctuated text using the punctuation_fullstop_truecase_english ONNX model.",
+    "slug": "punctuation-restore"
+  },
+  "174bb424600dd7551ea1f5e78bb470daae57a4dd33b7136e3b52df421ac2e2b9": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page"
+    ],
+    "shortDescription": "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page.",
+    "slug": "nzbdrone-xtender"
   },
   "17be1df499b00145b1590c6a21486f36cde8cc05591214d3fd2bb868efa811f5": {
-    "slug": "obsidian-image-from-field",
-    "shortDescription": "DataviewJS script to render a Markdown image in Reading View using a local field for the source.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Reads the URL from your supplied field and renders the image using that source. Also accepts size and alignment values.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "DataviewJS Script to render a Markdown image in Reading View using a local field for the source",
       "This `dataviewjs` script will read the URL from your supplied field and reder the image using that source.",
       "it also accepts size and alignment values"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "DataviewJS script to render a Markdown image in Reading View using a local field for the source.",
+    "slug": "obsidian-image-from-field"
+  },
+  "18be21b95b6365247fbaa3d368079454c6852c97677eec69a6407315926e693e": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "This is an example project to show `htmldiff.js` in the browser"
+    ],
+    "shortDescription": "An example project to show htmldiff.js in the browser.",
+    "slug": "htmldiff-example"
   },
   "1c0d347669a8ce456ad7524ce00df09892e3c5235345aa34979eb07337ae6c12": {
-    "slug": "embedding-forge",
-    "shortDescription": "Embedding Forge.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "# 🔨 Embedding Forge"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Embedding Forge.",
+    "slug": "embedding-forge"
   },
   "1c292b552f84f094b04c86bf78abe0015dd4360b68f1a448e50682d14df924a1": {
-    "slug": "obsidian-element-enhancer",
-    "shortDescription": "Add custom classes to Obsidian elements.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Implements a simple script that enables the ability to apply custom css classes to any adjacent Markdown element for styling. Install the Dataview plugin and enable JavaScript Queries, then copy the script to your vault.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Add custom classes to Obsidian elements",
       "implements a simple script that enables the ability to apply custom css classes to any adjacent _Markwon_ element for styling",
       "Install the `Dataview` plugin and enable `JavaScript Queries`",
       "copy the [scripts/obsidian-element-enhancer.js](./scripts/obsidian-element-enhancer.js) file to your Obsidian vault"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Add custom classes to Obsidian elements.",
+    "slug": "obsidian-element-enhancer"
   },
   "2142f82cd841d082d5f6090925b5eb0cb4017739f4e6fd44afbf49714e69cf31": {
-    "slug": "htmldiff-example",
-    "shortDescription": "Example project to show htmldiff.js in the browser.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "This is an example project to show `htmldiff.js` in the browser."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Example project to show htmldiff.js in the browser.",
+    "slug": "htmldiff-example"
   },
   "278e82ce631cda1fc9a513d8a776aa4a0684f4195270c50cfb1178b1defe06a7": {
-    "slug": "chunk-match",
-    "shortDescription": "NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for text retrieval.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Offers configurable similarity thresholds and chunk sizes, and returns chunks sorted by relevance with similarity scores. Built on top of semantic-chunking, with support for various ONNX embedding models.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval.",
       "Configurable similarity thresholds and chunk sizes",
@@ -156,13 +236,28 @@
       "Built on top of semantic-chunking",
       "Support for various ONNX embedding models"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for text retrieval.",
+    "slug": "chunk-match"
+  },
+  "27bdfcec2d9af09ec2867b555ea7ec18e54925640d2691fa983fa833084a9aec": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Cleans and formats CSS properties copied from browser dev tools. Removes unnecessary class wrappers, formats CSS properties consistently, handles CSS variables, and preserves hex colors and complex values.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Simple web app for extracting only the essential styles from raw style properties",
+      "helps you clean and format CSS properties copied from browser dev tools",
+      "Removes unnecessary class wrappers",
+      "Formats CSS properties consistently",
+      "Handles CSS variables",
+      "Preserves hex colors and complex values"
+    ],
+    "shortDescription": "Simple web app for extracting only the essential styles from raw style properties.",
+    "slug": "trim-style"
   },
   "28cf132a1e03bb3ab1d0505fb7278d201587fbfdd9f7d3b1db9d9653976a66bd": {
-    "slug": "queue-tha-llama",
-    "shortDescription": "Web-based chat application that integrates LLM capabilities with Bull Queue, Redis, and Chroma.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and utilizes a RAG model for chat memory. Manages inactive clients and job cleanups.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "This is a web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma.",
       "It handles concurrent chat sessions with advanced queue management",
@@ -170,13 +265,13 @@
       "utilizes a RAG model for chat memory",
       "smartly manages inactive clients and job cleanups"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Web-based chat application that integrates LLM capabilities with Bull Queue, Redis, and Chroma.",
+    "slug": "queue-tha-llama"
   },
   "2efe6af4a8a3b723ca3164b61b22c3b8b90288bfea00ae3538d6e4c8ccf82dbf": {
-    "slug": "add-block-to-hosts",
-    "shortDescription": "PowerShell script to block websites and domains by adding entries to your Windows hosts file.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Blocks access to specific websites or domains by redirecting them to 0.0.0.0 in your Windows hosts file. Features automatic administrator privilege elevation, input validation and duplicate detection, optional backup creation with timestamps, and DNS cache flushing after modification.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A PowerShell script to block websites and domains by adding entries to your Windows hosts file.",
       "allows you to quickly block access to specific websites or domains by redirecting them to `0.0.0.0` in your Windows hosts file",
@@ -185,25 +280,38 @@
       "Optional backup creation with timestamps",
       "DNS cache flushing after modification"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "PowerShell script to block websites and domains by adding entries to your Windows hosts file.",
+    "slug": "add-block-to-hosts"
+  },
+  "3159ccd6d9e2d51a1daf2b66348d9becb8cbf7e4fea800823dda78470738d5f8": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Proxies OpenAI-compatible API calls to AWS Bedrock so existing OpenAI API clients can continue to work without learning the Bedrock SDK. Useful for keeping an application platform agnostic while still running inference on Bedrock.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)",
+      "makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock",
+      "Great for getting existing OpenAI API compatible applications working with AWS Bedrock",
+      "you want to keep your application platform agnostic"
+    ],
+    "shortDescription": "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard baseUrl and apiKey params).",
+    "slug": "bedrock-proxy-endpoint"
   },
   "31ed297b8a7f855a5b24ddb0daabe277ab5543a3af8e6229cd0a9649f5e80145": {
-    "slug": "k-batch",
-    "shortDescription": "Intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Useful for NLP tasks, machine learning batch processing, and scenarios where processing similar-length texts together improves efficiency. Uses k-means clustering to group sentences into optimal batches based on length, while ensuring each batch meets minimum size requirements.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "K-Batch is an intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing.",
       "particularly useful for NLP tasks, machine learning batch processing, and any scenario where processing similar-length texts together improves efficiency",
       "K-Batch uses k-means clustering to automatically group your sentences into optimal batches based on length, while ensuring each batch meets minimum size requirements."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing.",
+    "slug": "k-batch"
   },
   "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721": {
-    "slug": "clip-to-file",
-    "shortDescription": "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Automatically detects images and text in your clipboard, and one command saves clipboard content with zero configuration. Files are saved with clean timestamps and duplicate filenames get a number appended. INI-based configuration with sensible defaults.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names.",
       "Automatically detects images and text in your clipboard",
@@ -212,25 +320,38 @@
       "Automatically handles duplicate filenames by appending numbers",
       "Simple INI-based configuration with sensible defaults"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names.",
+    "slug": "clip-to-file"
+  },
+  "40b09eac0400c01ce6bbb6b9f3534b8a525227036e1104537c0643ab699ef7e3": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Simple NPM package for using LDA for topic modeling on text inputs. LDA is an unsupervised learning method that discovers topics by viewing documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Use LDA (Latent Dirichlet Allocation) to extract topics from text",
+      "Simple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs",
+      "LDA is an unsupervised learning method that discovers topics in text documents",
+      "It views documents as random mixtures over latent topics, where each topic is characterized by a distribution over words"
+    ],
+    "shortDescription": "Use LDA (Latent Dirichlet Allocation) to extract topics from text.",
+    "slug": "extract-topics"
   },
   "430aef398013b1185e087fd1d71e7bc7cb0321ed3f76a627d15e93e06f8f6c27": {
-    "slug": "low-voltage-generator",
-    "shortDescription": "Simple html page that uses javascript to generate links to commonly used scene search engines.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "The generated links are grouped into sections (e.g., nzb, newznab, torrent, xdcc, predb). Each link opens the respective search page in a new window and passes in your searched for term.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Low Voltage Generator is a simple html page that uses javascript to generate links to commonly used \"scene\" search engines.",
       "The various links generated are grouped into sections (e.g., nzb, newznab, torrent, xdcc, predb, etc.)",
       "Each link will open the respective search page in a new window and pass in your searched for term"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simple html page that uses javascript to generate links to commonly used scene search engines.",
+    "slug": "low-voltage-generator"
   },
   "4479386c3266f9c4c1a587ff1f0d3a0789f75bc4f09024dc5265dfc7c54412bd": {
-    "slug": "inferiq",
-    "shortDescription": "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "NodeJS application designed to generate answers to questions using your sample dataset. A group of Judge LLMs assesses and rates each response, with results visualized in graphs. Metrics such as BERT Score and Inference Time are also provided.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs",
       "InferIQ is a NodeJS application designed to generate answers to questions using your sample dataset.",
@@ -238,13 +359,13 @@
       "The results are then visualized in several graphs",
       "metrics such as BERT Score and Inference Time are provided"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.",
+    "slug": "inferiq"
   },
   "476c49e5ad174e0746357e46a2be550e03bfbb6cae35a0c47ed37ddf42a976d3": {
-    "slug": "steph-shot",
-    "shortDescription": "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard (Windows OS required).",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Once installed, a shortcut is added to your desktop and by default can be launched by pressing Ctrl + Shift + A. All screen shots are automatically saved to your Downloads directory in a folder named Steph-Shots, and also copied to your clipboard.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard",
       "Windows OS required",
@@ -252,13 +373,13 @@
       "All screen shots are automatically saved to your Downloads directory in a folder named \"Steph-Shots\"",
       "the screen shot is also saved to your clipboard"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard (Windows OS required).",
+    "slug": "steph-shot"
   },
   "47c91532100c80c5764eeb757c53fb94df9eb0b817553ab68a52fad3c80e7822": {
-    "slug": "semantic-chunking",
-    "shortDescription": "NPM Package for semantically creating chunks from large texts, useful for workflows involving LLMs.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Features semantic chunking based on sentence similarity, dynamic similarity thresholds, configurable chunk sizes, and multiple embedding model options with quantized model support. Includes chunk prefix support for RAG workflows and a Web UI for experimenting with settings.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "NPM Package for Semantically creating chunks from large texts.",
       "Useful for workflows involving large language models (LLMs).",
@@ -270,23 +391,37 @@
       "Chunk prefix support for RAG workflows",
       "Web UI for experimenting with settings"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "NPM Package for semantically creating chunks from large texts, useful for workflows involving LLMs.",
+    "slug": "semantic-chunking"
+  },
+  "47d847adc1822303ecbcfc12f908470976f1e3a3666ccc5ac344e9d782b54199": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Creates multiple weighted average embeddings per topic to capture semantic variations, groups similar phrases via agglomerative or HDBSCAN clustering, and measures cluster quality via cohesion and silhouette scoring. Preset configurations cover high precision, balanced, and performance use cases.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity",
+      "Creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations",
+      "Groups similar phrases within topics to form coherent semantic clusters using agglomerative or HDBSCAN algorithms",
+      "Measures cluster quality via per-cluster cohesion and global silhouette score",
+      "Offers preset configurations for different use cases (high precision, balanced, performance)"
+    ],
+    "shortDescription": "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.",
+    "slug": "fast-topic-analysis"
   },
   "4d85a8e45b03b9036090f0d2f11ae6cd20fbd407f5a34ebab46652490a8698a9": {
-    "slug": "simplesite-boilerplate",
-    "shortDescription": "Simple Boilerplate Site - Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with sass, autoprefix, webpack, browser-sync and cache busting.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple Boilerplate Site -  Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with sass, autoprefix, js, webpack, browser-sync and cache busting"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simple Boilerplate Site - Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with sass, autoprefix, webpack, browser-sync and cache busting.",
+    "slug": "simplesite-boilerplate"
   },
   "530a5f3967e3c6b673f769b89601d4b923c470751b7cbaf8356a1fb86006bab6": {
-    "slug": "ollama-structured-output-test",
-    "shortDescription": "Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.",
       "The example queries Ollama about Disney World and returns a structured response containing:",
@@ -296,13 +431,13 @@
       "Rides",
       "Fun facts"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.",
+    "slug": "ollama-structured-output-test"
   },
   "60cb5a662e421f196bb414b679d8aa51f8569e650efc6885e1ddef802c039b86": {
-    "slug": "ps-win-dir-size",
-    "shortDescription": "PowerShell script for analyzing disk space usage on local and network paths.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Quickly identify which top-level subdirectories consume the most storage space. Supports network paths (SMB shares), shows real-time progress as directories are scanned, and if a scan is interrupted can resume from where it left off. Displays the largest directories ranked by size including last-modified date.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A PowerShell script for analyzing disk space usage on local and network paths.",
       "Quickly identify which top-level subdirectories consume the most storage space.",
@@ -311,37 +446,69 @@
       "If a scan is interrupted (Ctrl+C, network drop, etc.), resume from where it left off at next startup",
       "Displays the largest directories ranked by size, including last-modified date"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "PowerShell script for analyzing disk space usage on local and network paths.",
+    "slug": "ps-win-dir-size"
+  },
+  "61b7941d3a08cefabeda3e4d4ddd918414c8482341a1c460765fa3b62cbe09fe": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+    "slug": "equill-labs"
   },
   "75a8199815368543f15fba4c02d2b18410da1a48b00fad0e45c77fba830f3f9d": {
-    "slug": "wdw-adr-checker",
-    "shortDescription": "Advance Dining Reservation checker for Walt Disney World, as a bookmarklet you install in your browser.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Runs in a browser tab, checking for your desired ADR availability every 5 seconds. Notifies you with an audible tone and message when one is found.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Advance Dining Reservation checker for Walt Disney World is a `bookmarklet` you can install in your browser",
       "It will run in a browser tab, checking for your desired ADR availability every 5 seconds",
       "notify you with an audible tone and message when one is found"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Advance Dining Reservation checker for Walt Disney World, as a bookmarklet you install in your browser.",
+    "slug": "wdw-adr-checker"
+  },
+  "760780bc1ea3b566cd54ed9ff63bca1b780791db6623679e59462e79f45372a9": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Reads an image URL from a frontmatter or inline field and renders the image in the note, accepting size and alignment values. Live preview is not supported.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "DataviewJS Script to render a Markdown image in Reading View using a local field for the source",
+      "read the URL from your supplied field and reder the image using that source",
+      "it also accepts size and alignment values",
+      "live preview is not supported"
+    ],
+    "shortDescription": "DataviewJS script that renders a Markdown image in Reading View using a local field for the source.",
+    "slug": "obsidian-image-from-field"
   },
   "7786f58c991e13c9a7a76ea5a7609cd15f1dc57a9d485c96b4827fec1a07e7ff": {
-    "slug": "down-craft",
-    "shortDescription": "Node.js package to simplify converting documents (PDF, DOCX, PPTX, and XLSX) into Markdown format.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to Markdown format. For PDFs, it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities using the OpenAI API.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Node.js package to simplify the process of converting documents (PDF, DOCX, PPTX, and XLSX) into Markdown format.",
       "It uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` to convert documents to Markdown format.",
       "For PDFs, it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities (using the OpenAI API)."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Node.js package to simplify converting documents (PDF, DOCX, PPTX, and XLSX) into Markdown format.",
+    "slug": "down-craft"
+  },
+  "7b3640f870d6a2bf73c9d68c711379343c4f33cce916679b8431a52077ac1dbf": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [],
+    "shortDescription": "",
+    "slug": "jparkerweb"
   },
   "8187ef6fb78766d348e9c142e0889ab8f6c9818538c9fbf4d23d4c48dbd288b7": {
-    "slug": "simple-linkz",
-    "shortDescription": "Lightweight, self-hosted web application for curating and managing your frequently visited links.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Built with vanilla JavaScript, Node.js, and Tailwind CSS. Supports grid, list, or cards layout, password-hashed login with session management, dark/light themes, tag-based organization, drag and drop reordering, and JSON import/export. Includes Docker support, PWA install, rate limiting, and CSRF protection.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A lightweight, self-hosted web application for curating and managing your frequently visited links.",
       "Built with vanilla JavaScript, Node.js, and Tailwind CSS.",
@@ -355,13 +522,13 @@
       "Install as an app on mobile devices",
       "Rate limiting and CSRF protection"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Lightweight, self-hosted web application for curating and managing your frequently visited links.",
+    "slug": "simple-linkz"
   },
   "85140e3d9a23227d53fde6e3822b7c6b518543eb276277dbaeaabf4be39a328e": {
-    "slug": "indigestion",
-    "shortDescription": "CLI that allows users a quick and easy method for creating and sending test emails in various test automation environments.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Creates a userconfig.json file on first run to hold your SMTP server and authentication values. Loops through all email .json files in the ./emails directory and sends them using your SMTP server, and can create new email .json files with UI prompts for fields like from, to, cc, bcc, subject, text, html, and attachments.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "provide a CLI that allows users a quick and easy method for creating and sending `test emails` in various test automation environments",
       "`Indigestion` creates a `userconfig.json` file the first time it is run.  This file holds your SMTP server and authentication values",
@@ -369,13 +536,13 @@
       "Creates a new email `.json` file and stores it in the `./emails` folder",
       "prompt you for all possible email field values (`from`, `to`, `cc`, `bcc`, `subject`, `text`, `html`, `attachmen"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "CLI that allows users a quick and easy method for creating and sending test emails in various test automation environments.",
+    "slug": "indigestion"
   },
   "86ebbd3bba5fe923379c811b6ee9d010217a97bb5b407eeeffb5f801c0b15a45": {
-    "slug": "bedrock-wrapper",
-    "shortDescription": "npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Use with your existing OpenAI chat completions object and AWS credentials. Alternatively use the Bedrock Proxy Endpoint project to spin up a custom OpenAI server endpoint using standard baseUrl and apiKey params.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
       "clone your openai chat completions object into `openaiChatCompletionsCreateObject`",
@@ -383,13 +550,13 @@
       "use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint",
       "using the standard `baseUrl`, and `apiKey` params"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+    "slug": "bedrock-wrapper"
   },
   "8e706bc8ef428aec10dee17a0e33ea4a05f3d205d09db84fad5377a71ca05a5f": {
-    "slug": "web-augmented-generation",
-    "shortDescription": "Node.js application that performs web-augmented generation using various LLM providers and web search results from SearXNG.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Rephrases user queries for optimal web searching, fetches and summarizes content from search results, and generates responses via OpenAI-compatible API calls. Supports streaming responses, content similarity checking, an interactive CLI, and multiple LLM providers (Ollama, together.ai, llama.cpp).",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "This Node.js application performs web-augmented generation using various LLM providers and web search results from SearXNG.",
       "Rephrases user queries for optimal web searching",
@@ -400,33 +567,33 @@
       "Features an interactive CLI",
       "Supports multiple LLM providers (Ollama, together.ai, llama.cpp)"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Node.js application that performs web-augmented generation using various LLM providers and web search results from SearXNG.",
+    "slug": "web-augmented-generation"
   },
   "8f7f7bb411c8c0208f27980a0c3b9b5f8eb3cfc0cb0f69438cb6e80a4119f105": {
-    "slug": "ref",
-    "shortDescription": "hotlink wut?",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
-    "quotedSpans": [],
     "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "quotedSpans": [],
+    "shortDescription": "hotlink wut?",
+    "slug": "ref"
   },
   "90595a8106ba9231c6423143cf26497d3b814a75611dee9cb1440671053f11da": {
-    "slug": "caps-left-right",
-    "shortDescription": "Auto Hot Key script to remap Capslock + Left / Capslock + Right to Home / End keys.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Helpful for software developers and keyboard shortcut ninjas. exe compiled with AHK's ahk to exe app.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Auto Hot Key script to remap Capslock + Left / Capslock + Right to Home / End keys.",
       "Helpful for software developers and keyboard shortcut ninjas",
       "`exe` compiled with AHK's `ahk to exe` app."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Auto Hot Key script to remap Capslock + Left / Capslock + Right to Home / End keys.",
+    "slug": "caps-left-right"
   },
   "9142197e58e3e20d22a2cdba561bedf2f61053f572ea8e35a24c2f0cb7e109cc": {
-    "slug": "sentence-parse",
-    "shortDescription": "A simple utility to parse text into sentences.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Options include observing multiple line breaks as separate sentences, removing specified start-of-line sequences, preserving HTML <br> and <p> tags as line breaks, and preserving list items by adding a prefix to each <li> element.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A simple utility to parse text into sentences.",
       "Treats two or more consecutive line breaks as separate sentences",
@@ -434,13 +601,13 @@
       "Preserves HTML `<br>` and `<p>` tags as line breaks",
       "Preserves list items by adding a prefix to each `<li>` element"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "A simple utility to parse text into sentences.",
+    "slug": "sentence-parse"
   },
   "a83aba8c5b60ecc481265f421b7ae21634f71613819ca5c3bdd6210904c521e1": {
-    "slug": "clover-quilt-designer",
-    "shortDescription": "Interactive web application for designing and visualizing colored patterns and image textures on a clover quilt template.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Offers a Color Mode with solid color fills and a Pattern Mode that lets you upload images as repeating textures with a 10-level zoom slider. Each of the 625 individual shapes is clickable, the pattern auto-fits to your screen, and outline color is customizable via a global stroke control.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "interactive web application for designing and visualizing colored patterns and image textures on a clover quilt template",
       "Color Mode** - Traditional solid color fills",
@@ -451,13 +618,13 @@
       "Outline Color Picker** - Change the color of all shape outlines",
       "Global Stroke Control** - Updates all 625 shape borders simultaneously"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Interactive web application for designing and visualizing colored patterns and image textures on a clover quilt template.",
+    "slug": "clover-quilt-designer"
   },
   "af036b194e9c76856db390d548fcf414e766ee29e0a04d051592f2cac6963001": {
-    "slug": "obsidian-bullet-cards",
-    "shortDescription": "css snippet to render bulleted list items as cards in Reading View (live preview not supported).",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Install obsidian-element-enhancer to allow custom classes to be injected into the Reading View, then copy bullet-cards.css to your Obsidian snippets folder and enable the snippet. Modifier classes cover vertical stacking, alignment of cards, card width, and alignment of card contents.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "css snippet to render bulleted list items as cards in Reading View (live preview not supported)",
       "Install [`obsidian-element-enhancer`](https://github.com/jparkerweb/obsidian-element-enhancer) script to allow custom classes to be injected into the Reading View.",
@@ -467,26 +634,26 @@
       "card width",
       "aligment of card contents"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "css snippet to render bulleted list items as cards in Reading View (live preview not supported).",
+    "slug": "obsidian-bullet-cards"
   },
   "b070b8f02146713d035917a7fcfbc791fd76a48fe96833420f1c370fa7c82817": {
-    "slug": "extract-topics",
-    "shortDescription": "Use LDA (Latent Dirichlet Allocation) to extract topics from text.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Simple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs. Accepts options for number of topics to extract and number of terms per topic.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Use LDA (Latent Dirichlet Allocation) to extract topics from text",
       "Simple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs.",
       "`numTopics` (number, optional): Number of topics to extract",
       "`numTerms` (number, optional): Number of terms per topic"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Use LDA (Latent Dirichlet Allocation) to extract topics from text.",
+    "slug": "extract-topics"
   },
   "b20d665e96e92591a57be5ab7b1d73bc75d2b7d5017cb27b42ba91fdcc53cbf2": {
-    "slug": "punctuation-restore",
-    "shortDescription": "Node.js package that restores punctuation and casing to unpunctuated text using the punctuation_fullstop_truecase_english ONNX model.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Restores punctuation marks (periods, commas, question marks, etc.) and handles casing. Supports batch processing of multiple texts and uses ONNX runtime for inference. Models are automatically downloaded from Hugging Face on first use and saved locally to the ./models directory.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A Node.js package that restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model",
       "Restores punctuation marks (periods, commas, question marks, etc.)",
@@ -495,26 +662,53 @@
       "Uses efficient ONNX runtime for inference",
       "Models are automatically downloaded from Hugging Face on first use and saved locally to the `./models` directory"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Node.js package that restores punctuation and casing to unpunctuated text using the punctuation_fullstop_truecase_english ONNX model.",
+    "slug": "punctuation-restore"
   },
   "b40e8c8aebf9dc9ecdac8d5fe1fa6ff8f27b2683fb118cfce9effb424b413fe5": {
-    "slug": "random-pexels-image",
-    "shortDescription": "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Allows hotlinking images by directly returning the image data. Fetches images from the Pexels API based on query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image.",
       "It allows hotlinking images by directly returning the image data.",
       "designed to fetch images from the Pexels API based on specified query parameters such as size, keyword, and orientation",
       "If no keyword is provided, a random keyword from a list of 300 random words is used."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image.",
+    "slug": "random-pexels-image"
+  },
+  "b4bcf1236aad7e07639ea5df2dcbcc63672569c7ab1fc93604913985f7857d80": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Loops through all email .json files in the ./emails directory and sends them using a configured SMTP server. Supports creating new email .json files through a UI or sending all emails from the command line.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "provide a CLI that allows users a quick and easy method for creating and sending `test emails` in various test automation environments",
+      "Loops through all email `.json` files in the `./emails` directory and attempts to send them using your SMTP server",
+      "Creates a new email `.json` file and stores it in the `./emails` folder",
+      "Pass the `--email` option to `node app` to send emails without using the UI"
+    ],
+    "shortDescription": "CLI that provides a quick and easy method for creating and sending test emails in various test automation environments.",
+    "slug": "indigestion"
+  },
+  "b5f5ce8344efc1149671d191cb46ee8530ce23a9ed06c8691f0be9133b4d2632": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts. Uses the ollama JavaScript client with zod for schema validation.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas",
+      "The example queries Ollama about Disney World and returns a structured response",
+      "ollama JavaScript client",
+      "zod",
+      "TypeScript-first schema validation"
+    ],
+    "shortDescription": "A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.",
+    "slug": "ollama-structured-output-test"
   },
   "b7d7109517d1a249db9bea8a99a981422b559b0edd011eb747b80e72a41e86b8": {
-    "slug": "simply-dark",
-    "shortDescription": "Simply Dark is a Chrome extension that provides a customizable dark mode for any website.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Toggle dark mode on/off for individual websites, customize dark mode colors, and persist settings across browser sessions. Use a keyboard shortcut (Ctrl+Shift+S or Command+Shift+S on Mac) to toggle dark mode. Customizable options include Background Color, Text Color, Link Color, and Border Color.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simply Dark is a Chrome extension that provides a customizable dark mode for any website.",
       "Toggle dark mode on/off for individual websites",
@@ -526,23 +720,59 @@
       "Link Color",
       "Border Color"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simply Dark is a Chrome extension that provides a customizable dark mode for any website.",
+    "slug": "simply-dark"
   },
   "b7f0d2c65f1a79d51d76728fb91cb952a4cbcb9453bef4b7f491504879fc5deb": {
-    "slug": "random",
-    "shortDescription": "random repo holiding misc examples and junk.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "random repo holiding misc examples and junk"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "random repo holiding misc examples and junk.",
+    "slug": "random"
+  },
+  "b8765e655b75a0c728130f9229cfa14a3473833b234164f57673e522baaeaee6": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Redirects domains to 0.0.0.0 with automatic administrator privilege elevation, input validation, duplicate detection, optional timestamped backups, and DNS cache flushing after modification.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A PowerShell script to block websites and domains by adding entries to your Windows hosts file",
+      "redirecting them to `0.0.0.0` in your Windows hosts file",
+      "Automatic administrator privilege elevation",
+      "Input validation and duplicate detection",
+      "Optional backup creation with timestamps",
+      "DNS cache flushing after modification"
+    ],
+    "shortDescription": "A PowerShell script to block websites and domains by adding entries to your Windows hosts file.",
+    "slug": "add-block-to-hosts"
+  },
+  "b8f9b129db04336c36760b1c79a3467397a6345fa54e6602ea7193f3c0ffd27f": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Generates release notes formatted for Discord, GitHub, Ko-Fi, X (Twitter), and Obsidian notes with CSS styling. Includes semantic version validation and a predefined project list supporting NPM packages, Obsidian plugins, demo links, and GitHub repositories.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Simple web app for generating formatted release notes with support for multiple platforms",
+      "Discord-formatted release notes",
+      "GitHub release notes",
+      "Ko-Fi updates",
+      "X (Twitter) updates",
+      "Obsidian notes with CSS styling",
+      "Semantic version validation",
+      "Predefined project list",
+      "NPM packages",
+      "Obsidian plugins",
+      "Demo links",
+      "GitHub repositories"
+    ],
+    "shortDescription": "Simple web app for generating formatted release notes with support for multiple platforms.",
+    "slug": "release-notes"
   },
   "bf0dc7f920b41260013810fe3f760b666e00a9d250af4872220192055e44622f": {
-    "slug": "release-notes",
-    "shortDescription": "Simple web app for generating formatted release notes with support for multiple platforms.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Output formats include Discord, GitHub, Ko-Fi, X (Twitter), and Obsidian notes with CSS styling. Supports project types like NPM packages, Obsidian plugins, demo links, and GitHub repositories, with semantic version and HTTPS URL validation.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple web app for generating formatted release notes with support for multiple platforms.",
       "Discord-formatted release notes",
@@ -557,13 +787,13 @@
       "Semantic version validation",
       "HTTPS URL validation"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simple web app for generating formatted release notes with support for multiple platforms.",
+    "slug": "release-notes"
   },
   "bf855e94fb969ca0fa23e221b00a79b8f2f093b6b4364cf4b851a7f518de4295": {
-    "slug": "pptx-in-html-out",
-    "shortDescription": "Convert PowerPoint presentations to HTML with high fidelity.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "High-fidelity conversion of PowerPoint presentations to HTML with OCR support for text extraction from images. Preserves images, shapes, and text formatting, and produces responsive output that works across devices. Modern ESM package.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Convert PowerPoint presentations to HTML with high fidelity.",
       "High-fidelity conversion of PowerPoint presentations to HTML",
@@ -572,25 +802,40 @@
       "Responsive output that works across devices",
       "Modern ESM package"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Convert PowerPoint presentations to HTML with high fidelity.",
+    "slug": "pptx-in-html-out"
   },
   "c0aecc5f20f61d8993c243e99162fd2823d36948f4f59925b8a77e307be666c2": {
-    "slug": "bgg-keyboard-select",
-    "shortDescription": "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Google Chrome extension. Extension hotkeys work on the forum Subscriptions page and a forum Thread Page.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts.",
       "Google Chrome extension",
       "Extension `hotkeys` work on the forum Subscriptions page and a forum Thread Page."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts.",
+    "slug": "bgg-keyboard-select"
+  },
+  "c4435b639b60916043f73aa365b81b3873e0b5a4e0937addd504f661e2a54eec": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Ensures that text fits within a specified token limit when interfacing with LLMs in downstream tasks. Uses the semantic-chunking library to split text into manageable chunks that are then summarized, with customizable parameters for target token size, API base URL, and chunking thresholds.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "use LLMs to run map-reduce summarization tasks on large documents until a target token size is met",
+      "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach",
+      "ensures that the text fits within a specified token limit",
+      "crucial when interfacing with Large Language Models (LLMs) in downstreams tasks",
+      "Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized",
+      "Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds"
+    ],
+    "shortDescription": "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach.",
+    "slug": "llm-distillery"
   },
   "c6553fede90616d587f305e100eb6c6c0d4f5fad096937089dcff8524a2b95f6": {
-    "slug": "ai-skill-git-worktree",
-    "shortDescription": "Interactive installer for Git Worktree Management skill, creating SKILL.md files following the Agent Skills standard.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support both project and global installation, with CLI options for non-interactive install, global or project paths, and force overwrite.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Interactive installer for Git Worktree Management skill.",
       "Creates proper `SKILL.md` files following the [Agent Skills standard]",
@@ -609,13 +854,13 @@
       "Install with project paths preference",
       "Force overwrite existing skill files"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Interactive installer for Git Worktree Management skill, creating SKILL.md files following the Agent Skills standard.",
+    "slug": "ai-skill-git-worktree"
   },
   "c7197de72a8dbacb8c26adfef4cd89fc327d61b9d7ea1cfc0f5d6633b8dd7b5f": {
-    "slug": "shrinkray",
-    "shortDescription": "Cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built with Go and Charm's Bubble Tea.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Features an interactive TUI wizard with step-by-step guided compression, 18 built-in presets across quality tiers and platforms (Discord, YouTube, TikTok), and smart recommendations that analyze your video. Auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV for hardware acceleration, and supports batch processing and a headless --no-tui mode for CI/CD pipelines.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.",
       "Interactive TUI wizard** -- step-by-step guided compression",
@@ -625,35 +870,35 @@
       "Batch processing** -- compress entire folders with parallel workers",
       "Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built with Go and Charm's Bubble Tea.",
+    "slug": "shrinkray"
   },
   "c7cc79abcd70e381c570b8a6933a700d7d31dc5dfdc2e97e4b58dcf51eb0739b": {
-    "slug": "nzbdrone-xtender",
-    "shortDescription": "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page.",
+    "slug": "nzbdrone-xtender"
   },
   "cd610cf98980623d0f13ea5895b19ad6432a1cf9e6ac35f94d75b81fdb78d7b1": {
-    "slug": "bedrock-proxy-endpoint",
-    "shortDescription": "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Uses standard baseUrl and apiKey params so you can keep the OpenAI API client you are used to while proxying calls to Bedrock in a compatible way. Great for getting existing OpenAI API compatible applications working with AWS Bedrock.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)",
       "makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock in a compatible way",
       "Great for getting existing OpenAI API compatible applications working with AWS Bedrock."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference.",
+    "slug": "bedrock-proxy-endpoint"
   },
   "d20a2d4ddbce99dd9cc5ea52521150e6b14391f3e8050be1f10de9af3af6d850": {
-    "slug": "rich-foot",
-    "shortDescription": "Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Adds backlinks (links FROM other notes TO this note) and outlinks (links FROM this note TO other notes) to the footer. Displays created and modified dates for each note, supports links in frontmatter, and offers customization through opacity and border controls, plus options to exclude folders.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.",
       "Adds `backlinks` to the footer of your notes (links FROM other notes TO this note)",
@@ -663,13 +908,13 @@
       "Highly customizable appearance with opacity and border controls",
       "Option to exclude folder(s) from displaying"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.",
+    "slug": "rich-foot"
   },
   "d331dd2543b5b64ec2a9dc6965bbbbb54bdd613d5eef2cda33f9a5e4cafc2c8f": {
-    "slug": "fast-topic-analysis",
-    "shortDescription": "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Uses embedding-based semantic analysis with a clustering approach to detect nuanced topic variations. Creates multiple weighted average embeddings per topic and groups similar phrases using agglomerative or HDBSCAN algorithms, with cluster quality measured via per-cluster cohesion and global silhouette score. Powered by the embedding-utils library for vector math, clustering, similarity, and embedding generation.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.",
       "It uses embedding-based semantic analysis with an advanced clustering approach to detect nuanced topic variations.",
@@ -678,13 +923,48 @@
       "Measures cluster quality via per-cluster cohesion and global silhouette score",
       "All vector math, clustering, similarity, and embedding generation provided by the [`embedding-utils`](https://www.npmjs.com/package/embedding-utils) library"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.",
+    "slug": "fast-topic-analysis"
+  },
+  "d896c6c9b5c96ef846009e5c2695af7d07e117042f5f133af1cbf3154543f0ee": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Groups generated links into sections (nzb, newznab, torrent, xdcc, predb, etc.) and passes a search term to each site. Distributed as a static html page so it can be opened in a browser without setting up a web server.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "simple html page that uses javascript to generate links to commonly used \"scene\" search engines",
+      "grouped into sections (e.g., nzb, newznab, torrent, xdcc, predb, etc.)",
+      "Each link will open the respective search page in a new window and pass in your searched for term",
+      "Static html and javascript was used to enable more people to run it without knowing how to setup a web server"
+    ],
+    "shortDescription": "Simple html page that uses javascript to generate links to commonly used \"scene\" search engines.",
+    "slug": "low-voltage-generator"
+  },
+  "dc85e7c92ef4cbe4b4eeb9a6fe5e8987486eabd497473a1e677473b0cde9dbe7": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Supports AI-generated banners, the Pixel Banner Plus Collection, third-party APIs (Pexels, Pixabay, Flickr, Unsplash), local vault images, external file:/// references, URL banners, and MP4/MOV video banners. Banner aspects are controlled through Obsidian's properties feature.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Enhance your Obsidian notes with customizable banner images, including AI-generated designs and a curated store of downloadable banners",
+      "Pixel Banner is a powerful Obsidian plugin that transforms your notes with customizable banner images",
+      "AI-Generated Banners",
+      "Banner Collection",
+      "3rd Party APIs",
+      "Pexels, Pixabay, Flickr, and Unsplash",
+      "Local Image Support",
+      "External File Support",
+      "`file:///` protocol",
+      "Video Banner Support",
+      "Add dynamic MP4 and MOV videos from your vault as animated banners",
+      "Direct URL Banners",
+      "Control all banner aspects through Obsidian's `properties` feature"
+    ],
+    "shortDescription": "Obsidian plugin that adds customizable banner images to notes, with AI-generated designs and a curated store of downloadable banners.",
+    "slug": "pixel-banner"
   },
   "df502909686d92bd54b14f9084022c71231a70d11712fd605c7acd0e4621c3aa": {
-    "slug": "mcp-sqlite",
-    "shortDescription": "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Supports complete CRUD operations (Create, Read, Update, Delete), database exploration and introspection, and execution of custom SQL queries. Define the command in your IDE's MCP Server settings (e.g., Cursor, VSCode) with your database path provided as an argument.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities.",
       "Complete CRUD operations (Create, Read, Update, Delete)",
@@ -693,13 +973,70 @@
       "Define the command in your IDE's MCP Server settings",
       "Your database path must be provided as an argument."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities.",
+    "slug": "mcp-sqlite"
+  },
+  "e027de31b325b3779bd6976eca66bdd1b734212307273d162524ab166aeacc8b": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Fetches images from the Pexels API based on query parameters such as size, keyword, and orientation. If no keyword is provided, a random keyword from a list of 300 random words is used.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image",
+      "fetch images from the Pexels API based on specified query parameters such as size, keyword, and orientation",
+      "If no keyword is provided, a random keyword from a list of 300 random words is used"
+    ],
+    "shortDescription": "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image.",
+    "slug": "random-pexels-image"
+  },
+  "e065208c48520366bc2d94d1f5aaa81f39f024212767e617b2f57a91c2aceff8": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Gulp workflow with sass, autoprefix, js, webpack, browser-sync and cache busting. Tasks cover dev mode (live reload with optional public tunnel), build (minified assets), and dist (hashed filenames with auto-updated html references).",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Simple Boilerplate Site -  Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with sass, autoprefix, js, webpack, browser-sync and cache busting",
+      "`gulp` (dev mode which will compile all assets and put them in the build directory unminified as well start spin up browser-sync with live reload functionality",
+      "`gulp --tunnel` will spin up the normal dev mode but with a public tunnel URL for browser-sync",
+      "`gulp build` (build assets minified and place into build directory)",
+      "`gulp dist` (build assets minified with appened hash file names to cache bust, as well as auto updated your html files with references to the new generated files)"
+    ],
+    "shortDescription": "Simple Boilerplate Site — Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with cache busting.",
+    "slug": "simplesite-boilerplate"
+  },
+  "e20adcbb0e6596e5a5dd9c5984a546beead0b3259590a29c5ca4309699c14890": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Chunks text based on sentence similarity with dynamic similarity thresholds and configurable chunk sizes. Supports multiple embedding model options, quantized models, chunk prefixes for RAG workflows, and a Web UI for experimenting with settings.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "NPM Package for Semantically creating chunks from large texts",
+      "Useful for workflows involving large language models (LLMs)",
+      "Semantic chunking based on sentence similarity",
+      "Dynamic similarity thresholds",
+      "Configurable chunk sizes",
+      "Multiple embedding model options",
+      "Quantized model support",
+      "Chunk prefix support for RAG workflows",
+      "Web UI for experimenting with settings"
+    ],
+    "shortDescription": "NPM Package for semantically creating chunks from large texts, useful for workflows involving large language models (LLMs).",
+    "slug": "semantic-chunking"
+  },
+  "e4065e0df562e6f1b4a872d0fd6384d1ac0ac49beef0d5883dcc4712540d7a0b": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Takes a standard OpenAI chat completions object and messages in role/content format, and routes the call to AWS Bedrock. Can be paired with the Bedrock Proxy Endpoint project to stand up a full custom OpenAI server endpoint for inference.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs",
+      "clone your openai chat completions object into `openaiChatCompletionsCreateObject`",
+      "the `messages` variable should be in openai's role/content format",
+      "use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference"
+    ],
+    "shortDescription": "An npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+    "slug": "bedrock-wrapper"
   },
   "e55ca86e40c81886722233a300e5c45625b970137092f9aad7e5e18ab9380d0a": {
-    "slug": "print-mark",
-    "shortDescription": "Convert Markdown to clean, printable HTML with PDF export.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Features live preview with real-time rendering, 9 print-optimized themes, PDF export with customizable page sizes, margins, and page numbers, and syntax highlighting powered by Shiki. Supports drag and drop file upload for .md, .markdown, or .txt files, and a stateless, privacy-focused design with no account required.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Convert Markdown to clean, printable HTML with PDF export",
       "Live Preview** - See formatted output as you type with real-time rendering",
@@ -709,26 +1046,26 @@
       "File Upload** - Drag and drop or upload `.md`, `.markdown`, or `.txt` files",
       "No Account Required** - Stateless, privacy-focused design"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Convert Markdown to clean, printable HTML with PDF export.",
+    "slug": "print-mark"
   },
   "e68daf54b24e5349333cc25df618cd59e8a50d9dfd52c40058c1e0b684bd29dc": {
-    "slug": "bivariate",
-    "shortDescription": "An opinionated interface for writing, running, and saving BackstopJS tests.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Goal is to allow for an approachable Visual Regression Testing suite that can be organized to accommodate small and large projects. Enforces an opinionated grouping structure, provides a method to write tests via manageable object files, and allows all of BackstopJS's commands to be run from an interface. Utilizes headless Chrome.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "An opinionated interface for writing, running, and saving BackstopJS tests",
       "allow for an approachable Visual Regression Testing suite that can be organized to accommodate small and large projects",
       "enforcing an opinionated grouping structure, providing a method to easily write tests via manageable object files, as well as allowing for all of BackstopJS's commands to be run from an interface",
       "Bivariate utilizes headless Chrome"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "An opinionated interface for writing, running, and saving BackstopJS tests.",
+    "slug": "bivariate"
   },
   "e8f13df6ff02a7f70363db5f73212d417c431ca39d1fb2d97104286be46e3c3c": {
-    "slug": "ai-assistant-prompts",
-    "shortDescription": "collection of prompts and .*rules to use with your favorite AI IDE.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Planning Prompts are fundamental instructions to start projects, update functionality, and write documentation and implementation plans. Global Rules shape AI behavior across all interactions, covering communication style, code formatting preferences, and general interaction guidelines. Behavior Rules are project-specific instructions that work in tandem with the global rules.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "collection of prompts and `.*rules` to use with your favorite AI IDE",
       "`Planning Prompts` are fundamental instructions that you use often to start projects, update functionality, write documentation and implemntation plans",
@@ -737,13 +1074,13 @@
       "`Behavior Rules` are project-specific instructions that define the role and overall behavior for the AI in relation a the specific project",
       "These rules work in tandem with the global rules set above"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "collection of prompts and .*rules to use with your favorite AI IDE.",
+    "slug": "ai-assistant-prompts"
   },
   "e939f047068f8ce004b07a2d4fa4eca9657ec0ffa439734001c4fb38f8050a1f": {
-    "slug": "splitter-vs-splitter",
-    "shortDescription": "Web-based tool to compare different sentence splitting libraries side by side.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Currently compares @stdlib/nlp-sentencize and sentence-parse. Features real-time comparison, visual color-coding of sentences for easy comparison, sentence count display, and keyboard shortcuts (Ctrl + Enter to split). Built with an Express.js backend and a vanilla JavaScript frontend.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A web-based tool to compare different sentence splitting libraries side by side.",
       "@stdlib/nlp-sentencize",
@@ -755,13 +1092,13 @@
       "Express.js backend",
       "Vanilla JavaScript frontend"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Web-based tool to compare different sentence splitting libraries side by side.",
+    "slug": "splitter-vs-splitter"
   },
   "ea7ab1ce351f9749956af4fbfa9972785965fa37b4f619d7218a916eb954d50f": {
-    "slug": "node-webkit-example",
-    "shortDescription": "An example node-webkit app that could be used as a simple boilerplate to get up and running quickly.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "A Gulp workflow is provided for CSS/JavaScript development. Defined Gulp tasks include a default task that compiles CSS and JavaScript, watches for changes, and runs the app; gulp build to compile and minify; and gulp app to open the example app.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "This is an example node-webkit app.",
       "could be used as a simple boilerplate to get up and running quickly",
@@ -772,13 +1109,29 @@
       "gulp app",
       "open the example app by running \"nw.exe app\" from gulp-shell"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "An example node-webkit app that could be used as a simple boilerplate to get up and running quickly.",
+    "slug": "node-webkit-example"
+  },
+  "ecd8ece9edb8e70672fda48f4c938a0bb1cc995fb6bfa67d9281ff3a322eaf73": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Rephrases user queries for optimal web searching, fetches and summarizes content from search results, and generates responses using OpenAI-compatible API calls. Supports streaming responses and multiple LLM providers including Ollama, together.ai, and llama.cpp.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "This Node.js application performs web-augmented generation using various LLM providers and web search results from SearXNG",
+      "Rephrases user queries for optimal web searching",
+      "Searches the web using SearXNG",
+      "Fetches and summarizes content from search results",
+      "Generates responses using various LLM providers via OpenAI-compatible API calls",
+      "Supports streaming responses for real-time output",
+      "Supports multiple LLM providers (Ollama, together.ai, llama.cpp)"
+    ],
+    "shortDescription": "Node.js application that performs web-augmented generation using various LLM providers and web search results from SearXNG.",
+    "slug": "web-augmented-generation"
   },
   "f409e367bf1ec45f9d4dc73ba95f3acd4852f5af1126a24d95cabf0d4a2a11c5": {
-    "slug": "purge-old-directories",
-    "shortDescription": "Two PowerShell scripts designed to help manage and clean up by purging old directories.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "purge-files-in-folder.ps1 deletes all files in a specified folder using the robocopy /purge command, and deletes the folder if empty afterward. purge-old-folders.ps1 calls purge-files-in-folder.ps1 for directories older than a specified number of months, helping clean up old directories within a target path in batches.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "These two PowerShell scripts were designed to help manage and clean up by purging old directories.",
       "`purge-files-in-folder.ps1` is a PowerShell script that deletes all files in a specified folder using the `robocopy /purge` command",
@@ -786,13 +1139,37 @@
       "`purge-old-folders.ps1` is a PowerShell script that calls `purge-files-in-folder.ps1` for directories older than a specified number of months",
       "It helps in cleaning up old directories within a target path in batches."
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Two PowerShell scripts designed to help manage and clean up by purging old directories.",
+    "slug": "purge-old-directories"
+  },
+  "f4f271660fb298a644f6ba45286f8999744d620280d16d25611bf32ac9e96cf7": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "hotlink wut?"
+    ],
+    "shortDescription": "hotlink wut?",
+    "slug": "ref"
+  },
+  "f579a1e86380302e0c7ab511b9812ece1273186da8922630688d46d4e5b01c9b": {
+    "generatedAt": "2026-04-17T16:36:01.775Z",
+    "longDescription": "Offers 18 built-in presets across quality tiers and platforms (Discord, YouTube, TikTok), auto-detects hardware acceleration (NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV), supports batch processing with parallel workers, and includes a headless --no-tui mode for CI/CD pipelines.",
+    "model": "claude-opus-4-7",
+    "quotedSpans": [
+      "A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea",
+      "18 built-in presets -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)",
+      "Hardware acceleration -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV",
+      "Batch processing -- compress entire folders with parallel workers and progress tracking",
+      "Headless mode -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines"
+    ],
+    "shortDescription": "A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+    "slug": "shrinkray"
   },
   "f6fc564fa6cf22430afd0a9de4abe7abda1b7c06ff24ac128452857ea15cd9f5": {
-    "slug": "trim-style",
-    "shortDescription": "Simple web app for extracting only the essential styles from raw style properties.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "A lightweight tool that helps you clean and format CSS properties copied from browser dev tools. Right-click an element in Chrome's dev tools, select Copy CSS, and paste it here to get clean, formatted CSS properties. Removes unnecessary class wrappers, formats properties consistently, handles CSS variables, and preserves hex colors and complex values.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple web app for extracting only the essential styles from raw style properties",
       "A lightweight tool that helps you clean and format CSS properties copied from browser dev tools.",
@@ -802,13 +1179,13 @@
       "Handles CSS variables",
       "Preserves hex colors and complex values"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "Simple web app for extracting only the essential styles from raw style properties.",
+    "slug": "trim-style"
   },
   "fb539c2668436e6583e301d3457b4298b7f2b0cc8f3b50d5fafcb99ca815df6c": {
-    "slug": "clip-expand",
-    "shortDescription": "A lightweight, clipboard-based text expansion tool for Linux systems, designed with Remote Desktop sessions in mind.",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Copies your text snippets to the clipboard for easy pasting. File-based snippets live as simple text files in ~/.clipexpand/, with a visual dialog for snippet selection, toast notifications, subdirectory support, and a customizable keyboard shortcut. Works with local sessions (X11/Wayland), Remote Desktop (RDP, VNC), and SSH with X forwarding.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A lightweight, clipboard-based text expansion tool for Linux systems. Designed with Remote Desktop sessions in mind",
       "ClipExpand copies your text snippets to the clipboard for easy pasting",
@@ -821,15 +1198,15 @@
       "Remote Desktop (RDP, VNC, etc.)",
       "SSH with X forwarding"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "shortDescription": "A lightweight, clipboard-based text expansion tool for Linux systems, designed with Remote Desktop sessions in mind.",
+    "slug": "clip-expand"
   },
   "fe1decf53c51fc97520dbee03901623172230142d85ac4dcdf2473ecd47efece": {
-    "slug": "jparkerweb",
-    "shortDescription": "",
+    "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "",
-    "quotedSpans": [],
     "model": "claude-opus-4-6",
-    "generatedAt": "2026-04-15T23:30:00.000Z"
+    "quotedSpans": [],
+    "shortDescription": "",
+    "slug": "jparkerweb"
   }
 }

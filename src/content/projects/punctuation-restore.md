@@ -8,15 +8,15 @@ tagline: >-
   https://huggingface.c...
 description:
   short: >-
-    Node.js package that restores punctuation and casing to unpunctuated text
+    A Node.js package that restores punctuation and casing to unpunctuated text
     using the punctuation_fullstop_truecase_english ONNX model.
   long: >-
-    Restores punctuation marks (periods, commas, question marks, etc.) and
-    handles casing. Supports batch processing of multiple texts and uses ONNX
-    runtime for inference. Models are automatically downloaded from Hugging Face
-    on first use and saved locally to the ./models directory.
+    Restores periods, commas, question marks, and casing via ONNX runtime
+    inference. Supports batch processing of multiple texts and automatically
+    downloads required models from Hugging Face on first use.
 banner:
-  src: ./punctuation-restore.jpg
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/punctuation-restore/main/punctuation-restore.jpg
   alt: punctuation-restore banner
   source: repo
 topics:
@@ -40,10 +40,10 @@ links:
 featured: false
 sortOrder: 997
 status: active
-lastCommit: '2025-01-27T21:04:32Z'
+lastCommit: '2026-04-17T16:07:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Restores punctuation marks (periods, commas, question marks, etc.) and handles casing. Supports batch processing of multiple texts and uses ONNX runtime for inference. Models are automatically downloaded from Hugging Face on first use and saved locally to the ./models directory.
+Restores periods, commas, question marks, and casing via ONNX runtime inference. Supports batch processing of multiple texts and automatically downloads required models from Hugging Face on first use.

@@ -36,6 +36,6 @@ lastCommit: '2018-09-11T22:30:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/node-webkit-example'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 A Gulp workflow is provided for CSS/JavaScript development. Defined Gulp tasks include a default task that compiles CSS and JavaScript, watches for changes, and runs the app; gulp build to compile and minify; and gulp app to open the example app.

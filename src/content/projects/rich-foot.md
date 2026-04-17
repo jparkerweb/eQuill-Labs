@@ -39,6 +39,6 @@ lastCommit: '2025-12-26T05:29:33Z'
 _source:
   repo: 'https://github.com/jparkerweb/rich-foot'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
 Adds backlinks (links FROM other notes TO this note) and outlinks (links FROM this note TO other notes) to the footer. Displays created and modified dates for each note, supports links in frontmatter, and offers customization through opacity and border controls, plus options to exclude folders.

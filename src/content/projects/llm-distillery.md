@@ -7,8 +7,14 @@ tagline: >-
   map-reduce approach. This ensures that the text fits within a specified token
   limit,...
 description:
-  short: "\U0001F376 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met."
-  long: ''
+  short: >-
+    Use LLMs to distill large texts down to a manageable size by utilizing a
+    map-reduce approach.
+  long: >-
+    Ensures that text fits within a specified token limit when interfacing with
+    LLMs in downstream tasks. Uses the semantic-chunking library to split text
+    into manageable chunks that are then summarized, with customizable
+    parameters for target token size, API base URL, and chunking thresholds.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg
@@ -47,6 +53,6 @@ lastCommit: '2026-04-17T04:23:50Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-
+Ensures that text fits within a specified token limit when interfacing with LLMs in downstream tasks. Uses the semantic-chunking library to split text into manageable chunks that are then summarized, with customizable parameters for target token size, API base URL, and chunking thresholds.

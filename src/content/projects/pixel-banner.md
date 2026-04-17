@@ -8,16 +8,16 @@ tagline: >-
   your k...
 description:
   short: >-
-    Obsidian plugin that transforms notes with customizable banner images,
-    creating headers that enhance your knowledge workspace.
+    Obsidian plugin that adds customizable banner images to notes, with
+    AI-generated designs and a curated store of downloadable banners.
   long: >-
-    Features AI-generated banners, a Pixel Banner Plus Collection of images and
-    videos, and 3rd party APIs for Pexels, Pixabay, Flickr, and Unsplash.
-    Supports local images, external files via the file:/// protocol, MP4/MOV
-    video banners, and direct URL banners. Customization covers position
-    control, transparency, border radius, animation effects, and display modes.
+    Supports AI-generated banners, the Pixel Banner Plus Collection, third-party
+    APIs (Pexels, Pixabay, Flickr, Unsplash), local vault images, external
+    file:/// references, URL banners, and MP4/MOV video banners. Banner aspects
+    are controlled through Obsidian's properties feature.
 banner:
-  src: img/pixel-banner.jpg
+  src: >-
+    https://raw.githubusercontent.com/jparkerweb/pixel-banner/main/img/pixel-banner.jpg
   alt: pixel-banner banner
   source: repo
 topics:
@@ -42,10 +42,10 @@ links:
 featured: true
 sortOrder: 3
 status: active
-lastCommit: '2026-03-09T16:06:59Z'
+lastCommit: '2026-04-17T15:05:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Features AI-generated banners, a Pixel Banner Plus Collection of images and videos, and 3rd party APIs for Pexels, Pixabay, Flickr, and Unsplash. Supports local images, external files via the file:/// protocol, MP4/MOV video banners, and direct URL banners. Customization covers position control, transparency, border radius, animation effects, and display modes.
+Supports AI-generated banners, the Pixel Banner Plus Collection, third-party APIs (Pexels, Pixabay, Flickr, Unsplash), local vault images, external file:/// references, URL banners, and MP4/MOV video banners. Banner aspects are controlled through Obsidian's properties feature.

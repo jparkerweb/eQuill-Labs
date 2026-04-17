@@ -8,15 +8,15 @@ tagline: >-
 description:
   short: >-
     NPM Package for semantically creating chunks from large texts, useful for
-    workflows involving LLMs.
+    workflows involving large language models (LLMs).
   long: >-
-    Features semantic chunking based on sentence similarity, dynamic similarity
-    thresholds, configurable chunk sizes, and multiple embedding model options
-    with quantized model support. Includes chunk prefix support for RAG
-    workflows and a Web UI for experimenting with settings.
+    Chunks text based on sentence similarity with dynamic similarity thresholds
+    and configurable chunk sizes. Supports multiple embedding model options,
+    quantized models, chunk prefixes for RAG workflows, and a Web UI for
+    experimenting with settings.
 banner:
   src: >-
-    https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png
+    https://github.com/jparkerweb/semantic-chunking/blob/main/semantic-chunking.jpg?raw=true
   alt: semantic-chunking banner
   source: repo
 topics:
@@ -47,10 +47,10 @@ links:
 featured: true
 sortOrder: 0
 status: active
-lastCommit: '2026-04-11T03:31:06Z'
+lastCommit: '2026-04-17T14:46:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-04-17T04:24:14.581Z'
+  fetchedAt: '2026-04-17T16:29:24.869Z'
 ---
-Features semantic chunking based on sentence similarity, dynamic similarity thresholds, configurable chunk sizes, and multiple embedding model options with quantized model support. Includes chunk prefix support for RAG workflows and a Web UI for experimenting with settings.
+Chunks text based on sentence similarity with dynamic similarity thresholds and configurable chunk sizes. Supports multiple embedding model options, quantized models, chunk prefixes for RAG workflows, and a Web UI for experimenting with settings.
