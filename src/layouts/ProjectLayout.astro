@@ -13,6 +13,16 @@ const { entry } = Astro.props;
 const data = entry.data;
 const slug = entry.id;
 
+const THEME_VALUES = new Set(['nlp', 'infra', 'agents', 'obsidian', 'utilities']);
+const TYPE_VALUES = new Set(['library', 'tool', 'app', 'demo']);
+
+function topicHref(topic: string): string {
+  const t = topic.toLowerCase();
+  if (THEME_VALUES.has(t)) return `/projects/?theme=${encodeURIComponent(t)}`;
+  if (TYPE_VALUES.has(t)) return `/projects/?type=${encodeURIComponent(t)}`;
+  return `/projects/?q=${encodeURIComponent(topic)}`;
+}
+
 const title = `${data.name} — eQuill Labs`;
 const description = data.tagline ?? data.description.short ?? data.name;
 const ogImage = `/og/${slug}.png`;
@@ -154,7 +164,7 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
               <ul role="list" class="chips">
                 {data.topics.map((t) => (
                   <li>
-                    <a class="chip chip-link" href={`/projects/?q=${encodeURIComponent(t)}`}>
+                    <a class="chip chip-link" href={topicHref(t)}>
                       {t}
                     </a>
                   </li>
@@ -352,6 +362,9 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     border-bottom-color: rgb(var(--accent));
   }
 
+  .links {
+    margin-bottom: 20px;
+  }
   .links ul {
     padding: 0;
     margin: 0;

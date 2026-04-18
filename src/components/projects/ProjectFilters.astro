@@ -94,12 +94,13 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     )
   }
 
-  <button type="button" class="clear-all" data-filter-clear hidden>
-    <X size={14} aria-hidden="true" />
-    <span>Clear all</span>
-  </button>
-
-  <p class="count" data-filter-count aria-live="polite"></p>
+  <div class="footer-row">
+    <p class="count" data-filter-count aria-live="polite"></p>
+    <button type="button" class="clear-all" data-filter-clear hidden>
+      <X size={14} aria-hidden="true" />
+      <span>Clear all</span>
+    </button>
+  </div>
 </form>
 
 <div class="empty-state" data-filter-empty hidden>
@@ -128,7 +129,7 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     align-items: center;
     gap: 8px;
     padding: 0 12px;
-    flex: 1 1 260px;
+    flex: 1 1 100%;
     min-width: 220px;
     height: 40px;
     border: 1px solid rgb(var(--border));
@@ -217,11 +218,18 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     border-color: rgb(var(--accent));
   }
 
+  .footer-row {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
   .count {
     margin: 0;
     font-size: 13px;
     color: rgb(var(--text-muted));
-    flex-basis: 100%;
   }
 
   .empty-state {
@@ -457,9 +465,5 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.addEventListener('astro:page-load', init);
 </script>
