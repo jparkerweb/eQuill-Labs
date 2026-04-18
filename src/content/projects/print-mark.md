@@ -46,6 +46,6 @@ lastCommit: '2025-12-22T21:13:51Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Features live preview with real-time rendering, 9 print-optimized themes, PDF export with customizable page sizes, margins, and page numbers, and syntax highlighting powered by Shiki. Supports drag and drop file upload for .md, .markdown, or .txt files, and a stateless, privacy-focused design with no account required.

@@ -46,6 +46,6 @@ lastCommit: '2026-04-16T15:21:28Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Takes a standard OpenAI chat completions object and messages in role/content format, and routes the call to AWS Bedrock. Can be paired with the Bedrock Proxy Endpoint project to stand up a full custom OpenAI server endpoint for inference.

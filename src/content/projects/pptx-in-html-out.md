@@ -4,12 +4,15 @@ name: pptx-in-html-out
 slug: pptx-in-html-out
 tagline: Convert PowerPoint presentations to HTML with high fidelity.
 description:
-  short: Convert PowerPoint presentations to HTML with high fidelity.
-  long: >-
-    High-fidelity conversion of PowerPoint presentations to HTML with OCR
-    support for text extraction from images. Preserves images, shapes, and text
-    formatting, and produces responsive output that works across devices. Modern
-    ESM package.
+  short: >-
+    ⚙️ npm package to convert PowerPoint presentations to HTML with high
+    fidelity
+  long: ''
+banner:
+  src: >-
+    https://github.com/jparkerweb/pptx-in-html-out/blob/main/pptx-in-html-out.jpg?raw=true
+  alt: pptx-in-html-out banner
+  source: repo
 topics:
   - convert
   - html
@@ -30,10 +33,10 @@ links:
 featured: false
 sortOrder: 994
 status: active
-lastCommit: '2024-12-27T01:28:37Z'
+lastCommit: '2026-04-18T00:31:03Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
-High-fidelity conversion of PowerPoint presentations to HTML with OCR support for text extraction from images. Preserves images, shapes, and text formatting, and produces responsive output that works across devices. Modern ESM package.
+

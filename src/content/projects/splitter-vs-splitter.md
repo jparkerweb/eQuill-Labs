@@ -43,6 +43,6 @@ lastCommit: '2026-04-17T16:27:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/splitter-vs-splitter'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Pits two sentence splitters against one another with real-time comparison and visual color-coding for easy comparison. Built on an Express.js backend with a vanilla JavaScript frontend.
