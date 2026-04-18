@@ -45,6 +45,6 @@ lastCommit: '2026-04-05T04:51:05Z'
 _source:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Supports complete CRUD operations (Create, Read, Update, Delete), database exploration and introspection, and execution of custom SQL queries. Define the command in your IDE's MCP Server settings (e.g., Cursor, VSCode) with your database path provided as an argument.

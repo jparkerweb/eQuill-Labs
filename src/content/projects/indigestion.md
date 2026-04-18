@@ -36,6 +36,6 @@ lastCommit: '2026-04-17T15:25:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Loops through all email .json files in the ./emails directory and sends them using a configured SMTP server. Supports creating new email .json files through a UI or sending all emails from the command line.

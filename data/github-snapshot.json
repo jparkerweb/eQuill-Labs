@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-17T16:29:24.869Z",
+  "fetchedAt": "2026-04-18T00:31:22.699Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,151 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2024-12-27T01:07:06Z",
+      "description": "⚙️ npm package to convert PowerPoint presentations to HTML with high fidelity",
+      "forkCount": 1,
+      "homepageUrl": "https://www.npmjs.com/package/pptx-in-html-out",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 14317
+          }
+        ],
+        "totalSize": 14317
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "pptx-in-html-out",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-18T00:31:03Z",
+      "readme": {
+        "text": "# ⚙️ PPTX In HTML Out\n\n<img src=\"https://github.com/jparkerweb/pptx-in-html-out/blob/main/pptx-in-html-out.jpg?raw=true\" alt=\"banner\">\n\nConvert PowerPoint presentations to HTML with high fidelity.\n\n## Installation\n\n```bash\nnpm install pptx-in-html-out\n```\n\n## Usage\n\n```javascript\nimport fs from 'fs/promises';\nimport { PPTXInHTMLOut } from 'pptx-in-html-out';\n\n// Read your PPTX file into a buffer\nconst pptxBuffer = await fs.readFile('presentation.pptx');\n\n// Create converter instance with buffer\nconst converter = new PPTXInHTMLOut(pptxBuffer);\n\n// Convert to HTML\nconst html = await converter.toHTML();\nconsole.log(html);\n\n// Or write to a file\nawait fs.writeFile('output.html', html);\n```\n\n## Features\n\n- High-fidelity conversion of PowerPoint presentations to HTML\n- OCR support for text extraction from images\n- Preserves images, shapes, and text formatting\n- Responsive output that works across devices\n- Modern ESM package\n\n## API\n\n### `PPTXInHTMLOut`\n\nMain class for converting PPTX files to HTML.\n\n#### Constructor\n\n```javascript\nconst converter = new PPTXInHTMLOut(pptxBuffer);\n```\n\n- `pptxBuffer`: Buffer containing the PPTX file data\n\n#### Methods\n\n##### `toHTML(options)`\n\nConverts the presentation to HTML.\n\nParameters:\n- `options` (optional): Configuration object\n  - `includeStyles` (boolean, default: true): Whether to include default styles in the output HTML\n\n```javascript\n// With default styles\nconst html = await converter.toHTML();\n\n// Without default styles (for custom styling)\nconst html = await converter.toHTML({ includeStyles: false });\n```\n\nReturns: `Promise<string>` - The generated HTML content\n\n---\n\n## Example\n\nSee the `example.js` file in the root of this project for an additional example that you can run.\n\n## License\n\nMIT\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "convert"
+            }
+          },
+          {
+            "topic": {
+              "name": "html"
+            }
+          },
+          {
+            "topic": {
+              "name": "nodejs"
+            }
+          },
+          {
+            "topic": {
+              "name": "npm-package"
+            }
+          },
+          {
+            "topic": {
+              "name": "powerpoint"
+            }
+          },
+          {
+            "topic": {
+              "name": "pptx"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 6,
+      "updatedAt": "2026-04-18T00:31:08Z",
+      "url": "https://github.com/jparkerweb/pptx-in-html-out"
+    },
+    {
+      "createdAt": "2024-11-16T21:22:07Z",
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 3
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 820
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 3849
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 9096932
+          },
+          {
+            "node": {
+              "name": "Go Template"
+            },
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 47210
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 86648
+          }
+        ],
+        "totalSize": 9235625
+      },
+      "licenseInfo": null,
+      "name": "eQuill-Labs",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-04-17T22:42:20Z",
+      "readme": {
+        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| **Demo link** | **Any `<a>` tag with `data-tag=\"demo\"`**, e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "not-portfolio"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-04-17T22:42:27Z",
+      "url": "https://github.com/jparkerweb/eQuill-Labs"
+    },
     {
       "createdAt": "2024-12-18T19:21:21Z",
       "description": "🪓 simple app to pit two sentence splitters against one another to understand their differences",
@@ -782,80 +927,6 @@
       "stargazerCount": 137,
       "updatedAt": "2026-04-17T14:46:13Z",
       "url": "https://github.com/jparkerweb/semantic-chunking"
-    },
-    {
-      "createdAt": "2024-11-16T21:22:07Z",
-      "description": "🖋️ eQuill Labs website and digital assets",
-      "forkCount": 0,
-      "homepageUrl": "https://www.equilllabs.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 3
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 820
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 3849
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 9096932
-          },
-          {
-            "node": {
-              "name": "Go Template"
-            },
-            "size": 166
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 46267
-          },
-          {
-            "node": {
-              "name": "Astro"
-            },
-            "size": 85784
-          }
-        ],
-        "totalSize": 9233818
-      },
-      "licenseInfo": null,
-      "name": "eQuill-Labs",
-      "primaryLanguage": {
-        "color": "#e34c26",
-        "name": "HTML"
-      },
-      "pushedAt": "2026-04-17T04:48:46Z",
-      "readme": {
-        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "not-portfolio"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-17T04:48:51Z",
-      "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
       "createdAt": "2024-10-10T21:20:29Z",
@@ -2494,77 +2565,6 @@
       "stargazerCount": 11,
       "updatedAt": "2025-11-04T03:53:35Z",
       "url": "https://github.com/jparkerweb/down-craft"
-    },
-    {
-      "createdAt": "2024-12-27T01:07:06Z",
-      "description": "⚙️ npm package to convert PowerPoint presentations to HTML with high fidelity",
-      "forkCount": 1,
-      "homepageUrl": "https://www.npmjs.com/package/pptx-in-html-out",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 14317
-          }
-        ],
-        "totalSize": 14317
-      },
-      "licenseInfo": {
-        "spdxId": "MIT"
-      },
-      "name": "pptx-in-html-out",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2024-12-27T01:28:37Z",
-      "readme": {
-        "text": "# ⚙️ PPTX In HTML Out\n\nConvert PowerPoint presentations to HTML with high fidelity.\n\n## Installation\n\n```bash\nnpm install pptx-in-html-out\n```\n\n## Usage\n\n```javascript\nimport fs from 'fs/promises';\nimport { PPTXInHTMLOut } from 'pptx-in-html-out';\n\n// Read your PPTX file into a buffer\nconst pptxBuffer = await fs.readFile('presentation.pptx');\n\n// Create converter instance with buffer\nconst converter = new PPTXInHTMLOut(pptxBuffer);\n\n// Convert to HTML\nconst html = await converter.toHTML();\nconsole.log(html);\n\n// Or write to a file\nawait fs.writeFile('output.html', html);\n```\n\n## Features\n\n- High-fidelity conversion of PowerPoint presentations to HTML\n- OCR support for text extraction from images\n- Preserves images, shapes, and text formatting\n- Responsive output that works across devices\n- Modern ESM package\n\n## API\n\n### `PPTXInHTMLOut`\n\nMain class for converting PPTX files to HTML.\n\n#### Constructor\n\n```javascript\nconst converter = new PPTXInHTMLOut(pptxBuffer);\n```\n\n- `pptxBuffer`: Buffer containing the PPTX file data\n\n#### Methods\n\n##### `toHTML(options)`\n\nConverts the presentation to HTML.\n\nParameters:\n- `options` (optional): Configuration object\n  - `includeStyles` (boolean, default: true): Whether to include default styles in the output HTML\n\n```javascript\n// With default styles\nconst html = await converter.toHTML();\n\n// Without default styles (for custom styling)\nconst html = await converter.toHTML({ includeStyles: false });\n```\n\nReturns: `Promise<string>` - The generated HTML content\n\n---\n\n## Example\n\nSee the `example.js` file in the root of this project for an additional example that you can run.\n\n## License\n\nMIT\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "convert"
-            }
-          },
-          {
-            "topic": {
-              "name": "html"
-            }
-          },
-          {
-            "topic": {
-              "name": "nodejs"
-            }
-          },
-          {
-            "topic": {
-              "name": "npm-package"
-            }
-          },
-          {
-            "topic": {
-              "name": "powerpoint"
-            }
-          },
-          {
-            "topic": {
-              "name": "pptx"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 6,
-      "updatedAt": "2026-03-26T15:53:38Z",
-      "url": "https://github.com/jparkerweb/pptx-in-html-out"
     },
     {
       "createdAt": "2024-11-26T07:01:34Z",

@@ -39,6 +39,6 @@ lastCommit: '2026-04-17T16:06:31Z'
 _source:
   repo: 'https://github.com/jparkerweb/add-block-to-hosts'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Redirects domains to 0.0.0.0 with automatic administrator privilege elevation, input validation, duplicate detection, optional timestamped backups, and DNS cache flushing after modification.

@@ -41,6 +41,6 @@ lastCommit: '2026-04-17T15:21:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/trim-style'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Cleans and formats CSS properties copied from browser dev tools. Removes unnecessary class wrappers, formats CSS properties consistently, handles CSS variables, and preserves hex colors and complex values.

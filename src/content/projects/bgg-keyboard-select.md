@@ -35,6 +35,6 @@ lastCommit: '2022-12-01T22:09:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Google Chrome extension. Extension hotkeys work on the forum Subscriptions page and a forum Thread Page.

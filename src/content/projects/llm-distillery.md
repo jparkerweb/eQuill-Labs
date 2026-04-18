@@ -53,6 +53,6 @@ lastCommit: '2026-04-17T04:23:50Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Ensures that text fits within a specified token limit when interfacing with LLMs in downstream tasks. Uses the semantic-chunking library to split text into manageable chunks that are then summarized, with customizable parameters for target token size, API base URL, and chunking thresholds.

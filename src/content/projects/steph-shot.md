@@ -36,6 +36,6 @@ lastCommit: '2023-07-17T19:01:34Z'
 _source:
   repo: 'https://github.com/jparkerweb/steph-shot'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Once installed, a shortcut is added to your desktop and by default can be launched by pressing Ctrl + Shift + A. All screen shots are automatically saved to your Downloads directory in a folder named Steph-Shots, and also copied to your clipboard.

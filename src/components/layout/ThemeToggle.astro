@@ -118,9 +118,5 @@ import { Monitor, Moon, Sun } from 'lucide-astro';
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.addEventListener('astro:page-load', init);
 </script>

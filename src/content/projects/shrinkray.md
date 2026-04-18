@@ -48,6 +48,6 @@ lastCommit: '2026-04-16T03:53:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-04-17T16:29:24.869Z'
+  fetchedAt: '2026-04-18T00:31:22.699Z'
 ---
 Offers 18 built-in presets across quality tiers and platforms (Discord, YouTube, TikTok), auto-detects hardware acceleration (NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV), supports batch processing with parallel workers, and includes a headless --no-tui mode for CI/CD pipelines.
