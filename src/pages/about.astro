@@ -143,13 +143,15 @@ const links = [
       <div class="focus-grid">
         {focusAreas.map((area, i) => (
           <div class="focus-card" data-reveal style={`--delay: ${i * 80}ms`}>
-            <div class="focus-icon" aria-hidden="true">
-              {area.icon === 'brain' && <BrainCircuit size={22} />}
-              {area.icon === 'layers' && <Layers size={22} />}
-              {area.icon === 'plug' && <Plug size={22} />}
-              {area.icon === 'book' && <BookOpen size={22} />}
+            <div class="focus-head">
+              <div class="focus-icon" aria-hidden="true">
+                {area.icon === 'brain' && <BrainCircuit size={22} />}
+                {area.icon === 'layers' && <Layers size={22} />}
+                {area.icon === 'plug' && <Plug size={22} />}
+                {area.icon === 'book' && <BookOpen size={22} />}
+              </div>
+              <h3>{area.title}</h3>
             </div>
-            <h3>{area.title}</h3>
             <p>{area.desc}</p>
           </div>
         ))}
@@ -161,10 +163,12 @@ const links = [
   <section class="faith-section" aria-labelledby="faith-heading">
     <div class="shell">
       <div class="faith-card" data-reveal>
-        <div class="faith-icon" aria-hidden="true">
-          <Heart size={20} />
+        <div class="faith-head">
+          <div class="faith-icon" aria-hidden="true">
+            <Heart size={20} />
+          </div>
+          <h2 id="faith-heading">Family & Faith</h2>
         </div>
-        <h2 id="faith-heading">Family & Faith</h2>
         <p>
           Outside the terminal, I'm a husband to <strong>Stephanie</strong> and a dad to
           <strong>Ella</strong> and <strong>Lily</strong>. My family is the anchor behind every
@@ -384,6 +388,12 @@ const links = [
     border-color: rgb(var(--accent) / 0.4);
     transform: translateY(-2px);
   }
+  .focus-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
   .focus-icon {
     width: 40px;
     height: 40px;
@@ -393,13 +403,13 @@ const links = [
     border-radius: 10px;
     background: rgb(var(--accent) / 0.1);
     color: rgb(var(--accent));
-    margin-bottom: 16px;
+    flex-shrink: 0;
   }
   .focus-card h3 {
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin: 0 0 8px;
+    margin: 0;
     color: rgb(var(--text-1));
   }
   .focus-card p {
@@ -427,6 +437,12 @@ const links = [
     max-width: 680px;
     position: relative;
   }
+  .faith-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
   .faith-icon {
     width: 36px;
     height: 36px;
@@ -436,12 +452,12 @@ const links = [
     border-radius: 50%;
     background: rgb(var(--accent) / 0.1);
     color: rgb(var(--accent));
-    margin-bottom: 16px;
+    flex-shrink: 0;
   }
   .faith-card h2 {
     font-size: 22px;
     letter-spacing: -0.01em;
-    margin: 0 0 12px;
+    margin: 0;
     color: rgb(var(--text-1));
   }
   .faith-card p {

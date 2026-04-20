@@ -31,6 +31,6 @@ lastCommit: '2020-08-11T20:42:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate-test-helper'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 In-browser tool to help gather class names and generate Puppeteer scripts for use with Bivariate.

@@ -37,6 +37,6 @@ lastCommit: '2026-04-17T16:11:07Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Reads an image URL from a frontmatter or inline field and renders the image in the note, accepting size and alignment values. Live preview is not supported.

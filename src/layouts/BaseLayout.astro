@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import ThemeScript from '@/components/layout/ThemeScript.astro';
 import SiteHeader from '@/components/layout/SiteHeader.astro';
 import SiteFooter from '@/components/layout/SiteFooter.astro';
+import Splash from '@/components/layout/Splash.astro';
 import Meta from '@/components/seo/Meta.astro';
 import geistUrl from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
 import '@/styles/globals.css';
@@ -46,13 +47,36 @@ const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
     <ClientRouter />
   </head>
   <body>
+    <Splash />
     <SiteHeader />
     <main id="main"><slot /></main>
     <SiteFooter />
     <script>
       import { initReveal } from '@/lib/reveal';
       initReveal();
-      document.addEventListener('astro:after-swap', () => initReveal());
+      document.addEventListener('astro:after-swap', () => {
+        // Splash is only meant for initial loads; strip it on SPA navigations.
+        document.getElementById('splash')?.remove();
+        initReveal();
+      });
+
+      function revealBody() {
+        document.documentElement.classList.add('fonts-ready');
+      }
+      function scheduleReveal() {
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(revealBody);
+          setTimeout(revealBody, 800);
+        } else {
+          revealBody();
+        }
+      }
+      scheduleReveal();
+      document.addEventListener('astro:after-swap', () => {
+        document.documentElement.classList.remove('fonts-ready');
+        scheduleReveal();
+      });
+      document.addEventListener('astro:page-load', revealBody);
     </script>
   </body>
 </html>
@@ -74,6 +98,16 @@ const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
     min-height: 100svh;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transition: opacity 240ms ease-out;
+  }
+  html.fonts-ready body {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      transition: none;
+    }
   }
   main {
     flex: 1;

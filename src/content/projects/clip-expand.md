@@ -41,6 +41,6 @@ lastCommit: '2025-10-12T20:23:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-expand'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Copies your text snippets to the clipboard for easy pasting. File-based snippets live as simple text files in ~/.clipexpand/, with a visual dialog for snippet selection, toast notifications, subdirectory support, and a customizable keyboard shortcut. Works with local sessions (X11/Wayland), Remote Desktop (RDP, VNC), and SSH with X forwarding.

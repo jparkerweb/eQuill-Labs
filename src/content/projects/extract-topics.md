@@ -39,6 +39,6 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Simple NPM package for using LDA for topic modeling on text inputs. LDA is an unsupervised learning method that discovers topics by viewing documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.

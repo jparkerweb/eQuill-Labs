@@ -7,15 +7,12 @@ tagline: >-
   preview not supported)
 description:
   short: >-
-    css snippet to render bulleted list items as cards in Reading View (live
-    preview not supported).
-  long: >-
-    Install obsidian-element-enhancer to allow custom classes to be injected
-    into the Reading View, then copy bullet-cards.css to your Obsidian snippets
-    folder and enable the snippet. Modifier classes cover vertical stacking,
-    alignment of cards, card width, and alignment of card contents.
+    ⏹ obsidian-bullet-cards  ⇢ css snippet to render bulleted list items as
+    cards in Reading View (live preview not supported)
+  long: ''
 banner:
-  src: ./docs/bullet-cards--example--source-view.jpg
+  src: >-
+    https://github.com/jparkerweb/obsidian-bullet-cards/blob/main/obsidian-bullet-cards.jpg?raw=true
   alt: obsidian-bullet-cards banner
   source: repo
 topics: []
@@ -31,10 +28,10 @@ links:
 featured: false
 sortOrder: 993
 status: active
-lastCommit: '2024-10-09T23:43:49Z'
+lastCommit: '2026-04-19T22:53:47Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-bullet-cards'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
-Install obsidian-element-enhancer to allow custom classes to be injected into the Reading View, then copy bullet-cards.css to your Obsidian snippets folder and enable the snippet. Modifier classes cover vertical stacking, alignment of cards, card width, and alignment of card contents.
+

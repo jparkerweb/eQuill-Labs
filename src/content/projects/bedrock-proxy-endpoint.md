@@ -53,6 +53,6 @@ lastCommit: '2026-04-16T15:27:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-proxy-endpoint'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Proxies OpenAI-compatible API calls to AWS Bedrock so existing OpenAI API clients can continue to work without learning the Bedrock SDK. Useful for keeping an application platform agnostic while still running inference on Bedrock.

@@ -43,6 +43,6 @@ lastCommit: '2023-05-25T14:33:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Goal is to allow for an approachable Visual Regression Testing suite that can be organized to accommodate small and large projects. Enforces an opinionated grouping structure, provides a method to write tests via manageable object files, and allows all of BackstopJS's commands to be run from an interface. Utilizes headless Chrome.

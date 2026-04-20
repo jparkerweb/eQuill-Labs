@@ -50,6 +50,6 @@ lastCommit: '2025-01-03T14:48:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/down-craft'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to Markdown format. For PDFs, it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities using the OpenAI API.

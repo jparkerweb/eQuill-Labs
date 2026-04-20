@@ -38,6 +38,6 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Options include observing multiple line breaks as separate sentences, removing specified start-of-line sequences, preserving HTML <br> and <p> tags as line breaks, and preserving list items by adding a prefix to each <li> element.
