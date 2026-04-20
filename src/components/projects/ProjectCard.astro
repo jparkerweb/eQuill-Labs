@@ -194,6 +194,29 @@ const filterAttrs: Record<string, string> = {
   .card-featured .name {
     font-size: 22px;
   }
+  .name-text {
+    position: relative;
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3))
+    );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    padding-bottom: 2px;
+    transition: background-size 280ms ease;
+  }
+  .card-link:hover .name-text,
+  .card-link:focus-visible .name-text {
+    background-size: 100% 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .name-text {
+      transition: none;
+    }
+  }
   .name-underline {
     opacity: 0;
     transition: opacity 150ms ease;

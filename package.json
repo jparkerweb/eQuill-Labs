@@ -7,7 +7,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "clean": "rm -rf dist .astro .cache pagefind node_modules package-lock.json",
+    "clean": "rimraf dist .astro .cache pagefind node_modules package-lock.json && npm install",
     "dev": "astro dev",
     "build": "astro build && pagefind --site docs --output-subdir pagefind",
     "preview": "astro preview",

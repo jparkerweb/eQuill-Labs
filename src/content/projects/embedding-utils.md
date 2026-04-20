@@ -41,6 +41,6 @@ lastCommit: '2026-04-06T20:37:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Zero production dependencies, provider-agnostic across local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with strict types.

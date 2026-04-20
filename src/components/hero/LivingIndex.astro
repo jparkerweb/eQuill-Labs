@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Wordmark from '@/components/brand/Wordmark.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
 import { Star } from 'lucide-astro';
+import logoSvgRaw from '/public/brand/logo-outline.svg?raw';
 
 interface Props {
   projects: CollectionEntry<'projects'>[];
@@ -44,7 +44,7 @@ function languageHue(lang: string | undefined): number {
 
 <section class="living-index" aria-label="Living index">
   <div class="copy">
-    <Wordmark size="lg" as="h1" signature={true} />
+    <h1 class="logo" aria-label="eQuill Labs" set:html={logoSvgRaw} />
     <p class="tagline">Building tools to enrich our digital lives</p>
     <p class="subtagline">
       Open-source AI engineering by Justin Parker
@@ -127,9 +127,25 @@ function languageHue(lang: string | undefined): number {
     }
   }
 
-  .copy :global(.wordmark) {
-    margin-bottom: 16px;
-    font-size: clamp(48px, 8vw, 72px);
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .logo {
+    margin: 0 0 20px;
+    line-height: 0;
+    display: block;
+    width: min(100%, 340px);
+  }
+  .logo :global(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .subtagline {
+    justify-content: center;
   }
   .tagline {
     font-family: 'Instrument Serif', Georgia, serif;

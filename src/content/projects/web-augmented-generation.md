@@ -48,6 +48,6 @@ lastCommit: '2026-04-17T04:47:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Rephrases user queries for optimal web searching, fetches and summarizes content from search results, and generates responses using OpenAI-compatible API calls. Supports streaming responses and multiple LLM providers including Ollama, together.ai, and llama.cpp.

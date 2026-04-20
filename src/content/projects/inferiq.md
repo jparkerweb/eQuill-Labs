@@ -35,6 +35,6 @@ lastCommit: '2026-04-17T16:15:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Generates answers to questions using a sample dataset across an evaluation pool of LLMs, then a group of Judge LLMs assesses and rates each response. Results are visualized in graphs, with additional metrics such as BERT Score and Inference Time.

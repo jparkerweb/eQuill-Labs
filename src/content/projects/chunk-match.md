@@ -41,6 +41,6 @@ lastCommit: '2026-04-17T15:15:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Offers configurable similarity thresholds and chunk sizes, returning chunks sorted by relevance with similarity scores. Built on top of semantic-chunking and supports various ONNX embedding models.

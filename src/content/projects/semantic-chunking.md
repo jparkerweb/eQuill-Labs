@@ -51,6 +51,6 @@ lastCommit: '2026-04-17T14:46:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Chunks text based on sentence similarity with dynamic similarity thresholds and configurable chunk sizes. Supports multiple embedding model options, quantized models, chunk prefixes for RAG workflows, and a Web UI for experimenting with settings.

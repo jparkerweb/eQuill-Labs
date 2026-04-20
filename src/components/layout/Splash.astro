@@ -1,0 +1,189 @@
+---
+// Intro splash shown only on the initial document load (and full reloads).
+// Skipped on SPA navigations and when prefers-reduced-motion is set.
+---
+
+<div id="splash" class="splash" aria-hidden="true">
+  <svg
+    class="splash-mark"
+    viewBox="0 0 120 120"
+    width="140"
+    height="140"
+    role="img"
+    aria-label="eQuill Labs"
+  >
+    <defs>
+      <linearGradient
+        id="splash-stroke"
+        gradientUnits="userSpaceOnUse"
+        x1="20"
+        y1="20"
+        x2="100"
+        y2="100"
+      >
+        <stop offset="0%" stop-color="#4DA8FF" />
+        <stop offset="100%" stop-color="#1552C9" />
+      </linearGradient>
+      <linearGradient
+        id="splash-fill"
+        gradientUnits="userSpaceOnUse"
+        x1="60"
+        y1="12"
+        x2="60"
+        y2="108"
+      >
+        <stop offset="0%" stop-color="#D9E4EF" />
+        <stop offset="100%" stop-color="#B9C7D6" />
+      </linearGradient>
+    </defs>
+    <circle class="splash-disc" cx="60" cy="60" r="48" fill="url(#splash-fill)" />
+    <circle
+      class="splash-ring"
+      cx="60"
+      cy="60"
+      r="52"
+      fill="none"
+      stroke="url(#splash-stroke)"
+      stroke-width="6"
+    />
+    <path
+      class="splash-stroke"
+      d="M51 86 L65 86 L51 30 L37 30 Z"
+      fill="url(#splash-stroke)"
+      stroke="none"
+    />
+    <path
+      class="splash-stroke splash-stroke--2"
+      d="M69 86 L83 86 L69 30 L55 30 Z"
+      fill="url(#splash-stroke)"
+      stroke="none"
+    />
+  </svg>
+</div>
+
+<script is:inline>
+  (function () {
+    var el = document.getElementById('splash');
+    if (!el) return;
+    var reduce =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Skip on SPA navigations or if already shown in this page lifetime.
+    if (reduce || window.__splashShown) {
+      el.remove();
+      return;
+    }
+    window.__splashShown = true;
+    // Make sure the body is visible so the splash can render above it
+    // (BaseLayout keeps body opacity:0 until fonts are ready). Skip the
+    // 240ms opacity transition so the splash doesn't fade in with the body.
+    document.body.style.transition = 'none';
+    document.documentElement.classList.add('fonts-ready');
+    // Restore the body's opacity transition for future SPA navigations.
+    window.setTimeout(function () {
+      document.body.style.transition = '';
+    }, 50);
+    // Remove after the outro completes.
+    window.setTimeout(function () {
+      el.classList.add('is-done');
+      window.setTimeout(function () {
+        el.remove();
+      }, 450);
+    }, 900);
+  })();
+</script>
+
+<style>
+  .splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: rgb(var(--bg));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 420ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes splash-mark-in {
+    from {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes splash-ring-draw {
+    from {
+      stroke-dashoffset: 327;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes splash-disc-in {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes splash-stroke-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .splash-mark {
+    filter: drop-shadow(0 6px 14px rgb(21 82 201 / 0.22));
+    animation: splash-mark-in 360ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+  }
+
+  .splash-ring {
+    stroke-dasharray: 327;
+    transform-origin: 60px 60px;
+    transform: rotate(-90deg);
+    animation: splash-ring-draw 560ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .splash-disc {
+    transform-origin: 60px 60px;
+    animation: splash-disc-in 320ms cubic-bezier(0.2, 0.7, 0.3, 1) 120ms both;
+  }
+
+  .splash-stroke {
+    transform-origin: 60px 60px;
+    animation: splash-stroke-in 380ms cubic-bezier(0.2, 0.65, 0.3, 1) 180ms both;
+  }
+  .splash-stroke--2 {
+    animation-delay: 280ms;
+  }
+
+  .splash.is-done {
+    opacity: 0;
+  }
+  .splash.is-done .splash-mark {
+    transform: scale(0.55);
+    opacity: 0;
+    transition:
+      opacity 360ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 420ms cubic-bezier(0.5, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .splash {
+      display: none;
+    }
+  }
+</style>

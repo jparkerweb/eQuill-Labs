@@ -39,6 +39,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support both project and global installation, with CLI options for non-interactive install, global or project paths, and force overwrite.

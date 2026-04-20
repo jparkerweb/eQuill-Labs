@@ -27,6 +27,6 @@ lastCommit: '2024-12-13T05:28:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-forge'
   sha: HEAD
-  fetchedAt: '2026-04-18T00:31:22.699Z'
+  fetchedAt: '2026-04-20T00:02:21.126Z'
 ---
 

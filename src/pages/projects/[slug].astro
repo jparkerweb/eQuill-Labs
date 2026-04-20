@@ -83,7 +83,7 @@ const canonical = new URL(`/projects/${entry.id}/`, siteURL).toString();
 
   {
     related.length > 0 && (
-      <section class="related" aria-labelledby="related-heading">
+      <section slot="after" class="related" aria-labelledby="related-heading">
         <h2 id="related-heading">
           Related
           <SlashGlyph role="separator" />
@@ -121,6 +121,11 @@ const canonical = new URL(`/projects/${entry.id}/`, siteURL).toString();
 
   .related {
     margin-top: 64px;
+  }
+  @media (max-width: 900px) {
+    .related {
+      margin-top: 32px;
+    }
   }
   .related h2 {
     display: inline-flex;
