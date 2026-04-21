@@ -43,6 +43,6 @@ lastCommit: '2026-04-21T17:00:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-expand'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Snippets are plain text files in `~/.clipexpand/`, selected through a visual dialog and copied to the clipboard for pasting in local or remote sessions. Because it operates via the clipboard, it works in RDP, VNC, and SSH-with-X-forwarding scenarios, not just local X11/Wayland. An install script sets up dependencies (`zenity`, `xsel`, `libnotify-bin`) and a Ctrl+Shift+T keyboard shortcut.

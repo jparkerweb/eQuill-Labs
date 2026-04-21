@@ -41,6 +41,6 @@ lastCommit: '2026-04-21T16:42:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Scans local or SMB network paths, showing real-time progress and a top-100 summary ranked by size with last-modified dates and sizes reported in bytes, MB, and GB. If a scan is interrupted, it can be resumed on the next run from where it left off. Access-denied folders are skipped gracefully and error statistics are reported on completion.

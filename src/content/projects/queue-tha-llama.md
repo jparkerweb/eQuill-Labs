@@ -7,17 +7,11 @@ tagline: >-
   (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent
   chat s...
 description:
-  short: >-
-    Web-based chat app integrating LLM capabilities with Bull Queue, Redis, and
-    Chroma for concurrent chat sessions.
-  long: >-
-    Handles concurrent chat sessions with queue management backed by Bull Queue
-    and Redis, and uses a RAG model for chat memory via a Chroma vector store.
-    Client-server communication uses heartbeat signals, and inactive clients and
-    job cleanups are managed automatically. Deployment assumes Redis and Chroma
-    Docker containers and downloadable embedding models.
+  short: "\U0001F999 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking "
+  long: ''
 banner:
-  src: 'https://github.com/jparkerweb/queue-tha-llama/blob/main/docs/chat.jpg'
+  src: >-
+    https://github.com/jparkerweb/queue-tha-llama/blob/main/public/img/logo.png?raw=true
   alt: queue-tha-llama banner
   source: repo
 topics:
@@ -43,10 +37,10 @@ links:
 featured: false
 sortOrder: 999
 status: active
-lastCommit: '2026-04-21T17:13:21Z'
+lastCommit: '2026-04-21T18:32:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Handles concurrent chat sessions with queue management backed by Bull Queue and Redis, and uses a RAG model for chat memory via a Chroma vector store. Client-server communication uses heartbeat signals, and inactive clients and job cleanups are managed automatically. Deployment assumes Redis and Chroma Docker containers and downloadable embedding models.
+

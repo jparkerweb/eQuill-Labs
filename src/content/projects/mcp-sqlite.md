@@ -47,6 +47,6 @@ lastCommit: '2026-04-05T04:51:05Z'
 _source:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Implements CRUD operations plus database exploration, introspection, and custom SQL execution against a SQLite database path passed as a startup argument. Configured in an IDE's MCP settings (Cursor, VSCode) via `npx -y mcp-sqlite <path>`. Exposes tools including `db_info`, `list_tables`, and `get_table_schema`.

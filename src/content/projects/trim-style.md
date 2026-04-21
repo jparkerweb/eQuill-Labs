@@ -45,6 +45,6 @@ lastCommit: '2026-04-17T15:21:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/trim-style'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Paste CSS copied via Chrome dev tools' "Copy CSS" action and it returns cleaned, formatted properties. Handles CSS variables and preserves hex colors and complex values while removing unnecessary class wrappers. Includes one-click copy to clipboard.

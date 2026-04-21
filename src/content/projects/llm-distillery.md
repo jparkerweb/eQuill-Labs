@@ -56,6 +56,6 @@ lastCommit: '2026-04-17T04:23:50Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Intelligently splits text via the `semantic-chunking` library, summarizes each chunk with an OpenAI-compatible LLM, then reduces until the output fits within a configured token budget. `llmDistillery(text, options)` takes parameters such as `targetTokenSize`, `baseUrl`, `apiKey`, `llmModel`, and `stopTokens`. Callable against any OpenAI-compatible endpoint (e.g., together.ai).

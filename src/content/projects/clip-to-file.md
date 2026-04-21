@@ -45,6 +45,6 @@ lastCommit: '2026-04-21T16:55:03Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Detects whether the clipboard holds an image or text and saves it as either a JPEG or a UTF-8 text file using a `YYYYMMDD_HHMMSS` filename. Duplicate filenames are resolved by appending a number. Save path and an optional post-save Explorer open are controlled via a generated `clip-to-file.ini` file.

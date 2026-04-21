@@ -43,6 +43,6 @@ lastCommit: '2026-04-21T15:08:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Adds hotkeys that work on the BGG Subscriptions Feed page and on forum Thread pages. The v2.0.0 rewrite supports the new Angular-based Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver` so it adapts when BGG tweaks class names or IDs. The existing keymap is unchanged from the original version.

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-21T17:48:55.296Z",
+  "fetchedAt": "2026-04-21T18:32:45.458Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,85 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2023-12-24T18:07:32Z",
+      "description": "🦙 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking ",
+      "forkCount": 0,
+      "homepageUrl": "",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 139206
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 15872
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 19081
+          },
+          {
+            "node": {
+              "name": "PowerShell"
+            },
+            "size": 17241
+          }
+        ],
+        "totalSize": 191400
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "queue-tha-llama",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-21T18:32:24Z",
+      "readme": {
+        "text": "# 🦙 Queue tha Llama\r\n\r\n<img src=\"https://github.com/jparkerweb/queue-tha-llama/blob/main/public/img/logo.png?raw=true\" alt=\"banner\" height=\"200\">\r\n\r\nThis is a web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent chat sessions with advanced queue management, maintains robust client-server communication with heartbeat signals, utilizes a RAG model for chat memory, and smartly manages inactive clients and job cleanups for a seamless chat experience.\r\n\r\n<img src=\"https://github.com/jparkerweb/queue-tha-llama/blob/main/docs/chat.jpg\" width=\"800\">\r\n\r\n---\r\n\r\n## Prerequisites\r\n\r\n- ### Install npm Dependencies\r\n    run from cloned repo directory\r\n    ```\r\n    npm ci\r\n    ```\r\n\r\n- ### Setup [Redis](https://redis.io/) Docker Container  \r\n    pull docker image\r\n    ```\r\n    docker pull redis\r\n    ```\r\n  \r\n    run redis in docker\r\n    ```\r\n    docker run -p 6379:6379 --name llm-redis -d redis redis-server --requirepass \"yourpassword\" \r\n    ```\r\n\r\n- ### Setup [Chroma](https://www.trychroma.com/) Vector Store Container\r\n  Pull latest Docker Image\r\n  ```\r\n  docker pull chromadb/chroma\r\n  ```\r\n\r\n  Create storage for your Chroma Docker instance:\r\n  - create a directory somewhere on the server  \r\n    (example: `c:\\chromadb-storage\\`)\r\n\r\n  Start a Docker Container using server storage from previous step  \r\n  ```\r\n  docker run -d --name llm-chroma -p 8001:8000 -v C:\\Git\\llama\\chromadb-storage:/chroma/chroma chromadb/chroma\r\n  ```\r\n\r\n- ### Download Embedding Models  \r\n  Skip this if the `.env` variable `ALLOW_REMOTE_MODELS` is true [default]; The model will automatically be downloaded as needed by the app.\r\n  \r\n  - ##### all-MiniLM-L6-v2\r\n    - download all files from https://huggingface.co/Xenova/all-MiniLM-L6-v2/tree/main and save them to the `models/Xenova/all-Min0LM-L6-v2` folder\r\n\r\n  - ##### paraphrase-multilingual-MiniLM-L12-v2 (optional)\r\n    - download all files from https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/tree/main and save them to the `models/Xenova/paraphrase-multilingual-MiniLM-L12-v2` folder\r\n\r\n- ### Download and Run an LLM via Llama.cpp\r\n  Skip this if using a cloud API (`.env` variable `LLM_SERVER_API=\"cloud\"`)\r\n\r\n  - Download the latest version of `llama.cpp` from https://github.com/ggerganov/llama.cpp or run the downloader PowerShell Script here:  \r\n    `./tools/download-latest-llama.ps1`\r\n  - Download a model (GGUF architecture) and save to your computer (note the path as it will be required when running your LLM Server)  \r\n    ⇢ Reccomended 7B models to try:\r\n      - [Llama-3-8B-Instruct-GGUF](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf)\r\n      - [NeuralBeagle14-7B-GGUF](https://huggingface.co/TheBloke/NeuralBeagle14-7B-GGUF/blob/main/neuralbeagle14-7b.Q4_K_M.gguf)\r\n      - [Mistral-7B-Instruct-v0.2-GGUF](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)\r\n      - [OpenHermes-2.5-Mistral-7B-GGUF](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/blob/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf)\r\n      - [Llama-2-7B-Chat-GGUF](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/blob/main/llama-2-7b-chat.Q4_K_M.gguf)\r\n      - [NeuralDaredevil-7B-GGUF](https://huggingface.co/brittlewis12/NeuralDaredevil-7B-GGUF/blob/main/neuraldaredevil-7b.Q4_K_M.gguf)\r\n\r\n  - Run the Llama.cpp server with continuous batching and parallel requests via command line or llmserver PowerShell Script:  \r\n    `/tools/llmserver.ps1`\r\n \r\n    ```\r\n    .\\server.exe -m .\\models\\7b\\mistral-7b-instruct-v0.2.Q4_K_M.gguf -c 2048 -cb -np 2\r\n    ```\r\n\r\n- ### (OPTIONAL) Setup AWS Bedrock .evn variable\r\n  If using AWS Bedrock for LLM Inference set the follwing `.env` variables:\r\n  - LLM_BEDROCK=true\r\n  - LLM_BEDROCK_REGION=\"us-west-2\"                                         # bedrock region\r\n  - LLM_BEDROCK_ACCESS_KEY_ID=\"AKIAxxxxxxxxxxxxxx\"                         # bedrock access key\r\n  - LLM_BEDROCK_SECRET_ACCESS_KEY=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" # bedrock secret key\r\n\r\n  additionally, `LLM_MODEL` `.env` variable value must be set to one of the supported models as defined here:  \r\n  https://github.com/jparkerweb/bedrock-wrapper?tab=readme-ov-file#supported-models\r\n\r\n- ### (OPTIONAL) Download and Run an Automatic Speech Recognition model via Whisper.cpp\r\n  used for audio transcriptions (experimental) \r\n  - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)\r\n\r\n---\r\n\r\n## Run\r\n\r\n- Ensure the Redis and Chroma Docker Containers are started\r\n- Ensure the Llama.cpp server is running a loaded LLM\r\n- Verify all environment variables are set correctly in the `.env` file:\r\n  - UI to server (message review concept / chatbot / audio transcriber)\r\n  - redis and choroma URLs/ports\r\n  - max concurrent requests (this is the parallel requests option set when you started your LLM server; default is 2)\r\n  - embedding model (default is english only: all-MiniLM-L6-v2)\r\n  - whisper server ULR/port (optional if you want to transcribe audio)\r\n- Start the Express Web server via\r\n    ```\r\n    node server.js\r\n    ```\r\n\r\n- Visit web server page (link displayed on server.js startup)  \r\n    default site ⇢ [http://localhost:3001/](http://localhost:3001/)\r\n\r\n- Optionally Dashboards  \r\n  - Redis Queue Dashboard  \r\n    default site ⇢ [http://localhost:3001/admin/queues/](http://localhost:3001/admin/queues/)\r\n  - Chroma Collections Dashboard  \r\n    default site ⇢ [http://localhost:3001/list-collections/](http://localhost:3001/list-collections/)\r\n \r\n ---\r\n\r\n ### Chromadb Admin\r\n Optional Chromadb Admin UI for viewing your collections and running test searches with your embeddings:  \r\n ⇢ [chromadb-admin](https://flanker.github.io/chromadb-admin/)  \r\n ⇢ [GitHub repo](https://github.com/flanker/chromadb-admin)\r\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ai"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-chat"
+            }
+          },
+          {
+            "topic": {
+              "name": "demo"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-demo"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-04-21T18:32:28Z",
+      "url": "https://github.com/jparkerweb/queue-tha-llama"
+    },
     {
       "createdAt": "2024-06-25T03:33:58Z",
       "description": "💾 PowerShell Scripts designed to help manage and clean up by purging old directories",
@@ -128,85 +207,6 @@
       "stargazerCount": 0,
       "updatedAt": "2026-04-21T17:25:19Z",
       "url": "https://github.com/jparkerweb/simply-dark"
-    },
-    {
-      "createdAt": "2023-12-24T18:07:32Z",
-      "description": "🦙 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking ",
-      "forkCount": 0,
-      "homepageUrl": "",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 139206
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 15872
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 19081
-          },
-          {
-            "node": {
-              "name": "PowerShell"
-            },
-            "size": 17241
-          }
-        ],
-        "totalSize": 191400
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "queue-tha-llama",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-04-21T17:13:21Z",
-      "readme": {
-        "text": "# 🦙 Queue tha Llama\r\nThis is a web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent chat sessions with advanced queue management, maintains robust client-server communication with heartbeat signals, utilizes a RAG model for chat memory, and smartly manages inactive clients and job cleanups for a seamless chat experience.\r\n\r\n<img src=\"https://github.com/jparkerweb/queue-tha-llama/blob/main/docs/chat.jpg\" alt=\"banner\" width=\"800\">\r\n\r\n---\r\n\r\n## Prerequisites\r\n\r\n- ### Install npm Dependencies\r\n    run from cloned repo directory\r\n    ```\r\n    npm ci\r\n    ```\r\n\r\n- ### Setup [Redis](https://redis.io/) Docker Container  \r\n    pull docker image\r\n    ```\r\n    docker pull redis\r\n    ```\r\n  \r\n    run redis in docker\r\n    ```\r\n    docker run -p 6379:6379 --name llm-redis -d redis redis-server --requirepass \"yourpassword\" \r\n    ```\r\n\r\n- ### Setup [Chroma](https://www.trychroma.com/) Vector Store Container\r\n  Pull latest Docker Image\r\n  ```\r\n  docker pull chromadb/chroma\r\n  ```\r\n\r\n  Create storage for your Chroma Docker instance:\r\n  - create a directory somewhere on the server  \r\n    (example: `c:\\chromadb-storage\\`)\r\n\r\n  Start a Docker Container using server storage from previous step  \r\n  ```\r\n  docker run -d --name llm-chroma -p 8001:8000 -v C:\\Git\\llama\\chromadb-storage:/chroma/chroma chromadb/chroma\r\n  ```\r\n\r\n- ### Download Embedding Models  \r\n  Skip this if the `.env` variable `ALLOW_REMOTE_MODELS` is true [default]; The model will automatically be downloaded as needed by the app.\r\n  \r\n  - ##### all-MiniLM-L6-v2\r\n    - download all files from https://huggingface.co/Xenova/all-MiniLM-L6-v2/tree/main and save them to the `models/Xenova/all-Min0LM-L6-v2` folder\r\n\r\n  - ##### paraphrase-multilingual-MiniLM-L12-v2 (optional)\r\n    - download all files from https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/tree/main and save them to the `models/Xenova/paraphrase-multilingual-MiniLM-L12-v2` folder\r\n\r\n- ### Download and Run an LLM via Llama.cpp\r\n  Skip this if using a cloud API (`.env` variable `LLM_SERVER_API=\"cloud\"`)\r\n\r\n  - Download the latest version of `llama.cpp` from https://github.com/ggerganov/llama.cpp or run the downloader PowerShell Script here:  \r\n    `./tools/download-latest-llama.ps1`\r\n  - Download a model (GGUF architecture) and save to your computer (note the path as it will be required when running your LLM Server)  \r\n    ⇢ Reccomended 7B models to try:\r\n      - [Llama-3-8B-Instruct-GGUF](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf)\r\n      - [NeuralBeagle14-7B-GGUF](https://huggingface.co/TheBloke/NeuralBeagle14-7B-GGUF/blob/main/neuralbeagle14-7b.Q4_K_M.gguf)\r\n      - [Mistral-7B-Instruct-v0.2-GGUF](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)\r\n      - [OpenHermes-2.5-Mistral-7B-GGUF](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/blob/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf)\r\n      - [Llama-2-7B-Chat-GGUF](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/blob/main/llama-2-7b-chat.Q4_K_M.gguf)\r\n      - [NeuralDaredevil-7B-GGUF](https://huggingface.co/brittlewis12/NeuralDaredevil-7B-GGUF/blob/main/neuraldaredevil-7b.Q4_K_M.gguf)\r\n\r\n  - Run the Llama.cpp server with continuous batching and parallel requests via command line or llmserver PowerShell Script:  \r\n    `/tools/llmserver.ps1`\r\n \r\n    ```\r\n    .\\server.exe -m .\\models\\7b\\mistral-7b-instruct-v0.2.Q4_K_M.gguf -c 2048 -cb -np 2\r\n    ```\r\n\r\n- ### (OPTIONAL) Setup AWS Bedrock .evn variable\r\n  If using AWS Bedrock for LLM Inference set the follwing `.env` variables:\r\n  - LLM_BEDROCK=true\r\n  - LLM_BEDROCK_REGION=\"us-west-2\"                                         # bedrock region\r\n  - LLM_BEDROCK_ACCESS_KEY_ID=\"AKIAxxxxxxxxxxxxxx\"                         # bedrock access key\r\n  - LLM_BEDROCK_SECRET_ACCESS_KEY=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" # bedrock secret key\r\n\r\n  additionally, `LLM_MODEL` `.env` variable value must be set to one of the supported models as defined here:  \r\n  https://github.com/jparkerweb/bedrock-wrapper?tab=readme-ov-file#supported-models\r\n\r\n- ### (OPTIONAL) Download and Run an Automatic Speech Recognition model via Whisper.cpp\r\n  used for audio transcriptions (experimental) \r\n  - [whisper.cpp](https://github.com/ggerganov/whisper.cpp)\r\n\r\n---\r\n\r\n## Run\r\n\r\n- Ensure the Redis and Chroma Docker Containers are started\r\n- Ensure the Llama.cpp server is running a loaded LLM\r\n- Verify all environment variables are set correctly in the `.env` file:\r\n  - UI to server (message review concept / chatbot / audio transcriber)\r\n  - redis and choroma URLs/ports\r\n  - max concurrent requests (this is the parallel requests option set when you started your LLM server; default is 2)\r\n  - embedding model (default is english only: all-MiniLM-L6-v2)\r\n  - whisper server ULR/port (optional if you want to transcribe audio)\r\n- Start the Express Web server via\r\n    ```\r\n    node server.js\r\n    ```\r\n\r\n- Visit web server page (link displayed on server.js startup)  \r\n    default site ⇢ [http://localhost:3001/](http://localhost:3001/)\r\n\r\n- Optionally Dashboards  \r\n  - Redis Queue Dashboard  \r\n    default site ⇢ [http://localhost:3001/admin/queues/](http://localhost:3001/admin/queues/)\r\n  - Chroma Collections Dashboard  \r\n    default site ⇢ [http://localhost:3001/list-collections/](http://localhost:3001/list-collections/)\r\n \r\n ---\r\n\r\n ### Chromadb Admin\r\n Optional Chromadb Admin UI for viewing your collections and running test searches with your embeddings:  \r\n ⇢ [chromadb-admin](https://flanker.github.io/chromadb-admin/)  \r\n ⇢ [GitHub repo](https://github.com/flanker/chromadb-admin)\r\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ai"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-chat"
-            }
-          },
-          {
-            "topic": {
-              "name": "demo"
-            }
-          },
-          {
-            "topic": {
-              "name": "equill-demo"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-21T17:13:47Z",
-      "url": "https://github.com/jparkerweb/queue-tha-llama"
     },
     {
       "createdAt": "2025-09-07T18:57:30Z",

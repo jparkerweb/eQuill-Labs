@@ -37,6 +37,6 @@ lastCommit: '2026-04-21T17:25:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/simply-dark'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Toggles dark mode on or off per website with persistent settings across browser sessions. Colors for background, text, links, and borders are customizable from the popup. A keyboard shortcut (Ctrl+Shift+S, or Command+Shift+S on Mac) toggles dark mode on the current site.

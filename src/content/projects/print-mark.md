@@ -46,6 +46,6 @@ lastCommit: '2026-04-21T16:56:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Provides a live preview editor with nine print-optimized themes and syntax highlighting via Shiki. PDF export supports customizable page sizes, margins, and page numbers. Runs locally via Node.js or as a Docker container from `ghcr.io/jparkerweb/print-mark`.

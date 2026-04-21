@@ -43,6 +43,6 @@ lastCommit: '2026-04-21T17:29:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/purge-old-directories'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 `purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command, and removes the folder if it ends up empty. `purge-old-folders.ps1` calls that script against directories older than a given number of months within a target path. Both scripts accept a `-Force` flag to run without user confirmation.

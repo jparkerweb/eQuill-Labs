@@ -49,6 +49,6 @@ lastCommit: '2026-04-17T03:52:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Creates multiple weighted-average embeddings per topic by clustering similar phrases via agglomerative or HDBSCAN algorithms, capturing semantic variations. Provides preset configurations for high precision, balanced, and performance use cases, and reports per-cluster cohesion plus a global silhouette score. Vector math and clustering are provided by `embedding-utils`.

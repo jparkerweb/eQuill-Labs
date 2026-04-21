@@ -49,6 +49,6 @@ lastCommit: '2026-04-17T15:05:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Supports AI-generated banners, a Pixel Banner Plus Collection of images and videos, and fetching from Pexels, Pixabay, Flickr, and Unsplash via their APIs. Vault-local images, external files via `file:///`, and direct URLs are all accepted as sources, with MP4/MOV video banner support. Placement, transparency, border radius, and animation are configurable per-note via Obsidian properties.

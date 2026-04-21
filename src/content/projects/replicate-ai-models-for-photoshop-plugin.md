@@ -41,6 +41,6 @@ lastCommit: '2026-04-21T17:01:53Z'
 _source:
   repo: 'https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin'
   sha: HEAD
-  fetchedAt: '2026-04-21T17:48:55.296Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
 Integrates 8 Replicate-hosted AI models into Photoshop — including Nano Banana, Seedream 4, Flux Kontext Pro/Max, GFPGAN, a background remover, SwinIR, and DDColor — for generation, face restoration, background removal, upscaling, and colorization. The output is placed on a new layer so lighting, shadows, and materials stay consistent with the rest of the composition.
