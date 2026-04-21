@@ -1,245 +1,220 @@
 {
   "aiModel": null,
-  "buildId": "60aa3c98-bb82-4abb-ad33-73b84a265bc8",
-  "builtAt": "2026-04-17T16:55:15.610Z",
+  "buildId": "24a44c4f-3d84-4651-ad8b-5e5c3874b3ba",
+  "builtAt": "2026-04-21T18:20:19.675Z",
   "generator": {
     "name": "equill-labs-update",
     "version": "1.0.0"
   },
-  "inputsHash": "bf529d41df27c32c0e19c3f5ec6487ca4a26e50e8dd07bd52ba9a4ff30118313",
+  "inputsHash": "57b3339abac474bb5c085bfbed7db2648f032887571a23ef6853b87a8b498ba6",
   "projects": [
     {
-      "contentHash": "b8765e655b75a0c728130f9229cfa14a3473833b234164f57673e522baaeaee6",
+      "contentHash": "7b09189d22b5270471d2787c8fcb5215244c5545ef7abfdf91c291192e43eda2",
       "hasOverride": false,
       "slug": "add-block-to-hosts"
     },
     {
-      "contentHash": "e8f13df6ff02a7f70363db5f73212d417c431ca39d1fb2d97104286be46e3c3c",
+      "contentHash": "79377a0da5d047f9c95716cbe7a8f493c8b76b174fae8ce383eab5a8a332a8ab",
       "hasOverride": false,
       "slug": "ai-assistant-prompts"
     },
     {
-      "contentHash": "c6553fede90616d587f305e100eb6c6c0d4f5fad096937089dcff8524a2b95f6",
+      "contentHash": "7591a4fc929fe9f48167e1ce187143a0d51d2441163fb46ec64188e13dbc0e9d",
       "hasOverride": false,
       "slug": "ai-skill-git-worktree"
     },
     {
-      "contentHash": "3159ccd6d9e2d51a1daf2b66348d9becb8cbf7e4fea800823dda78470738d5f8",
+      "contentHash": "330c900e0a6b91c946440de75106dc364b22105537fc93d293f9257c64d84d19",
       "hasOverride": false,
       "slug": "bedrock-proxy-endpoint"
     },
     {
-      "contentHash": "e4065e0df562e6f1b4a872d0fd6384d1ac0ac49beef0d5883dcc4712540d7a0b",
+      "contentHash": "b35de0e29d2a7a1a6e9e75fe1e19c5ae66b88ba65b443d5bb5840b167c44a854",
       "hasOverride": true,
       "slug": "bedrock-wrapper"
     },
     {
-      "contentHash": "c0aecc5f20f61d8993c243e99162fd2823d36948f4f59925b8a77e307be666c2",
+      "contentHash": "6b4b7fe2225942923f545f05a704e8581b9e08aa042f754ae4e603fdeb1aa869",
       "hasOverride": false,
       "slug": "bgg-keyboard-select"
     },
     {
-      "contentHash": "e68daf54b24e5349333cc25df618cd59e8a50d9dfd52c40058c1e0b684bd29dc",
+      "contentHash": "fd8096409748711af9a768dd311fb14c54dfa15b39ed1347f29f17dbc50d11eb",
       "hasOverride": false,
       "slug": "bivariate"
     },
     {
-      "contentHash": "02eeaa3bd8e08a991bc4d6bb90c13f4bb5dfafb59b1d9f3f47a2d7de58db6437",
-      "hasOverride": false,
-      "slug": "bivariate-test-helper"
-    },
-    {
-      "contentHash": "0ea0830b9b17bcba9d3dd2fd8724eaaedd5f9209885f528f218f98bc97c904c9",
+      "contentHash": "4e8e94009ace5b4070829c95f7b245805bab818b5295b1463bafa7cda4fd8de1",
       "hasOverride": false,
       "slug": "chunk-match"
     },
     {
-      "contentHash": "fb539c2668436e6583e301d3457b4298b7f2b0cc8f3b50d5fafcb99ca815df6c",
+      "contentHash": "ee310164bea44078266f3f858d180ba0664cf17b6acd4bb38ade40d835c2ed93",
       "hasOverride": false,
       "slug": "clip-expand"
     },
     {
-      "contentHash": "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721",
+      "contentHash": "8d111243471662566f24e2d86dd66ec74f18aae0088012e9085bfd033ccc2665",
       "hasOverride": false,
       "slug": "clip-to-file"
     },
     {
-      "contentHash": "7786f58c991e13c9a7a76ea5a7609cd15f1dc57a9d485c96b4827fec1a07e7ff",
+      "contentHash": "fee41a5fdcd434091afcebc54da5ad5d0fddd0d13ae3c0026c79527422045fa8",
       "hasOverride": false,
       "slug": "down-craft"
     },
     {
-      "contentHash": "1c0d347669a8ce456ad7524ce00df09892e3c5235345aa34979eb07337ae6c12",
-      "hasOverride": false,
-      "slug": "embedding-forge"
-    },
-    {
-      "contentHash": "099c827535167b527c7213f19d069b733a3ea1aab991392803d0bca7ab336d2c",
+      "contentHash": "51a3a0aea8adeb6cf3f81a061a8f11689d25c2fd90781d6f1a5b205508973d21",
       "hasOverride": true,
       "slug": "embedding-utils"
     },
     {
-      "contentHash": "40b09eac0400c01ce6bbb6b9f3534b8a525227036e1104537c0643ab699ef7e3",
+      "contentHash": "11591e09cb750bf1282eaa87f37f5bfd35f24ff8ada8b3777a83201074391e8a",
       "hasOverride": false,
       "slug": "extract-topics"
     },
     {
-      "contentHash": "47d847adc1822303ecbcfc12f908470976f1e3a3666ccc5ac344e9d782b54199",
+      "contentHash": "74e5ef6a6b7a77af8da6fa095423ae3161398ebb5bd1b560618db4b4e72248b3",
       "hasOverride": true,
       "slug": "fast-topic-analysis"
     },
     {
-      "contentHash": "18be21b95b6365247fbaa3d368079454c6852c97677eec69a6407315926e693e",
+      "contentHash": "fead98a4e32f2d28b2aa10eeaeeacf59bbf7846c2f582290dc565331be61f351",
       "hasOverride": false,
       "slug": "htmldiff-example"
     },
     {
-      "contentHash": "b4bcf1236aad7e07639ea5df2dcbcc63672569c7ab1fc93604913985f7857d80",
+      "contentHash": "f556d40167c7cf3f03854ebf56423b7be70255fbf8cdde65597a1725bbc8b297",
       "hasOverride": false,
       "slug": "indigestion"
     },
     {
-      "contentHash": "111d6362e4f622de5b5872bbf5fd0c0b3fb0084ae034f65df307696f666a9b84",
+      "contentHash": "04e1af177ce70e523400bf9df61bd4366187cca9b9e4bec0041fa00ca33211ef",
       "hasOverride": false,
       "slug": "inferiq"
     },
     {
-      "contentHash": "31ed297b8a7f855a5b24ddb0daabe277ab5543a3af8e6229cd0a9649f5e80145",
+      "contentHash": "70300e6b744092dfc12a11e31fd1a0f776f9ad776507b5ee64cd696d8b06889f",
       "hasOverride": false,
       "slug": "k-batch"
     },
     {
-      "contentHash": "c4435b639b60916043f73aa365b81b3873e0b5a4e0937addd504f661e2a54eec",
+      "contentHash": "07ec93224cfa64c9ece49604fdf66b5880d6fdd27a81d3f3e65a0f1b69982de7",
       "hasOverride": true,
       "slug": "llm-distillery"
     },
     {
-      "contentHash": "df502909686d92bd54b14f9084022c71231a70d11712fd605c7acd0e4621c3aa",
+      "contentHash": "e78b152a42e613d6cfe17ec80d3fe68ecc21d0fbb7feae4871b541a32ccc0781",
       "hasOverride": true,
       "slug": "mcp-sqlite"
     },
     {
-      "contentHash": "ea7ab1ce351f9749956af4fbfa9972785965fa37b4f619d7218a916eb954d50f",
-      "hasOverride": false,
-      "slug": "node-webkit-example"
-    },
-    {
-      "contentHash": "af036b194e9c76856db390d548fcf414e766ee29e0a04d051592f2cac6963001",
+      "contentHash": "59b0c51868c0e94774824802f0b410542f796c5e9caba199f552a5a688e0536a",
       "hasOverride": false,
       "slug": "obsidian-bullet-cards"
     },
     {
-      "contentHash": "1c292b552f84f094b04c86bf78abe0015dd4360b68f1a448e50682d14df924a1",
-      "hasOverride": false,
-      "slug": "obsidian-element-enhancer"
-    },
-    {
-      "contentHash": "760780bc1ea3b566cd54ed9ff63bca1b780791db6623679e59462e79f45372a9",
+      "contentHash": "1f724629ec12a0289c5fa007bbe89f7b714bcb352a3946c6fd1a12249d4b116c",
       "hasOverride": false,
       "slug": "obsidian-image-from-field"
     },
     {
-      "contentHash": "b5f5ce8344efc1149671d191cb46ee8530ce23a9ed06c8691f0be9133b4d2632",
+      "contentHash": "7b9849c6e0f80dcad5c96853e1e9d13998c14242ad48f8cb34b950381b9268f2",
       "hasOverride": false,
       "slug": "ollama-structured-output-test"
     },
     {
-      "contentHash": "dc85e7c92ef4cbe4b4eeb9a6fe5e8987486eabd497473a1e677473b0cde9dbe7",
+      "contentHash": "7fcf948785583de4117f5b9e0c12f6e8e9975198202367601691ca63bf027199",
       "hasOverride": true,
       "slug": "pixel-banner"
     },
     {
-      "contentHash": "bf855e94fb969ca0fa23e221b00a79b8f2f093b6b4364cf4b851a7f518de4295",
+      "contentHash": "12523df04a03e242321246beb92ea2e0596bbe4d67c0ca7267d19ad485a2a56c",
       "hasOverride": false,
       "slug": "pptx-in-html-out"
     },
     {
-      "contentHash": "e55ca86e40c81886722233a300e5c45625b970137092f9aad7e5e18ab9380d0a",
+      "contentHash": "57a21a73b2b9efa175646ccbfb016d94955c7c2011c144ff3af5ce5072df7278",
       "hasOverride": false,
       "slug": "print-mark"
     },
     {
-      "contentHash": "60cb5a662e421f196bb414b679d8aa51f8569e650efc6885e1ddef802c039b86",
+      "contentHash": "8fdbf2718f41018bd438c87db466076a3b9ff59c7a5a0f6e82013643bb57e2f0",
       "hasOverride": false,
       "slug": "ps-win-dir-size"
     },
     {
-      "contentHash": "168174b4fa8d8f0b3d869011ad56bf072b15186f2e35b2a8fcb0f88b2f61a60e",
+      "contentHash": "cf0a36cb205681e7e5e1b05ce469c16229290a906571c2ec96c3a81d93d440c4",
       "hasOverride": false,
       "slug": "punctuation-restore"
     },
     {
-      "contentHash": "f409e367bf1ec45f9d4dc73ba95f3acd4852f5af1126a24d95cabf0d4a2a11c5",
+      "contentHash": "ccf3cb71864dbf82fdf77f43b30f7b28725c6e9dc995161d3b2c7d3650f4165d",
       "hasOverride": false,
       "slug": "purge-old-directories"
     },
     {
-      "contentHash": "28cf132a1e03bb3ab1d0505fb7278d201587fbfdd9f7d3b1db9d9653976a66bd",
+      "contentHash": "0316932290044ec83cf4e890e899df3f8fbc13c1701fc73f06f89a1a8e040d3f",
       "hasOverride": false,
       "slug": "queue-tha-llama"
     },
     {
-      "contentHash": "b7f0d2c65f1a79d51d76728fb91cb952a4cbcb9453bef4b7f491504879fc5deb",
-      "hasOverride": false,
-      "slug": "random"
-    },
-    {
-      "contentHash": "e027de31b325b3779bd6976eca66bdd1b734212307273d162524ab166aeacc8b",
+      "contentHash": "22793e68c775010fd6f754c6a770f09d3e64ebb73e9e7d26706ad47f319f2edf",
       "hasOverride": false,
       "slug": "random-pexels-image"
     },
     {
-      "contentHash": "d20a2d4ddbce99dd9cc5ea52521150e6b14391f3e8050be1f10de9af3af6d850",
+      "contentHash": "219055629cee3a54cf77dcf5c06880f22b2abbedb06c6ef771954d3857a408ef",
+      "hasOverride": false,
+      "slug": "replicate-ai-models-for-photoshop-plugin"
+    },
+    {
+      "contentHash": "212610f80ce8fc07ab0ba8cd3c4bb98967c515e8149aa522d5cdf1280294d8d5",
       "hasOverride": false,
       "slug": "rich-foot"
     },
     {
-      "contentHash": "e20adcbb0e6596e5a5dd9c5984a546beead0b3259590a29c5ca4309699c14890",
+      "contentHash": "7f0f68430f88ad80fbfeccdd1f47d01bca373c011f428925ae6602753d633248",
       "hasOverride": true,
       "slug": "semantic-chunking"
     },
     {
-      "contentHash": "9142197e58e3e20d22a2cdba561bedf2f61053f572ea8e35a24c2f0cb7e109cc",
+      "contentHash": "0e1987c37204d2fdf4adde5f1d9e400c05ae455cb94078735e3bd2229347fece",
       "hasOverride": false,
       "slug": "sentence-parse"
     },
     {
-      "contentHash": "f579a1e86380302e0c7ab511b9812ece1273186da8922630688d46d4e5b01c9b",
-      "hasOverride": false,
+      "contentHash": "183dcd420da71e4cab95b87985f45c66d90f873c979d868dea80a877eb32d6e6",
+      "hasOverride": true,
       "slug": "shrinkray"
     },
     {
-      "contentHash": "8187ef6fb78766d348e9c142e0889ab8f6c9818538c9fbf4d23d4c48dbd288b7",
+      "contentHash": "be21e8bb62725c7922f61ac9bf35dd5e65c9be9e034991983f5b28681e77e62b",
       "hasOverride": false,
       "slug": "simple-linkz"
     },
     {
-      "contentHash": "b7d7109517d1a249db9bea8a99a981422b559b0edd011eb747b80e72a41e86b8",
+      "contentHash": "5231255a2f053b1ee2074c65c024d4222c9da1741814f69bd483ce69ac9668c0",
       "hasOverride": false,
       "slug": "simply-dark"
     },
     {
-      "contentHash": "064f4ccdce67ce0b32a2773c0c3628b15ca1859850b7eea765242f3e3224d036",
-      "hasOverride": false,
-      "slug": "speculative-decoding"
-    },
-    {
-      "contentHash": "0d9b63a90c2ec076837fc44d0068056e57a8e92c3a302d55d8d7394698fcff78",
+      "contentHash": "506e266f2c02b39c67ea3f21391e20ac4ac8e2bffb2363e59ea991167be52fac",
       "hasOverride": false,
       "slug": "splitter-vs-splitter"
     },
     {
-      "contentHash": "476c49e5ad174e0746357e46a2be550e03bfbb6cae35a0c47ed37ddf42a976d3",
+      "contentHash": "2f4094d7d2d14dd213829788ff5cb4b5e735a0ea09517434dbd54df97dba0a56",
       "hasOverride": false,
       "slug": "steph-shot"
     },
     {
-      "contentHash": "27bdfcec2d9af09ec2867b555ea7ec18e54925640d2691fa983fa833084a9aec",
+      "contentHash": "134ae5b7c7d415b6371235eb902a08751d5d4d30c8900ba392954b3264dbc290",
       "hasOverride": false,
       "slug": "trim-style"
     },
     {
-      "contentHash": "ecd8ece9edb8e70672fda48f4c938a0bb1cc995fb6bfa67d9281ff3a322eaf73",
+      "contentHash": "04cfac6e62ab7dcc6f250fefbb10bd0213418a52d5d2a8ff1efde918f66aa94a",
       "hasOverride": false,
       "slug": "web-augmented-generation"
     }
@@ -247,297 +222,282 @@
   "skillVersion": null,
   "sources": [
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/add-block-to-hosts",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/ai-assistant-prompts",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/ai-skill--git-worktree",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/bedrock-proxy-endpoint",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/bedrock-wrapper",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/bgg-keyboard-select",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/Bivariate",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/Bivariate-test-helper",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/caps-left-right",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/card-generator-sob",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/chunk-match",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/clip-expand",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/clip-to-file",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/clover-quilt-designer",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/down-craft",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
-      "repo": "https://github.com/jparkerweb/embedding-forge",
-      "sha": "HEAD"
-    },
-    {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/embedding-utils",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/eQuill-Labs",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/extract-topics",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/fast-topic-analysis",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/htmldiff-example",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/indigestion",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/InferIQ",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/jparkerweb",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/k-batch",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/kdm-cards",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/llm-distillery",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
-      "repo": "https://github.com/jparkerweb/Low_Voltage_Generator",
-      "sha": "HEAD"
-    },
-    {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/mcp-sqlite",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/node-webkit-example",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
-      "repo": "https://github.com/jparkerweb/NzbDrone_Xtender",
-      "sha": "HEAD"
-    },
-    {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/obsidian-bullet-cards",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/obsidian-element-enhancer",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/obsidian-image-from-field",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/ollama-structured-output-test",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/pixel-banner",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/pptx-in-html-out",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/print-mark",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/ps-win-dir-size",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/punctuation-restore",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/purge-old-directories",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/queue-tha-llama",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/random",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/random-pexels-image",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/ref",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/release-notes",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
+      "repo": "https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin",
+      "sha": "HEAD"
+    },
+    {
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/rich-foot",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/semantic-chunking",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/sentence-parse",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/shrinkray",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/simple-linkz",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/SimpleSite-Boilerplate",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/simply-dark",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
-      "repo": "https://github.com/jparkerweb/speculative-decoding",
-      "sha": "HEAD"
-    },
-    {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/splitter-vs-splitter",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/steph-shot",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/trim-style",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/wdw-adr-checker",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-04-17T16:29:24.869Z",
+      "fetchedAt": "2026-04-21T17:48:55.296Z",
       "repo": "https://github.com/jparkerweb/web-augmented-generation",
       "sha": "HEAD"
     }

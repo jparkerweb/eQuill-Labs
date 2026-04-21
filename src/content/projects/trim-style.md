@@ -7,18 +7,22 @@ tagline: >-
   properties
 description:
   short: >-
-    Simple web app for extracting only the essential styles from raw style
-    properties.
+    Web app that extracts essential CSS from raw style properties copied from
+    browser dev tools.
   long: >-
-    Cleans and formats CSS properties copied from browser dev tools. Removes
-    unnecessary class wrappers, formats CSS properties consistently, handles CSS
-    variables, and preserves hex colors and complex values.
+    Paste CSS copied via Chrome dev tools' "Copy CSS" action and it returns
+    cleaned, formatted properties. Handles CSS variables and preserves hex
+    colors and complex values while removing unnecessary class wrappers.
+    Includes one-click copy to clipboard.
 banner:
   src: 'https://github.com/jparkerweb/trim-style/blob/main/time-style.jpg?raw=true'
   alt: trim-style banner
   source: repo
-topics: []
-category: app
+topics:
+  - css
+  - equill-utility
+  - extract-css
+category: utility
 theme: utilities
 primaryLanguage: CSS
 languages:
@@ -41,6 +45,6 @@ lastCommit: '2026-04-17T15:21:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/trim-style'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Cleans and formats CSS properties copied from browser dev tools. Removes unnecessary class wrappers, formats CSS properties consistently, handles CSS variables, and preserves hex colors and complex values.
+Paste CSS copied via Chrome dev tools' "Copy CSS" action and it returns cleaned, formatted properties. Handles CSS variables and preserves hex colors and complex values while removing unnecessary class wrappers. Includes one-click copy to clipboard.

@@ -86,14 +86,24 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
               )
             }
             {
-              data.links.homepage && (
-                <li>
-                  <a href={data.links.homepage} rel="noopener" target="_blank">
-                    <Home size={16} aria-hidden="true" />
-                    <span>Homepage</span>
-                  </a>
-                </li>
-              )
+              data.links.homepage &&
+                !/^https?:\/\/(www\.)?equilllabs\.com\//i.test(data.links.homepage) && (
+                  <li>
+                    <a href={data.links.homepage} rel="noopener" target="_blank">
+                      {/^https?:\/\/(www\.)?npmjs\.com\//i.test(data.links.homepage) ? (
+                        <>
+                          <Package size={16} aria-hidden="true" />
+                          <span>NPM Package</span>
+                        </>
+                      ) : (
+                        <>
+                          <Home size={16} aria-hidden="true" />
+                          <span>Homepage</span>
+                        </>
+                      )}
+                    </a>
+                  </li>
+                )
             }
             {
               data.npm && (
@@ -394,7 +404,11 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     flex-direction: column;
     gap: 6px;
   }
+  .links li {
+    display: flex;
+  }
   .links a {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -405,8 +419,58 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     font-size: 14px;
     border: 1px solid rgb(var(--border));
     background: rgb(var(--surface-2));
+    transition: border-color 200ms ease;
   }
-  .links a:hover {
-    border-color: rgb(var(--accent));
+  .links a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-1))
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .meta:hover .links a,
+  .meta:focus-within .links a {
+    border-color: transparent;
+  }
+  .meta:hover .links a::before,
+  .meta:focus-within .links a::before {
+    opacity: 1;
+    animation: links-trace 4s linear infinite;
+  }
+
+  @keyframes links-trace {
+    to {
+      --gradient-angle: 360deg;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .meta:hover .links a::before,
+    .meta:focus-within .links a::before {
+      animation: none;
+    }
+    .meta:hover .links a,
+    .meta:focus-within .links a {
+      border-color: rgb(var(--accent));
+    }
   }
 </style>

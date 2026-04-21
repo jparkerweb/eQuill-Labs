@@ -7,13 +7,14 @@ tagline: >-
   text inference (using standard baseUrl, and apiKey params)
 description:
   short: >-
-    Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM
-    text inference (using standard baseUrl and apiKey params).
+    Stands up an OpenAI-compatible API server that proxies calls to AWS Bedrock
+    using standard `baseUrl` and `apiKey` params.
   long: >-
-    Proxies OpenAI-compatible API calls to AWS Bedrock so existing OpenAI API
-    clients can continue to work without learning the Bedrock SDK. Useful for
-    keeping an application platform agnostic while still running inference on
-    Bedrock.
+    Lets existing OpenAI-API-compatible applications keep using their current
+    client by fronting AWS Bedrock with a compatible endpoint. Removes the need
+    to format LLM calls against the Bedrock SDK or reconcile per-model
+    configuration differences. Distributed as a Node.js project with a published
+    Docker image on GHCR.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg
@@ -24,16 +25,15 @@ topics:
   - aws-bedrock
   - endpoint
   - inference
-  - llama3
   - llm
   - inference-api
   - mistral
-  - mixtral
   - openai-api
   - proxy
   - serverless
   - wrapper
-category: demo
+  - equill-service
+category: service
 theme: infra
 primaryLanguage: JavaScript
 languages:
@@ -53,6 +53,6 @@ lastCommit: '2026-04-16T15:27:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-proxy-endpoint'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Proxies OpenAI-compatible API calls to AWS Bedrock so existing OpenAI API clients can continue to work without learning the Bedrock SDK. Useful for keeping an application platform agnostic while still running inference on Bedrock.
+Lets existing OpenAI-API-compatible applications keep using their current client by fronting AWS Bedrock with a compatible endpoint. Removes the need to format LLM calls against the Bedrock SDK or reconcile per-model configuration differences. Distributed as a Node.js project with a published Docker image on GHCR.

@@ -7,19 +7,25 @@ tagline: >-
   query using cosine similarity for precise and relevant text retrieval.
 description:
   short: >-
-    A NodeJS library that semantically chunks text and matches it against a user
-    query using cosine similarity for precise and relevant text retrieval.
+    Node.js library that semantically chunks text and matches it against a query
+    using cosine similarity.
   long: >-
-    Offers configurable similarity thresholds and chunk sizes, returning chunks
-    sorted by relevance with similarity scores. Built on top of
-    semantic-chunking and supports various ONNX embedding models.
+    Exposes a `matchChunks(documents, query, options)` function that returns
+    chunks sorted by relevance with similarity scores. Chunking thresholds, max
+    token size, and ONNX embedding model are configurable; it is built on top of
+    `semantic-chunking`. Supports dynamic similarity thresholds and optional
+    chunk recombination.
 banner:
   src: 'https://github.com/jparkerweb/chunk-match/blob/main/chunk-match.jpg?raw=true'
   alt: chunk-match banner
   source: repo
-topics: []
-category: app
-theme: utilities
+topics:
+  - chunking
+  - cosine-similarity
+  - embeddings
+  - equill-library
+category: library
+theme: nlp
 primaryLanguage: JavaScript
 languages:
   - name: JavaScript
@@ -41,6 +47,6 @@ lastCommit: '2026-04-17T15:15:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Offers configurable similarity thresholds and chunk sizes, returning chunks sorted by relevance with similarity scores. Built on top of semantic-chunking and supports various ONNX embedding models.
+Exposes a `matchChunks(documents, query, options)` function that returns chunks sorted by relevance with similarity scores. Chunking thresholds, max token size, and ONNX embedding model are configurable; it is built on top of `semantic-chunking`. Supports dynamic similarity thresholds and optional chunk recombination.

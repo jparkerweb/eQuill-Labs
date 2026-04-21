@@ -19,6 +19,18 @@
   --color-focus-ring: rgb(var(--focus-ring) / <alpha-value>);
 }
 
+@property --gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --mini-gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

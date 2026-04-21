@@ -8,13 +8,15 @@ tagline: >-
   your k...
 description:
   short: >-
-    Obsidian plugin that adds customizable banner images to notes, with
-    AI-generated designs and a curated store of downloadable banners.
+    Obsidian plugin that adds customizable banner images (AI-generated, video,
+    or from online sources) to the top of notes.
   long: >-
-    Supports AI-generated banners, the Pixel Banner Plus Collection, third-party
-    APIs (Pexels, Pixabay, Flickr, Unsplash), local vault images, external
-    file:/// references, URL banners, and MP4/MOV video banners. Banner aspects
-    are controlled through Obsidian's properties feature.
+    Supports AI-generated banners, a Pixel Banner Plus Collection of images and
+    videos, and fetching from Pexels, Pixabay, Flickr, and Unsplash via their
+    APIs. Vault-local images, external files via `file:///`, and direct URLs are
+    all accepted as sources, with MP4/MOV video banner support. Placement,
+    transparency, border radius, and animation are configurable per-note via
+    Obsidian properties.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/pixel-banner/main/img/pixel-banner.jpg
@@ -27,7 +29,8 @@ topics:
   - banner
   - banner-image
   - pixabay-api
-category: tool
+  - equill-plugin
+category: plugin
 theme: obsidian
 primaryLanguage: JavaScript
 languages:
@@ -46,6 +49,6 @@ lastCommit: '2026-04-17T15:05:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Supports AI-generated banners, the Pixel Banner Plus Collection, third-party APIs (Pexels, Pixabay, Flickr, Unsplash), local vault images, external file:/// references, URL banners, and MP4/MOV video banners. Banner aspects are controlled through Obsidian's properties feature.
+Supports AI-generated banners, a Pixel Banner Plus Collection of images and videos, and fetching from Pexels, Pixabay, Flickr, and Unsplash via their APIs. Vault-local images, external files via `file:///`, and direct URLs are all accepted as sources, with MP4/MOV video banner support. Placement, transparency, border radius, and animation are configurable per-note via Obsidian properties.

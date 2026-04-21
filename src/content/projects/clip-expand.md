@@ -8,16 +8,17 @@ tagline: >-
   to...
 description:
   short: >-
-    A lightweight, clipboard-based text expansion tool for Linux systems,
-    designed with Remote Desktop sessions in mind.
+    Clipboard-based text expansion tool for Linux, designed for Remote Desktop
+    sessions.
   long: >-
-    Copies your text snippets to the clipboard for easy pasting. File-based
-    snippets live as simple text files in ~/.clipexpand/, with a visual dialog
-    for snippet selection, toast notifications, subdirectory support, and a
-    customizable keyboard shortcut. Works with local sessions (X11/Wayland),
-    Remote Desktop (RDP, VNC), and SSH with X forwarding.
+    Snippets are plain text files in `~/.clipexpand/`, selected through a visual
+    dialog and copied to the clipboard for pasting in local or remote sessions.
+    Because it operates via the clipboard, it works in RDP, VNC, and
+    SSH-with-X-forwarding scenarios, not just local X11/Wayland. An install
+    script sets up dependencies (`zenity`, `xsel`, `libnotify-bin`) and a
+    Ctrl+Shift+T keyboard shortcut.
 banner:
-  src: ./.readme/clip-expand.jpg
+  src: 'https://github.com/jparkerweb/clip-expand/raw/main/.readme/clip-expand.jpg'
   alt: clip-expand banner
   source: repo
 topics:
@@ -25,7 +26,8 @@ topics:
   - linux
   - remote-desktop
   - text-expander
-category: demo
+  - equill-utility
+category: utility
 theme: utilities
 primaryLanguage: Shell
 languages:
@@ -37,10 +39,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2025-10-12T20:23:40Z'
+lastCommit: '2026-04-21T17:00:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-expand'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Copies your text snippets to the clipboard for easy pasting. File-based snippets live as simple text files in ~/.clipexpand/, with a visual dialog for snippet selection, toast notifications, subdirectory support, and a customizable keyboard shortcut. Works with local sessions (X11/Wayland), Remote Desktop (RDP, VNC), and SSH with X forwarding.
+Snippets are plain text files in `~/.clipexpand/`, selected through a visual dialog and copied to the clipboard for pasting in local or remote sessions. Because it operates via the clipboard, it works in RDP, VNC, and SSH-with-X-forwarding scenarios, not just local X11/Wayland. An install script sets up dependencies (`zenity`, `xsel`, `libnotify-bin`) and a Ctrl+Shift+T keyboard shortcut.

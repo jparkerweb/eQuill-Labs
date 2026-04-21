@@ -1,7 +1,7 @@
 ---
 import Wordmark from '@/components/brand/Wordmark.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
-import { Github, Mail, Rss } from 'lucide-astro';
+import { Github, Mail, Rss, Coffee } from 'lucide-astro';
 
 const year = new Date().getFullYear();
 ---
@@ -60,6 +60,15 @@ const year = new Date().getFullYear();
                 height="16"
                 class="discord-icon"
               /><span>Discord</span></a>
+          </li>
+          <li>
+            <a
+              href="https://ko-fi.com/jparkerweb"
+              rel="noopener"
+              target="_blank"
+              aria-label="Support on Ko-fi"
+              class="kofi-link"
+              ><Coffee size={16} aria-hidden="true" /><span>Ko-fi</span></a>
           </li>
         </ul>
       </div>
@@ -142,6 +151,9 @@ const year = new Date().getFullYear();
   }
   .col a:hover {
     color: rgb(var(--text-1));
+  }
+  .kofi-link:hover {
+    color: #ff5e5b;
   }
   .discord-icon {
     display: inline-block;

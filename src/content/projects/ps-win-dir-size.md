@@ -7,22 +7,25 @@ tagline: >-
   Quickly identify which top-level subdirectories consume the most storage
   space.
 description:
-  short: PowerShell script for analyzing disk space usage on local and network paths.
+  short: >-
+    PowerShell script for analyzing disk usage on local and network paths,
+    ranking the top 100 largest directories.
   long: >-
-    Quickly identify which top-level subdirectories consume the most storage
-    space. Supports network paths (SMB shares), shows real-time progress as
-    directories are scanned, and if a scan is interrupted can resume from where
-    it left off. Displays the largest directories ranked by size including
-    last-modified date.
+    Scans local or SMB network paths, showing real-time progress and a top-100
+    summary ranked by size with last-modified dates and sizes reported in bytes,
+    MB, and GB. If a scan is interrupted, it can be resumed on the next run from
+    where it left off. Access-denied folders are skipped gracefully and error
+    statistics are reported on completion.
 banner:
-  src: ps-win-dir-size.jpg
+  src: 'https://github.com/jparkerweb/ps-win-dir-size/raw/main/ps-win-dir-size.jpg'
   alt: ps-win-dir-size banner
   source: repo
 topics:
   - directory-analyzer
   - disk-usage
   - powershell
-category: demo
+  - equill-utility
+category: utility
 theme: utilities
 primaryLanguage: PowerShell
 languages:
@@ -34,10 +37,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-03-09T20:36:31Z'
+lastCommit: '2026-04-21T16:42:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Quickly identify which top-level subdirectories consume the most storage space. Supports network paths (SMB shares), shows real-time progress as directories are scanned, and if a scan is interrupted can resume from where it left off. Displays the largest directories ranked by size including last-modified date.
+Scans local or SMB network paths, showing real-time progress and a top-100 summary ranked by size with last-modified dates and sizes reported in bytes, MB, and GB. If a scan is interrupted, it can be resumed on the next run from where it left off. Access-denied folders are skipped gracefully and error statistics are reported on completion.

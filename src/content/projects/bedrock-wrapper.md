@@ -8,13 +8,14 @@ tagline: >-
   Fol...
 description:
   short: >-
-    An npm package that simplifies the integration of existing OpenAI-compatible
-    API objects with AWS Bedrock's serverless inference LLMs.
+    npm package that adapts existing OpenAI-compatible chat completion objects
+    to AWS Bedrock's serverless inference LLMs.
   long: >-
-    Takes a standard OpenAI chat completions object and messages in role/content
-    format, and routes the call to AWS Bedrock. Can be paired with the Bedrock
-    Proxy Endpoint project to stand up a full custom OpenAI server endpoint for
-    inference.
+    Import `bedrockWrapper`, pass AWS credentials plus an
+    `openaiChatCompletionsCreateObject` (messages in OpenAI role/content format,
+    model, `max_tokens`, `stream`, `temperature`, optional `stop_sequences`),
+    and it invokes the corresponding Bedrock model. Pairs with the `Bedrock
+    Proxy Endpoint` project for a drop-in OpenAI-compatible server experience.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg
@@ -29,7 +30,8 @@ topics:
   - proxy
   - serverless
   - wrapper
-category: app
+  - equill-library
+category: library
 theme: infra
 primaryLanguage: JavaScript
 languages:
@@ -38,7 +40,7 @@ languages:
 stars: 9
 links:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
-  homepage: 'https://www.equilllabs.com/projects/bedrock-wrapper'
+  homepage: 'https://www.npmjs.com/package/bedrock-wrapper'
 featured: true
 sortOrder: 5
 status: active
@@ -46,6 +48,6 @@ lastCommit: '2026-04-16T15:21:28Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Takes a standard OpenAI chat completions object and messages in role/content format, and routes the call to AWS Bedrock. Can be paired with the Bedrock Proxy Endpoint project to stand up a full custom OpenAI server endpoint for inference.
+Import `bedrockWrapper`, pass AWS credentials plus an `openaiChatCompletionsCreateObject` (messages in OpenAI role/content format, model, `max_tokens`, `stream`, `temperature`, optional `stop_sequences`), and it invokes the corresponding Bedrock model. Pairs with the `Bedrock Proxy Endpoint` project for a drop-in OpenAI-compatible server experience.

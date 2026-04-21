@@ -7,34 +7,42 @@ tagline: >-
   using keyboard shortcuts.
 description:
   short: >-
-    Select and delete forum posts from your subscription list on Board Game Geek
-    using keyboard shortcuts.
+    Chrome extension for selecting and deleting Board Game Geek forum posts via
+    keyboard shortcuts.
   long: >-
-    Google Chrome extension. Extension hotkeys work on the forum Subscriptions
-    page and a forum Thread Page.
+    Adds hotkeys that work on the BGG Subscriptions Feed page and on forum
+    Thread pages. The v2.0.0 rewrite supports the new Angular-based
+    Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver`
+    so it adapts when BGG tweaks class names or IDs. The existing keymap is
+    unchanged from the original version.
 banner:
-  src: ./images/keyboard-shortcuts.png
+  src: >-
+    https://github.com/jparkerweb/bgg-keyboard-select/blob/main/BGG-Keyboard-Forum-Selector.jpg?raw=true
   alt: bgg-keyboard-select banner
   source: repo
-topics: []
-category: demo
+topics:
+  - bgg
+  - board-game-geek
+  - chrome-extension
+  - equill-plugin
+category: plugin
 theme: utilities
 primaryLanguage: JavaScript
 languages:
   - name: JavaScript
-    percent: 83.69
+    percent: 86.72
   - name: HTML
-    percent: 16.31
+    percent: 13.28
 stars: 0
 links:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2022-12-01T22:09:30Z'
+lastCommit: '2026-04-21T15:08:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Google Chrome extension. Extension hotkeys work on the forum Subscriptions page and a forum Thread Page.
+Adds hotkeys that work on the BGG Subscriptions Feed page and on forum Thread pages. The v2.0.0 rewrite supports the new Angular-based Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver` so it adapts when BGG tweaks class names or IDs. The existing keymap is unchanged from the original version.

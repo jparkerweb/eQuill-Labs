@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
-import { Star } from 'lucide-astro';
 import logoSvgRaw from '/public/brand/logo-outline-half.svg?raw';
 
 interface Props {
@@ -18,27 +17,33 @@ const sorted = [...projects]
 
 const mobileTop = sorted.slice(0, 8);
 
-function relativeDate(iso: string | undefined): string {
-  if (!iso) return '';
-  const then = new Date(iso).getTime();
-  if (!then) return '';
-  const now = Date.now();
-  const diff = Math.max(0, now - then);
-  const d = Math.floor(diff / 86_400_000);
-  if (d === 0) return 'today';
-  if (d === 1) return '1d ago';
-  if (d < 30) return `${d}d ago`;
-  const m = Math.floor(d / 30);
-  if (m < 12) return `${m}mo ago`;
-  const y = Math.floor(m / 12);
-  return `${y}y ago`;
-}
+// GitHub's official language colors (https://github.com/ozh/github-colors)
+const LANGUAGE_COLORS: Record<string, string> = {
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  PowerShell: '#012456',
+  Shell: '#89e051',
+  Batchfile: '#C1F12E',
+  CSS: '#663399',
+  HTML: '#e34c26',
+  Go: '#00ADD8',
+  Python: '#3572A5',
+  Rust: '#dea584',
+  Ruby: '#701516',
+  Java: '#b07219',
+  C: '#555555',
+  'C++': '#f34b7d',
+  'C#': '#178600',
+  Swift: '#F05138',
+  Kotlin: '#A97BFF',
+  Astro: '#ff5a03',
+  Vue: '#41b883',
+  Svelte: '#ff3e00',
+};
 
-function languageHue(lang: string | undefined): number {
-  if (!lang) return 220;
-  let h = 0;
-  for (const ch of lang) h = (h * 31 + ch.charCodeAt(0)) % 360;
-  return h;
+function languageColor(lang: string | undefined): string {
+  if (!lang) return '#8b949e';
+  return LANGUAGE_COLORS[lang] ?? '#8b949e';
 }
 ---
 
@@ -62,21 +67,18 @@ function languageHue(lang: string | undefined): number {
       <ul role="list" class="marquee-track">
         {
           [...sorted, ...sorted].map((p) => (
-            <li class="mini-card">
-              <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
-              <div class="mini-body">
-                <a href={`/projects/${p.id}/`} class="mini-name">
-                  {p.data.name}
-                </a>
-                <p class="mini-meta">
-                  <span class="stars">
-                    <Star size={10} aria-hidden="true" />
-                    {p.data.stars}
-                  </span>
-                  <span>{p.data.primaryLanguage ?? '—'}</span>
-                  <span>{relativeDate(p.data.lastCommit)}</span>
-                </p>
-              </div>
+            <li class="mini-item">
+              <a href={`/projects/${p.id}/`} class="mini-card">
+                <span class="dot" style={`background: ${languageColor(p.data.primaryLanguage)};`} aria-hidden="true" />
+                <div class="mini-body">
+                  <span class="mini-name">{p.data.name}</span>
+                  <p class="mini-meta">
+                    {p.data.primaryLanguage && <span class="tag">{p.data.primaryLanguage}</span>}
+                    {p.data.category && <span class="tag">{p.data.category}</span>}
+                    {p.data.theme && <span class="tag">{p.data.theme}</span>}
+                  </p>
+                </div>
+              </a>
             </li>
           ))
         }
@@ -86,21 +88,18 @@ function languageHue(lang: string | undefined): number {
     <ul role="list" class="static-list">
       {
         mobileTop.map((p) => (
-          <li class="mini-card">
-            <span class="dot" style={`background: hsl(${languageHue(p.data.primaryLanguage)} 70% 55%);`} aria-hidden="true" />
-            <div class="mini-body">
-              <a href={`/projects/${p.id}/`} class="mini-name">
-                {p.data.name}
-              </a>
-              <p class="mini-meta">
-                <span class="stars">
-                  <Star size={10} aria-hidden="true" />
-                  {p.data.stars}
-                </span>
-                <span>{p.data.primaryLanguage ?? '—'}</span>
-                <span>{relativeDate(p.data.lastCommit)}</span>
-              </p>
-            </div>
+          <li class="mini-item">
+            <a href={`/projects/${p.id}/`} class="mini-card">
+              <span class="dot" style={`background: ${languageColor(p.data.primaryLanguage)};`} aria-hidden="true" />
+              <div class="mini-body">
+                <span class="mini-name">{p.data.name}</span>
+                <p class="mini-meta">
+                  {p.data.primaryLanguage && <span class="tag">{p.data.primaryLanguage}</span>}
+                  {p.data.category && <span class="tag">{p.data.category}</span>}
+                  {p.data.theme && <span class="tag">{p.data.theme}</span>}
+                </p>
+              </div>
+            </a>
           </li>
         ))
       }
@@ -265,7 +264,13 @@ function languageHue(lang: string | undefined): number {
     flex-direction: column;
   }
 
+  .mini-item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
   .mini-card {
+    position: relative;
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -273,6 +278,68 @@ function languageHue(lang: string | undefined): number {
     background: rgb(var(--surface-2));
     border: 1px solid rgb(var(--border));
     border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+  .mini-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--mini-gradient-angle),
+      rgb(var(--grad-1)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-3)),
+      rgb(var(--grad-2)),
+      rgb(var(--grad-1))
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .mini-card:hover,
+  .mini-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: transparent;
+    box-shadow: 0 12px 30px -18px rgb(var(--accent) / 0.6);
+  }
+  .mini-card:hover::before,
+  .mini-card:focus-visible::before {
+    opacity: 1;
+    animation: mini-card-trace 4s linear infinite;
+  }
+  .mini-card:focus-visible {
+    outline: 2px solid rgb(var(--focus-ring));
+    outline-offset: 2px;
+  }
+  @keyframes mini-card-trace {
+    to {
+      --mini-gradient-angle: 360deg;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mini-card:hover::before,
+    .mini-card:focus-visible::before {
+      animation: none;
+    }
+    .mini-card:hover,
+    .mini-card:focus-visible {
+      border-color: rgb(var(--accent));
+    }
   }
   .dot {
     width: 8px;
@@ -289,27 +356,30 @@ function languageHue(lang: string | undefined): number {
     font-size: 14px;
     font-weight: 500;
     color: rgb(var(--text-1));
-    text-decoration: none;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .mini-name:hover {
-    color: rgb(var(--accent));
-  }
   .mini-meta {
-    margin: 2px 0 0;
+    margin: 4px 0 0;
     font-size: 11px;
     color: rgb(var(--text-muted));
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 4px;
     align-items: center;
   }
-  .stars {
+  .tag {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgb(var(--surface-1));
+    border: 1px solid rgb(var(--border));
+    color: rgb(var(--text-2));
+    font-size: 10px;
+    line-height: 1.4;
   }
 
   @media (max-width: 768px) {

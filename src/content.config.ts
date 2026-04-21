@@ -19,7 +19,7 @@ const projects = defineCollection({
 			})
 			.optional(),
 		topics: z.array(z.string()),
-		category: z.enum(['library', 'tool', 'app', 'demo']),
+		category: z.enum(['library', 'plugin', 'cli', 'service', 'utility', 'app', 'demo']),
 		theme: z.enum(['nlp', 'infra', 'agents', 'obsidian', 'utilities']).optional(),
 		primaryLanguage: z.string().optional(),
 		languages: z.array(

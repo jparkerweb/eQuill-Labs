@@ -7,20 +7,27 @@ tagline: >-
   SKILL.md files following the Agent Skills standard.
 description:
   short: >-
-    Interactive installer for Git Worktree Management skill, creating SKILL.md
-    files following the Agent Skills standard.
+    Interactive installer for a Git Worktree Management skill, producing
+    `SKILL.md` files per the Agent Skills standard.
   long: >-
-    Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline,
-    Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support
-    both project and global installation, with CLI options for non-interactive
-    install, global or project paths, and force overwrite.
+    Run via `npx git-worktree-skill` to select target AI agents (Claude Code,
+    GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI,
+    OpenCode) with arrow-key selection. Supports project or global installation
+    paths and non-interactive installs via `--install <agent[,agent...]>`.
+    Additional flags cover `--global`, `--project`, `--force`, `--list`, and
+    `--version`.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/ai-skill--git-worktree/main/docs/banner.jpg
   alt: ai-skill--git-worktree banner
   source: repo
-topics: []
-category: app
+topics:
+  - ai
+  - ai-skill
+  - aiskills
+  - equill-plugin
+  - git-worktree
+category: plugin
 theme: utilities
 primaryLanguage: JavaScript
 languages:
@@ -39,6 +46,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Supported agents include Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode. Most agents support both project and global installation, with CLI options for non-interactive install, global or project paths, and force overwrite.
+Run via `npx git-worktree-skill` to select target AI agents (Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, OpenCode) with arrow-key selection. Supports project or global installation paths and non-interactive installs via `--install <agent[,agent...]>`. Additional flags cover `--global`, `--project`, `--force`, `--list`, and `--version`.

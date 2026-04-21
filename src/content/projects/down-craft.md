@@ -8,12 +8,14 @@ tagline: >-
   and...
 description:
   short: >-
-    Node.js package to simplify converting documents (PDF, DOCX, PPTX, and XLSX)
-    into Markdown format.
+    Node.js package that converts PDF, DOCX, PPTX, and XLSX documents to
+    Markdown.
   long: >-
-    Uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to
-    Markdown format. For PDFs, it also provides an option to use vLLMs (Vision
-    Large Language Models) for advanced OCR capabilities using the OpenAI API.
+    Uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` under the hood,
+    with optional vLLM-based OCR (OpenAI API) for PDFs. The
+    `downCraft(fileBuffer, fileType?, options?)` function auto-detects file type
+    when not specified. For PDFs, `pdfConverterType` selects between `standard`,
+    `llm`, and `ocr` converters.
 banner:
   src: 'https://raw.githubusercontent.com/jparkerweb/down-craft/main/down-craft.jpg'
   alt: down-craft banner
@@ -29,6 +31,8 @@ topics:
   - pptx
   - vllm
   - xlsx
+  - ai
+  - equill-library
 category: library
 theme: infra
 primaryLanguage: JavaScript
@@ -50,6 +54,6 @@ lastCommit: '2025-01-03T14:48:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/down-craft'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to Markdown format. For PDFs, it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities using the OpenAI API.
+Uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` under the hood, with optional vLLM-based OCR (OpenAI API) for PDFs. The `downCraft(fileBuffer, fileType?, options?)` function auto-detects file type when not specified. For PDFs, `pdfConverterType` selects between `standard`, `llm`, and `ocr` converters.

@@ -7,15 +7,16 @@ tagline: >-
   files with timestamped names.
 description:
   short: >-
-    PowerShell utility that instantly saves your clipboard content to organized
-    files with timestamped names.
+    PowerShell utility that saves clipboard contents to a file with a
+    timestamped filename.
   long: >-
-    Automatically detects images and text in your clipboard, and one command
-    saves clipboard content with zero configuration. Files are saved with clean
-    timestamps and duplicate filenames get a number appended. INI-based
-    configuration with sensible defaults.
+    Detects whether the clipboard holds an image or text and saves it as either
+    a JPEG or a UTF-8 text file using a `YYYYMMDD_HHMMSS` filename. Duplicate
+    filenames are resolved by appending a number. Save path and an optional
+    post-save Explorer open are controlled via a generated `clip-to-file.ini`
+    file.
 banner:
-  src: .readme/clip-to-file.jpg
+  src: 'https://github.com/jparkerweb/clip-to-file/raw/main/.readme/clip-to-file.jpg'
   alt: clip-to-file banner
   source: repo
 topics:
@@ -25,7 +26,8 @@ topics:
   - powershell
   - save-files
   - txt
-category: demo
+  - equill-utility
+category: utility
 theme: utilities
 primaryLanguage: PowerShell
 languages:
@@ -39,10 +41,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2025-12-24T06:05:56Z'
+lastCommit: '2026-04-21T16:55:03Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Automatically detects images and text in your clipboard, and one command saves clipboard content with zero configuration. Files are saved with clean timestamps and duplicate filenames get a number appended. INI-based configuration with sensible defaults.
+Detects whether the clipboard holds an image or text and saves it as either a JPEG or a UTF-8 text file using a `YYYYMMDD_HHMMSS` filename. Duplicate filenames are resolved by appending a number. Save path and an optional post-save Explorer open are controlled via a generated `clip-to-file.ini` file.

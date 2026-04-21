@@ -7,20 +7,25 @@ tagline: >-
   field for the source
 description:
   short: >-
-    DataviewJS script that renders a Markdown image in Reading View using a
-    local field for the source.
+    DataviewJS script that renders a Markdown image in Reading View using a URL
+    stored in a note field.
   long: >-
-    Reads an image URL from a frontmatter or inline field and renders the image
-    in the note, accepting size and alignment values. Live preview is not
-    supported.
+    Reads the image URL from a specified inline or frontmatter field and renders
+    the image in place, instead of duplicating the URL as a separate embed.
+    Accepts size (numeric), alignment (left, float-left, center, right, etc.),
+    and the field name as arguments. Requires the Dataview plugin with
+    JavaScript Queries enabled; live preview is not supported.
 banner:
   src: >-
     https://github.com/jparkerweb/obsidian-image-from-field/blob/main/obsidian-image-from-field.jpg?raw=true
   alt: obsidian-image-from-field banner
   source: repo
-topics: []
-category: demo
-theme: utilities
+topics:
+  - equill-plugin
+  - obsidian
+  - obsidian-script
+category: plugin
+theme: obsidian
 primaryLanguage: JavaScript
 languages:
   - name: CSS
@@ -37,6 +42,6 @@ lastCommit: '2026-04-17T16:11:07Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Reads an image URL from a frontmatter or inline field and renders the image in the note, accepting size and alignment values. Live preview is not supported.
+Reads the image URL from a specified inline or frontmatter field and renders the image in place, instead of duplicating the URL as a separate embed. Accepts size (numeric), alignment (left, float-left, center, right, etc.), and the field name as arguments. Requires the Dataview plugin with JavaScript Queries enabled; live preview is not supported.

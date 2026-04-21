@@ -7,13 +7,14 @@ tagline: >-
   providers and web search results from SearXNG.
 description:
   short: >-
-    Node.js application that performs web-augmented generation using various LLM
-    providers and web search results from SearXNG.
+    Node.js app that performs web-augmented generation using SearXNG search
+    results and OpenAI-compatible LLMs.
   long: >-
-    Rephrases user queries for optimal web searching, fetches and summarizes
-    content from search results, and generates responses using OpenAI-compatible
-    API calls. Supports streaming responses and multiple LLM providers including
-    Ollama, together.ai, and llama.cpp.
+    Rephrases user queries for web search, fetches results from a SearXNG
+    instance, summarizes the content, and generates a final response via an
+    OpenAI-compatible API (supporting Ollama, together.ai, llama.cpp). Streams
+    responses for real-time output and implements content similarity checks with
+    repetition detection. Ships with an interactive CLI and detailed logging.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/web-augmented-generation/refs/heads/main/web-augmented-generation.jpg
@@ -25,7 +26,8 @@ topics:
   - search
   - searxng
   - web-augmentation
-category: app
+  - equill-cli
+category: cli
 theme: infra
 primaryLanguage: JavaScript
 languages:
@@ -48,6 +50,6 @@ lastCommit: '2026-04-17T04:47:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Rephrases user queries for optimal web searching, fetches and summarizes content from search results, and generates responses using OpenAI-compatible API calls. Supports streaming responses and multiple LLM providers including Ollama, together.ai, and llama.cpp.
+Rephrases user queries for web search, fetches results from a SearXNG instance, summarizes the content, and generates a final response via an OpenAI-compatible API (supporting Ollama, together.ai, llama.cpp). Streams responses for real-time output and implements content similarity checks with repetition detection. Ships with an interactive CLI and detailed logging.

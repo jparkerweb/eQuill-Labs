@@ -4,12 +4,11 @@ name: extract-topics
 slug: extract-topics
 tagline: Use LDA (Latent Dirichlet Allocation) to extract topics from text
 description:
-  short: Use LDA (Latent Dirichlet Allocation) to extract topics from text.
+  short: npm package for LDA (Latent Dirichlet Allocation) topic modeling of text.
   long: >-
-    Simple NPM package for using LDA for topic modeling on text inputs. LDA is
-    an unsupervised learning method that discovers topics by viewing documents
-    as random mixtures over latent topics, where each topic is characterized by
-    a distribution over words.
+    Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise
+    with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on
+    the `ldawithmorelanguages` project.
 banner:
   src: >-
     https://github.com/jparkerweb/extract-topics/blob/main/extractTopics.jpg?raw=true
@@ -22,7 +21,8 @@ topics:
   - text
   - topic
   - topic-extraction
-category: app
+  - equill-library
+category: library
 theme: nlp
 primaryLanguage: JavaScript
 languages:
@@ -39,6 +39,6 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Simple NPM package for using LDA for topic modeling on text inputs. LDA is an unsupervised learning method that discovers topics by viewing documents as random mixtures over latent topics, where each topic is characterized by a distribution over words.
+Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on the `ldawithmorelanguages` project.

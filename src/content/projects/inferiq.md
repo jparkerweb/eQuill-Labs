@@ -4,19 +4,21 @@ name: InferIQ
 slug: inferiq
 tagline: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs
 description:
-  short: LLM Evaluation framework that leverages LLMs to Evaluate other LLMs.
+  short: LLM evaluation framework that uses LLMs to evaluate other LLMs.
   long: >-
-    Generates answers to questions using a sample dataset across an evaluation
-    pool of LLMs, then a group of Judge LLMs assesses and rates each response.
-    Results are visualized in graphs, with additional metrics such as BERT Score
-    and Inference Time.
+    Generates answers to questions in a sample dataset across a pool of
+    evaluation LLMs, then has a group of Judge LLMs rate each response. Results
+    are visualized as graphs showing overall accuracy. Metrics such as BERT
+    Score and inference time are included alongside.
 banner:
   src: 'https://github.com/jparkerweb/InferIQ/blob/main/InferIQ.jpg?raw=true'
   alt: InferIQ banner
   source: repo
-topics: []
-category: demo
-theme: utilities
+topics:
+  - llm-evaluation-framework
+  - equill-app
+category: app
+theme: infra
 primaryLanguage: JavaScript
 languages:
   - name: JavaScript
@@ -35,6 +37,6 @@ lastCommit: '2026-04-17T16:15:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Generates answers to questions using a sample dataset across an evaluation pool of LLMs, then a group of Judge LLMs assesses and rates each response. Results are visualized in graphs, with additional metrics such as BERT Score and Inference Time.
+Generates answers to questions in a sample dataset across a pool of evaluation LLMs, then has a group of Judge LLMs rate each response. Results are visualized as graphs showing overall accuracy. Metrics such as BERT Score and inference time are included alongside.

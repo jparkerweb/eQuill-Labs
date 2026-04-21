@@ -5,18 +5,22 @@ slug: indigestion
 tagline: "\U0001F525 CLI interface for creating and sending test emails to be used in terst automation"
 description:
   short: >-
-    CLI that provides a quick and easy method for creating and sending test
-    emails in various test automation environments.
+    CLI for creating and sending test emails for use in test-automation
+    environments.
   long: >-
-    Loops through all email .json files in the ./emails directory and sends them
-    using a configured SMTP server. Supports creating new email .json files
-    through a UI or sending all emails from the command line.
+    Stores email payloads as `.json` files in an `./emails` directory and
+    iterates through them to send via SMTP. A `userconfig.json` holds SMTP
+    server and authentication settings and is created interactively on first
+    run. A `--email` flag supports non-interactive sending without the UI.
 banner:
   src: 'https://github.com/jparkerweb/indigestion/raw/master/docs/indigestion.png'
   alt: indigestion banner
   source: repo
-topics: []
-category: demo
+topics:
+  - email-sender
+  - test-automation
+  - equill-cli
+category: cli
 theme: utilities
 primaryLanguage: JavaScript
 languages:
@@ -36,6 +40,6 @@ lastCommit: '2026-04-17T15:25:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Loops through all email .json files in the ./emails directory and sends them using a configured SMTP server. Supports creating new email .json files through a UI or sending all emails from the command line.
+Stores email payloads as `.json` files in an `./emails` directory and iterates through them to send via SMTP. A `userconfig.json` holds SMTP server and authentication settings and is created interactively on first run. A `--email` flag supports non-interactive sending without the UI.

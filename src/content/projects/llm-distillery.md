@@ -8,13 +8,15 @@ tagline: >-
   limit,...
 description:
   short: >-
-    Use LLMs to distill large texts down to a manageable size by utilizing a
-    map-reduce approach.
+    Node.js library that uses LLMs with a map-reduce approach to distill large
+    text down to a target token size.
   long: >-
-    Ensures that text fits within a specified token limit when interfacing with
-    LLMs in downstream tasks. Uses the semantic-chunking library to split text
-    into manageable chunks that are then summarized, with customizable
-    parameters for target token size, API base URL, and chunking thresholds.
+    Intelligently splits text via the `semantic-chunking` library, summarizes
+    each chunk with an OpenAI-compatible LLM, then reduces until the output fits
+    within a configured token budget. `llmDistillery(text, options)` takes
+    parameters such as `targetTokenSize`, `baseUrl`, `apiKey`, `llmModel`, and
+    `stopTokens`. Callable against any OpenAI-compatible endpoint (e.g.,
+    together.ai).
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg
@@ -32,7 +34,8 @@ topics:
   - tokenization
   - ai-text-reduction
   - text-distillation
-category: app
+  - equill-library
+category: library
 theme: nlp
 primaryLanguage: JavaScript
 languages:
@@ -53,6 +56,6 @@ lastCommit: '2026-04-17T04:23:50Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T18:32:45.458Z'
 ---
-Ensures that text fits within a specified token limit when interfacing with LLMs in downstream tasks. Uses the semantic-chunking library to split text into manageable chunks that are then summarized, with customizable parameters for target token size, API base URL, and chunking thresholds.
+Intelligently splits text via the `semantic-chunking` library, summarizes each chunk with an OpenAI-compatible LLM, then reduces until the output fits within a configured token budget. `llmDistillery(text, options)` takes parameters such as `targetTokenSize`, `baseUrl`, `apiKey`, `llmModel`, and `stopTokens`. Callable against any OpenAI-compatible endpoint (e.g., together.ai).

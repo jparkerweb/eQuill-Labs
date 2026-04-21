@@ -2,11 +2,12 @@
   "featured": [
     "semantic-chunking",
     "embedding-utils",
-    "fast-topic-analysis",
+    "shrinkray",
     "pixel-banner",
     "mcp-sqlite",
     "bedrock-wrapper",
-    "llm-distillery"
+    "llm-distillery",
+    "fast-topic-analysis"
   ],
   "pinned": [],
   "hidden": [

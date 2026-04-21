@@ -106,6 +106,51 @@ When rendering project content, the pipeline scrapes each repo's README for extr
 
 The `data-tag="demo"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.
 
+### Project Categories (GitHub Topics → Type)
+
+Every project on the site is tagged with a **category** (shown as the "Type" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).
+
+**The 7 categories:**
+
+| Category | What it means | Examples |
+|----------|---------------|----------|
+| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |
+| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |
+| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |
+| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |
+| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |
+| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |
+| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |
+
+#### How to control a project's category
+
+The derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.
+
+1. **Explicit override (always wins)** — add one of these topics to force a category:
+   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`
+
+2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`
+
+3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`
+
+4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`
+
+5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`
+
+6. **Utility** — any of: `util`, `utility`, `tool`
+
+7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set
+
+8. **Demo** — the fallback when nothing else matches
+
+#### Tips
+
+- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.
+- Topic order doesn't matter — matching is set-based.
+- Topics are case-insensitive on our side, but GitHub stores them lowercase.
+- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.
+- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.
+
 ### Curation
 
 `site/featured.json` controls which projects are featured, hidden, or reordered:

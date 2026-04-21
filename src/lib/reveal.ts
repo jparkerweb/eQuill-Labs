@@ -1,8 +1,15 @@
 import { animate } from 'motion';
 
+let currentObserver: IntersectionObserver | null = null;
+
 export function initReveal() {
   if (typeof window === 'undefined') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  if (currentObserver) {
+    currentObserver.disconnect();
+    currentObserver = null;
+  }
 
   const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
   if (targets.length === 0) return;
@@ -27,4 +34,6 @@ export function initReveal() {
     el.style.opacity = '0';
     observer.observe(el);
   }
+
+  currentObserver = observer;
 }
