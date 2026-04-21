@@ -10,7 +10,7 @@ interface Props {
 const { projects, gridSelector = '#project-grid' } = Astro.props;
 
 const THEMES = ['nlp', 'infra', 'agents', 'obsidian', 'utilities'] as const;
-const TYPES = ['library', 'tool', 'app', 'demo'] as const;
+const TYPES = ['library', 'plugin', 'cli', 'service', 'utility', 'app', 'demo'] as const;
 
 const languagesSet = new Set<string>();
 for (const p of projects) {
@@ -269,7 +269,13 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
       const pagefindUrl = `${window.location.origin}/pagefind/pagefind.js`;
       pagefindPromise = import(/* @vite-ignore */ pagefindUrl)
         .then((m) => m as PagefindAPI)
-        .catch(() => null);
+        .catch(() => {
+          // Don't cache the null — let the next call retry, in case the
+          // first attempt failed for a transient reason (e.g. pagefind
+          // bundle not yet generated during dev).
+          pagefindPromise = null;
+          return null;
+        });
     }
     return pagefindPromise;
   }

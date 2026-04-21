@@ -7,21 +7,27 @@ tagline: >-
   purging old directories.
 description:
   short: >-
-    Two PowerShell scripts designed to help manage and clean up by purging old
-    directories.
+    Two PowerShell scripts that purge files in a folder and clean up directories
+    older than a specified number of months.
   long: >-
-    purge-files-in-folder.ps1 deletes all files in a specified folder using the
-    robocopy /purge command, and deletes the folder if empty afterward.
-    purge-old-folders.ps1 calls purge-files-in-folder.ps1 for directories older
-    than a specified number of months, helping clean up old directories within a
-    target path in batches.
+    `purge-files-in-folder.ps1` deletes all files in a specified folder using
+    the `robocopy /purge` command, and removes the folder if it ends up empty.
+    `purge-old-folders.ps1` calls that script against directories older than a
+    given number of months within a target path. Both scripts accept a `-Force`
+    flag to run without user confirmation.
+banner:
+  src: >-
+    https://github.com/jparkerweb/purge-old-directories/blob/main/purge-old-directories.jpg?raw=true
+  alt: purge-old-directories banner
+  source: repo
 topics:
   - cleanups-files
   - directory
   - filemanagement
   - powershell
   - purge
-category: demo
+  - equill-utility
+category: utility
 theme: utilities
 primaryLanguage: PowerShell
 languages:
@@ -33,10 +39,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2024-07-10T14:54:01Z'
+lastCommit: '2026-04-21T17:29:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/purge-old-directories'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-purge-files-in-folder.ps1 deletes all files in a specified folder using the robocopy /purge command, and deletes the folder if empty afterward. purge-old-folders.ps1 calls purge-files-in-folder.ps1 for directories older than a specified number of months, helping clean up old directories within a target path in batches.
+`purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command, and removes the folder if it ends up empty. `purge-old-folders.ps1` calls that script against directories older than a given number of months within a target path. Both scripts accept a `-Force` flag to run without user confirmation.

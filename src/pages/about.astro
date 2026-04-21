@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import SlashGlyph from '@/components/brand/SlashGlyph.astro';
-import { Github, Mail, Globe, BrainCircuit, Layers, Plug, BookOpen, Heart } from 'lucide-astro';
+import { Github, Mail, Globe, BrainCircuit, Layers, Plug, BookOpen, Heart, Coffee } from 'lucide-astro';
 
 const entry = await getEntry('pages', 'about');
 if (!entry) {
@@ -48,6 +48,7 @@ const links = [
   { icon: 'globe', label: 'eQuill Labs', href: 'https://www.equilllabs.com', sub: 'equilllabs.com' },
   { icon: 'discord', label: 'Discord', href: 'https://discord.gg/sp8AQQhMJ7', sub: 'Join our community' },
   { icon: 'mail', label: 'Email', href: 'mailto:equilllabs@gmail.com', sub: 'equilllabs@gmail.com' },
+  { icon: 'kofi', label: 'Ko-fi', href: 'https://ko-fi.com/jparkerweb', sub: 'Support my work' },
 ];
 ---
 
@@ -219,6 +220,7 @@ const links = [
               {link.icon === 'globe' && <Globe size={20} />}
               {link.icon === 'discord' && <img src="/brand/discord.svg" alt="" width="20" height="20" />}
               {link.icon === 'mail' && <Mail size={20} />}
+              {link.icon === 'kofi' && <Coffee size={20} />}
             </span>
             <span class="link-label">{link.label}</span>
             <span class="link-sub">{link.sub}</span>

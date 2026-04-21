@@ -7,12 +7,14 @@ tagline: >-
   side. Currently compares:
 description:
   short: >-
-    A web-based tool to compare different sentence splitting libraries side by
+    Web-based tool to compare different sentence-splitting libraries side by
     side.
   long: >-
-    Pits two sentence splitters against one another with real-time comparison
-    and visual color-coding for easy comparison. Built on an Express.js backend
-    with a vanilla JavaScript frontend.
+    Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with
+    matching sentences color-coded across both outputs. Runs on an Express
+    backend with a vanilla JavaScript frontend and supports a Ctrl+Enter
+    shortcut for processing text. Provides sentence count display and a
+    responsive split layout.
 banner:
   src: >-
     https://github.com/jparkerweb/splitter-vs-splitter/blob/main/splitter-vs-splitter.jpg?raw=true
@@ -22,7 +24,8 @@ topics:
   - comparer
   - npm
   - sentence-splitting
-category: library
+  - equill-demo
+category: demo
 theme: utilities
 primaryLanguage: JavaScript
 languages:
@@ -43,6 +46,6 @@ lastCommit: '2026-04-17T16:27:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/splitter-vs-splitter'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Pits two sentence splitters against one another with real-time comparison and visual color-coding for easy comparison. Built on an Express.js backend with a vanilla JavaScript frontend.
+Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with matching sentences color-coded across both outputs. Runs on an Express backend with a vanilla JavaScript frontend and supports a Ctrl+Enter shortcut for processing text. Provides sentence count display and a responsive split layout.

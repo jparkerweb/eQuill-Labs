@@ -7,12 +7,14 @@ tagline: >-
   Windows hosts file.
 description:
   short: >-
-    A PowerShell script to block websites and domains by adding entries to your
+    PowerShell script that blocks websites by adding `0.0.0.0` entries to the
     Windows hosts file.
   long: >-
-    Redirects domains to 0.0.0.0 with automatic administrator privilege
-    elevation, input validation, duplicate detection, optional timestamped
-    backups, and DNS cache flushing after modification.
+    Prompts for an address, then appends an entry in the form `0.0.0.0
+    example.com` and flushes the DNS cache. Automatically elevates to
+    administrator, detects duplicates, and optionally creates a timestamped
+    backup of the hosts file before changes. Uses atomic writes with a temporary
+    file and validates file integrity before and after modification.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/add-block-to-hosts/main/.readme/add-block-to-hosts.jpg
@@ -23,7 +25,8 @@ topics:
   - hostsfile
   - network
   - powershell
-category: demo
+  - equill-utility
+category: utility
 theme: utilities
 primaryLanguage: PowerShell
 languages:
@@ -39,6 +42,6 @@ lastCommit: '2026-04-17T16:06:31Z'
 _source:
   repo: 'https://github.com/jparkerweb/add-block-to-hosts'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Redirects domains to 0.0.0.0 with automatic administrator privilege elevation, input validation, duplicate detection, optional timestamped backups, and DNS cache flushing after modification.
+Prompts for an address, then appends an entry in the form `0.0.0.0 example.com` and flushes the DNS cache. Automatically elevates to administrator, detects duplicates, and optionally creates a timestamped backup of the hosts file before changes. Uses atomic writes with a temporary file and validates file integrity before and after modification.

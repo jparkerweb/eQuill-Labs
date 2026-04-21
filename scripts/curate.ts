@@ -45,9 +45,19 @@ export type CuratedProject = {
 	featured: boolean;
 	pinned: boolean;
 	sortOrder: number;
-	category: 'library' | 'tool' | 'app' | 'demo';
+	category: 'library' | 'plugin' | 'cli' | 'service' | 'utility' | 'app' | 'demo';
 	theme?: 'nlp' | 'infra' | 'agents' | 'obsidian' | 'utilities';
-};
+}
+
+const CATEGORY_OVERRIDE_TOPICS = [
+	'equill-library',
+	'equill-plugin',
+	'equill-cli',
+	'equill-service',
+	'equill-utility',
+	'equill-app',
+	'equill-demo',
+] as const;
 
 function slugify(name: string): string {
 	return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -56,9 +66,67 @@ function slugify(name: string): string {
 function deriveCategory(repo: RawRepo, topics: string[]): CuratedProject['category'] {
 	const name = repo.name.toLowerCase();
 	const topicSet = new Set(topics.map((t) => t.toLowerCase()));
-	if (topicSet.has('npm') || topicSet.has('npm-package') || topicSet.has('library')) return 'library';
-	if (topicSet.has('obsidian-plugin') || topicSet.has('obsidian')) return 'tool';
-	if (name.endsWith('-app') || repo.homepageUrl) return 'app';
+	const homepage = (repo.homepageUrl ?? '').toLowerCase();
+
+	// 1. Explicit override via `equill-<category>` topic — always wins
+	for (const override of CATEGORY_OVERRIDE_TOPICS) {
+		if (topicSet.has(override)) {
+			return override.slice('equill-'.length) as CuratedProject['category'];
+		}
+	}
+
+	// 2. Services — deployable servers, APIs, proxies, MCP servers, containers
+	if (
+		topicSet.has('mcp') ||
+		topicSet.has('mcp-server') ||
+		topicSet.has('api') ||
+		topicSet.has('proxy') ||
+		topicSet.has('endpoint') ||
+		topicSet.has('serverless') ||
+		homepage.includes('hub.docker.com')
+	) {
+		return 'service';
+	}
+
+	// 3. Plugins — extensions to another host app (Obsidian, browsers, etc.)
+	if (
+		topicSet.has('obsidian-plugin') ||
+		topicSet.has('obsidian') ||
+		topicSet.has('plugin') ||
+		topicSet.has('browser-extension')
+	) {
+		return 'plugin';
+	}
+
+	// 4. Libraries — reusable npm packages / importable code
+	if (
+		topicSet.has('npm') ||
+		topicSet.has('npm-package') ||
+		topicSet.has('library') ||
+		homepage.includes('npmjs.com/package/')
+	) {
+		return 'library';
+	}
+
+	// 5. CLI tools — command-line utilities and shell scripts
+	if (
+		topicSet.has('cli') ||
+		topicSet.has('powershell') ||
+		topicSet.has('bash-script') ||
+		topicSet.has('shell-script')
+	) {
+		return 'cli';
+	}
+
+	// 6. Utilities — general-purpose helper tools that don't fit the shapes above
+	if (topicSet.has('util') || topicSet.has('utility') || topicSet.has('tool')) {
+		return 'utility';
+	}
+
+	// 7. Apps — standalone applications with a live site/demo
+	if (name.endsWith('-app') || homepage) return 'app';
+
+	// 8. Default — demo / experiment / learning project
 	return 'demo';
 }
 

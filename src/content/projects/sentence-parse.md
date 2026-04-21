@@ -4,12 +4,15 @@ name: sentence-parse
 slug: sentence-parse
 tagline: A simple utility to parse text into sentences.
 description:
-  short: A simple utility to parse text into sentences.
+  short: >-
+    Utility that parses text into sentences with configurable line-break and
+    HTML handling options.
   long: >-
-    Options include observing multiple line breaks as separate sentences,
-    removing specified start-of-line sequences, preserving HTML <br> and <p>
-    tags as line breaks, and preserving list items by adding a prefix to each
-    <li> element.
+    `parseSentences(text, options)` returns an array of sentences, with options
+    for treating multiple line breaks as separators, stripping start-of-line
+    sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items
+    with a configurable prefix, and excluding non-letter segments. Accepts input
+    from either a string or a file.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/sentence-parse/refs/heads/main/docs/sentence-parse.jpg
@@ -21,7 +24,8 @@ topics:
   - sentence
   - split
   - text
-category: app
+  - equill-library
+category: library
 theme: utilities
 primaryLanguage: JavaScript
 languages:
@@ -38,6 +42,6 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Options include observing multiple line breaks as separate sentences, removing specified start-of-line sequences, preserving HTML <br> and <p> tags as line breaks, and preserving list items by adding a prefix to each <li> element.
+`parseSentences(text, options)` returns an array of sentences, with options for treating multiple line breaks as separators, stripping start-of-line sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items with a configurable prefix, and excluding non-letter segments. Accepts input from either a string or a file.

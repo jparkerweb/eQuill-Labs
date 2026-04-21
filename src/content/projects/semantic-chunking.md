@@ -7,13 +7,15 @@ tagline: >-
   workflows involving large language models (LLMs).
 description:
   short: >-
-    NPM Package for semantically creating chunks from large texts, useful for
-    workflows involving large language models (LLMs).
+    npm package that creates semantically coherent chunks from large texts for
+    LLM workflows.
   long: >-
-    Chunks text based on sentence similarity with dynamic similarity thresholds
-    and configurable chunk sizes. Supports multiple embedding model options,
-    quantized models, chunk prefixes for RAG workflows, and a Web UI for
-    experimenting with settings.
+    Splits input into sentences, generates embeddings using a configurable ONNX
+    model, computes cosine similarity between pairs, and groups sentences into
+    chunks by similarity threshold and max token size. Supports dynamic
+    thresholds, chunk rebalancing, quantized models, and RAG-style chunk
+    prefixes. Includes a Web UI for experimenting with settings, runnable via
+    Docker Compose.
 banner:
   src: >-
     https://github.com/jparkerweb/semantic-chunking/blob/main/semantic-chunking.jpg?raw=true
@@ -28,7 +30,8 @@ topics:
   - text-splitter
   - text-splitting
   - vector
-category: app
+  - equill-library
+category: library
 theme: nlp
 primaryLanguage: JavaScript
 languages:
@@ -51,6 +54,6 @@ lastCommit: '2026-04-17T14:46:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Chunks text based on sentence similarity with dynamic similarity thresholds and configurable chunk sizes. Supports multiple embedding model options, quantized models, chunk prefixes for RAG workflows, and a Web UI for experimenting with settings.
+Splits input into sentences, generates embeddings using a configurable ONNX model, computes cosine similarity between pairs, and groups sentences into chunks by similarity threshold and max token size. Supports dynamic thresholds, chunk rebalancing, quantized models, and RAG-style chunk prefixes. Includes a Web UI for experimenting with settings, runnable via Docker Compose.

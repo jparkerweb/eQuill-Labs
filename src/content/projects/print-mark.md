@@ -4,21 +4,21 @@ name: print-mark
 slug: print-mark
 tagline: 'Convert Markdown to clean, printable HTML with PDF export'
 description:
-  short: 'Convert Markdown to clean, printable HTML with PDF export.'
+  short: Converts Markdown to printable HTML with live preview and PDF export.
   long: >-
-    Features live preview with real-time rendering, 9 print-optimized themes,
-    PDF export with customizable page sizes, margins, and page numbers, and
-    syntax highlighting powered by Shiki. Supports drag and drop file upload for
-    .md, .markdown, or .txt files, and a stateless, privacy-focused design with
-    no account required.
+    Provides a live preview editor with nine print-optimized themes and syntax
+    highlighting via Shiki. PDF export supports customizable page sizes,
+    margins, and page numbers. Runs locally via Node.js or as a Docker container
+    from `ghcr.io/jparkerweb/print-mark`.
 banner:
-  src: .readme/print-mark.jpg
+  src: 'https://github.com/jparkerweb/print-mark/raw/main/.readme/print-mark.jpg'
   alt: print-mark banner
   source: repo
 topics:
   - markdown
   - print
   - print-markdown
+  - equill-app
 category: app
 theme: utilities
 primaryLanguage: HTML
@@ -42,10 +42,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2025-12-22T21:13:51Z'
+lastCommit: '2026-04-21T16:56:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Features live preview with real-time rendering, 9 print-optimized themes, PDF export with customizable page sizes, margins, and page numbers, and syntax highlighting powered by Shiki. Supports drag and drop file upload for .md, .markdown, or .txt files, and a stateless, privacy-focused design with no account required.
+Provides a live preview editor with nine print-optimized themes and syntax highlighting via Shiki. PDF export supports customizable page sizes, margins, and page numbers. Runs locally via Node.js or as a Docker container from `ghcr.io/jparkerweb/print-mark`.

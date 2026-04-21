@@ -8,17 +8,23 @@ tagline: >-
   chat s...
 description:
   short: >-
-    Web-based chat application that integrates LLM capabilities with Bull Queue,
-    Redis, and Chroma.
+    Web-based chat app integrating LLM capabilities with Bull Queue, Redis, and
+    Chroma for concurrent chat sessions.
   long: >-
-    Handles concurrent chat sessions with queue management, maintains
-    client-server communication with heartbeat signals, and utilizes a RAG model
-    for chat memory. Manages inactive clients and job cleanups.
+    Handles concurrent chat sessions with queue management backed by Bull Queue
+    and Redis, and uses a RAG model for chat memory via a Chroma vector store.
+    Client-server communication uses heartbeat signals, and inactive clients and
+    job cleanups are managed automatically. Deployment assumes Redis and Chroma
+    Docker containers and downloadable embedding models.
 banner:
-  src: ./docs/chat.jpg
+  src: 'https://github.com/jparkerweb/queue-tha-llama/blob/main/docs/chat.jpg'
   alt: queue-tha-llama banner
   source: repo
-topics: []
+topics:
+  - ai
+  - ai-chat
+  - demo
+  - equill-demo
 category: demo
 theme: utilities
 primaryLanguage: JavaScript
@@ -37,10 +43,10 @@ links:
 featured: false
 sortOrder: 999
 status: active
-lastCommit: '2024-10-09T23:36:29Z'
+lastCommit: '2026-04-21T17:13:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and utilizes a RAG model for chat memory. Manages inactive clients and job cleanups.
+Handles concurrent chat sessions with queue management backed by Bull Queue and Redis, and uses a RAG model for chat memory via a Chroma vector store. Client-server communication uses heartbeat signals, and inactive clients and job cleanups are managed automatically. Deployment assumes Redis and Chroma Docker containers and downloadable embedding models.

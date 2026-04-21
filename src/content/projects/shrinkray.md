@@ -5,13 +5,15 @@ slug: shrinkray
 tagline: 'Less bytes, same vibes.'
 description:
   short: >-
-    A cross-platform CLI video compression tool powered by FFmpeg, featuring a
-    wizard-style TUI built with Go and Charm's Bubble Tea.
+    Cross-platform CLI video compression tool powered by FFmpeg, with a
+    wizard-style TUI built with Go and Bubble Tea.
   long: >-
-    Offers 18 built-in presets across quality tiers and platforms (Discord,
-    YouTube, TikTok), auto-detects hardware acceleration (NVIDIA NVENC, AMD AMF,
-    Apple VideoToolbox, Intel QSV), supports batch processing with parallel
-    workers, and includes a headless --no-tui mode for CI/CD pipelines.
+    Ships 18 built-in presets spanning quality tiers, purpose-driven, and
+    platform-specific targets such as Discord, YouTube, and TikTok, and analyzes
+    the input to suggest an optimal preset. Auto-detects NVIDIA NVENC, AMD AMF,
+    Apple VideoToolbox, and Intel QSV for hardware acceleration. Supports batch
+    processing with parallel workers and a scriptable `--no-tui` headless mode
+    with stdin pipe support.
 banner:
   src: >-
     https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true
@@ -23,7 +25,8 @@ topics:
   - movie-processing
   - shrink
   - video-compression
-category: app
+  - equill-cli
+category: cli
 theme: utilities
 primaryLanguage: Go
 languages:
@@ -41,13 +44,13 @@ stars: 0
 links:
   repo: 'https://github.com/jparkerweb/shrinkray'
   homepage: 'https://jparkerweb.github.io/shrinkray/'
-featured: false
-sortOrder: 1000
+featured: true
+sortOrder: 2
 status: active
 lastCommit: '2026-04-16T03:53:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Offers 18 built-in presets across quality tiers and platforms (Discord, YouTube, TikTok), auto-detects hardware acceleration (NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV), supports batch processing with parallel workers, and includes a headless --no-tui mode for CI/CD pipelines.
+Ships 18 built-in presets spanning quality tiers, purpose-driven, and platform-specific targets such as Discord, YouTube, and TikTok, and analyzes the input to suggest an optimal preset. Auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV for hardware acceleration. Supports batch processing with parallel workers and a scriptable `--no-tui` headless mode with stdin pipe support.

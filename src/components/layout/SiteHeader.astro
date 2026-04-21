@@ -301,38 +301,67 @@ function isCurrent(href: string) {
 </style>
 
 <script>
+  let documentListenersAttached = false;
+
+  function getNav() {
+    return document.querySelector<HTMLElement>('.primary-nav');
+  }
+
+  function setNavOpen(nav: HTMLElement, open: boolean) {
+    const toggle = nav.querySelector<HTMLButtonElement>('.nav-toggle');
+    nav.dataset.open = String(open);
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+  }
+
   function initNav() {
-    const nav = document.querySelector<HTMLElement>('.primary-nav');
+    const nav = getNav();
     const toggle = nav?.querySelector<HTMLButtonElement>('.nav-toggle');
     const menu = nav?.querySelector<HTMLUListElement>('#primary-menu');
     if (!nav || !toggle || !menu) return;
 
-    function setOpen(open: boolean) {
-      nav!.dataset.open = String(open);
-      toggle!.setAttribute('aria-expanded', String(open));
-      toggle!.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    }
+    // Always reset to closed on (re)init — covers navigations where the DOM
+    // was swapped with a stale open state.
+    setNavOpen(nav, false);
 
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      setOpen(nav.dataset.open !== 'true');
+      setNavOpen(nav, nav.dataset.open !== 'true');
     });
 
     menu.addEventListener('click', (e) => {
-      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+      if ((e.target as HTMLElement).closest('a')) setNavOpen(nav, false);
     });
 
-    document.addEventListener('click', (e) => {
-      if (nav.dataset.open === 'true' && !nav.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    });
+    if (!documentListenersAttached) {
+      document.addEventListener('click', (e) => {
+        const currentNav = getNav();
+        if (
+          currentNav &&
+          currentNav.dataset.open === 'true' &&
+          !currentNav.contains(e.target as Node)
+        ) {
+          setNavOpen(currentNav, false);
+        }
+      });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.dataset.open === 'true') setOpen(false);
-    });
+      document.addEventListener('keydown', (e) => {
+        const currentNav = getNav();
+        if (e.key === 'Escape' && currentNav?.dataset.open === 'true') {
+          setNavOpen(currentNav, false);
+        }
+      });
+
+      documentListenersAttached = true;
+    }
   }
 
   initNav();
+  document.addEventListener('astro:before-swap', () => {
+    const nav = getNav();
+    if (nav) setNavOpen(nav, false);
+  });
   document.addEventListener('astro:after-swap', initNav);
 </script>

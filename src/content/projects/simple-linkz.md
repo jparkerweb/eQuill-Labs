@@ -8,20 +8,28 @@ tagline: >-
   CSS.
 description:
   short: >-
-    Lightweight, self-hosted web application for curating and managing your
-    frequently visited links.
+    Self-hosted dashboard for curating and managing frequently visited links,
+    built with vanilla JS, Node.js, and Tailwind.
   long: >-
-    Built with vanilla JavaScript, Node.js, and Tailwind CSS. Supports grid,
-    list, or cards layout, password-hashed login with session management,
-    dark/light themes, tag-based organization, drag and drop reordering, and
-    JSON import/export. Includes Docker support, PWA install, rate limiting, and
-    CSRF protection.
+    Supports grid, list, or cards layouts with dark/light themes, tag-based
+    organization, search, and drag-and-drop ordering. Password-hashed
+    authentication, CSRF protection, rate limiting, and JSON import/export are
+    built in. Ships as a Docker image and works behind a reverse proxy via
+    `BASE_PATH`.
 banner:
-  src: ./.readme/simple-linkz.jpg
+  src: 'https://github.com/jparkerweb/simple-linkz/raw/main/.readme/simple-linkz.jpg'
   alt: simple-linkz banner
   source: repo
-topics: []
-category: demo
+topics:
+  - daily-dashboard
+  - dashboard
+  - equill-app
+  - homepage
+  - links-dashboard
+  - links-page
+  - daily-links
+  - server-bookmarks
+category: app
 theme: utilities
 primaryLanguage: JavaScript
 languages:
@@ -39,10 +47,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-03-06T16:20:39Z'
+lastCommit: '2026-04-21T16:51:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Built with vanilla JavaScript, Node.js, and Tailwind CSS. Supports grid, list, or cards layout, password-hashed login with session management, dark/light themes, tag-based organization, drag and drop reordering, and JSON import/export. Includes Docker support, PWA install, rate limiting, and CSRF protection.
+Supports grid, list, or cards layouts with dark/light themes, tag-based organization, search, and drag-and-drop ordering. Password-hashed authentication, CSRF protection, rate limiting, and JSON import/export are built in. Ships as a Docker image and works behind a reverse proxy via `BASE_PATH`.

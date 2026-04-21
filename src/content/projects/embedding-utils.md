@@ -8,22 +8,29 @@ tagline: >-
   dependencies,...
 description:
   short: >-
-    Vector math, similarity search, ANN indexing, clustering, async pipelines,
-    evaluation metrics, and multi-provider embedding generation.
+    TypeScript toolkit for vector math, similarity search, ANN indexing,
+    clustering, async pipelines, and multi-provider embedding generation.
   long: >-
-    Build semantic search, RAG pipelines, recommendation engines, duplicate
-    detection, and document clustering without pulling in heavy ML frameworks or
-    vector databases. Zero production dependencies, provider-agnostic across
-    local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with
-    strict types.
+    Zero-dependency package bundling search (HNSW, hybrid/RRF), clustering
+    (including HDBSCAN), quantization, random-projection dimensionality
+    reduction, markdown-aware chunking, and evaluation metrics.
+    Provider-agnostic embedding generation across local ONNX, OpenAI, Cohere,
+    and Google Vertex. Targets use cases such as semantic search, RAG,
+    recommendations, duplicate detection, and document clustering.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/embedding-utils/refs/heads/main/embedding-utils.jpg
   alt: embedding-utils banner
   source: repo
-topics: []
-category: app
-theme: utilities
+topics:
+  - cosine-similarity
+  - embeddings
+  - equill-library
+  - npm
+  - embedding-library
+  - embedding-utils
+category: library
+theme: nlp
 primaryLanguage: TypeScript
 languages:
   - name: JavaScript
@@ -41,6 +48,6 @@ lastCommit: '2026-04-06T20:37:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-04-20T00:02:21.126Z'
+  fetchedAt: '2026-04-21T17:48:55.296Z'
 ---
-Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Zero production dependencies, provider-agnostic across local ONNX, OpenAI, Cohere, and Google Vertex, and TypeScript-first with strict types.
+Zero-dependency package bundling search (HNSW, hybrid/RRF), clustering (including HDBSCAN), quantization, random-projection dimensionality reduction, markdown-aware chunking, and evaluation metrics. Provider-agnostic embedding generation across local ONNX, OpenAI, Cohere, and Google Vertex. Targets use cases such as semantic search, RAG, recommendations, duplicate detection, and document clustering.
