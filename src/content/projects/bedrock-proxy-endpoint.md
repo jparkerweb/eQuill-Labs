@@ -53,6 +53,6 @@ lastCommit: '2026-04-16T15:27:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-proxy-endpoint'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Lets existing OpenAI-API-compatible applications keep using their current client by fronting AWS Bedrock with a compatible endpoint. Removes the need to format LLM calls against the Bedrock SDK or reconcile per-model configuration differences. Distributed as a Node.js project with a published Docker image on GHCR.

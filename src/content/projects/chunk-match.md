@@ -47,6 +47,6 @@ lastCommit: '2026-04-17T15:15:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Exposes a `matchChunks(documents, query, options)` function that returns chunks sorted by relevance with similarity scores. Chunking thresholds, max token size, and ONNX embedding model are configurable; it is built on top of `semantic-chunking`. Supports dynamic similarity thresholds and optional chunk recombination.

@@ -41,6 +41,6 @@ lastCommit: '2026-04-18T00:31:03Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 The `PPTXInHTMLOut` class takes a PPTX buffer and renders HTML via its `toHTML()` method, with an `includeStyles` option for toggling default styles. The output preserves images, shapes, and text formatting, and includes OCR-based text extraction from images. Ships as a modern ESM package.

@@ -4,16 +4,8 @@ name: shrinkray
 slug: shrinkray
 tagline: 'Less bytes, same vibes.'
 description:
-  short: >-
-    Cross-platform CLI video compression tool powered by FFmpeg, with a
-    wizard-style TUI built with Go and Bubble Tea.
-  long: >-
-    Ships 18 built-in presets spanning quality tiers, purpose-driven, and
-    platform-specific targets such as Discord, YouTube, and TikTok, and analyzes
-    the input to suggest an optimal preset. Auto-detects NVIDIA NVENC, AMD AMF,
-    Apple VideoToolbox, and Intel QSV for hardware acceleration. Supports batch
-    processing with parallel workers and a scriptable `--no-tui` headless mode
-    with stdin pipe support.
+  short: "\U0001F4FD️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea."
+  long: ''
 banner:
   src: >-
     https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true
@@ -31,15 +23,17 @@ theme: utilities
 primaryLanguage: Go
 languages:
   - name: Ruby
-    percent: 0.37
+    percent: 0.34
   - name: Makefile
-    percent: 0.17
+    percent: 0.16
   - name: Go
-    percent: 94.1
+    percent: 88.23
   - name: PowerShell
-    percent: 2.35
+    percent: 2.2
   - name: Shell
-    percent: 3.01
+    percent: 2.82
+  - name: HTML
+    percent: 6.24
 stars: 0
 links:
   repo: 'https://github.com/jparkerweb/shrinkray'
@@ -47,10 +41,10 @@ links:
 featured: true
 sortOrder: 2
 status: active
-lastCommit: '2026-04-16T03:53:43Z'
+lastCommit: '2026-04-21T21:20:55Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
-Ships 18 built-in presets spanning quality tiers, purpose-driven, and platform-specific targets such as Discord, YouTube, and TikTok, and analyzes the input to suggest an optimal preset. Auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV for hardware acceleration. Supports batch processing with parallel workers and a scriptable `--no-tui` headless mode with stdin pipe support.
+

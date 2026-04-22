@@ -51,6 +51,6 @@ lastCommit: '2026-04-21T16:51:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Supports grid, list, or cards layouts with dark/light themes, tag-based organization, search, and drag-and-drop ordering. Password-hashed authentication, CSRF protection, rate limiting, and JSON import/export are built in. Ships as a Docker image and works behind a reverse proxy via `BASE_PATH`.

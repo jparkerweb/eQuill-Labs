@@ -46,6 +46,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Run via `npx git-worktree-skill` to select target AI agents (Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, OpenCode) with arrow-key selection. Supports project or global installation paths and non-interactive installs via `--install <agent[,agent...]>`. Additional flags cover `--global`, `--project`, `--force`, `--list`, and `--version`.

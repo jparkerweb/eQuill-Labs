@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-21T18:32:45.458Z",
+  "fetchedAt": "2026-04-22T05:07:51.713Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,249 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2024-11-16T21:22:07Z",
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 820
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 4044
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 9096932
+          },
+          {
+            "node": {
+              "name": "Go Template"
+            },
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 49069
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 102949
+          }
+        ],
+        "totalSize": 9253980
+      },
+      "licenseInfo": null,
+      "name": "eQuill-Labs",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-04-22T04:47:57Z",
+      "readme": {
+        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| **Demo link** | **Any `<a>` tag with `data-tag=\"demo\"`**, e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "not-portfolio"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-04-21T18:37:18Z",
+      "url": "https://github.com/jparkerweb/eQuill-Labs"
+    },
+    {
+      "createdAt": "2026-03-22T03:47:16Z",
+      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "forkCount": 0,
+      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "Ruby"
+            },
+            "size": 1516
+          },
+          {
+            "node": {
+              "name": "Makefile"
+            },
+            "size": 707
+          },
+          {
+            "node": {
+              "name": "Go"
+            },
+            "size": 388320
+          },
+          {
+            "node": {
+              "name": "PowerShell"
+            },
+            "size": 9700
+          },
+          {
+            "node": {
+              "name": "Shell"
+            },
+            "size": 12426
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 27460
+          }
+        ],
+        "totalSize": 440129
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "shrinkray",
+      "primaryLanguage": {
+        "color": "#00ADD8",
+        "name": "Go"
+      },
+      "pushedAt": "2026-04-21T21:20:55Z",
+      "readme": {
+        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "topic": {
+              "name": "golang"
+            }
+          },
+          {
+            "topic": {
+              "name": "movie-processing"
+            }
+          },
+          {
+            "topic": {
+              "name": "shrink"
+            }
+          },
+          {
+            "topic": {
+              "name": "video-compression"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-cli"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-04-21T21:20:59Z",
+      "url": "https://github.com/jparkerweb/shrinkray"
+    },
+    {
+      "createdAt": "2024-09-17T06:22:03Z",
+      "description": "🌓 simple dark-mode chrome extension",
+      "forkCount": 0,
+      "homepageUrl": "https://chromewebstore.google.com/detail/simply-dark/dgpoehekglnaelmdigallfjfhlhejnfo",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 33085
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 4406
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 1212
+          }
+        ],
+        "totalSize": 38703
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "simply-dark",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-04-21T20:35:47Z",
+      "readme": {
+        "text": "# Simply Dark\n\n<img src=\"https://github.com/jparkerweb/simply-dark/blob/main/simply-dark.jpg?raw=true\" alt=\"banner\">\n\nSimply Dark is a Chrome extension that provides a customizable dark mode for any website.\n\n## Install\n\nGet Simply Dark from the Chrome Web Store:\n[https://chromewebstore.google.com/detail/simply-dark/dgpoehekglnaelmdigallfjfhlhejnfo](https://chromewebstore.google.com/detail/simply-dark/dgpoehekglnaelmdigallfjfhlhejnfo)\n\n## Features\n\n- Toggle dark mode on/off for individual websites\n- Customize dark mode colors\n- Persistent settings across browser sessions\n\n## Usage\n\n- Click the Simply Dark icon in your browser toolbar to open the popup\n- Use the toggle switch to enable/disable dark mode for the current website\n- Customize colors using the color pickers in the popup\n- Use the keyboard shortcut (Ctrl+Shift+S or Command+Shift+S on Mac) to toggle dark mode\n\n## Customization\n\nYou can customize the dark mode colors in the popup. The available options are:\n\n- Background Color\n- Text Color\n- Link Color\n- Border Color\n\nColor changes preview live on the active page as you drag each picker. Click **Save** to persist the values, or close the popup to discard the preview and revert to your last saved colors. **Reset** returns all four colors to their defaults.\n\n![Simply Dark Options](images/options.png)\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\n## License\n\nThis project is open source and available under the [MIT License](LICENSE).\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "chrome-extension"
+            }
+          },
+          {
+            "topic": {
+              "name": "dark-mode"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-plugin"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-04-22T04:08:40Z",
+      "url": "https://github.com/jparkerweb/simply-dark"
+    },
     {
       "createdAt": "2023-12-24T18:07:32Z",
       "description": "🦙 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking ",
@@ -155,58 +398,6 @@
       "stargazerCount": 0,
       "updatedAt": "2026-04-21T17:29:40Z",
       "url": "https://github.com/jparkerweb/purge-old-directories"
-    },
-    {
-      "createdAt": "2024-09-17T06:22:03Z",
-      "description": "🌓 simple dark-mode chrome extension",
-      "forkCount": 0,
-      "homepageUrl": null,
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 14152
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 3249
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 1212
-          }
-        ],
-        "totalSize": 18613
-      },
-      "licenseInfo": {
-        "spdxId": "MIT"
-      },
-      "name": "simply-dark",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-04-21T17:25:16Z",
-      "readme": {
-        "text": "# Simply Dark\n\n<img src=\"https://github.com/jparkerweb/simply-dark/blob/main/simply-dark.jpg?raw=true\" alt=\"banner\">\n\nSimply Dark is a Chrome extension that provides a customizable dark mode for any website.\n\n## Features\n\n- Toggle dark mode on/off for individual websites\n- Customize dark mode colors\n- Persistent settings across browser sessions\n\n## Usage\n\n- Click the Simply Dark icon in your browser toolbar to open the popup\n- Use the toggle switch to enable/disable dark mode for the current website\n- Customize colors using the color pickers in the popup\n- Use the keyboard shortcut (Ctrl+Shift+S or Command+Shift+S on Mac) to toggle dark mode\n\n## Customization\n\nYou can customize the dark mode colors in the popup. The available options are:\n\n- Background Color\n- Text Color\n- Link Color\n- Border Color\n\n![Simply Dark Options](images/options.png)\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\n## License\n\nThis project is open source and available under the [MIT License](LICENSE).\n"
-      },
-      "repositoryTopics": {
-        "nodes": []
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-04-21T17:25:19Z",
-      "url": "https://github.com/jparkerweb/simply-dark"
     },
     {
       "createdAt": "2025-09-07T18:57:30Z",
@@ -802,80 +993,6 @@
       "stargazerCount": 0,
       "updatedAt": "2026-04-21T15:35:45Z",
       "url": "https://github.com/jparkerweb/steph-shot"
-    },
-    {
-      "createdAt": "2024-11-16T21:22:07Z",
-      "description": "🖋️ eQuill Labs website and digital assets",
-      "forkCount": 0,
-      "homepageUrl": "https://www.equilllabs.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 3
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 820
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 3849
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 9096932
-          },
-          {
-            "node": {
-              "name": "Go Template"
-            },
-            "size": 166
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 47210
-          },
-          {
-            "node": {
-              "name": "Astro"
-            },
-            "size": 97926
-          }
-        ],
-        "totalSize": 9246903
-      },
-      "licenseInfo": null,
-      "name": "eQuill-Labs",
-      "primaryLanguage": {
-        "color": "#e34c26",
-        "name": "HTML"
-      },
-      "pushedAt": "2026-04-20T04:40:03Z",
-      "readme": {
-        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| **Demo link** | **Any `<a>` tag with `data-tag=\"demo\"`**, e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "not-portfolio"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-20T04:40:09Z",
-      "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
       "createdAt": "2024-09-05T22:03:07Z",
@@ -2558,101 +2675,6 @@
       "stargazerCount": 9,
       "updatedAt": "2026-04-21T16:30:48Z",
       "url": "https://github.com/jparkerweb/bedrock-wrapper"
-    },
-    {
-      "createdAt": "2026-03-22T03:47:16Z",
-      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
-      "forkCount": 0,
-      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "Ruby"
-            },
-            "size": 1516
-          },
-          {
-            "node": {
-              "name": "Makefile"
-            },
-            "size": 707
-          },
-          {
-            "node": {
-              "name": "Go"
-            },
-            "size": 388320
-          },
-          {
-            "node": {
-              "name": "PowerShell"
-            },
-            "size": 9700
-          },
-          {
-            "node": {
-              "name": "Shell"
-            },
-            "size": 12426
-          }
-        ],
-        "totalSize": 412669
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "shrinkray",
-      "primaryLanguage": {
-        "color": "#00ADD8",
-        "name": "Go"
-      },
-      "pushedAt": "2026-04-16T03:53:43Z",
-      "readme": {
-        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ffmpeg"
-            }
-          },
-          {
-            "topic": {
-              "name": "golang"
-            }
-          },
-          {
-            "topic": {
-              "name": "movie-processing"
-            }
-          },
-          {
-            "topic": {
-              "name": "shrink"
-            }
-          },
-          {
-            "topic": {
-              "name": "video-compression"
-            }
-          },
-          {
-            "topic": {
-              "name": "equill-cli"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-04-21T16:35:27Z",
-      "url": "https://github.com/jparkerweb/shrinkray"
     },
     {
       "createdAt": "2026-03-29T20:12:12Z",

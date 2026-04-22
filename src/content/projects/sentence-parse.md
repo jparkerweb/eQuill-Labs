@@ -42,6 +42,6 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 `parseSentences(text, options)` returns an array of sentences, with options for treating multiple line breaks as separators, stripping start-of-line sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items with a configurable prefix, and excluding non-letter segments. Accepts input from either a string or a file.

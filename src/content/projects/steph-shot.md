@@ -39,6 +39,6 @@ lastCommit: '2026-04-20T17:58:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/steph-shot'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Launches from a desktop shortcut with a default hotkey of Ctrl+Shift+A. Screenshots are saved to a `Steph-Shots` folder in the user's Downloads directory and simultaneously copied to the clipboard. Packaged as an SFX installer built with WinRAR.

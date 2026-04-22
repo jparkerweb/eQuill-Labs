@@ -48,6 +48,6 @@ lastCommit: '2026-04-16T15:21:28Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Import `bedrockWrapper`, pass AWS credentials plus an `openaiChatCompletionsCreateObject` (messages in OpenAI role/content format, model, `max_tokens`, `stream`, `temperature`, optional `stop_sequences`), and it invokes the corresponding Bedrock model. Pairs with the `Bedrock Proxy Endpoint` project for a drop-in OpenAI-compatible server experience.

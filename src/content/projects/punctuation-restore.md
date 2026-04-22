@@ -47,6 +47,6 @@ lastCommit: '2026-04-17T16:07:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Wraps the `punctuation_fullstop_truecase_english` ONNX model from Hugging Face and exposes a `PunctuationRestorer` class with a `restore(texts: string[])` method that returns punctuated and cased strings. Models are downloaded on first use and cached under `./models`. Supports batch processing across multiple inputs.

@@ -29,6 +29,6 @@ lastCommit: '2025-11-29T21:19:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-assistant-prompts'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Organized into `planning/` prompts used to start projects and write documentation, `global_rules/` that shape an AI's overall tone and formatting, and `behvior_rules/` (sic) for project-specific rules such as `behavior-web-dev.md`. An example `.cursor/rules/` folder demonstrates a working setup.
