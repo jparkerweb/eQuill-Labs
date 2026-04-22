@@ -43,6 +43,6 @@ lastCommit: '2026-04-17T16:13:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/random-pexels-image'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 The `/search-image` endpoint accepts optional `apikey`, `size`, `keyword`, and `orientation` query parameters and returns the raw image data so it can be hotlinked directly. When no keyword is provided, one is drawn from a configurable `random-words.json` file of 300 entries. Requires a Pexels API key in `.env`.

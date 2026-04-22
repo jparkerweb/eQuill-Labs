@@ -44,6 +44,6 @@ lastCommit: '2026-04-20T00:01:36Z'
 _source:
   repo: 'https://github.com/jparkerweb/rich-foot'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Backlinks show which notes link to the current note, and outlinks show which notes it links to (disabled by default). Created and modified dates are displayed alongside, with frontmatter link detection included. Folder exclusions, opacity, and border controls are exposed through the settings panel.

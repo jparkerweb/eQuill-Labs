@@ -4,6 +4,7 @@ import ThemeScript from '@/components/layout/ThemeScript.astro';
 import SiteHeader from '@/components/layout/SiteHeader.astro';
 import SiteFooter from '@/components/layout/SiteFooter.astro';
 import Splash from '@/components/layout/Splash.astro';
+import BackgroundStage from '@/components/layout/BackgroundStage.astro';
 import Meta from '@/components/seo/Meta.astro';
 import geistUrl from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
 import '@/styles/globals.css';
@@ -47,6 +48,7 @@ const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
     <ClientRouter />
   </head>
   <body>
+    <BackgroundStage />
     <Splash />
     <SiteHeader />
     <main id="main"><slot /></main>
@@ -82,9 +84,11 @@ const resolvedImage = new URL(image ?? '/og/default.png', siteURL);
 </html>
 
 <style is:global>
-  html,
-  body {
+  html {
     background: rgb(var(--bg));
+  }
+  body {
+    background: transparent;
     color: rgb(var(--text-1));
     font-family:
       'Geist Variable',

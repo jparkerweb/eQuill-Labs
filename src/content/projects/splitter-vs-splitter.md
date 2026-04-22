@@ -46,6 +46,6 @@ lastCommit: '2026-04-17T16:27:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/splitter-vs-splitter'
   sha: HEAD
-  fetchedAt: '2026-04-21T18:32:45.458Z'
+  fetchedAt: '2026-04-22T05:07:51.713Z'
 ---
 Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with matching sentences color-coded across both outputs. Runs on an Express backend with a vanilla JavaScript frontend and supports a Ctrl+Enter shortcut for processing text. Provides sentence count display and a responsive split layout.
