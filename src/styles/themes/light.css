@@ -2,9 +2,9 @@
 
 :root[data-theme='light'] {
   --bg: 247 245 239;               /* #F7F5EF */
-  --surface-1: 237 233 222;        /* #EDE9DE */
-  --surface-2: 227 222 206;        /* #E3DECE — derived step toward border */
-  --border: 214 208 192;           /* #D6D0C0 */
+  --surface-1: 237 235 244;        /* #EDEBF4 — cool lavender-tint to harmonize with veil backdrop */
+  --surface-2: 225 222 235;        /* #E1DEEB — derived step toward border */
+  --border: 207 203 220;           /* #CFCBDC */
   --text-1: 14 18 26;              /* #0E121A */
   --text-2: 42 48 64;              /* #2A3040 — derived mid-weight text */
   --text-muted: 90 98 117;         /* #5A6275 */
