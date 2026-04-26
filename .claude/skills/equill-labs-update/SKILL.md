@@ -44,7 +44,7 @@ See `prompts/` for phase details. Phases 5–8 are orchestrated by `05-review-ga
 The skill never writes to:
 
 - `src/components/**`
-- `src/layouts/**`
+- `src/layouts/**` *(includes the Umami analytics `<script>` in `BaseLayout.astro` — never strip, move, or modify it; see `AGENTS.md → Analytics`)*
 - `src/pages/**` (`.astro` files)
 - `src/content/pages/**`
 - `site/featured.json`
