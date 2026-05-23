@@ -50,6 +50,6 @@ lastCommit: '2025-03-18T02:38:13Z'
 _source:
   repo: 'https://github.com/jparkerweb/k-batch'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
 Targets NLP and ML workloads where grouping similar-length inputs reduces padding waste and improves computational efficiency. `kBatchSentences(sentences)` returns optimally grouped batches and `analyzeKBatches` provides detailed batch statistics. Ensures each batch meets minimum size requirements.

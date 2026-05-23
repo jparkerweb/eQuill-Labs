@@ -4,8 +4,13 @@ name: shrinkray
 slug: shrinkray
 tagline: 'Less bytes, same vibes.'
 description:
-  short: "\U0001F4FD️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea."
-  long: ''
+  short: >-
+    A Node.js package that restores punctuation and casing to unpunctuated text
+    using an ONNX model.
+  long: >-
+    It restores punctuation marks and casing, supports batch processing of
+    multiple texts, and uses the ONNX runtime for inference. Required models are
+    automatically downloaded from Hugging Face on first use and saved locally.
 banner:
   src: >-
     https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true
@@ -34,17 +39,17 @@ languages:
     percent: 2.82
   - name: HTML
     percent: 6.24
-stars: 0
+stars: 1
 links:
   repo: 'https://github.com/jparkerweb/shrinkray'
   homepage: 'https://jparkerweb.github.io/shrinkray/'
 featured: true
 sortOrder: 2
 status: active
-lastCommit: '2026-04-21T21:20:55Z'
+lastCommit: '2026-05-12T04:45:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-
+It restores punctuation marks and casing, supports batch processing of multiple texts, and uses the ONNX runtime for inference. Required models are automatically downloaded from Hugging Face on first use and saved locally.

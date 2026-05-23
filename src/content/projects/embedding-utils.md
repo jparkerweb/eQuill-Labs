@@ -8,15 +8,14 @@ tagline: >-
   dependencies,...
 description:
   short: >-
-    TypeScript toolkit for vector math, similarity search, ANN indexing,
-    clustering, async pipelines, and multi-provider embedding generation.
+    A zero-dependency, full-TypeScript collection of JavaScript functions for
+    common embedding tasks.
   long: >-
-    Zero-dependency package bundling search (HNSW, hybrid/RRF), clustering
-    (including HDBSCAN), quantization, random-projection dimensionality
-    reduction, markdown-aware chunking, and evaluation metrics.
-    Provider-agnostic embedding generation across local ONNX, OpenAI, Cohere,
-    and Google Vertex. Targets use cases such as semantic search, RAG,
-    recommendations, duplicate detection, and document clustering.
+    It provides vector math, similarity search, ANN indexing, clustering, async
+    pipelines, evaluation metrics, and multi-provider embedding generation from
+    a single import. It targets semantic search, RAG pipelines, recommendation
+    engines, duplicate detection, and document clustering without pulling in
+    heavy ML frameworks or vector databases.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/embedding-utils/refs/heads/main/embedding-utils.jpg
@@ -44,10 +43,10 @@ links:
 featured: true
 sortOrder: 1
 status: active
-lastCommit: '2026-04-06T20:37:00Z'
+lastCommit: '2026-05-12T04:35:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Zero-dependency package bundling search (HNSW, hybrid/RRF), clustering (including HDBSCAN), quantization, random-projection dimensionality reduction, markdown-aware chunking, and evaluation metrics. Provider-agnostic embedding generation across local ONNX, OpenAI, Cohere, and Google Vertex. Targets use cases such as semantic search, RAG, recommendations, duplicate detection, and document clustering.
+It provides vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation from a single import. It targets semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases.

@@ -5,15 +5,14 @@ slug: replicate-ai-models-for-photoshop-plugin
 tagline: Photoshop Replicate JSX
 description:
   short: >-
-    Photoshop plugin that runs Replicate AI models against your current
-    selection and returns the result as a new layer.
+    A Photoshop plugin that integrates Replicate AI models into your editing
+    workflow.
   long: >-
-    Integrates 8 Replicate-hosted AI models into Photoshop — including Nano
-    Banana, Seedream 4, Flux Kontext Pro/Max, GFPGAN, a background remover,
-    SwinIR, and DDColor — for generation, face restoration, background removal,
-    upscaling, and colorization. The output is placed on a new layer so
-    lighting, shadows, and materials stay consistent with the rest of the
-    composition.
+    It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext,
+    GFPGAN, a background remover, SwinIR, and DDColor — to operate on your
+    selection and output a new layer. Use cases span generation, face
+    restoration, background removal, photo enhancement, and black-and-white
+    colorization.
 banner:
   src: >-
     https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin/raw/main/.readme/replicate-ai-models-for-photoshop-plugin.jpg
@@ -37,10 +36,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T17:01:53Z'
+lastCommit: '2026-05-12T04:38:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Integrates 8 Replicate-hosted AI models into Photoshop — including Nano Banana, Seedream 4, Flux Kontext Pro/Max, GFPGAN, a background remover, SwinIR, and DDColor — for generation, face restoration, background removal, upscaling, and colorization. The output is placed on a new layer so lighting, shadows, and materials stay consistent with the rest of the composition.
+It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext, GFPGAN, a background remover, SwinIR, and DDColor — to operate on your selection and output a new layer. Use cases span generation, face restoration, background removal, photo enhancement, and black-and-white colorization.

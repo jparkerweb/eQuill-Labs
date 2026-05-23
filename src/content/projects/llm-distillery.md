@@ -8,15 +8,14 @@ tagline: >-
   limit,...
 description:
   short: >-
-    Node.js library that uses LLMs with a map-reduce approach to distill large
-    text down to a target token size.
+    Use LLMs to distill large texts down to a manageable size with a map-reduce
+    approach.
   long: >-
-    Intelligently splits text via the `semantic-chunking` library, summarizes
-    each chunk with an OpenAI-compatible LLM, then reduces until the output fits
-    within a configured token budget. `llmDistillery(text, options)` takes
-    parameters such as `targetTokenSize`, `baseUrl`, `apiKey`, `llmModel`, and
-    `stopTokens`. Callable against any OpenAI-compatible endpoint (e.g.,
-    together.ai).
+    It reduces text size based on token count so the result fits within a
+    specified token limit for downstream LLM tasks. It uses the
+    semantic-chunking library to split text into chunks that are then
+    summarized, with customizable parameters like target token size and chunking
+    thresholds.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg
@@ -52,10 +51,10 @@ links:
 featured: true
 sortOrder: 6
 status: active
-lastCommit: '2026-04-17T04:23:50Z'
+lastCommit: '2026-05-12T04:36:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Intelligently splits text via the `semantic-chunking` library, summarizes each chunk with an OpenAI-compatible LLM, then reduces until the output fits within a configured token budget. `llmDistillery(text, options)` takes parameters such as `targetTokenSize`, `baseUrl`, `apiKey`, `llmModel`, and `stopTokens`. Callable against any OpenAI-compatible endpoint (e.g., together.ai).
+It reduces text size based on token count so the result fits within a specified token limit for downstream LLM tasks. It uses the semantic-chunking library to split text into chunks that are then summarized, with customizable parameters like target token size and chunking thresholds.

@@ -7,14 +7,13 @@ tagline: >-
   files with timestamped names.
 description:
   short: >-
-    PowerShell utility that saves clipboard contents to a file with a
-    timestamped filename.
+    A PowerShell utility that saves your clipboard content to organized files
+    with timestamped names.
   long: >-
-    Detects whether the clipboard holds an image or text and saves it as either
-    a JPEG or a UTF-8 text file using a `YYYYMMDD_HHMMSS` filename. Duplicate
-    filenames are resolved by appending a number. Save path and an optional
-    post-save Explorer open are controlled via a generated `clip-to-file.ini`
-    file.
+    It automatically detects whether the clipboard holds an image or text and
+    saves it with a clean timestamp, appending a number to resolve filename
+    conflicts. Configuration is handled through a simple INI file, with optional
+    Explorer integration to reveal the saved file.
 banner:
   src: 'https://github.com/jparkerweb/clip-to-file/raw/main/.readme/clip-to-file.jpg'
   alt: clip-to-file banner
@@ -41,10 +40,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T16:55:03Z'
+lastCommit: '2026-05-12T04:41:02Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Detects whether the clipboard holds an image or text and saves it as either a JPEG or a UTF-8 text file using a `YYYYMMDD_HHMMSS` filename. Duplicate filenames are resolved by appending a number. Save path and an optional post-save Explorer open are controlled via a generated `clip-to-file.ini` file.
+It automatically detects whether the clipboard holds an image or text and saves it with a clean timestamp, appending a number to resolve filename conflicts. Configuration is handled through a simple INI file, with optional Explorer integration to reveal the saved file.

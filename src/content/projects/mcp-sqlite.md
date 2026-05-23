@@ -36,7 +36,7 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 100
+stars: 107
 links:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   homepage: 'https://www.npmjs.com/package/mcp-sqlite'
@@ -47,6 +47,6 @@ lastCommit: '2026-04-05T04:51:05Z'
 _source:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
 Implements CRUD operations plus database exploration, introspection, and custom SQL execution against a SQLite database path passed as a startup argument. Configured in an IDE's MCP settings (Cursor, VSCode) via `npx -y mcp-sqlite <path>`. Exposes tools including `db_info`, `list_tables`, and `get_table_schema`.
