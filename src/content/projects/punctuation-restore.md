@@ -8,14 +8,13 @@ tagline: >-
   https://huggingface.c...
 description:
   short: >-
-    Node.js package that restores punctuation and casing to unpunctuated text
-    using an ONNX model.
+    A cross-platform CLI video compression tool powered by FFmpeg, with a
+    wizard-style TUI built in Go and Charm's Bubble Tea.
   long: >-
-    Wraps the `punctuation_fullstop_truecase_english` ONNX model from Hugging
-    Face and exposes a `PunctuationRestorer` class with a `restore(texts:
-    string[])` method that returns punctuated and cased strings. Models are
-    downloaded on first use and cached under `./models`. Supports batch
-    processing across multiple inputs.
+    It includes 18 built-in presets and hardware acceleration that auto-detects
+    NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. A scriptable
+    headless --no-tui mode with stdin pipe support enables use in CI/CD
+    pipelines.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/punctuation-restore/main/punctuation-restore.jpg
@@ -36,17 +35,17 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 3
+stars: 4
 links:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   homepage: 'https://www.npmjs.com/package/punctuation-restore'
 featured: false
-sortOrder: 997
+sortOrder: 996
 status: active
-lastCommit: '2026-04-17T16:07:15Z'
+lastCommit: '2026-05-12T04:44:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Wraps the `punctuation_fullstop_truecase_english` ONNX model from Hugging Face and exposes a `PunctuationRestorer` class with a `restore(texts: string[])` method that returns punctuated and cased strings. Models are downloaded on first use and cached under `./models`. Supports batch processing across multiple inputs.
+It includes 18 built-in presets and hardware acceleration that auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. A scriptable headless --no-tui mode with stdin pipe support enables use in CI/CD pipelines.

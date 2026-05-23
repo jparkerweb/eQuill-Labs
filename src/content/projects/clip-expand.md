@@ -8,15 +8,14 @@ tagline: >-
   to...
 description:
   short: >-
-    Clipboard-based text expansion tool for Linux, designed for Remote Desktop
-    sessions.
+    A lightweight, clipboard-based text expansion tool for Linux systems,
+    designed with Remote Desktop sessions in mind.
   long: >-
-    Snippets are plain text files in `~/.clipexpand/`, selected through a visual
-    dialog and copied to the clipboard for pasting in local or remote sessions.
-    Because it operates via the clipboard, it works in RDP, VNC, and
-    SSH-with-X-forwarding scenarios, not just local X11/Wayland. An install
-    script sets up dependencies (`zenity`, `xsel`, `libnotify-bin`) and a
-    Ctrl+Shift+T keyboard shortcut.
+    It copies text snippets to the clipboard for easy pasting, drawing from
+    simple text files in the ~/.clipexpand/ directory accessed via a
+    customizable keyboard shortcut. A visual dialog handles snippet selection,
+    with subdirectory support for organization and toast notifications for
+    confirmation.
 banner:
   src: 'https://github.com/jparkerweb/clip-expand/raw/main/.readme/clip-expand.jpg'
   alt: clip-expand banner
@@ -39,10 +38,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T17:00:23Z'
+lastCommit: '2026-05-12T04:39:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-expand'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Snippets are plain text files in `~/.clipexpand/`, selected through a visual dialog and copied to the clipboard for pasting in local or remote sessions. Because it operates via the clipboard, it works in RDP, VNC, and SSH-with-X-forwarding scenarios, not just local X11/Wayland. An install script sets up dependencies (`zenity`, `xsel`, `libnotify-bin`) and a Ctrl+Shift+T keyboard shortcut.
+It copies text snippets to the clipboard for easy pasting, drawing from simple text files in the ~/.clipexpand/ directory accessed via a customizable keyboard shortcut. A visual dialog handles snippet selection, with subdirectory support for organization and toast notifications for confirmation.

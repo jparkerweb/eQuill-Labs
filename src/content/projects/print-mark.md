@@ -4,12 +4,12 @@ name: print-mark
 slug: print-mark
 tagline: 'Convert Markdown to clean, printable HTML with PDF export'
 description:
-  short: Converts Markdown to printable HTML with live preview and PDF export.
+  short: 'Convert Markdown to clean, printable HTML with PDF export.'
   long: >-
-    Provides a live preview editor with nine print-optimized themes and syntax
-    highlighting via Shiki. PDF export supports customizable page sizes,
-    margins, and page numbers. Runs locally via Node.js or as a Docker container
-    from `ghcr.io/jparkerweb/print-mark`.
+    It provides a live preview with real-time rendering, 9 print-optimized
+    themes, and PDF export with customizable page sizes, margins, and page
+    numbers. Code is highlighted with Shiki, and the design is stateless with no
+    account required.
 banner:
   src: 'https://github.com/jparkerweb/print-mark/raw/main/.readme/print-mark.jpg'
   alt: print-mark banner
@@ -42,10 +42,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T16:56:14Z'
+lastCommit: '2026-05-12T04:40:41Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Provides a live preview editor with nine print-optimized themes and syntax highlighting via Shiki. PDF export supports customizable page sizes, margins, and page numbers. Runs locally via Node.js or as a Docker container from `ghcr.io/jparkerweb/print-mark`.
+It provides a live preview with real-time rendering, 9 print-optimized themes, and PDF export with customizable page sizes, margins, and page numbers. Code is highlighted with Shiki, and the design is stateless with no account required.

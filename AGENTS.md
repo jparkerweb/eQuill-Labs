@@ -53,7 +53,7 @@ The `equill-labs-update` Skill is permitted to write only to:
 
 Everything else is **hand-authored** and must **never be auto-edited** by the Skill:
 
-- `src/templates/`, `src/layouts/`, `src/components/`
+- `src/templates/`, `src/layouts/`, `src/components/` *(includes the Umami analytics snippet in `BaseLayout.astro` — see [Analytics](#analytics))*
 - `src/content/pages/*.md`
 - `src/styles/`
 - `astro.config.mjs`, `package.json`, `tsconfig.json`
@@ -134,6 +134,61 @@ There are **two ways to feature** a repository:
 ## Design Direction (locked)
 
 The visual identity was locked in Phase 4 as **"The Quill & Slash"**. The canonical reference is [`specs/equill-labs-v2/DESIGN-DECISION.md`](./specs/equill-labs-v2/DESIGN-DECISION.md); token values live in `src/styles/tokens.css` and theme-specific values in `src/styles/themes/{dark,light}.css`. Treat those files as source of truth — don't introduce one-off color or spacing literals in component CSS.
+
+---
+
+## Analytics
+
+The site is instrumented with **self-hosted [Umami](https://umami.is/)** running on the maintainer's home server.
+
+| Field | Value |
+|---|---|
+| Tracker host | `https://umami.jparkerweb.com` |
+| Tracker script | `https://umami.jparkerweb.com/script.js` |
+| Website ID | `2bf560c7-82c3-442c-8fda-63ceaa2348cf` |
+| Allowed domains | `equilllabs.com`, `www.equilllabs.com` |
+| Snippet location | `src/layouts/BaseLayout.astro` (in `<head>`, after `<ClientRouter />`) |
+| Compose stack | `docker-compose-library/parker-lab/umami/` (separate repo) |
+
+### How it works
+
+- Umami is **cookieless** and GDPR-compliant by default — no consent banner needed.
+- The snippet uses `data-domains` so events only fire on the production hostnames. **`localhost`, GitHub Codespaces previews, and PR previews are silently ignored** — dev work never pollutes stats.
+- Astro's `ClientRouter` performs SPA-style navigation. Umami's tracker auto-listens to `history.pushState` / `popstate`, so SPA route changes are captured as separate pageviews **without any extra wiring**.
+- The script is loaded with `is:inline defer` so Astro doesn't try to bundle it, and it doesn't block page rendering.
+
+### Adding a new page
+
+**You don't need to do anything.** Every page in `src/pages/**` ultimately renders through `BaseLayout.astro` (directly, or via `ProjectLayout.astro` which wraps `BaseLayout`). Tracking is inherited automatically.
+
+If you ever introduce a new top-level layout that does **not** wrap `BaseLayout`, copy the `<script>` block from `BaseLayout.astro` (lines ~49–54) into the new layout's `<head>`. Use the same `data-website-id` — one Umami "website" covers the whole domain.
+
+### Custom event tracking (optional)
+
+To track a specific interaction (e.g., a project card click), call `umami.track()` from any client-side script:
+
+```js
+// Simple named event
+window.umami?.track('project-card-click');
+
+// With properties
+window.umami?.track('project-card-click', { slug: 'semantic-chunking' });
+```
+
+The `?.` chain makes it a no-op when Umami is blocked or not loaded — never throw on missing tracker.
+
+### Do NOT
+
+- **Do not** change `data-website-id` — it's bound to the website record in Umami; changing it loses historical continuity.
+- **Do not** remove `data-domains` — without it, every dev/preview pageview is recorded.
+- **Do not** swap the `src=` to a CDN-hosted Umami Cloud URL unless you're explicitly migrating off self-hosting.
+- **Do not** add Google Analytics, Plausible, Fathom, or any other tracker alongside Umami without an explicit ask — the site is intentionally single-tracker and cookie-free.
+
+### If the tracker breaks
+
+1. **No data showing up?** Check the Umami container is running (`docker ps | grep umami` on the server) and that `https://umami.jparkerweb.com/script.js` returns 200 in a browser.
+2. **CORS errors in console?** The Umami container needs to accept requests from `equilllabs.com`. By default it allows all origins; if `CORS_MAX_AGE` or a reverse-proxy header was changed, restore the default.
+3. **Ad-blocker false positives** — uBlock Origin and similar block `/script.js` paths from analytics-shaped hostnames. To dodge this, set `TRACKER_SCRIPT_NAME=stats.js` in the Umami container env, then update `src=` in `BaseLayout.astro` to match. Document the rename here if done.
 
 ---
 

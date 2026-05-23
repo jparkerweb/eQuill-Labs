@@ -8,14 +8,13 @@ tagline: >-
   CSS.
 description:
   short: >-
-    Self-hosted dashboard for curating and managing frequently visited links,
-    built with vanilla JS, Node.js, and Tailwind.
+    A lightweight, self-hosted web application for curating and managing your
+    frequently visited links.
   long: >-
-    Supports grid, list, or cards layouts with dark/light themes, tag-based
-    organization, search, and drag-and-drop ordering. Password-hashed
-    authentication, CSRF protection, rate limiting, and JSON import/export are
-    built in. Ships as a Docker image and works behind a reverse proxy via
-    `BASE_PATH`.
+    Built with vanilla JavaScript, Node.js, and Tailwind CSS, it offers grid,
+    list, or cards layouts, password-hashed login with session management, tags,
+    and search. It supports Docker deployment, JSON import/export, and
+    installation as an app on mobile devices.
 banner:
   src: 'https://github.com/jparkerweb/simple-linkz/raw/main/.readme/simple-linkz.jpg'
   alt: simple-linkz banner
@@ -47,10 +46,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T16:51:04Z'
+lastCommit: '2026-05-12T04:41:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Supports grid, list, or cards layouts with dark/light themes, tag-based organization, search, and drag-and-drop ordering. Password-hashed authentication, CSRF protection, rate limiting, and JSON import/export are built in. Ships as a Docker image and works behind a reverse proxy via `BASE_PATH`.
+Built with vanilla JavaScript, Node.js, and Tailwind CSS, it offers grid, list, or cards layouts, password-hashed login with session management, tags, and search. It supports Docker deployment, JSON import/export, and installation as an app on mobile devices.

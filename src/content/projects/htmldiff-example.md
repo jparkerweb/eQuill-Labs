@@ -37,6 +37,6 @@ lastCommit: '2026-04-17T15:12:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
 A minimal demo page that runs `htmldiff.js` in the browser to visualize differences between HTML inputs. A live demo is hosted at `jparkerweb.github.io/htmldiff-example/index.html`.

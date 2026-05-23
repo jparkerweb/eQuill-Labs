@@ -7,14 +7,13 @@ tagline: >-
   using keyboard shortcuts.
 description:
   short: >-
-    Chrome extension for selecting and deleting Board Game Geek forum posts via
-    keyboard shortcuts.
+    A Chrome extension to select and delete forum posts from your Board Game
+    Geek subscription list using keyboard shortcuts.
   long: >-
-    Adds hotkeys that work on the BGG Subscriptions Feed page and on forum
-    Thread pages. The v2.0.0 rewrite supports the new Angular-based
-    Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver`
-    so it adapts when BGG tweaks class names or IDs. The existing keymap is
-    unchanged from the original version.
+    Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages.
+    Version 2.0.0 rewrites the subscriptions logic around heuristic DOM
+    discovery plus a MutationObserver so it adapts when BGG tweaks class names
+    or ids instead of breaking outright.
 banner:
   src: >-
     https://github.com/jparkerweb/bgg-keyboard-select/blob/main/BGG-Keyboard-Forum-Selector.jpg?raw=true
@@ -39,10 +38,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T15:08:18Z'
+lastCommit: '2026-05-12T04:42:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-Adds hotkeys that work on the BGG Subscriptions Feed page and on forum Thread pages. The v2.0.0 rewrite supports the new Angular-based Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver` so it adapts when BGG tweaks class names or IDs. The existing keymap is unchanged from the original version.
+Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic around heuristic DOM discovery plus a MutationObserver so it adapts when BGG tweaks class names or ids instead of breaking outright.

@@ -6,8 +6,12 @@ tagline: >-
   Simply Dark is a Chrome extension that provides a customizable dark mode for
   any website.
 description:
-  short: "\U0001F313 simple dark-mode chrome extension"
-  long: ''
+  short: A Chrome extension that provides a customizable dark mode for any website.
+  long: >-
+    It can toggle dark mode on or off for individual websites and persists
+    settings across browser sessions. You can customize background, text, link,
+    and border colors, which preview live on the active page as you drag each
+    picker.
 banner:
   src: 'https://github.com/jparkerweb/simply-dark/blob/main/simply-dark.jpg?raw=true'
   alt: simply-dark banner
@@ -34,10 +38,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-04-21T20:35:47Z'
+lastCommit: '2026-05-12T04:37:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/simply-dark'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-
+It can toggle dark mode on or off for individual websites and persists settings across browser sessions. You can customize background, text, link, and border colors, which preview live on the active page as you drag each picker.

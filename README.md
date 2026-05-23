@@ -188,6 +188,10 @@ The derivation checks rules in priority order — the **first rule that matches 
 - **About** (`/about/`) — Bio, focus areas, timeline
 - **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images
 
+## Analytics
+
+The site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.
+
 ## Theming
 
 Dark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.

@@ -38,7 +38,7 @@ languages:
     percent: 1.43
   - name: JavaScript
     percent: 98.57
-stars: 191
+stars: 197
 links:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   homepage: 'https://www.equilllabs.com/projects/pixel-banner.html'
@@ -49,6 +49,6 @@ lastCommit: '2026-04-17T15:05:23Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
 Supports AI-generated banners, a Pixel Banner Plus Collection of images and videos, and fetching from Pexels, Pixabay, Flickr, and Unsplash via their APIs. Vault-local images, external files via `file:///`, and direct URLs are all accepted as sources, with MP4/MOV video banner support. Placement, transparency, border radius, and animation are configurable per-note via Obsidian properties.

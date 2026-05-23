@@ -7,8 +7,13 @@ tagline: >-
   (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent
   chat s...
 description:
-  short: "\U0001F999 Queue tha Llama ⇢ LLM-powered web chat application, featuring efficient queue management and real-time client activity tracking "
-  long: ''
+  short: >-
+    A web-based chat application that integrates LLM capabilities with Bull
+    Queue, Redis, and Chroma.
+  long: >-
+    It handles concurrent chat sessions with queue management and maintains
+    client-server communication with heartbeat signals. It uses a RAG model for
+    chat memory and manages inactive clients and job cleanups.
 banner:
   src: >-
     https://github.com/jparkerweb/queue-tha-llama/blob/main/public/img/logo.png?raw=true
@@ -31,16 +36,16 @@ languages:
     percent: 9.97
   - name: PowerShell
     percent: 9.01
-stars: 1
+stars: 2
 links:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
 featured: false
-sortOrder: 999
+sortOrder: 998
 status: active
 lastCommit: '2026-04-21T18:32:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-04-22T05:07:51.713Z'
+  fetchedAt: '2026-05-23T16:47:25.737Z'
 ---
-
+It handles concurrent chat sessions with queue management and maintains client-server communication with heartbeat signals. It uses a RAG model for chat memory and manages inactive clients and job cleanups.
