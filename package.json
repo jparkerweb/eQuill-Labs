@@ -21,16 +21,16 @@
     "test:lighthouse": "lhci autorun"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@axe-core/playwright": "^4.11.1",
+    "@astrojs/check": "^0.9.9",
+    "@axe-core/playwright": "^4.11.3",
     "@lhci/cli": "^0.15.1",
-    "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0",
-    "html-validate": "^10.13.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "html-validate": "^10.17.0",
     "pagefind": "^1.5.2",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.3",
     "typescript": "^5.9.3"
   },
   "overrides": {
@@ -38,22 +38,22 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource-variable/geist": "^5.2.8",
-    "@fontsource-variable/geist-mono": "^5.2.7",
+    "@fontsource-variable/geist": "^5.2.9",
+    "@fontsource-variable/geist-mono": "^5.2.8",
     "@fontsource/geist-sans": "^5.2.5",
     "@fontsource/instrument-serif": "^5.2.8",
     "@octokit/graphql": "^9.0.3",
     "@resvg/resvg-js": "^2.6.2",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.7",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.7",
     "gray-matter": "^4.0.3",
     "lucide-astro": "^0.556.0",
     "mdast-util-to-string": "^4.0.0",
-    "motion": "^12.38.0",
+    "motion": "^12.40.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "satori": "^0.26.0",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.3.0",
     "unified": "^11.0.5"
   }
 }
