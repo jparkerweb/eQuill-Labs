@@ -417,9 +417,12 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     padding: 6px 10px;
     border-radius: 8px;
     font-size: 14px;
-    border: 1px solid rgb(var(--border));
+    border: 1px solid transparent;
     background: rgb(var(--surface-2));
-    transition: border-color 200ms ease;
+    transition:
+      transform 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
   }
   .links a::before {
     content: '';
@@ -443,18 +446,23 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 200ms ease;
-    pointer-events: none;
-  }
-  .meta:hover .links a,
-  .meta:focus-within .links a {
-    border-color: transparent;
-  }
-  .meta:hover .links a::before,
-  .meta:focus-within .links a::before {
     opacity: 1;
     animation: links-trace 4s linear infinite;
+    pointer-events: none;
+  }
+  /* Subtle per-link reaction on mouse over */
+  .links a svg {
+    transition: transform 200ms ease;
+  }
+  .links a:hover,
+  .links a:focus-visible {
+    transform: translateX(3px);
+    background: rgb(var(--surface-1));
+    box-shadow: 0 6px 18px -12px rgb(var(--accent) / 0.7);
+  }
+  .links a:hover svg,
+  .links a:focus-visible svg {
+    transform: translateX(2px);
   }
 
   @keyframes links-trace {
@@ -464,13 +472,16 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .meta:hover .links a::before,
-    .meta:focus-within .links a::before {
+    .links a::before {
       animation: none;
     }
-    .meta:hover .links a,
-    .meta:focus-within .links a {
-      border-color: rgb(var(--accent));
+    .links a:hover,
+    .links a:focus-visible {
+      transform: none;
+    }
+    .links a:hover svg,
+    .links a:focus-visible svg {
+      transform: none;
     }
   }
 </style>
