@@ -8,6 +8,41 @@ import { stableStringify } from './lib/sort-keys.ts';
 const OWNER = 'jparkerweb';
 const OUT_PATH = 'data/github-snapshot.json';
 
+// Resilience tuning for GitHub's GraphQL API. The repos query is heavy (full
+// README text × 100 repos/page), and GitHub periodically times out on it,
+// returning a transient 502/503/504. Retry those with exponential backoff.
+const MAX_ATTEMPTS = 5; // total tries per page before giving up
+const BASE_DELAY_MS = 1000; // first backoff; doubles each retry
+const MAX_DELAY_MS = 15000; // backoff ceiling
+const PAGE_PAUSE_MS = 500; // polite pause between successful pages
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Decide whether a failed GraphQL request is worth retrying. Transient =
+ * gateway/timeout/connection errors and secondary rate limits. Anything that
+ * looks like bad credentials or a malformed query is fatal — retrying wastes
+ * time and (for rate limits) digs the hole deeper.
+ */
+function isTransient(err: unknown): boolean {
+	const e = err as { status?: number; message?: string; code?: string };
+	const status = e?.status;
+	if (status === 502 || status === 503 || status === 504) return true;
+	if (status === 401 || status === 403) {
+		// 403 is usually bad scope/credentials — fatal — UNLESS it's a
+		// secondary/abuse rate limit, which is transient.
+		return /rate limit|secondary|abuse/i.test(e?.message ?? '');
+	}
+	const code = e?.code ?? '';
+	if (['ECONNRESET', 'ETIMEDOUT', 'ENOTFOUND', 'EAI_AGAIN', 'ECONNREFUSED'].includes(code)) {
+		return true;
+	}
+	// The HTML 502 page from nginx surfaces as a plain message, not a status.
+	return /502|503|504|bad gateway|gateway time-?out|service unavailable|timeout|socket hang up/i.test(
+		e?.message ?? ''
+	);
+}
+
 type Repo = {
 	name: string;
 	description: string | null;
@@ -69,26 +104,61 @@ async function fetchAll(token: string) {
 	let profile: QueryResponse['user'] | null = null;
 	const allRepos: Repo[] = [];
 	let cursor: string | null = null;
+	let page = 0;
+
+	process.stderr.write(`→ Fetching repositories for @${OWNER} from GitHub…\n`);
 
 	while (true) {
-		let response: QueryResponse;
-		try {
-			response = await client<QueryResponse>(USER_REPOS_QUERY, {
-				login: OWNER,
-				cursor,
-			});
-		} catch (err) {
+		page++;
+		let response: QueryResponse | null = null;
+
+		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+			try {
+				response = await client<QueryResponse>(USER_REPOS_QUERY, {
+					login: OWNER,
+					cursor,
+				});
+				break; // success
+			} catch (err) {
+				const last = attempt === MAX_ATTEMPTS;
+				if (last || !isTransient(err)) {
+					console.error('ERR_GRAPHQL');
+					console.error((err as Error).message);
+					process.exit(2);
+				}
+				const delay = Math.min(BASE_DELAY_MS * 2 ** (attempt - 1), MAX_DELAY_MS);
+				const jitter = Math.floor(Math.random() * 250);
+				const wait = delay + jitter;
+				console.warn(
+					`Transient GraphQL error (attempt ${attempt}/${MAX_ATTEMPTS}), retrying in ${wait}ms: ${(err as Error).message.split('\n')[0]}`
+				);
+				await sleep(wait);
+			}
+		}
+
+		// Unreachable in practice — the loop either breaks on success or
+		// process.exit()s on failure — but keeps the type checker happy.
+		if (!response) {
 			console.error('ERR_GRAPHQL');
-			console.error((err as Error).message);
+			console.error('exhausted retries without a response');
 			process.exit(2);
 		}
 
 		if (!profile) profile = response.user;
-		allRepos.push(...response.user.repositories.nodes);
+		const batch = response.user.repositories.nodes;
+		allRepos.push(...batch);
 
-		if (!response.user.repositories.pageInfo.hasNextPage) break;
+		const hasMore = response.user.repositories.pageInfo.hasNextPage;
+		process.stderr.write(
+			`  page ${page}: +${batch.length} repos (${allRepos.length} total)${hasMore ? ', fetching more…' : ''}\n`
+		);
+
+		if (!hasMore) break;
 		cursor = response.user.repositories.pageInfo.endCursor;
+		await sleep(PAGE_PAUSE_MS); // be polite between pages
 	}
+
+	process.stderr.write(`✓ Fetched ${allRepos.length} repositories across ${page} page(s)\n`);
 
 	return { profile: profile!, repos: allRepos };
 }
@@ -99,6 +169,10 @@ async function main() {
 	const { profile, repos } = await fetchAll(token);
 
 	const filtered = repos.filter((r) => !r.isArchived && !r.isFork);
+	const excluded = repos.length - filtered.length;
+	process.stderr.write(
+		`  filtered ${repos.length} → ${filtered.length} (excluded ${excluded} archived/forks)\n`
+	);
 
 	if (dryRun) {
 		console.log(`Total repos fetched: ${repos.length}`);

@@ -34,7 +34,10 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "vite": "^7"
+    "vite": "^7",
+    "tmp": "^0.2.5",
+    "uuid": "^11.1.1",
+    "yaml": "^2.9.0"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
