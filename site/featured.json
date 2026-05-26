@@ -3,9 +3,9 @@
     "semantic-chunking",
     "embedding-utils",
     "shrinkray",
+    "ai-assistant-skills",
     "pixel-banner",
     "mcp-sqlite",
-    "bedrock-wrapper",
     "llm-distillery",
     "fast-topic-analysis"
   ],

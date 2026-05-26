@@ -40,6 +40,6 @@ lastCommit: '2026-04-17T15:25:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Stores email payloads as `.json` files in an `./emails` directory and iterates through them to send via SMTP. A `userconfig.json` holds SMTP server and authentication settings and is created interactively on first run. A `--email` flag supports non-interactive sending without the UI.

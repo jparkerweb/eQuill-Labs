@@ -46,6 +46,6 @@ lastCommit: '2026-05-12T04:44:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/punctuation-restore'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It includes 18 built-in presets and hardware acceleration that auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. A scriptable headless --no-tui mode with stdin pipe support enables use in CI/CD pipelines.

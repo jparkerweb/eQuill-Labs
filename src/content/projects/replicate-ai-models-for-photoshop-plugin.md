@@ -40,6 +40,6 @@ lastCommit: '2026-05-12T04:38:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext, GFPGAN, a background remover, SwinIR, and DDColor — to operate on your selection and output a new layer. Use cases span generation, face restoration, background removal, photo enhancement, and black-and-white colorization.

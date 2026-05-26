@@ -54,6 +54,6 @@ lastCommit: '2025-01-03T14:48:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/down-craft'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` under the hood, with optional vLLM-based OCR (OpenAI API) for PDFs. The `downCraft(fileBuffer, fileType?, options?)` function auto-detects file type when not specified. For PDFs, `pdfConverterType` selects between `standard`, `llm`, and `ocr` converters.

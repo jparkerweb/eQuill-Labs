@@ -40,6 +40,6 @@ lastCommit: '2026-04-17T16:19:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/ollama-structured-output-test'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts. Uses the `ollama` client along with `zod` and `zod-to-json-schema` to describe the expected shape. Configured via `OLLAMA_HOST` and `OLLAMA_MODEL` environment variables.

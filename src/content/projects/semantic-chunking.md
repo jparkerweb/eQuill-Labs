@@ -54,6 +54,6 @@ lastCommit: '2026-04-17T14:46:10Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Splits input into sentences, generates embeddings using a configurable ONNX model, computes cosine similarity between pairs, and groups sentences into chunks by similarity threshold and max token size. Supports dynamic thresholds, chunk rebalancing, quantized models, and RAG-style chunk prefixes. Includes a Web UI for experimenting with settings, runnable via Docker Compose.

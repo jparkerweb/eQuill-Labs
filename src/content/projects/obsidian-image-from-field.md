@@ -41,6 +41,6 @@ lastCommit: '2026-05-12T04:43:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It reads the image URL from a frontmatter or inline field and renders the image, avoiding duplication when the URL is already stored for Dataview queries. It also accepts size and alignment values. Live preview is not supported.

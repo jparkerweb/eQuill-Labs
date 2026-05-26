@@ -38,6 +38,6 @@ lastCommit: '2026-05-12T04:42:47Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-bullet-cards'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It depends on the obsidian-element-enhancer script to inject custom classes into the Reading View. Modifier classes can be mixed and matched to control card alignment, vertical stacking, and width. Live preview is not supported.

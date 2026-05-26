@@ -41,6 +41,6 @@ lastCommit: '2026-05-12T04:43:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It preserves images, shapes, and text formatting, and includes OCR support for text extraction from images. The responsive output is delivered as a modern ESM package.

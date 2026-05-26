@@ -48,6 +48,6 @@ lastCommit: '2023-05-25T14:33:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Enforces a grouping structure so visual regression suites scale from small to large projects without overwhelming complexity, and exposes all BackstopJS commands through the interface. Tests are authored via object files stored under `bivariate_data/test_scripts`, with Puppeteer interactions in `engine_scripts` and archived references in `bitmaps_reference_archive`. Runs on Node.js and uses headless Chrome (v59+).

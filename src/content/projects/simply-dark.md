@@ -42,6 +42,6 @@ lastCommit: '2026-05-12T04:37:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/simply-dark'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It can toggle dark mode on or off for individual websites and persists settings across browser sessions. You can customize background, text, link, and border colors, which preview live on the active page as you drag each picker.

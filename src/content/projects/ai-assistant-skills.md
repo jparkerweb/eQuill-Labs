@@ -6,14 +6,8 @@ tagline: >-
   A collection of AI agent skills that automate recurring engineering workflows
   that can be installed across multiple AI coding assistants.
 description:
-  short: >-
-    A collection of AI agent skills that automate recurring engineering
-    workflows, installable across multiple AI coding assistants.
-  long: >-
-    Skills are installed globally via skills.sh and auto-detected by 40+ AI
-    agents including Claude Code, Cursor, Windsurf, and GitHub Copilot. A single
-    command removes any stale or renamed skills, then installs the latest
-    version of every skill from the repo.
+  short: "\U0001F4CF Collection of prompts/rules for use within AI Agent settings"
+  long: ''
 banner:
   src: >-
     https://github.com/jparkerweb/ai-assistant-skills/blob/main/ai-assistant-skills.jpg?raw=true
@@ -33,13 +27,13 @@ languages:
 stars: 82
 links:
   repo: 'https://github.com/jparkerweb/ai-assistant-skills'
-featured: false
-sortOrder: 918
+featured: true
+sortOrder: 3
 status: active
-lastCommit: '2026-05-23T16:46:10Z'
+lastCommit: '2026-05-23T21:34:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-assistant-skills'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
-Skills are installed globally via skills.sh and auto-detected by 40+ AI agents including Claude Code, Cursor, Windsurf, and GitHub Copilot. A single command removes any stale or renamed skills, then installs the latest version of every skill from the repo.
+

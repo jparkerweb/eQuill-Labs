@@ -42,6 +42,6 @@ lastCommit: '2026-05-12T04:42:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic around heuristic DOM discovery plus a MutationObserver so it adapts when BGG tweaks class names or ids instead of breaking outright.

@@ -40,13 +40,13 @@ stars: 9
 links:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   homepage: 'https://www.npmjs.com/package/bedrock-wrapper'
-featured: true
-sortOrder: 5
+featured: false
+sortOrder: 991
 status: active
 lastCommit: '2026-05-16T13:18:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 You provide your AWS credentials and an OpenAI chat completions object, and the wrapper handles inference against Bedrock models. It can be paired with the Bedrock Proxy Endpoint project to spin up a custom OpenAI server endpoint using the standard baseUrl and apiKey params.

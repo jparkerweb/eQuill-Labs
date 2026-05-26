@@ -50,6 +50,6 @@ lastCommit: '2026-05-12T04:45:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It restores punctuation marks and casing, supports batch processing of multiple texts, and uses the ONNX runtime for inference. Required models are automatically downloaded from Hugging Face on first use and saved locally.

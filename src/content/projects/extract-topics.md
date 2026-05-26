@@ -39,6 +39,6 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on the `ldawithmorelanguages` project.

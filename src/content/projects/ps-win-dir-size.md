@@ -40,6 +40,6 @@ lastCommit: '2026-05-12T04:42:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 It works with both local and network SMB paths and shows real-time progress as directories are scanned, and an interrupted scan can resume from where it left off. It displays the largest directories ranked by size and gracefully continues when access is denied to specific folders.

@@ -50,6 +50,6 @@ lastCommit: '2026-04-17T04:47:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-05-23T16:47:25.737Z'
+  fetchedAt: '2026-05-26T05:14:33.875Z'
 ---
 Rephrases user queries for web search, fetches results from a SearXNG instance, summarizes the content, and generates a final response via an OpenAI-compatible API (supporting Ollama, together.ai, llama.cpp). Streams responses for real-time output and implements content similarity checks with repetition detection. Ships with an interactive CLI and detailed logging.
