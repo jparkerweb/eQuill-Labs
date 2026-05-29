@@ -101,7 +101,7 @@ When rendering project content, the pipeline scrapes each repo's README for extr
 | Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |
 | Tagline | First paragraph after the H1 | Card tagline + project page subtitle |
 | Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |
-| **Demo link** | **Any `<a>` tag with `data-tag="demo"`**, e.g. `<a href="https://semantic-chunking.equilllabs.com/" data-tag="demo">semantic-chunking.equilllabs.com</a>` | "Demo" link on the project page sidebar, rendered above the Repository link |
+| Demo link | Any `<a>` tag with `data-tag="demo"` , e.g. `<a href="https://semantic-chunking.equilllabs.com/" data-tag="demo">semantic-chunking.equilllabs.com</a>` | "Demo" link on the project page sidebar, rendered above the Repository link |
 | Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |
 
 The `data-tag="demo"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.
