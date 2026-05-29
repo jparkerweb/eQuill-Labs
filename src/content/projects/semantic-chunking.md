@@ -46,6 +46,7 @@ languages:
 stars: 140
 links:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
+  demo: 'https://semantic-chunking.equilllabs.com/'
   homepage: 'https://www.npmjs.com/package/semantic-chunking'
 featured: true
 sortOrder: 0

@@ -95,24 +95,25 @@ export function parseReadme(markdown: string): ReadmeExtract {
 
 	// demos: HTML <a data-tag="demo"> takes priority (explicit marker authored by repo owner),
 	// followed by markdown links whose label or URL matches demo-ish text.
+	//
+	// Scan the raw markdown rather than AST html nodes: remark splits *inline* HTML
+	// (e.g. an <a> inside a heading) into separate open-tag/content/close-tag nodes, so
+	// the full <a>…</a> never appears in a single node value. The source string always
+	// keeps it contiguous, which catches both inline and block-level anchors.
 	const taggedDemos: Array<{ label: string; url: string }> = [];
-	walk(tree, (node) => {
-		if (node.type !== 'html') return;
-		const html = (node as { value?: string }).value ?? '';
-		const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-		for (const match of html.matchAll(anchorRe)) {
-			const attrs = match[1] ?? '';
-			const inner = match[2] ?? '';
-			const dataTag = /\bdata-tag\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
-			if (!dataTag || dataTag.toLowerCase() !== 'demo') continue;
-			const href = /\bhref\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
-			if (!href) continue;
-			const label = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() || href;
-			if (!taggedDemos.some((d) => d.url === href)) {
-				taggedDemos.push({ label, url: href });
-			}
+	const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+	for (const match of markdown.matchAll(anchorRe)) {
+		const attrs = match[1] ?? '';
+		const inner = match[2] ?? '';
+		const dataTag = /\bdata-tag\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
+		if (!dataTag || dataTag.toLowerCase() !== 'demo') continue;
+		const href = /\bhref\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
+		if (!href) continue;
+		const label = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() || href;
+		if (!taggedDemos.some((d) => d.url === href)) {
+			taggedDemos.push({ label, url: href });
 		}
-	});
+	}
 	for (const d of taggedDemos) result.demos.push(d);
 
 	walk(tree, (node) => {

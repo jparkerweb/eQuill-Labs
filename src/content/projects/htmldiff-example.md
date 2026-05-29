@@ -30,6 +30,7 @@ languages:
 stars: 4
 links:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
+  demo: 'http://jparkerweb.github.io/htmldiff-example/index.html'
 featured: false
 sortOrder: 996
 status: active

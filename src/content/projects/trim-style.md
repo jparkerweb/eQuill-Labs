@@ -37,6 +37,7 @@ languages:
 stars: 1
 links:
   repo: 'https://github.com/jparkerweb/trim-style'
+  demo: 'https://trim-style.equilllabs.com/'
   homepage: 'https://trim-style.dyndns.org/'
 featured: false
 sortOrder: 999
