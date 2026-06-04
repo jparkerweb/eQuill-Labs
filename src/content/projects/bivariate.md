@@ -5,16 +5,19 @@ slug: bivariate
 tagline: 'An opinionated interface for writing, running, and saving BackstopJS tests'
 description:
   short: >-
-    Opinionated interface for writing, running, and saving BackstopJS visual
+    An opinionated interface for writing, running, and saving BackstopJS visual
     regression tests.
   long: >-
-    Enforces a grouping structure so visual regression suites scale from small
-    to large projects without overwhelming complexity, and exposes all
-    BackstopJS commands through the interface. Tests are authored via object
-    files stored under `bivariate_data/test_scripts`, with Puppeteer
-    interactions in `engine_scripts` and archived references in
-    `bitmaps_reference_archive`. Runs on Node.js and uses headless Chrome
-    (v59+).
+    An opinionated interface for writing, running, and saving BackstopJS tests,
+    aimed at making visual regression testing approachable for projects of any
+    size without overwhelming complexity. It enforces a grouping structure and
+    lets tests be written as manageable JavaScript object files rather than a
+    single BackstopJS JSON config, while exposing all of BackstopJS's commands
+    through the interface. All tests, scripts, and configuration live under a
+    `bivariate_data` folder, with separate areas for test scripts, Puppeteer
+    engine scripts that interact with the Chrome DOM before screenshots, and an
+    archive of reference bitmaps. It runs on Node and headless Chrome, and is
+    typically installed globally via npm.
 banner:
   src: bivariate.png
   alt: Bivariate banner
@@ -48,6 +51,36 @@ lastCommit: '2023-05-25T14:33:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Enforces a grouping structure so visual regression suites scale from small to large projects without overwhelming complexity, and exposes all BackstopJS commands through the interface. Tests are authored via object files stored under `bivariate_data/test_scripts`, with Puppeteer interactions in `engine_scripts` and archived references in `bitmaps_reference_archive`. Runs on Node.js and uses headless Chrome (v59+).
+An opinionated interface for writing, running, and saving BackstopJS tests, aimed at making visual regression testing approachable for projects of any size without overwhelming complexity. It enforces a grouping structure and lets tests be written as manageable JavaScript object files rather than a single BackstopJS JSON config, while exposing all of BackstopJS's commands through the interface. All tests, scripts, and configuration live under a `bivariate_data` folder, with separate areas for test scripts, Puppeteer engine scripts that interact with the Chrome DOM before screenshots, and an archive of reference bitmaps. It runs on Node and headless Chrome, and is typically installed globally via npm.
+
+## Installation
+
+**Bivariate** runs in [Node](https://nodejs.org).
+
+* Install [NodeJS](https://nodejs.org)
+
+* Install the Latest version of Bivariate via NPM.  
+It is *recommended* to install Bivariate *globally*, but it can run locally if required:  
+  
+  global install (*recommended*):  
+  `npm install bivariate -g`
+
+  local install:  
+  `npm install bivariate`
+
+* Ensure you have version 59 or greater of [Chrome](https://www.google.com/chrome/browser/) installed.
+  Bivariate utilizes headless Chrome which started shipping in Chrome v59
+
+* From your project directory, run Bivariate:  
+  if installed globally:  
+  `bivariate`
+
+  if only installed locally:  
+  `npx bivariate`
+  
+* Generate `bivariate_data`:  
+  If Bivariate doesn't detect any existing Bivarte tests it will ask you would like to generate the starting configuration files.  
+
+  ![Bivariate App](https://raw.githubusercontent.com/jparkerweb/Bivariate/master/documentation/first-run.gif)

@@ -7,15 +7,19 @@ tagline: >-
   embeddings and cosine similarity.
 description:
   short: >-
-    Tool that analyzes text against predefined topics using weighted-average
+    A tool for analyzing text against predefined topics using average weight
     embeddings and cosine similarity.
   long: >-
-    Creates multiple weighted-average embeddings per topic by clustering similar
-    phrases via agglomerative or HDBSCAN algorithms, capturing semantic
-    variations. Provides preset configurations for high precision, balanced, and
-    performance use cases, and reports per-cluster cohesion plus a global
-    silhouette score. Vector math and clustering are provided by
-    `embedding-utils`.
+    A tool for analyzing text against predefined topics using average weight
+    embeddings and cosine similarity. It creates several weighted average
+    embeddings for each topic instead of a single representation, capturing
+    different semantic variations, and groups similar phrases within topics into
+    coherent clusters using agglomerative or HDBSCAN algorithms. Cluster quality
+    is measured via per-cluster cohesion and a global silhouette score, and
+    preset configurations are offered for high precision, balanced, and
+    performance use cases. The project centers on a generator that creates topic
+    embeddings from training data and an interactive demo that analyzes text
+    against them, powered by the embedding-utils library.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/fast-topic-analysis/main/.readme/buckets.jpg
@@ -45,10 +49,18 @@ links:
 featured: true
 sortOrder: 7
 status: active
-lastCommit: '2026-04-17T03:52:04Z'
+lastCommit: '2026-05-27T18:13:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Creates multiple weighted-average embeddings per topic by clustering similar phrases via agglomerative or HDBSCAN algorithms, capturing semantic variations. Provides preset configurations for high precision, balanced, and performance use cases, and reports per-cluster cohesion plus a global silhouette score. Vector math and clustering are provided by `embedding-utils`.
+A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity. It creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations, and groups similar phrases within topics into coherent clusters using agglomerative or HDBSCAN algorithms. Cluster quality is measured via per-cluster cohesion and a global silhouette score, and preset configurations are offered for high precision, balanced, and performance use cases. The project centers on a generator that creates topic embeddings from training data and an interactive demo that analyzes text against them, powered by the embedding-utils library.
+
+## Setup
+
+Install dependencies:
+
+```bash
+npm install
+```

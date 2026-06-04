@@ -7,8 +7,20 @@ tagline: >-
   evaluation metrics, and multi-provider embedding generation -- zero
   dependencies,...
 description:
-  short: "\U0001F4DA Collection of JavaScript functions used for common embedding realated tasks"
-  long: ''
+  short: >-
+    Zero-dependency TypeScript library for vector math, similarity search, ANN
+    indexing, clustering, and embedding generation.
+  long: >-
+    A zero-dependency, full-TypeScript library that bundles vector math,
+    similarity search, ANN indexing, clustering, async pipelines, evaluation
+    metrics, and multi-provider embedding generation behind a single import. It
+    is built to support semantic search, RAG pipelines, recommendation engines,
+    duplicate detection, and document clustering without pulling in heavy ML
+    frameworks or vector databases. Capabilities include HNSW approximate
+    nearest-neighbor search, hybrid search via reciprocal rank fusion (RRF),
+    HDBSCAN clustering, quantization, dimensionality reduction through random
+    projection, and markdown-aware chunking. It has zero production
+    dependencies.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/embedding-utils/refs/heads/main/embedding-utils.jpg
@@ -26,9 +38,9 @@ theme: nlp
 primaryLanguage: TypeScript
 languages:
   - name: JavaScript
-    percent: 0.08
+    percent: 0.81
   - name: TypeScript
-    percent: 99.92
+    percent: 99.19
 stars: 0
 links:
   repo: 'https://github.com/jparkerweb/embedding-utils'
@@ -36,10 +48,26 @@ links:
 featured: true
 sortOrder: 1
 status: active
-lastCommit: '2026-05-26T04:56:02Z'
+lastCommit: '2026-05-29T03:26:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
+A zero-dependency, full-TypeScript library that bundles vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation behind a single import. It is built to support semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Capabilities include HNSW approximate nearest-neighbor search, hybrid search via reciprocal rank fusion (RRF), HDBSCAN clustering, quantization, dimensionality reduction through random projection, and markdown-aware chunking. It has zero production dependencies.
 
+## Installation
+
+Requires **Node.js 18+**. Supports both ESM and CommonJS.
+
+```bash
+npm install embedding-utils
+```
+
+For local ONNX inference (no API key needed), also install the optional peer dependency:
+
+```bash
+npm install @huggingface/transformers
+```
+
+---

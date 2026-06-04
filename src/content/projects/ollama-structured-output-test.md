@@ -7,14 +7,17 @@ tagline: >-
   from Ollama using Zod schemas.
 description:
   short: >-
-    Node.js demo of obtaining structured JSON responses from Ollama using Zod
+    A Node.js demo of getting structured JSON responses from Ollama using Zod
     schemas.
   long: >-
-    The example queries Ollama about Disney World and returns a structured
-    response containing name, city, attractions, rides, and fun facts. Uses the
-    `ollama` client along with `zod` and `zod-to-json-schema` to describe the
-    expected shape. Configured via `OLLAMA_HOST` and `OLLAMA_MODEL` environment
-    variables.
+    A Node.js application that demonstrates how to get structured JSON responses
+    from Ollama using Zod schemas. It queries a locally or remotely running
+    Ollama model and returns a structured response built from a defined schema,
+    shown with an example that asks about Disney World and returns fields such
+    as name, city, attractions, rides, and fun facts. It relies on the ollama
+    JavaScript client, zod for schema validation, zod-to-json-schema to convert
+    schemas to JSON Schema, and dotenv for environment configuration. The Ollama
+    host and model are set via a `.env` file.
 banner:
   src: >-
     https://github.com/jparkerweb/ollama-structured-output-test/blob/main/ollama-structured-output-test.jpg?raw=true
@@ -40,6 +43,22 @@ lastCommit: '2026-04-17T16:19:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/ollama-structured-output-test'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts. Uses the `ollama` client along with `zod` and `zod-to-json-schema` to describe the expected shape. Configured via `OLLAMA_HOST` and `OLLAMA_MODEL` environment variables.
+A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas. It queries a locally or remotely running Ollama model and returns a structured response built from a defined schema, shown with an example that asks about Disney World and returns fields such as name, city, attractions, rides, and fun facts. It relies on the ollama JavaScript client, zod for schema validation, zod-to-json-schema to convert schemas to JSON Schema, and dotenv for environment configuration. The Ollama host and model are set via a `.env` file.
+
+## Setup
+
+1. Clone the repository
+2. Install dependencies: 
+
+```bash
+npm ci
+```
+
+3. Update the `.env` file in the root directory with your Ollama host and model:
+
+```env
+OLLAMA_HOST=http://localhost:11434  # Or your Ollama host
+OLLAMA_MODEL=llama3.2:1b            # Or your preferred model
+```

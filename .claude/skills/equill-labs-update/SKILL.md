@@ -9,6 +9,8 @@ description: "Regenerate eQuill Labs content from GitHub with optional guidance.
 
 Orchestrates the eQuill Labs content pipeline end-to-end: fetch GitHub repo data for `jparkerweb`, apply curation overrides, write AI blurbs for changed repos only, render validated Markdown into the Astro content collection, build the static site, and stop for human review and commit. Every AI write is grounded in a README span, and the skill never commits or pushes on the user's behalf.
 
+Blurbs are written as **robust, thorough descriptions** (a multi-sentence overview per project, not a one-liner — see `03-write-blurbs.md` rule (d)). At render time, each project's README `## Installation` section is appended **verbatim** to its content body as the final section, so the published page carries the repo's own install instructions below the description.
+
 ## When to use
 
 The user runs `/equill-labs-update` with an optional guidance prompt (e.g., `/equill-labs-update emphasize AI agents`). Use this skill whenever the site's project content needs to be synced with the latest state of `jparkerweb`'s public GitHub repositories, or when the user wants to surface different projects without hand-editing individual content files.

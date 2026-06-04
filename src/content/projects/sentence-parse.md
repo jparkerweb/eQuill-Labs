@@ -5,14 +5,16 @@ slug: sentence-parse
 tagline: A simple utility to parse text into sentences.
 description:
   short: >-
-    Utility that parses text into sentences with configurable line-break and
-    HTML handling options.
+    A utility that parses text into sentences with configurable handling of line
+    breaks, HTML, and list items.
   long: >-
-    `parseSentences(text, options)` returns an array of sentences, with options
-    for treating multiple line breaks as separators, stripping start-of-line
-    sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items
-    with a configurable prefix, and excluding non-letter segments. Accepts input
-    from either a string or a file.
+    A utility that parses text into sentences, accepting either a string or file
+    contents through its async `parseSentences` function. It offers options to
+    treat multiple consecutive line breaks as separate sentences, remove
+    specified start-of-line sequences, preserve HTML `<br>` and `<p>` tags as
+    line breaks, and preserve list items with a configurable prefix. An option
+    to exclude segments that contain no letters is also available. The package
+    returns an array of parsed sentences and includes runnable examples.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/sentence-parse/refs/heads/main/docs/sentence-parse.jpg
@@ -42,6 +44,12 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-`parseSentences(text, options)` returns an array of sentences, with options for treating multiple line breaks as separators, stripping start-of-line sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items with a configurable prefix, and excluding non-letter segments. Accepts input from either a string or a file.
+A utility that parses text into sentences, accepting either a string or file contents through its async `parseSentences` function. It offers options to treat multiple consecutive line breaks as separate sentences, remove specified start-of-line sequences, preserve HTML `<br>` and `<p>` tags as line breaks, and preserve list items with a configurable prefix. An option to exclude segments that contain no letters is also available. The package returns an array of parsed sentences and includes runnable examples.
+
+## Installation
+
+```bash
+npm install sentence-parse
+```

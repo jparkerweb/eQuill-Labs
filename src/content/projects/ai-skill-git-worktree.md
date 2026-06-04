@@ -7,15 +7,19 @@ tagline: >-
   SKILL.md files following the Agent Skills standard.
 description:
   short: >-
-    Interactive installer for a Git Worktree Management skill, producing
-    `SKILL.md` files per the Agent Skills standard.
+    An interactive installer that adds a Git Worktree Management skill to 9 AI
+    coding agents.
   long: >-
-    Run via `npx git-worktree-skill` to select target AI agents (Claude Code,
-    GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI,
-    OpenCode) with arrow-key selection. Supports project or global installation
-    paths and non-interactive installs via `--install <agent[,agent...]>`.
-    Additional flags cover `--global`, `--project`, `--force`, `--list`, and
-    `--version`.
+    An interactive installer for a Git Worktree Management skill that creates
+    `SKILL.md` files following the Agent Skills standard. It supports nine AI
+    agents, including Claude Code, GitHub Copilot, Windsurf, Cline, Cursor,
+    Gemini CLI, Roo Code, Codex CLI, and OpenCode, installing to each agent’s
+    skill location at project or global scope. It can run interactively to
+    select agents, choose paths, and resolve conflicts, or non-interactively via
+    `--install` with flags such as `--global`, `--project`, and `--force`. Each
+    installed skill provides the agent with worktree command references,
+    step-by-step workflows, a troubleshooting guide, and environment setup
+    templates.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/ai-skill--git-worktree/main/docs/banner.jpg
@@ -46,6 +50,6 @@ lastCommit: '2026-02-18T07:11:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-skill--git-worktree'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Run via `npx git-worktree-skill` to select target AI agents (Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, OpenCode) with arrow-key selection. Supports project or global installation paths and non-interactive installs via `--install <agent[,agent...]>`. Additional flags cover `--global`, `--project`, `--force`, `--list`, and `--version`.
+An interactive installer for a Git Worktree Management skill that creates `SKILL.md` files following the Agent Skills standard. It supports nine AI agents, including Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode, installing to each agent’s skill location at project or global scope. It can run interactively to select agents, choose paths, and resolve conflicts, or non-interactively via `--install` with flags such as `--global`, `--project`, and `--force`. Each installed skill provides the agent with worktree command references, step-by-step workflows, a troubleshooting guide, and environment setup templates.

@@ -74,6 +74,46 @@ const ProjectSchema = z.object({
 	}),
 });
 
+function isRelativeUrl(url: string): boolean {
+	const u = url.trim();
+	if (!u) return false;
+	// Absolute (has a scheme), protocol-relative, in-page anchor, or mail/tel → leave alone.
+	return !/^([a-z][a-z0-9+.-]*:|\/\/|#|mailto:|tel:)/i.test(u);
+}
+
+// Rewrite relative URLs in a README-derived markdown fragment to absolute GitHub
+// URLs. README install sections routinely reference repo-relative images (e.g.
+// `./docs/demo.gif`) and files; left relative, Astro tries to resolve them as
+// local build assets and fails. Images point at raw.githubusercontent, other
+// links at the GitHub blob view — both pinned to the repo's default branch.
+function absolutizeReadmeUrls(md: string, repoUrl: string, branch: string): string {
+	const m = /^https?:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?\/?$/i.exec(repoUrl);
+	if (!m) return md;
+	const [, owner, repo] = m;
+	const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
+	const blobBase = `https://github.com/${owner}/${repo}/blob/${branch}/`;
+	const join = (base: string, rel: string) => base + rel.replace(/^\.?\/+/, '');
+
+	let out = md;
+	// markdown images: ![alt](url …)
+	out = out.replace(/(!\[[^\]]*\]\(\s*)([^)\s]+)/g, (full, pre, url) =>
+		isRelativeUrl(url) ? pre + join(rawBase, url) : full,
+	);
+	// markdown links: [text](url …) — not an image (not preceded by '!')
+	out = out.replace(/(^|[^!])(\[[^\]]*\]\(\s*)([^)\s]+)/g, (full, lead, pre, url) =>
+		isRelativeUrl(url) ? lead + pre + join(blobBase, url) : full,
+	);
+	// raw HTML <img src="…">
+	out = out.replace(/(<img\b[^>]*?\bsrc\s*=\s*["'])([^"']+)(["'])/gi, (full, pre, url, post) =>
+		isRelativeUrl(url) ? pre + join(rawBase, url) + post : full,
+	);
+	// raw HTML <a href="…">
+	out = out.replace(/(<a\b[^>]*?\bhref\s*=\s*["'])([^"']+)(["'])/gi, (full, pre, url, post) =>
+		isRelativeUrl(url) ? pre + join(blobBase, url) + post : full,
+	);
+	return out;
+}
+
 function truncateTagline(src: string): string {
 	const cleaned = src.replace(/\s+/g, ' ').trim();
 	if (cleaned.length <= 160) return cleaned;
@@ -166,7 +206,7 @@ function main() {
 	mkdirSync(CONTENT_DIR, { recursive: true });
 
 	const errors: string[] = [];
-	const validated: Array<{ project: ReturnType<typeof buildProject>; slug: string }> = [];
+	const validated: Array<{ project: ReturnType<typeof buildProject>; slug: string; installSection?: string }> = [];
 
 	for (const cp of curated) {
 		const project = buildProject(cp, snapshot.fetchedAt, aiCache);
@@ -175,7 +215,12 @@ function main() {
 			errors.push(`${cp.slug}: ${parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
 			continue;
 		}
-		validated.push({ project, slug: cp.slug });
+		const { installSection } = parseReadme(cp.raw.readme?.text ?? '');
+		const branch = cp.raw.defaultBranchRef?.name ?? 'main';
+		const resolvedInstall = installSection
+			? absolutizeReadmeUrls(installSection, cp.raw.url, branch)
+			: undefined;
+		validated.push({ project, slug: cp.slug, installSection: resolvedInstall });
 	}
 
 	if (errors.length > 0) {
@@ -188,9 +233,15 @@ function main() {
 	let skipped = 0;
 	const keepSlugs = new Set<string>();
 
-	for (const { project, slug } of validated) {
+	for (const { project, slug, installSection } of validated) {
 		keepSlugs.add(slug);
-		const body = project.description.long ? `${project.description.long}\n` : '';
+		// Body = verbose long description, followed by the repo's README
+		// `## Installation` section (verbatim) as the final section. Astro
+		// compiles this markdown body to HTML when the page renders.
+		const sections: string[] = [];
+		if (project.description.long) sections.push(project.description.long);
+		if (installSection) sections.push(installSection);
+		const body = sections.length ? `${sections.join('\n\n')}\n` : '';
 		const md = matter.stringify(body, project);
 		const outPath = join(CONTENT_DIR, `${slug}.md`);
 		if (existsSync(outPath)) {

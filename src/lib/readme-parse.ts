@@ -2,19 +2,25 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import { toString as mdToString } from 'mdast-util-to-string';
-import type { Root, Content, Image, Link, Code, Heading, List, Paragraph } from 'mdast';
+import type { Root, Content, Image, Link, Heading, List, Paragraph } from 'mdast';
 
 export type ReadmeExtract = {
 	hero?: string;
 	tagline?: string;
 	features: string[];
 	demos: Array<{ label: string; url: string }>;
-	install?: string;
+	/** Full `## Installation` section, verbatim from the README, heading normalized to H2. */
+	installSection?: string;
 };
 
 const FEATURE_HEADING = /features|why|highlights/i;
 const DEMO_TEXT = /demo|live|playground|try it/i;
-const INSTALL_LINE = /^(npm|pnpm|yarn|bun|npx)\s+/;
+// Genuine install headings only — "Installation", "Install", "Setup",
+// "Getting Started", and the common "… & Setup / Guide / Steps / Instructions"
+// variants. Deliberately excludes incidental matches like "Install Note" so the
+// page only surfaces a real `## Installation` block.
+const INSTALL_HEADING =
+	/^(installation|install|installing|setup|getting started)(\s*&\s*setup|\s+guide|\s+steps|\s+instructions)?$/i;
 
 export function parseReadme(markdown: string): ReadmeExtract {
 	const result: ReadmeExtract = { features: [], demos: [] };
@@ -128,16 +134,33 @@ export function parseReadme(markdown: string): ReadmeExtract {
 		}
 	});
 
-	// install: first fenced code whose first line matches install pattern
-	for (const n of children) {
-		if (n.type === 'code') {
-			const code = n as Code;
-			const firstLine = (code.value ?? '').split('\n')[0]?.trim() ?? '';
-			if (INSTALL_LINE.test(firstLine)) {
-				result.install = code.value;
+	// installation: the full "## Installation" section — from the install heading
+	// through the next heading of the same or higher level — captured verbatim from
+	// the source markdown so the page shows the repo's own install instructions.
+	// The leading heading is normalized to H2 for consistency on the project page;
+	// the body (code fences and all) is copied byte-for-byte, never AI-rewritten.
+	for (let i = 0; i < children.length; i++) {
+		const n = children[i];
+		if (n.type !== 'heading') continue;
+		const heading = n as Heading;
+		const text = mdToString(heading).trim();
+		if (!INSTALL_HEADING.test(text)) continue;
+
+		const startOffset = heading.position?.end?.offset;
+		if (startOffset == null) break;
+
+		let endOffset = markdown.length;
+		for (let j = i + 1; j < children.length; j++) {
+			const next = children[j];
+			if (next.type === 'heading' && (next as Heading).depth <= heading.depth) {
+				endOffset = (next as Heading).position?.start?.offset ?? endOffset;
 				break;
 			}
 		}
+
+		const body = markdown.slice(startOffset, endOffset).trim();
+		result.installSection = body ? `## ${text}\n\n${body}` : `## ${text}`;
+		break;
 	}
 
 	return result;

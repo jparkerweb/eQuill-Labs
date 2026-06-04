@@ -8,14 +8,18 @@ tagline: >-
   limit,...
 description:
   short: >-
-    Use LLMs to distill large texts down to a manageable size with a map-reduce
-    approach.
+    npm package that uses LLMs in a map-reduce approach to distill large texts
+    down to a target token size.
   long: >-
-    It reduces text size based on token count so the result fits within a
-    specified token limit for downstream LLM tasks. It uses the
-    semantic-chunking library to split text into chunks that are then
-    summarized, with customizable parameters like target token size and chunking
-    thresholds.
+    An npm package that uses LLMs to distill large texts down to a manageable
+    size with a map-reduce approach, ensuring text fits within a specified token
+    limit before downstream LLM tasks. It reduces text size based on token count
+    without losing the essence of the content, using the semantic-chunking
+    library to split text into chunks that are then summarized. Parameters such
+    as target token size, API base URL, chunking thresholds, model, stop tokens,
+    and maximum distillation loops are configurable. It works with any OpenAI
+    API compatible endpoint (such as together.ai) and defaults to a Llama 3
+    model.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/llm-distillery/refs/heads/main/llm-distillery.jpg
@@ -55,6 +59,23 @@ lastCommit: '2026-05-12T04:36:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It reduces text size based on token count so the result fits within a specified token limit for downstream LLM tasks. It uses the semantic-chunking library to split text into chunks that are then summarized, with customizable parameters like target token size and chunking thresholds.
+An npm package that uses LLMs to distill large texts down to a manageable size with a map-reduce approach, ensuring text fits within a specified token limit before downstream LLM tasks. It reduces text size based on token count without losing the essence of the content, using the semantic-chunking library to split text into chunks that are then summarized. Parameters such as target token size, API base URL, chunking thresholds, model, stop tokens, and maximum distillation loops are configurable. It works with any OpenAI API compatible endpoint (such as together.ai) and defaults to a Llama 3 model.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js installed on your system.
+- An API key for running inference of OpenAI API compatible LLM models (together.ai, etc.).
+
+### Installation
+
+Add this lib to your code page via npm install
+
+```bash
+npm install llm-distillery
+```
+
+---

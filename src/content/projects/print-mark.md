@@ -4,12 +4,17 @@ name: print-mark
 slug: print-mark
 tagline: 'Convert Markdown to clean, printable HTML with PDF export'
 description:
-  short: 'Convert Markdown to clean, printable HTML with PDF export.'
+  short: 'A web app that converts Markdown to clean, printable HTML with PDF export.'
   long: >-
-    It provides a live preview with real-time rendering, 9 print-optimized
-    themes, and PDF export with customizable page sizes, margins, and page
-    numbers. Code is highlighted with Shiki, and the design is stateless with no
-    account required.
+    A web app that converts Markdown to clean, printable HTML with PDF export.
+    It offers live preview with real-time rendering, nine print-optimized
+    themes, syntax highlighting powered by Shiki, and drag-and-drop upload of
+    `.md`, `.markdown`, or `.txt` files. PDF export generates documents with
+    customizable page sizes, margins, and page numbers, and the design is
+    stateless with no account required. It can be run via a pre-built Docker
+    image, docker-compose, or locally with Node.js, and exposes configuration
+    through environment variables such as PORT, PDF_TIMEOUT, and
+    PDF_CONCURRENT_LIMIT.
 banner:
   src: 'https://github.com/jparkerweb/print-mark/raw/main/.readme/print-mark.jpg'
   alt: print-mark banner
@@ -46,6 +51,6 @@ lastCommit: '2026-05-12T04:40:41Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It provides a live preview with real-time rendering, 9 print-optimized themes, and PDF export with customizable page sizes, margins, and page numbers. Code is highlighted with Shiki, and the design is stateless with no account required.
+A web app that converts Markdown to clean, printable HTML with PDF export. It offers live preview with real-time rendering, nine print-optimized themes, syntax highlighting powered by Shiki, and drag-and-drop upload of `.md`, `.markdown`, or `.txt` files. PDF export generates documents with customizable page sizes, margins, and page numbers, and the design is stateless with no account required. It can be run via a pre-built Docker image, docker-compose, or locally with Node.js, and exposes configuration through environment variables such as PORT, PDF_TIMEOUT, and PDF_CONCURRENT_LIMIT.

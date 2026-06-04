@@ -5,12 +5,16 @@ slug: pptx-in-html-out
 tagline: Convert PowerPoint presentations to HTML with high fidelity.
 description:
   short: >-
-    An npm package that converts PowerPoint presentations to HTML with high
+    npm package that converts PowerPoint (PPTX) presentations to HTML with high
     fidelity.
   long: >-
-    It preserves images, shapes, and text formatting, and includes OCR support
-    for text extraction from images. The responsive output is delivered as a
-    modern ESM package.
+    An npm package that converts PowerPoint presentations to HTML with high
+    fidelity. It preserves images, shapes, and text formatting, includes OCR
+    support for extracting text from images, and produces responsive output that
+    works across devices as a modern ESM package. The main `PPTXInHTMLOut` class
+    is constructed from a PPTX file buffer, and its `toHTML(options)` method
+    returns the generated HTML, optionally including default styles or omitting
+    them for custom styling.
 banner:
   src: >-
     https://github.com/jparkerweb/pptx-in-html-out/blob/main/pptx-in-html-out.jpg?raw=true
@@ -41,6 +45,12 @@ lastCommit: '2026-05-12T04:43:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It preserves images, shapes, and text formatting, and includes OCR support for text extraction from images. The responsive output is delivered as a modern ESM package.
+An npm package that converts PowerPoint presentations to HTML with high fidelity. It preserves images, shapes, and text formatting, includes OCR support for extracting text from images, and produces responsive output that works across devices as a modern ESM package. The main `PPTXInHTMLOut` class is constructed from a PPTX file buffer, and its `toHTML(options)` method returns the generated HTML, optionally including default styles or omitting them for custom styling.
+
+## Installation
+
+```bash
+npm install pptx-in-html-out
+```

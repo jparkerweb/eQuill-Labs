@@ -5,14 +5,20 @@ slug: replicate-ai-models-for-photoshop-plugin
 tagline: Photoshop Replicate JSX
 description:
   short: >-
-    A Photoshop plugin that integrates Replicate AI models into your editing
-    workflow.
+    A Photoshop plugin that integrates 8 Replicate AI models for generation,
+    restoration, and enhancement.
   long: >-
-    It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext,
-    GFPGAN, a background remover, SwinIR, and DDColor — to operate on your
-    selection and output a new layer. Use cases span generation, face
-    restoration, background removal, photo enhancement, and black-and-white
-    colorization.
+    A Photoshop plugin that integrates eight Replicate AI models into the
+    editing workflow, turning a selection into a new layer while keeping
+    lighting, shadows, and materials consistent. Generation models include Nano
+    Banana, Seedream 4 with 1K/2K/4K resolution control, and Flux Kontext for
+    context-aware edits and typography, while restoration and enhancement models
+    cover GFPGAN face restoration, a background remover, SwinIR photo
+    enhancement, and DDColor black-and-white colorization. Smart features
+    include using the Photoshop foreground color in prompts, reference image
+    support with automatic scaling, automatic aspect-ratio handling, real-time
+    progress updates, and layer management with easy undo. Setup requires a
+    Replicate account and API token.
 banner:
   src: >-
     https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin/raw/main/.readme/replicate-ai-models-for-photoshop-plugin.jpg
@@ -40,6 +46,6 @@ lastCommit: '2026-05-12T04:38:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext, GFPGAN, a background remover, SwinIR, and DDColor — to operate on your selection and output a new layer. Use cases span generation, face restoration, background removal, photo enhancement, and black-and-white colorization.
+A Photoshop plugin that integrates eight Replicate AI models into the editing workflow, turning a selection into a new layer while keeping lighting, shadows, and materials consistent. Generation models include Nano Banana, Seedream 4 with 1K/2K/4K resolution control, and Flux Kontext for context-aware edits and typography, while restoration and enhancement models cover GFPGAN face restoration, a background remover, SwinIR photo enhancement, and DDColor black-and-white colorization. Smart features include using the Photoshop foreground color in prompts, reference image support with automatic scaling, automatic aspect-ratio handling, real-time progress updates, and layer management with easy undo. Setup requires a Replicate account and API token.

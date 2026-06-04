@@ -7,13 +7,16 @@ tagline: >-
   properties
 description:
   short: >-
-    Web app that extracts essential CSS from raw style properties copied from
+    A web app that extracts only the essential styles from CSS copied out of
     browser dev tools.
   long: >-
-    Paste CSS copied via Chrome dev tools' "Copy CSS" action and it returns
-    cleaned, formatted properties. Handles CSS variables and preserves hex
-    colors and complex values while removing unnecessary class wrappers.
-    Includes one-click copy to clipboard.
+    A web app for extracting only the essential styles from raw style properties
+    copied out of browser dev tools. After copying an element’s CSS from Chrome
+    dev tools, pasting it into trim-style returns clean, consistently formatted
+    CSS properties. It removes unnecessary class wrappers, handles CSS
+    variables, and preserves hex colors and complex values, with one-click copy
+    to clipboard and an instant page reload to clear the input. The page also
+    features a floating triangles animation in the background.
 banner:
   src: 'https://github.com/jparkerweb/trim-style/blob/main/time-style.jpg?raw=true'
   alt: trim-style banner
@@ -46,6 +49,6 @@ lastCommit: '2026-04-17T15:21:16Z'
 _source:
   repo: 'https://github.com/jparkerweb/trim-style'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Paste CSS copied via Chrome dev tools' "Copy CSS" action and it returns cleaned, formatted properties. Handles CSS variables and preserves hex colors and complex values while removing unnecessary class wrappers. Includes one-click copy to clipboard.
+A web app for extracting only the essential styles from raw style properties copied out of browser dev tools. After copying an element’s CSS from Chrome dev tools, pasting it into trim-style returns clean, consistently formatted CSS properties. It removes unnecessary class wrappers, handles CSS variables, and preserves hex colors and complex values, with one-click copy to clipboard and an instant page reload to clear the input. The page also features a floating triangles animation in the background.

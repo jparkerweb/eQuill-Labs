@@ -69,7 +69,7 @@ const canonical = new URL(`/projects/${entry.id}/`, siteURL).toString();
     />
   </Fragment>
   <section class="description">
-    {data.description.long ? <Content /> : <p>{data.description.short}</p>}
+    {entry.body?.trim() ? <Content /> : <p>{data.description.short}</p>}
   </section>
 
   {

@@ -4,11 +4,10 @@ name: htmldiff-example
 slug: htmldiff-example
 tagline: This is an example project to show htmldiff.js in the browser.
 description:
-  short: Example project showing `htmldiff.js` running in the browser.
+  short: Example project that demonstrates htmldiff.js running in the browser.
   long: >-
-    A minimal demo page that runs `htmldiff.js` in the browser to visualize
-    differences between HTML inputs. A live demo is hosted at
-    `jparkerweb.github.io/htmldiff-example/index.html`.
+    An example project that demonstrates `htmldiff.js` running in the browser,
+    with a hosted demo page.
 banner:
   src: >-
     https://github.com/jparkerweb/htmldiff-example/blob/master/htmldiff.jpg?raw=true
@@ -38,6 +37,6 @@ lastCommit: '2026-04-17T15:12:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-A minimal demo page that runs `htmldiff.js` in the browser to visualize differences between HTML inputs. A live demo is hosted at `jparkerweb.github.io/htmldiff-example/index.html`.
+An example project that demonstrates `htmldiff.js` running in the browser, with a hosted demo page.

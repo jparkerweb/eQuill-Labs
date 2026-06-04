@@ -4,11 +4,17 @@ name: extract-topics
 slug: extract-topics
 tagline: Use LDA (Latent Dirichlet Allocation) to extract topics from text
 description:
-  short: npm package for LDA (Latent Dirichlet Allocation) topic modeling of text.
+  short: >-
+    npm package that uses Latent Dirichlet Allocation (LDA) to extract topics
+    from text.
   long: >-
-    Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise
-    with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on
-    the `ldawithmorelanguages` project.
+    An npm package that uses Latent Dirichlet Allocation (LDA) for topic
+    modeling on text inputs. The main `extractTopics(text, options)` function
+    analyzes input text and returns a Promise resolving to the LDA result, with
+    options for the number of topics to extract and the number of terms per
+    topic. LDA is an unsupervised learning method that discovers topics in
+    documents, viewing each document as a random mixture over latent topics
+    where every topic is characterized by a distribution over words.
 banner:
   src: >-
     https://github.com/jparkerweb/extract-topics/blob/main/extractTopics.jpg?raw=true
@@ -39,6 +45,14 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on the `ldawithmorelanguages` project.
+An npm package that uses Latent Dirichlet Allocation (LDA) for topic modeling on text inputs. The main `extractTopics(text, options)` function analyzes input text and returns a Promise resolving to the LDA result, with options for the number of topics to extract and the number of terms per topic. LDA is an unsupervised learning method that discovers topics in documents, viewing each document as a random mixture over latent topics where every topic is characterized by a distribution over words.
+
+## Install
+
+Install dependencies:
+
+```bash
+npm install extractTopics
+```

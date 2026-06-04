@@ -7,13 +7,16 @@ tagline: >-
   using keyboard shortcuts.
 description:
   short: >-
-    A Chrome extension to select and delete forum posts from your Board Game
-    Geek subscription list using keyboard shortcuts.
+    A Chrome extension to select and delete Board Game Geek forum subscription
+    posts using keyboard shortcuts.
   long: >-
-    Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages.
-    Version 2.0.0 rewrites the subscriptions logic around heuristic DOM
-    discovery plus a MutationObserver so it adapts when BGG tweaks class names
-    or ids instead of breaking outright.
+    A Google Chrome extension that lets you select and delete forum posts from
+    your subscription list on Board Game Geek using keyboard shortcuts. Its
+    hotkeys work on the Subscriptions Feed page and on forum Thread pages.
+    Version 2.0.0 rewrites the subscriptions logic for BGG’s new Angular
+    single-page Subscriptions Feed, using heuristic DOM discovery plus a
+    MutationObserver so it adapts when BGG changes class names or ids instead of
+    breaking, while keeping the existing keymap.
 banner:
   src: >-
     https://github.com/jparkerweb/bgg-keyboard-select/blob/main/BGG-Keyboard-Forum-Selector.jpg?raw=true
@@ -42,6 +45,6 @@ lastCommit: '2026-05-12T04:42:29Z'
 _source:
   repo: 'https://github.com/jparkerweb/bgg-keyboard-select'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic around heuristic DOM discovery plus a MutationObserver so it adapts when BGG tweaks class names or ids instead of breaking outright.
+A Google Chrome extension that lets you select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts. Its hotkeys work on the Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic for BGG’s new Angular single-page Subscriptions Feed, using heuristic DOM discovery plus a MutationObserver so it adapts when BGG changes class names or ids instead of breaking, while keeping the existing keymap.

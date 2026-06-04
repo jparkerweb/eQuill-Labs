@@ -10,10 +10,14 @@ description:
     A DataviewJS script that renders a Markdown image in Obsidian's Reading View
     using a URL stored in a note field.
   long: >-
-    It reads the image URL from a frontmatter or inline field and renders the
-    image, avoiding duplication when the URL is already stored for Dataview
-    queries. It also accepts size and alignment values. Live preview is not
-    supported.
+    A DataviewJS script that renders a Markdown image in Obsidian's Reading View
+    using an image URL stored in a frontmatter or inline field. It addresses the
+    case where an image URL is kept in a field for dataview queries but should
+    also display on its own note, avoiding the duplication of embedding the
+    image separately. The script reads the URL from the supplied field and
+    renders the image, and additionally accepts size and alignment values. It
+    requires the Dataview plugin with JavaScript Queries enabled and is invoked
+    through a `dv.view` call passing size, alignment, and field name.
 banner:
   src: >-
     https://github.com/jparkerweb/obsidian-image-from-field/blob/main/obsidian-image-from-field.jpg?raw=true
@@ -41,6 +45,6 @@ lastCommit: '2026-05-12T04:43:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It reads the image URL from a frontmatter or inline field and renders the image, avoiding duplication when the URL is already stored for Dataview queries. It also accepts size and alignment values. Live preview is not supported.
+A DataviewJS script that renders a Markdown image in Obsidian's Reading View using an image URL stored in a frontmatter or inline field. It addresses the case where an image URL is kept in a field for dataview queries but should also display on its own note, avoiding the duplication of embedding the image separately. The script reads the URL from the supplied field and renders the image, and additionally accepts size and alignment values. It requires the Dataview plugin with JavaScript Queries enabled and is invoked through a `dv.view` call passing size, alignment, and field name.

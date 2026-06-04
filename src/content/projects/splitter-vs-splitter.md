@@ -7,14 +7,15 @@ tagline: >-
   side. Currently compares:
 description:
   short: >-
-    Web-based tool to compare different sentence-splitting libraries side by
-    side.
+    A web tool that compares sentence-splitting libraries side by side with
+    color-coded output.
   long: >-
-    Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with
-    matching sentences color-coded across both outputs. Runs on an Express
-    backend with a vanilla JavaScript frontend and supports a Ctrl+Enter
-    shortcut for processing text. Provides sentence count display and a
-    responsive split layout.
+    A web-based tool to compare different sentence splitting libraries side by
+    side, currently pitting @stdlib/nlp-sentencize against sentence-parse. It
+    performs real-time comparison with color-coding so matching sentences line
+    up visually across both outputs, and displays a sentence count. The frontend
+    is vanilla JavaScript with an Express.js backend and no external UI
+    frameworks. Text is processed by clicking a button or pressing Ctrl+Enter.
 banner:
   src: >-
     https://github.com/jparkerweb/splitter-vs-splitter/blob/main/splitter-vs-splitter.jpg?raw=true
@@ -46,6 +47,41 @@ lastCommit: '2026-04-17T16:27:15Z'
 _source:
   repo: 'https://github.com/jparkerweb/splitter-vs-splitter'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with matching sentences color-coded across both outputs. Runs on an Express backend with a vanilla JavaScript frontend and supports a Ctrl+Enter shortcut for processing text. Provides sentence count display and a responsive split layout.
+A web-based tool to compare different sentence splitting libraries side by side, currently pitting @stdlib/nlp-sentencize against sentence-parse. It performs real-time comparison with color-coding so matching sentences line up visually across both outputs, and displays a sentence count. The frontend is vanilla JavaScript with an Express.js backend and no external UI frameworks. Text is processed by clicking a button or pressing Ctrl+Enter.
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/splitter-vs-splitter.git
+cd splitter-vs-splitter
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file with the following (edit the port as needed):
+```bash
+cp .env.example .env
+```
+
+### Development
+Run the development server with auto-reload:
+```bash
+npm run dev
+```
+
+### Production
+Run the production server:
+```bash
+npm start
+```

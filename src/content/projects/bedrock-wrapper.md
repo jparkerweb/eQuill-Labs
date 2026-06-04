@@ -8,13 +8,18 @@ tagline: >-
   Fol...
 description:
   short: >-
-    An npm package that simplifies integration of existing OpenAI-compatible API
-    objects with AWS Bedrock's serverless inference LLMs.
+    npm package that adapts OpenAI-compatible API objects to AWS Bedrock
+    serverless inference LLMs.
   long: >-
-    You provide your AWS credentials and an OpenAI chat completions object, and
-    the wrapper handles inference against Bedrock models. It can be paired with
-    the Bedrock Proxy Endpoint project to spin up a custom OpenAI server
-    endpoint using the standard baseUrl and apiKey params.
+    An npm package that simplifies the integration of existing OpenAI-compatible
+    API objects with AWS Bedrock's serverless inference LLMs. It accepts an
+    `awsCreds` object and an OpenAI chat-completions-style request object, then
+    streams the Bedrock response back chunk by chunk. Messages use OpenAI's
+    role/content format, and the request's `model` value maps to a supported
+    Bedrock model name. For an even simpler setup, it can be paired with the
+    companion Bedrock Proxy Endpoint project to stand up a full
+    OpenAI-compatible server endpoint using the standard `baseUrl` and `apiKey`
+    params.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-wrapper/refs/heads/main/docs/bedrock-wrapper.jpg
@@ -47,6 +52,12 @@ lastCommit: '2026-05-16T13:18:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-You provide your AWS credentials and an OpenAI chat completions object, and the wrapper handles inference against Bedrock models. It can be paired with the Bedrock Proxy Endpoint project to spin up a custom OpenAI server endpoint using the standard baseUrl and apiKey params.
+An npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs. It accepts an `awsCreds` object and an OpenAI chat-completions-style request object, then streams the Bedrock response back chunk by chunk. Messages use OpenAI's role/content format, and the request's `model` value maps to a supported Bedrock model name. For an even simpler setup, it can be paired with the companion Bedrock Proxy Endpoint project to stand up a full OpenAI-compatible server endpoint using the standard `baseUrl` and `apiKey` params.
+
+## Install
+
+- install package: `npm install bedrock-wrapper`
+
+---

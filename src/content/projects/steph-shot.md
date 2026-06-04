@@ -5,13 +5,16 @@ slug: steph-shot
 tagline: "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard. \U0001F4F7"
 description:
   short: >-
-    Windows screenshot utility that saves to disk and copies to the clipboard
-    via Ctrl+Shift+A.
+    A Windows tool that saves a screenshot to disk and copies it to the
+    clipboard via a hotkey.
   long: >-
-    Launches from a desktop shortcut with a default hotkey of Ctrl+Shift+A.
-    Screenshots are saved to a `Steph-Shots` folder in the user's Downloads
-    directory and simultaneously copied to the clipboard. Packaged as an SFX
-    installer built with WinRAR.
+    A Windows tool that quickly saves a screenshot to disk and copies it to the
+    clipboard. After installation it adds a desktop shortcut and can be launched
+    by default with Ctrl+Shift+A. Screenshots are automatically saved to a
+    "Steph-Shots" folder in the user’s Downloads directory and simultaneously
+    placed on the clipboard ready to paste. It is distributed as a Windows SFX
+    installer packaged with WinRAR, and includes a `setup.cmd` to manually
+    create the desktop shortcut if needed.
 banner:
   src: 'https://github.com/jparkerweb/steph-shot/blob/main/steph-shot.jpg?raw=true'
   alt: steph-shot banner
@@ -39,6 +42,6 @@ lastCommit: '2026-04-20T17:58:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/steph-shot'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Launches from a desktop shortcut with a default hotkey of Ctrl+Shift+A. Screenshots are saved to a `Steph-Shots` folder in the user's Downloads directory and simultaneously copied to the clipboard. Packaged as an SFX installer built with WinRAR.
+A Windows tool that quickly saves a screenshot to disk and copies it to the clipboard. After installation it adds a desktop shortcut and can be launched by default with Ctrl+Shift+A. Screenshots are automatically saved to a "Steph-Shots" folder in the user’s Downloads directory and simultaneously placed on the clipboard ready to paste. It is distributed as a Windows SFX installer packaged with WinRAR, and includes a `setup.cmd` to manually create the desktop shortcut if needed.

@@ -10,11 +10,14 @@ description:
     Node.js library that semantically chunks text and matches it against a query
     using cosine similarity.
   long: >-
-    Exposes a `matchChunks(documents, query, options)` function that returns
-    chunks sorted by relevance with similarity scores. Chunking thresholds, max
-    token size, and ONNX embedding model are configurable; it is built on top of
-    `semantic-chunking`. Supports dynamic similarity thresholds and optional
-    chunk recombination.
+    A Node.js library that semantically chunks text and matches it against a
+    user query using cosine similarity for relevant text retrieval. It returns
+    chunks sorted by relevance with similarity scores, and exposes configurable
+    similarity thresholds and chunk sizes. It is built on top of
+    semantic-chunking for the underlying text processing and supports various
+    ONNX embedding models. The main `matchChunks(documents, query, options)`
+    function takes an array of document objects, a query string, and options
+    such as maxResults, minSimilarity, and detailed chunkingOptions.
 banner:
   src: 'https://github.com/jparkerweb/chunk-match/blob/main/chunk-match.jpg?raw=true'
   alt: chunk-match banner
@@ -47,6 +50,12 @@ lastCommit: '2026-04-17T15:15:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Exposes a `matchChunks(documents, query, options)` function that returns chunks sorted by relevance with similarity scores. Chunking thresholds, max token size, and ONNX embedding model are configurable; it is built on top of `semantic-chunking`. Supports dynamic similarity thresholds and optional chunk recombination.
+A Node.js library that semantically chunks text and matches it against a user query using cosine similarity for relevant text retrieval. It returns chunks sorted by relevance with similarity scores, and exposes configurable similarity thresholds and chunk sizes. It is built on top of semantic-chunking for the underlying text processing and supports various ONNX embedding models. The main `matchChunks(documents, query, options)` function takes an array of document objects, a query string, and options such as maxResults, minSimilarity, and detailed chunkingOptions.
+
+## Installation
+
+```bash
+npm install chunk-match
+```

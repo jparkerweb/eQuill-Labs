@@ -8,14 +8,17 @@ tagline: >-
   returning...
 description:
   short: >-
-    Node.js app exposing a search endpoint that returns a randomly selected
-    image from Pexels.
+    Node.js app that exposes an endpoint to search Pexels and return a randomly
+    selected image.
   long: >-
-    The `/search-image` endpoint accepts optional `apikey`, `size`, `keyword`,
-    and `orientation` query parameters and returns the raw image data so it can
-    be hotlinked directly. When no keyword is provided, one is drawn from a
-    configurable `random-words.json` file of 300 entries. Requires a Pexels API
-    key in `.env`.
+    A Node.js application that provides an endpoint to search Pexels and return
+    a randomly selected image, allowing hotlinking by directly returning the
+    image data. It fetches images from the Pexels API based on query parameters
+    such as size, keyword, and orientation, and when no keyword is supplied it
+    picks a random word from a list of 300. It is intended for web applications
+    or services that need to dynamically fetch and display Pexels images without
+    storing them locally. The server reads a Pexels API key and port from a
+    `.env` file and exposes a `/search-image` GET endpoint.
 banner:
   src: >-
     https://github.com/jparkerweb/random-pexels-image/blob/master/random-pexels-image.jpg?raw=true
@@ -43,6 +46,27 @@ lastCommit: '2026-04-17T16:13:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/random-pexels-image'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-The `/search-image` endpoint accepts optional `apikey`, `size`, `keyword`, and `orientation` query parameters and returns the raw image data so it can be hotlinked directly. When no keyword is provided, one is drawn from a configurable `random-words.json` file of 300 entries. Requires a Pexels API key in `.env`.
+A Node.js application that provides an endpoint to search Pexels and return a randomly selected image, allowing hotlinking by directly returning the image data. It fetches images from the Pexels API based on query parameters such as size, keyword, and orientation, and when no keyword is supplied it picks a random word from a list of 300. It is intended for web applications or services that need to dynamically fetch and display Pexels images without storing them locally. The server reads a Pexels API key and port from a `.env` file and exposes a `/search-image` GET endpoint.
+
+## Installation
+
+1. Clone the repository
+    ```bash
+    git clone https://github.com/jparkerweb/pexels-image-search-api.git
+    cd pexels-image-search-api
+    ```
+
+2. Install the dependencies
+    ```bash
+    npm install
+    ```
+
+3. Create a `.env` file in the root directory and add your Pexels API key and server port
+    ```plaintext
+    PEXELS_API_KEY=your_pexels_api_key
+	PORT=8000
+    ```
+
+4. Optionally adjust the `random-words.json` file with random words if a keyword is not submited with each search request

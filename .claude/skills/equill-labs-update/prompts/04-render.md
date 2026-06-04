@@ -4,6 +4,13 @@
 
 1. **Run the renderer.** Execute: `npm run refresh:render`
 
+   > **Installation section.** The renderer appends each repo's README `## Installation`
+   > section to the content body, after the long description, as the final section. It is
+   > captured **verbatim** from the README (heading normalized to H2, code fences copied
+   > byte-for-byte) — deterministic, never AI-rewritten, so install instructions always match
+   > the repo. Repos whose README has no install heading are unaffected. Astro compiles the
+   > markdown body to HTML at build time.
+
 2. **Parse the output.** The script prints:
    ```
    Rendered N, skipped M (unchanged), removed R obsolete

@@ -469,6 +469,18 @@ const types = TYPES.filter((ty) => projects.some((p) => p.data.category === ty))
     } else {
       apply();
     }
+
+    // Focus the search box by default when the Projects page loads. Done
+    // programmatically (not via the `autofocus` attribute) so it also fires on
+    // Astro view-transition navigations. Limited to fine-pointer devices to
+    // avoid popping the on-screen keyboard on touch, and preventScroll keeps
+    // the viewport from jumping to the filter bar.
+    if (searchInput && window.matchMedia('(pointer: fine)').matches) {
+      searchInput.focus({ preventScroll: true });
+      // Place the caret after any pre-filled query (e.g. deep-linked ?q=).
+      const end = searchInput.value.length;
+      searchInput.setSelectionRange(end, end);
+    }
   }
 
   document.addEventListener('astro:page-load', init);

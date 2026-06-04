@@ -10,9 +10,10 @@
 
 **(c) Null over guess.** If the README is absent or empty, use the raw GitHub `description` field verbatim as `shortDescription` and leave `longDescription` empty. If `description` is also null/empty, emit empty strings for both. Do **not** invent content.
 
-**(d) Length limits.**
-  - `shortDescription`: ONE sentence, ≤160 characters.
-  - `longDescription`: ≤3 sentences.
+**(d) Length & depth.**
+  - `shortDescription`: ONE sentence, ≤160 characters — a tight one-liner for cards and search results.
+  - `longDescription`: a **robust, thorough overview**, typically **3–6 sentences (~250–700 characters)**. Aim for completeness over brevity: cover (1) what the project does, (2) its primary capabilities or features, (3) how it is used or what it integrates with, and (4) any notable technical detail (key APIs, dependencies, supported runtimes/models, configuration). Prefer concrete, specific claims over filler — but every claim is still bound by rule (a) quote-or-omit. A sparse one-line `longDescription` is a defect; if the README supports more, write more.
+  - **Do not** include installation or setup commands in `longDescription`. The renderer appends the README's `## Installation` section verbatim after this description, so restating install steps here is redundant and will be duplicated on the page.
 
 **(e) Grounding check.** After generating a blurb, produce `quotedSpans`: for each sentence in short+long, list the README substring(s) that support it. If any sentence has no supporting span, **discard the blurb and retry once** with a stricter prompt. If the second attempt also fails grounding, emit empty strings for that field (null over guess).
 
@@ -35,6 +36,8 @@
    ```
    This computes the change-set from `build-manifest.json` and writes `data/blurb-requests.json` listing only `added` and `modified` repos. For `unchanged` repos, the script confirms the cache entry is present and reusable.
 
+   > **Refreshing thin legacy blurbs.** Cached blurbs are keyed by content-hash, so `unchanged` repos keep whatever blurb was written for them previously — including terse one-liners written before the rule (d) depth requirement. To regenerate robust descriptions for **all** repos (not just changed ones), drop the flag — `tsx scripts/write-blurbs.ts` — which re-requests every repo. Use this when the user reports that existing descriptions are thin, or after tightening the depth rules.
+
 2. **For each entry in `data/blurb-requests.json`:**
 
    For repo `{slug}`, the manifest provides:
@@ -46,7 +49,7 @@
 
    Generate a blurb by calling Claude with a prompt shaped like:
 
-   > You are writing a short catalog blurb for a software project. Follow the rules in `<rules>` exactly.
+   > You are writing a catalog blurb for a software project. Follow the rules in `<rules>` exactly. The `longDescription` must be a robust, thorough overview (3–6 sentences) per rule (d) — do not settle for a single sentence when the README supports more. Do not include install/setup commands.
    >
    > **README excerpt:**
    > ```

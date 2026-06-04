@@ -7,15 +7,18 @@ tagline: >-
   workflows involving large language models (LLMs).
 description:
   short: >-
-    npm package that creates semantically coherent chunks from large texts for
-    LLM workflows.
+    NPM package for semantically creating chunks from large texts for workflows
+    involving large language models.
   long: >-
-    Splits input into sentences, generates embeddings using a configurable ONNX
-    model, computes cosine similarity between pairs, and groups sentences into
-    chunks by similarity threshold and max token size. Supports dynamic
-    thresholds, chunk rebalancing, quantized models, and RAG-style chunk
-    prefixes. Includes a Web UI for experimenting with settings, runnable via
-    Docker Compose.
+    An NPM package for semantically creating chunks from large texts, useful for
+    workflows involving large language models (LLMs). It splits input text into
+    sentences, generates a vector for each using a specified ONNX model,
+    calculates cosine similarity for each sentence pair, and groups sentences
+    into chunks based on a similarity threshold and maximum token size. Options
+    include dynamic similarity thresholds, configurable chunk sizes, multiple
+    embedding model options, quantized model support, and chunk prefixes for RAG
+    workflows. It also includes a Web UI for experimenting with settings and can
+    be run via Docker Compose.
 banner:
   src: >-
     https://github.com/jparkerweb/semantic-chunking/blob/main/semantic-chunking.jpg?raw=true
@@ -36,14 +39,14 @@ theme: nlp
 primaryLanguage: JavaScript
 languages:
   - name: JavaScript
-    percent: 78.57
+    percent: 80.05
   - name: HTML
-    percent: 10.51
+    percent: 9.78
   - name: CSS
-    percent: 10.26
+    percent: 9.55
   - name: Dockerfile
-    percent: 0.66
-stars: 140
+    percent: 0.62
+stars: 141
 links:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   demo: 'https://semantic-chunking.equilllabs.com/'
@@ -51,10 +54,16 @@ links:
 featured: true
 sortOrder: 0
 status: active
-lastCommit: '2026-04-17T14:46:10Z'
+lastCommit: '2026-05-29T05:11:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/semantic-chunking'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Splits input into sentences, generates embeddings using a configurable ONNX model, computes cosine similarity between pairs, and groups sentences into chunks by similarity threshold and max token size. Supports dynamic thresholds, chunk rebalancing, quantized models, and RAG-style chunk prefixes. Includes a Web UI for experimenting with settings, runnable via Docker Compose.
+An NPM package for semantically creating chunks from large texts, useful for workflows involving large language models (LLMs). It splits input text into sentences, generates a vector for each using a specified ONNX model, calculates cosine similarity for each sentence pair, and groups sentences into chunks based on a similarity threshold and maximum token size. Options include dynamic similarity thresholds, configurable chunk sizes, multiple embedding model options, quantized model support, and chunk prefixes for RAG workflows. It also includes a Web UI for experimenting with settings and can be run via Docker Compose.
+
+## Installation
+
+```bash
+npm install semantic-chunking
+```

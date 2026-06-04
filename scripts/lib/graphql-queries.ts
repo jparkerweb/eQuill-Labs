@@ -7,7 +7,13 @@ export const USER_REPOS_QUERY = /* GraphQL */ `
 			avatarUrl
 			url
 			repositories(
-				first: 100
+				# Page size kept small on purpose: each node pulls the full README
+				# blob plus languages(10) + topics(20) + license + issues. At
+				# first: 100 the combined complexity periodically trips GitHub's
+				# GraphQL node/timeout limit, which surfaces as a bare nginx 502.
+				# first: 25 stays comfortably under that ceiling; the script
+				# paginates the rest with a polite pause between pages.
+				first: 25
 				after: $cursor
 				ownerAffiliations: OWNER
 				privacy: PUBLIC
@@ -22,6 +28,9 @@ export const USER_REPOS_QUERY = /* GraphQL */ `
 					description
 					url
 					homepageUrl
+					defaultBranchRef {
+						name
+					}
 					stargazerCount
 					forkCount
 					primaryLanguage {

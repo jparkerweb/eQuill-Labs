@@ -8,10 +8,12 @@ tagline: >-
 description:
   short: A Chrome extension that provides a customizable dark mode for any website.
   long: >-
-    It can toggle dark mode on or off for individual websites and persists
-    settings across browser sessions. You can customize background, text, link,
-    and border colors, which preview live on the active page as you drag each
-    picker.
+    A Chrome extension that provides a customizable dark mode for any website.
+    Dark mode can be toggled on or off per individual website, with settings
+    persisting across browser sessions. The popup lets you customize the
+    background, text, link, and border colors, which preview live on the active
+    page as you drag each picker before saving. It can also be toggled with a
+    keyboard shortcut (Ctrl+Shift+S, or Command+Shift+S on Mac).
 banner:
   src: 'https://github.com/jparkerweb/simply-dark/blob/main/simply-dark.jpg?raw=true'
   alt: simply-dark banner
@@ -42,6 +44,11 @@ lastCommit: '2026-05-12T04:37:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/simply-dark'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It can toggle dark mode on or off for individual websites and persists settings across browser sessions. You can customize background, text, link, and border colors, which preview live on the active page as you drag each picker.
+A Chrome extension that provides a customizable dark mode for any website. Dark mode can be toggled on or off per individual website, with settings persisting across browser sessions. The popup lets you customize the background, text, link, and border colors, which preview live on the active page as you drag each picker before saving. It can also be toggled with a keyboard shortcut (Ctrl+Shift+S, or Command+Shift+S on Mac).
+
+## Install
+
+Get Simply Dark from the Chrome Web Store:
+[https://chromewebstore.google.com/detail/simply-dark/dgpoehekglnaelmdigallfjfhlhejnfo](https://chromewebstore.google.com/detail/simply-dark/dgpoehekglnaelmdigallfjfhlhejnfo)

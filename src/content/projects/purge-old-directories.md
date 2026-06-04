@@ -7,14 +7,17 @@ tagline: >-
   purging old directories.
 description:
   short: >-
-    Two PowerShell scripts that purge files in a folder and clean up directories
-    older than a specified number of months.
+    Two PowerShell scripts for purging files and cleaning up old directories by
+    age.
   long: >-
+    Two PowerShell scripts for managing and cleaning up old directories.
     `purge-files-in-folder.ps1` deletes all files in a specified folder using
-    the `robocopy /purge` command, and removes the folder if it ends up empty.
-    `purge-old-folders.ps1` calls that script against directories older than a
-    given number of months within a target path. Both scripts accept a `-Force`
-    flag to run without user confirmation.
+    the `robocopy /purge` command and removes the folder itself if it is empty
+    afterward. `purge-old-folders.ps1` calls that script for directories older
+    than a specified number of months, cleaning up a target path in batches.
+    Both accept a `-Force` flag to run without confirmation, and
+    `purge-old-folders.ps1` can run interactively with a folder-browser dialog
+    and prompts when no parameters are supplied.
 banner:
   src: >-
     https://github.com/jparkerweb/purge-old-directories/blob/main/purge-old-directories.jpg?raw=true
@@ -43,6 +46,6 @@ lastCommit: '2026-04-21T17:29:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/purge-old-directories'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-`purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command, and removes the folder if it ends up empty. `purge-old-folders.ps1` calls that script against directories older than a given number of months within a target path. Both scripts accept a `-Force` flag to run without user confirmation.
+Two PowerShell scripts for managing and cleaning up old directories. `purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command and removes the folder itself if it is empty afterward. `purge-old-folders.ps1` calls that script for directories older than a specified number of months, cleaning up a target path in batches. Both accept a `-Force` flag to run without confirmation, and `purge-old-folders.ps1` can run interactively with a folder-browser dialog and prompts when no parameters are supplied.

@@ -8,13 +8,17 @@ tagline: >-
   space.
 description:
   short: >-
-    A PowerShell script for analyzing disk space usage on local and network
-    paths to identify the largest subdirectories.
+    A PowerShell script that analyzes disk usage on local and network paths to
+    find the largest subdirectories.
   long: >-
-    It works with both local and network SMB paths and shows real-time progress
-    as directories are scanned, and an interrupted scan can resume from where it
-    left off. It displays the largest directories ranked by size and gracefully
-    continues when access is denied to specific folders.
+    A PowerShell script for analyzing disk space usage on local and network
+    paths, quickly identifying which top-level subdirectories consume the most
+    storage. It supports SMB network shares, shows real-time progress as
+    directories are scanned, and can resume an interrupted scan from where it
+    left off. It gracefully continues when access to specific folders is denied,
+    then displays the top 100 largest directories ranked by size with
+    last-modified dates and sizes in bytes, MB, and GB. It requires PowerShell
+    5.0 or higher and read access to the target path.
 banner:
   src: 'https://github.com/jparkerweb/ps-win-dir-size/raw/main/ps-win-dir-size.jpg'
   alt: ps-win-dir-size banner
@@ -40,6 +44,6 @@ lastCommit: '2026-05-12T04:42:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-It works with both local and network SMB paths and shows real-time progress as directories are scanned, and an interrupted scan can resume from where it left off. It displays the largest directories ranked by size and gracefully continues when access is denied to specific folders.
+A PowerShell script for analyzing disk space usage on local and network paths, quickly identifying which top-level subdirectories consume the most storage. It supports SMB network shares, shows real-time progress as directories are scanned, and can resume an interrupted scan from where it left off. It gracefully continues when access to specific folders is denied, then displays the top 100 largest directories ranked by size with last-modified dates and sizes in bytes, MB, and GB. It requires PowerShell 5.0 or higher and read access to the target path.

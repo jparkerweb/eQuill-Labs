@@ -7,14 +7,19 @@ tagline: >-
   text inference (using standard baseUrl, and apiKey params)
 description:
   short: >-
-    Stands up an OpenAI-compatible API server that proxies calls to AWS Bedrock
-    using standard `baseUrl` and `apiKey` params.
+    Spin up your own OpenAI-compatible API endpoint that proxies calls to AWS
+    Bedrock for LLM text inference.
   long: >-
-    Lets existing OpenAI-API-compatible applications keep using their current
-    client by fronting AWS Bedrock with a compatible endpoint. Removes the need
-    to format LLM calls against the Bedrock SDK or reconcile per-model
-    configuration differences. Distributed as a Node.js project with a published
-    Docker image on GHCR.
+    A service that lets you spin up your own custom OpenAI API compatible server
+    endpoint that proxies calls to AWS Bedrock for LLM text inference, using the
+    standard `baseUrl` and `apiKey` params. It is aimed at keeping applications
+    platform-agnostic and avoiding the need to format inference calls for the
+    Bedrock SDK or reconcile per-model configuration differences. It is useful
+    for getting existing OpenAI API compatible applications working with AWS
+    Bedrock. The endpoint can be run from source with Node.js, or via Docker
+    using a pre-built image from GitHub Container Registry (GHCR) or a local
+    build, with configuration supplied through environment variables and an
+    optional docker-compose setup.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/bedrock-proxy-endpoint/refs/heads/main/.readme/bedrock-proxy-endpoint.jpg
@@ -53,6 +58,26 @@ lastCommit: '2026-04-16T15:27:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-proxy-endpoint'
   sha: HEAD
-  fetchedAt: '2026-05-26T05:14:33.875Z'
+  fetchedAt: '2026-06-04T15:41:42.191Z'
 ---
-Lets existing OpenAI-API-compatible applications keep using their current client by fronting AWS Bedrock with a compatible endpoint. Removes the need to format LLM calls against the Bedrock SDK or reconcile per-model configuration differences. Distributed as a Node.js project with a published Docker image on GHCR.
+A service that lets you spin up your own custom OpenAI API compatible server endpoint that proxies calls to AWS Bedrock for LLM text inference, using the standard `baseUrl` and `apiKey` params. It is aimed at keeping applications platform-agnostic and avoiding the need to format inference calls for the Bedrock SDK or reconcile per-model configuration differences. It is useful for getting existing OpenAI API compatible applications working with AWS Bedrock. The endpoint can be run from source with Node.js, or via Docker using a pre-built image from GitHub Container Registry (GHCR) or a local build, with configuration supplied through environment variables and an optional docker-compose setup.
+
+## Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/jparkerweb/bedrock-proxy-endpoint.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd bedrock-proxy-endpoint
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    npm ci
+    ```

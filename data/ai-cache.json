@@ -25,21 +25,21 @@
     "slug": "queue-tha-llama"
   },
   "04cfac6e62ab7dcc6f250fefbb10bd0213418a52d5d2a8ff1efde918f66aa94a": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Rephrases user queries for web search, fetches results from a SearXNG instance, summarizes the content, and generates a final response via an OpenAI-compatible API (supporting Ollama, together.ai, llama.cpp). Streams responses for real-time output and implements content similarity checks with repetition detection. Ships with an interactive CLI and detailed logging.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js application that performs web-augmented generation using web search results from SearXNG and various LLM providers via OpenAI-compatible API calls. It rephrases user queries for better web searching, searches with SearXNG, then fetches and summarizes content from the results before generating a response. It supports streaming responses, content similarity checking and repetition detection, detailed logging, and an interactive CLI. Multiple LLM providers are supported, including Ollama, together.ai, and llama.cpp, and it can apply semantic chunking to scraped page content for higher-quality answers.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "performs web-augmented generation using various LLM providers and web search results from SearXNG",
+      "This Node.js application performs web-augmented generation using various LLM providers and web search results from SearXNG",
       "Rephrases user queries for optimal web searching",
-      "Searches the web using SearXNG",
       "Fetches and summarizes content from search results",
       "Generates responses using various LLM providers via OpenAI-compatible API calls",
       "Supports streaming responses for real-time output",
       "Implements content similarity checking and repetition detection",
       "Features an interactive CLI",
-      "Supports multiple LLM providers (Ollama, together.ai, llama.cpp)"
+      "Supports multiple LLM providers (Ollama, together.ai, llama.cpp)",
+      "Enable semantic chunking for better quality answers"
     ],
-    "shortDescription": "Node.js app that performs web-augmented generation using SearXNG search results and OpenAI-compatible LLMs.",
+    "shortDescription": "Node.js CLI app that performs web-augmented generation using SearXNG search and any OpenAI-compatible LLM.",
     "slug": "web-augmented-generation"
   },
   "04d1c350c43ee535c8195f2a0cf643bfe4b89430b9e9811244cc0ce607d5e299": {
@@ -57,17 +57,18 @@
     "slug": "equill-labs"
   },
   "04e1af177ce70e523400bf9df61bd4366187cca9b9e4bec0041fa00ca33211ef": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Generates answers to questions in a sample dataset across a pool of evaluation LLMs, then has a group of Judge LLMs rate each response. Results are visualized as graphs showing overall accuracy. Metrics such as BERT Score and inference time are included alongside.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js LLM evaluation framework that uses LLMs to evaluate other LLMs. It generates answers to questions from a sample dataset across the LLMs in an evaluation pool, then has a group of Judge LLMs assess and rate each response. Results are visualized across several graphs to show overall accuracy, and additional metrics such as BERT Score and inference time are reported per LLM. It is set up with an npm setup script and started with `npm run server` or `npm start`.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "LLM Evaluation framework that leverages LLMs to Evaluate other LLMs",
-      "designed to generate answers to questions using your sample dataset",
-      "a group of Judge LLMs will assess and rate each response",
-      "results are then visualized in several graphs, providing a clearer picture of the overall accuracy of the LLMs",
-      "metrics such as BERT Score and Inference Time are provided"
+      "InferIQ is a NodeJS application designed to generate answers to questions using your sample dataset",
+      "After answering all dataset questions across the selected LLMs in your evaluation pool, a group of Judge LLMs will assess and rate each response",
+      "The results are then visualized in several graphs, providing a clearer picture of the overall accuracy of the LLMs",
+      "metrics such as BERT Score and Inference Time are provided",
+      "start the application:"
     ],
-    "shortDescription": "LLM evaluation framework that uses LLMs to evaluate other LLMs.",
+    "shortDescription": "An LLM evaluation framework that uses Judge LLMs to assess and rate the answers of other LLMs.",
     "slug": "inferiq"
   },
   "0629bbca50ff719d3ea80c79cf709100e7672fdf337dfb65c8c3498826919b86": {
@@ -171,20 +172,19 @@
     "slug": "splitter-vs-splitter"
   },
   "0e1987c37204d2fdf4adde5f1d9e400c05ae455cb94078735e3bd2229347fece": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "`parseSentences(text, options)` returns an array of sentences, with options for treating multiple line breaks as separators, stripping start-of-line sequences, preserving `<br>`/`<p>` tags as breaks, preserving list items with a configurable prefix, and excluding non-letter segments. Accepts input from either a string or a file.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A utility that parses text into sentences, accepting either a string or file contents through its async `parseSentences` function. It offers options to treat multiple consecutive line breaks as separate sentences, remove specified start-of-line sequences, preserve HTML `<br>` and `<p>` tags as line breaks, and preserve list items with a configurable prefix. An option to exclude segments that contain no letters is also available. The package returns an array of parsed sentences and includes runnable examples.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "parse sentences from input text",
       "A simple utility to parse text into sentences",
+      "The parser can be used to split text into sentences with various options",
       "observeMultipleLineBreaks: Treats two or more consecutive line breaks as separate sentences",
       "removeStartLineSequences: Removes specified sequences at the start of each line",
-      "preserveHTMLBreaks: Preserves HTML <br> and <p> tags as line breaks in the text",
-      "preserveListItems: Preserves list items by adding a prefix to each <li> element",
-      "listItemPrefix: Specifies the prefix to use for list items",
+      "preserveHTMLBreaks: Preserves HTML `<br>` and `<p>` tags as line breaks in the text",
+      "preserveListItems: Preserves list items by adding a prefix to each `<li>` element",
       "excludeNonLetterSentences: Excludes segments that contain no letters"
     ],
-    "shortDescription": "Utility that parses text into sentences with configurable line-break and HTML handling options.",
+    "shortDescription": "A utility that parses text into sentences with configurable handling of line breaks, HTML, and list items.",
     "slug": "sentence-parse"
   },
   "0ea0830b9b17bcba9d3dd2fd8724eaaedd5f9209885f528f218f98bc97c904c9": {
@@ -227,18 +227,19 @@
     "slug": "inferiq"
   },
   "11591e09cb750bf1282eaa87f37f5bfd35f24ff8ada8b3777a83201074391e8a": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Exposes `extractTopics(text, { numTopics, numTerms })` and returns a Promise with the LDA result. Defaults are 2 topics and 5 terms per topic. Built on the `ldawithmorelanguages` project.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An npm package that uses Latent Dirichlet Allocation (LDA) for topic modeling on text inputs. The main `extractTopics(text, options)` function analyzes input text and returns a Promise resolving to the LDA result, with options for the number of topics to extract and the number of terms per topic. LDA is an unsupervised learning method that discovers topics in documents, viewing each document as a random mixture over latent topics where every topic is characterized by a distribution over words.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Use LDA (Latent Dirichlet Allocation) to extract topics from text",
       "Simple NPM package for using Latent Dirichlet Allocation (LDA) for topic modeling on text inputs",
-      "extractTopics(text, { numTopics, numTerms })",
-      "numTopics (number, optional): Number of topics to extract. Default: 2",
-      "numTerms (number, optional): Number of terms per topic. Default: 5",
-      "https://www.npmjs.com/package/ldawithmorelanguages"
+      "numTopics (number, optional): Number of topics to extract",
+      "numTerms (number, optional): Number of terms per topic",
+      "Returns a Promise that resolves to the LDA analysis result",
+      "LDA is an unsupervised learning method that discovers topics in text documents",
+      "It views documents as random mixtures over latent topics, where each topic is characterized by a distribution over words"
     ],
-    "shortDescription": "npm package for LDA (Latent Dirichlet Allocation) topic modeling of text.",
+    "shortDescription": "npm package that uses Latent Dirichlet Allocation (LDA) to extract topics from text.",
     "slug": "extract-topics"
   },
   "1245f705df14404658b56ed16113209f1dcf0714a5f5d829b2295b88ed7c9561": {
@@ -269,20 +270,21 @@
     "slug": "pptx-in-html-out"
   },
   "134ae5b7c7d415b6371235eb902a08751d5d4d30c8900ba392954b3264dbc290": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Paste CSS copied via Chrome dev tools' \"Copy CSS\" action and it returns cleaned, formatted properties. Handles CSS variables and preserves hex colors and complex values while removing unnecessary class wrappers. Includes one-click copy to clipboard.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A web app for extracting only the essential styles from raw style properties copied out of browser dev tools. After copying an element’s CSS from Chrome dev tools, pasting it into trim-style returns clean, consistently formatted CSS properties. It removes unnecessary class wrappers, handles CSS variables, and preserves hex colors and complex values, with one-click copy to clipboard and an instant page reload to clear the input. The page also features a floating triangles animation in the background.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple web app for extracting only the essential styles from raw style properties",
-      "clean and format CSS properties copied from browser dev tools",
-      "right-click an element in Chrome's dev tools, select \"Copy CSS\", and paste it here to get clean, formatted CSS properties",
+      "helps you clean and format CSS properties copied from browser dev tools",
+      "select \"Copy CSS\", and paste it here to get clean, formatted CSS properties",
       "Removes unnecessary class wrappers",
-      "Formats CSS properties consistently",
       "Handles CSS variables",
       "Preserves hex colors and complex values",
-      "One-click copy to clipboard"
+      "One-click copy to clipboard",
+      "Instant page reload to clear input",
+      "Beautiful floating triangles animation in the background"
     ],
-    "shortDescription": "Web app that extracts essential CSS from raw style properties copied from browser dev tools.",
+    "shortDescription": "A web app that extracts only the essential styles from CSS copied out of browser dev tools.",
     "slug": "trim-style"
   },
   "168174b4fa8d8f0b3d869011ad56bf072b15186f2e35b2a8fcb0f88b2f61a60e": {
@@ -302,17 +304,19 @@
     "slug": "punctuation-restore"
   },
   "16f10de19976d90191bf2a9dc51965ff057cfa5957b8b4935a68710c2c8a928b": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It preserves images, shapes, and text formatting, and includes OCR support for text extraction from images. The responsive output is delivered as a modern ESM package.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An npm package that converts PowerPoint presentations to HTML with high fidelity. It preserves images, shapes, and text formatting, includes OCR support for extracting text from images, and produces responsive output that works across devices as a modern ESM package. The main `PPTXInHTMLOut` class is constructed from a PPTX file buffer, and its `toHTML(options)` method returns the generated HTML, optionally including default styles or omitting them for custom styling.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Convert PowerPoint presentations to HTML with high fidelity.",
+      "Convert PowerPoint presentations to HTML with high fidelity",
       "OCR support for text extraction from images",
       "Preserves images, shapes, and text formatting",
       "Responsive output that works across devices",
-      "Modern ESM package"
+      "Modern ESM package",
+      "new PPTXInHTMLOut(pptxBuffer)",
+      "includeStyles (boolean, default: true): Whether to include default styles in the output HTML"
     ],
-    "shortDescription": "An npm package that converts PowerPoint presentations to HTML with high fidelity.",
+    "shortDescription": "npm package that converts PowerPoint (PPTX) presentations to HTML with high fidelity.",
     "slug": "pptx-in-html-out"
   },
   "174bb424600dd7551ea1f5e78bb470daae57a4dd33b7136e3b52df421ac2e2b9": {
@@ -387,16 +391,18 @@
     "slug": "obsidian-element-enhancer"
   },
   "1ec422fa09506dddbba1c9c9e932aa03889d48f62be789922c8f866892bfab45": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "Hotkeys work on the forum Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic around heuristic DOM discovery plus a MutationObserver so it adapts when BGG tweaks class names or ids instead of breaking outright.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Google Chrome extension that lets you select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts. Its hotkeys work on the Subscriptions Feed page and on forum Thread pages. Version 2.0.0 rewrites the subscriptions logic for BGG’s new Angular single-page Subscriptions Feed, using heuristic DOM discovery plus a MutationObserver so it adapts when BGG changes class names or ids instead of breaking, while keeping the existing keymap.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts.",
+      "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts",
       "Google Chrome extension",
-      "Extension `hotkeys` work on the forum Subscriptions Feed page and on forum Thread pages.",
-      "This version rewrites the subscriptions logic around heuristic DOM discovery plus a `MutationObserver`, so it adapts when BGG tweaks class names or ids instead of breaking outright."
+      "Extension `hotkeys` work on the forum Subscriptions Feed page and on forum Thread pages",
+      "BGG rolled out a new **Subscriptions Feed** page (an Angular SPA)",
+      "This version rewrites the subscriptions logic around heuristic DOM discovery plus a `MutationObserver`, so it adapts when BGG tweaks class names or ids instead of breaking outright",
+      "The keymap is unchanged"
     ],
-    "shortDescription": "A Chrome extension to select and delete forum posts from your Board Game Geek subscription list using keyboard shortcuts.",
+    "shortDescription": "A Chrome extension to select and delete Board Game Geek forum subscription posts using keyboard shortcuts.",
     "slug": "bgg-keyboard-select"
   },
   "1f724629ec12a0289c5fa007bbe89f7b714bcb352a3946c6fd1a12249d4b116c": {
@@ -461,36 +467,34 @@
     "slug": "replicate-ai-models-for-photoshop-plugin"
   },
   "22793e68c775010fd6f754c6a770f09d3e64ebb73e9e7d26706ad47f319f2edf": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "The `/search-image` endpoint accepts optional `apikey`, `size`, `keyword`, and `orientation` query parameters and returns the raw image data so it can be hotlinked directly. When no keyword is provided, one is drawn from a configurable `random-words.json` file of 300 entries. Requires a Pexels API key in `.env`.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js application that provides an endpoint to search Pexels and return a randomly selected image, allowing hotlinking by directly returning the image data. It fetches images from the Pexels API based on query parameters such as size, keyword, and orientation, and when no keyword is supplied it picks a random word from a list of 300. It is intended for web applications or services that need to dynamically fetch and display Pexels images without storing them locally. The server reads a Pexels API key and port from a `.env` file and exposes a `/search-image` GET endpoint.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Simple Node.js application that provides an endpoint to search Pexels and return a randomly selected image",
-      "allows hotlinking images by directly returning the image data",
+      "It allows hotlinking images by directly returning the image data",
+      "fetch images from the Pexels API based on specified query parameters such as size, keyword, and orientation",
       "If no keyword is provided, a random keyword from a list of 300 random words is used",
-      "Make a GET request to the /search-image endpoint",
-      "apikey (optional)",
-      "size (optional)",
-      "keyword (optional)",
-      "orientation (optional)",
-      "PEXELS_API_KEY=your_pexels_api_key"
+      "useful for web applications or services that need to dynamically fetch and display images from Pexels without storing them locally",
+      "Make a GET request to the `/search-image` endpoint"
     ],
-    "shortDescription": "Node.js app exposing a search endpoint that returns a randomly selected image from Pexels.",
+    "shortDescription": "Node.js app that exposes an endpoint to search Pexels and return a randomly selected image.",
     "slug": "random-pexels-image"
   },
   "22a0f696ac5d2fb54efbfc4bba91a78f887c11769934eca205addb1494ef6f19": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It automatically detects whether the clipboard holds an image or text and saves it with a clean timestamp, appending a number to resolve filename conflicts. Configuration is handled through a simple INI file, with optional Explorer integration to reveal the saved file.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A PowerShell utility that saves clipboard content to organized files with timestamped names. It automatically detects whether the clipboard holds an image or text, saving images as high-quality JPEGs and text as UTF-8 files using a `YYYYMMDD_HHMMSS` naming format, and resolves conflicts by appending numbers to duplicate filenames. Behavior is controlled through a simple INI configuration file that sets the save path and whether to open Windows Explorer with the saved file selected. The README also shows how to bind it to a keyboard shortcut with AutoHotkey, optionally compiled to a standalone EXE.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names.",
-      "Automatically detects images and text in your clipboard",
+      "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names",
+      "Smart Detection: Automatically detects images and text in your clipboard",
       "Files saved with clean timestamps (`YYYYMMDD_HHMMSS` format)",
-      "Automatically handles duplicate filenames by appending numbers",
+      "Conflict Resolution: Automatically handles duplicate filenames by appending numbers",
       "Simple INI-based configuration with sensible defaults",
-      "Optionally open Windows Explorer with the saved file selected"
+      "opens Windows Explorer with the saved file selected",
+      "Make your hotkey portable without requiring AutoHotkey installation"
     ],
-    "shortDescription": "A PowerShell utility that saves your clipboard content to organized files with timestamped names.",
+    "shortDescription": "A PowerShell utility that saves clipboard content to timestamped files.",
     "slug": "clip-to-file"
   },
   "278e82ce631cda1fc9a513d8a776aa4a0684f4195270c50cfb1178b1defe06a7": {
@@ -552,17 +556,19 @@
     "slug": "add-block-to-hosts"
   },
   "2f4094d7d2d14dd213829788ff5cb4b5e735a0ea09517434dbd54df97dba0a56": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Launches from a desktop shortcut with a default hotkey of Ctrl+Shift+A. Screenshots are saved to a `Steph-Shots` folder in the user's Downloads directory and simultaneously copied to the clipboard. Packaged as an SFX installer built with WinRAR.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Windows tool that quickly saves a screenshot to disk and copies it to the clipboard. After installation it adds a desktop shortcut and can be launched by default with Ctrl+Shift+A. Screenshots are automatically saved to a \"Steph-Shots\" folder in the user’s Downloads directory and simultaneously placed on the clipboard ready to paste. It is distributed as a Windows SFX installer packaged with WinRAR, and includes a `setup.cmd` to manually create the desktop shortcut if needed.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Steph-Shot allows you to quickly save a screen shot to disk and copy it to your clipboard",
-      "Windows OS required",
-      "by default can be launched by pressing \"Ctrl + Shift + A\" on your keyboard",
+      "(Windows OS required)",
+      "a shortcut will be added to your desktop and by default can be launched by pressing \"Ctrl + Shift + A\"",
       "All screen shots are automatically saved to your Downloads directory in a folder named \"Steph-Shots\"",
-      "steph-shot is packaged as an sfx file using winrar"
+      "the screen shot is also saved to your clipboard and ready to be pasted",
+      "you will need to manually run the `setup.cmd` from the `libs` folder",
+      "steph-shot is packaged as an `sfx` file using `winrar`"
     ],
-    "shortDescription": "Windows screenshot utility that saves to disk and copies to the clipboard via Ctrl+Shift+A.",
+    "shortDescription": "A Windows tool that saves a screenshot to disk and copies it to the clipboard via a hotkey.",
     "slug": "steph-shot"
   },
   "3159ccd6d9e2d51a1daf2b66348d9becb8cbf7e4fea800823dda78470738d5f8": {
@@ -591,16 +597,19 @@
     "slug": "k-batch"
   },
   "330c900e0a6b91c946440de75106dc364b22105537fc93d293f9257c64d84d19": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Lets existing OpenAI-API-compatible applications keep using their current client by fronting AWS Bedrock with a compatible endpoint. Removes the need to format LLM calls against the Bedrock SDK or reconcile per-model configuration differences. Distributed as a Node.js project with a published Docker image on GHCR.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A service that lets you spin up your own custom OpenAI API compatible server endpoint that proxies calls to AWS Bedrock for LLM text inference, using the standard `baseUrl` and `apiKey` params. It is aimed at keeping applications platform-agnostic and avoiding the need to format inference calls for the Bedrock SDK or reconcile per-model configuration differences. It is useful for getting existing OpenAI API compatible applications working with AWS Bedrock. The endpoint can be run from source with Node.js, or via Docker using a pre-built image from GitHub Container Registry (GHCR) or a local build, with configuration supplied through environment variables and an optional docker-compose setup.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard baseUrl, and apiKey params)",
-      "makes it easy to continue using the OpenAI API client that you are use to by standing up your own OpenAI text compatible endpoint that will proxy all your calls to Bedrock in a compatible way",
+      "Spin up your own custom OpenAI API server endpoint for easy AWS Bedrock LLM text inference (using standard `baseUrl`, and `apiKey` params)",
+      "you want to keep your application platform agnostic",
+      "tired of figuring out how to format your LLM inference calls to work with the Bedrock SDK",
       "Great for getting existing OpenAI API compatible applications working with AWS Bedrock",
-      "docker pull ghcr.io/jparkerweb/bedrock-proxy-endpoint"
+      "Pull and run the latest image from GHCR",
+      "Build the Docker image locally and run it",
+      "Create a `docker-compose.yml` file for easier management"
     ],
-    "shortDescription": "Stands up an OpenAI-compatible API server that proxies calls to AWS Bedrock using standard `baseUrl` and `apiKey` params.",
+    "shortDescription": "Spin up your own OpenAI-compatible API endpoint that proxies calls to AWS Bedrock for LLM text inference.",
     "slug": "bedrock-proxy-endpoint"
   },
   "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721": {
@@ -676,30 +685,36 @@
     "slug": "inferiq"
   },
   "4492c8851914e445c35ba3fbf660c411e0ea0a7476e2fae8874bd6f5b347637c": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It depends on the obsidian-element-enhancer script to inject custom classes into the Reading View. Modifier classes can be mixed and matched to control card alignment, vertical stacking, and width. Live preview is not supported.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A CSS snippet that renders bulleted list items as cards in Obsidian's Reading View (live preview is not supported). It depends on the obsidian-element-enhancer script to inject custom classes into the Reading View, and is enabled by copying the `bullet-cards.css` file into the Obsidian snippets folder. Cards are activated by adding a div with the `bullet-cards` class plus optional modifier classes. A range of modifier classes control vertical stacking, alignment, card width, content alignment, padding, and borders so the look can be mixed and matched.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "css snippet to render bulleted list items as cards in Reading View (live preview not supported)",
-      "Install [`obsidian-element-enhancer`](https://github.com/jparkerweb/obsidian-element-enhancer) script to allow custom classes to be injected into the Reading View.",
-      "The following modifer classes can be mixed and matched to achive differnt looks"
+      "allow custom classes to be injected into the Reading View",
+      "Copy the `bullet-cards.css` file to your Obsidian snippets folder and enable the snippet",
+      "add a div with the `buttet-cards` custom class (and optional modifier classes)",
+      "The following modifer classes can be mixed and matched to achive differnt looks",
+      "live preview is not supported"
     ],
-    "shortDescription": "A CSS snippet that renders bulleted list items as cards in Obsidian's Reading View.",
+    "shortDescription": "CSS snippet that renders bulleted list items as cards in Obsidian's Reading View.",
     "slug": "obsidian-bullet-cards"
   },
   "452902d0811727e9e92d70f5396effeaac46fd4bac9305f365e4234fdfabff7d": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It works with both local and network SMB paths and shows real-time progress as directories are scanned, and an interrupted scan can resume from where it left off. It displays the largest directories ranked by size and gracefully continues when access is denied to specific folders.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A PowerShell script for analyzing disk space usage on local and network paths, quickly identifying which top-level subdirectories consume the most storage. It supports SMB network shares, shows real-time progress as directories are scanned, and can resume an interrupted scan from where it left off. It gracefully continues when access to specific folders is denied, then displays the top 100 largest directories ranked by size with last-modified dates and sizes in bytes, MB, and GB. It requires PowerShell 5.0 or higher and read access to the target path.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "A PowerShell script for analyzing disk space usage on local and network paths.",
-      "Works with both local and network paths (SMB shares)",
-      "Shows real-time progress as directories are scanned",
-      "If a scan is interrupted (Ctrl+C, network drop, etc.), resume from where it left off at next startup",
-      "Displays the largest directories ranked by size, including last-modified date",
-      "Gracefully continues scanning if access is denied to specific folders"
+      "A PowerShell script for analyzing disk space usage on local and network paths",
+      "Quickly identify which top-level subdirectories consume the most storage space",
+      "Network Path Support - Works with both local and network paths (SMB shares)",
+      "Progressive Output - Shows real-time progress as directories are scanned",
+      "Resume Support - If a scan is interrupted",
+      "Access Denied Handling - Gracefully continues scanning if access is denied",
+      "Top 100 Summary - Displays the largest directories ranked by size, including last-modified date",
+      "Multiple Size Formats - Shows sizes in bytes, MB, and GB",
+      "PowerShell 5.0 or higher"
     ],
-    "shortDescription": "A PowerShell script for analyzing disk space usage on local and network paths to identify the largest subdirectories.",
+    "shortDescription": "A PowerShell script that analyzes disk usage on local and network paths to find the largest subdirectories.",
     "slug": "ps-win-dir-size"
   },
   "46d9b755ce78e83d7f710885d09ec3d6cd60b132a21170a27b49e409be78d6fa": {
@@ -777,37 +792,36 @@
     "slug": "simplesite-boilerplate"
   },
   "4e8e94009ace5b4070829c95f7b245805bab818b5295b1463bafa7cda4fd8de1": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Exposes a `matchChunks(documents, query, options)` function that returns chunks sorted by relevance with similarity scores. Chunking thresholds, max token size, and ONNX embedding model are configurable; it is built on top of `semantic-chunking`. Supports dynamic similarity thresholds and optional chunk recombination.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js library that semantically chunks text and matches it against a user query using cosine similarity for relevant text retrieval. It returns chunks sorted by relevance with similarity scores, and exposes configurable similarity thresholds and chunk sizes. It is built on top of semantic-chunking for the underlying text processing and supports various ONNX embedding models. The main `matchChunks(documents, query, options)` function takes an array of document objects, a query string, and options such as maxResults, minSimilarity, and detailed chunkingOptions.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "NodeJS library that semantically chunks text and matches it against a user query using cosine similarity",
-      "Semantic text chunking with configurable options",
-      "Query matching using cosine similarity",
-      "Configurable similarity thresholds and chunk sizes",
+      "A NodeJS library that semantically chunks text and matches it against a user query using cosine similarity for precise and relevant text retrieval",
       "Returns chunks sorted by relevance with similarity scores",
+      "Configurable similarity thresholds and chunk sizes",
       "Built on top of semantic-chunking",
       "Support for various ONNX embedding models",
-      "matchChunks(documents, query, options)"
+      "maxResults (number): Maximum number of results to return",
+      "minSimilarity (number): Minimum similarity threshold for matches"
     ],
     "shortDescription": "Node.js library that semantically chunks text and matches it against a query using cosine similarity.",
     "slug": "chunk-match"
   },
   "506e266f2c02b39c67ea3f21391e20ac4ac8e2bffb2363e59ea991167be52fac": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Currently compares `@stdlib/nlp-sentencize` against `sentence-parse`, with matching sentences color-coded across both outputs. Runs on an Express backend with a vanilla JavaScript frontend and supports a Ctrl+Enter shortcut for processing text. Provides sentence count display and a responsive split layout.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A web-based tool to compare different sentence splitting libraries side by side, currently pitting @stdlib/nlp-sentencize against sentence-parse. It performs real-time comparison with color-coding so matching sentences line up visually across both outputs, and displays a sentence count. The frontend is vanilla JavaScript with an Express.js backend and no external UI frameworks. Text is processed by clicking a button or pressing Ctrl+Enter.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A web-based tool to compare different sentence splitting libraries side by side",
-      "@stdlib/nlp-sentencize",
-      "sentence-parse",
       "Real-time sentence splitting comparison",
       "Visual color-coding of sentences for easy comparison",
+      "Sentence count display",
       "Express.js backend",
       "Vanilla JavaScript frontend",
+      "No external UI libraries or frameworks",
       "Keyboard shortcuts (Ctrl + Enter to split)"
     ],
-    "shortDescription": "Web-based tool to compare different sentence-splitting libraries side by side.",
+    "shortDescription": "A web tool that compares sentence-splitting libraries side by side with color-coded output.",
     "slug": "splitter-vs-splitter"
   },
   "51a3a0aea8adeb6cf3f81a061a8f11689d25c2fd90781d6f1a5b205508973d21": {
@@ -860,6 +874,23 @@
     "shortDescription": "Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas.",
     "slug": "ollama-structured-output-test"
   },
+  "53e6533029c5b57fbec3088acba8bfd70102afeb0c99f8782600fb766d56fa4f": {
+    "generatedAt": "2026-06-04T15:44:17.176Z",
+    "longDescription": "Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created and modified dates. Backlinks show which notes link to the current note, while outlinks (disabled by default) show which notes it links to, both displayed as tag-like links. It also detects links in a note’s frontmatter, including YAML link lists. The settings panel provides visibility toggles for each section and style settings such as opacity and border controls, plus an option to exclude specific folders from displaying the footer.",
+    "model": "claude-opus-4-8",
+    "quotedSpans": [
+      "Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.",
+      "Backlinks: Displayed as tags showing which notes link TO this note",
+      "Outlinks: Displayed as tags showing which notes this note links TO (disabled by default)",
+      "Stylish appearance with tag-like links",
+      "Rich Foot also detects links in your note's frontmatter.",
+      "You can toggle the visibility of each section",
+      "Highly customizable appearance with opacity and border controls",
+      "Option to exclude folder(s) from displaying 🦶 Rich Foot"
+    ],
+    "shortDescription": "An Obsidian plugin that enhances the note footer with backlinks, outlinks, and created/modified dates.",
+    "slug": "rich-foot"
+  },
   "57a21a73b2b9efa175646ccbfb016d94955c7c2011c144ff3af5ce5072df7278": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
     "longDescription": "Provides a live preview editor with nine print-optimized themes and syntax highlighting via Shiki. PDF export supports customizable page sizes, margins, and page numbers. Runs locally via Node.js or as a Docker container from `ghcr.io/jparkerweb/print-mark`.",
@@ -908,6 +939,24 @@
     "shortDescription": "PowerShell script for analyzing disk space usage on local and network paths.",
     "slug": "ps-win-dir-size"
   },
+  "6186f97f15240110ac7bc7cc8d643499452f0f5b0a6083a601a8562f5d56c5cd": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates. Backlinks show which notes link to the current note, while outlinks (disabled by default) show the notes it links to, and both are rendered as tag-like links. It also detects links defined in a note's frontmatter. The appearance is customizable through a settings panel, including visibility toggles for each section, opacity and border controls, and an option to exclude folders from displaying the footer.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates",
+      "Adds `backlinks` to the footer of your notes (links FROM other notes TO this note)",
+      "Adds `outlinks` to the footer of your notes (links FROM this note TO other notes)",
+      "Show/Hide Outlinks (disabled by default)",
+      "Stylish appearance with tag-like links",
+      "Rich Foot also detects links in your note's frontmatter",
+      "Highly customizable appearance with opacity and border controls",
+      "You can toggle the visibility of each section",
+      "Option to exclude folder(s) from displaying 🦶 Rich Foot"
+    ],
+    "shortDescription": "Obsidian plugin that adds backlinks, outlinks, and created/modified dates to the footer of your notes.",
+    "slug": "rich-foot"
+  },
   "61b7941d3a08cefabeda3e4d4ddd918414c8482341a1c460765fa3b62cbe09fe": {
     "generatedAt": "2026-04-17T16:36:01.775Z",
     "longDescription": "Built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
@@ -920,19 +969,21 @@
     "slug": "equill-labs"
   },
   "64d6f05959d1a9c481596b8176f3a12324f72f36454e0e919166212066fa8dcf": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It copies text snippets to the clipboard for easy pasting, drawing from simple text files in the ~/.clipexpand/ directory accessed via a customizable keyboard shortcut. A visual dialog handles snippet selection, with subdirectory support for organization and toast notifications for confirmation.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A clipboard-based text expansion tool for Linux systems, designed with Remote Desktop sessions in mind so snippets are copied to the clipboard for easy pasting in both local and remote workflows. Snippets are simple text files stored in a `~/.clipexpand/` directory with subdirectory support, selected through a visual dialog and accessed via a customizable keyboard shortcut, with toast notifications confirming each action. It works across local X11/Wayland sessions, Remote Desktop (RDP, VNC), and SSH with X forwarding on Debian-based distributions. It depends on bash, zenity, xsel, and notify-send, and ships an install script that sets everything up.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "A lightweight, clipboard-based text expansion tool for Linux systems.",
+      "A lightweight, clipboard-based text expansion tool for Linux systems",
       "Designed with Remote Desktop sessions in mind, ClipExpand copies your text snippets to the clipboard for easy pasting",
-      "**File-based snippets**: Simple text files in `~/.clipexpand/` directory",
-      "Quick access via customizable keyboard shortcut",
-      "**Easy selection**: Visual dialog for snippet selection",
-      "**Subdirectory support**: Organize snippets in folders",
-      "**Toast notifications**: Non-intrusive confirmation messages"
+      "File-based snippets: Simple text files in `~/.clipexpand/` directory",
+      "Subdirectory support: Organize snippets in folders",
+      "Visual dialog for snippet selection",
+      "Local sessions (X11/Wayland)",
+      "Remote Desktop (RDP, VNC, etc.)",
+      "SSH with X forwarding",
+      "Run the install script to automatically set everything up"
     ],
-    "shortDescription": "A lightweight, clipboard-based text expansion tool for Linux systems, designed with Remote Desktop sessions in mind.",
+    "shortDescription": "A clipboard-based text expansion tool for Linux, designed for local and Remote Desktop workflows.",
     "slug": "clip-expand"
   },
   "6b4b7fe2225942923f545f05a704e8581b9e08aa042f754ae4e603fdeb1aa869": {
@@ -950,71 +1001,66 @@
     "slug": "bgg-keyboard-select"
   },
   "6c13f239c9f253520c2e90f01945fb1125f5d1a298486b5aa6a73a77308508ab": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "You provide your AWS credentials and an OpenAI chat completions object, and the wrapper handles inference against Bedrock models. It can be paired with the Bedrock Proxy Endpoint project to spin up a custom OpenAI server endpoint using the standard baseUrl and apiKey params.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs. It accepts an `awsCreds` object and an OpenAI chat-completions-style request object, then streams the Bedrock response back chunk by chunk. Messages use OpenAI's role/content format, and the request's `model` value maps to a supported Bedrock model name. For an even simpler setup, it can be paired with the companion Bedrock Proxy Endpoint project to stand up a full OpenAI-compatible server endpoint using the standard `baseUrl` and `apiKey` params.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+      "Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs",
+      "use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference",
       "create an `awsCreds` object and fill in your AWS credentials",
-      "use the 🔀 [Bedrock Proxy Endpoint](https://github.com/jparkerweb/bedrock-proxy-endpoint) project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard `baseUrl`, and `apiKey` params)."
+      "the `messages` variable should be in openai's role/content format",
+      "the `model` value should be the corresponding `modelName` value in the `bedrock_models` section",
+      "invoke the streamed bedrock api response"
     ],
-    "shortDescription": "An npm package that simplifies integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.",
+    "shortDescription": "npm package that adapts OpenAI-compatible API objects to AWS Bedrock serverless inference LLMs.",
     "slug": "bedrock-wrapper"
   },
   "6fe9cfdfba13cad3f5020ea612d86c5e403f88fdf102a90e263ac00ddba319ba": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It connects 8 AI models — including Nano Banana, Seedream 4, Flux Kontext, GFPGAN, a background remover, SwinIR, and DDColor — to operate on your selection and output a new layer. Use cases span generation, face restoration, background removal, photo enhancement, and black-and-white colorization.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Photoshop plugin that integrates eight Replicate AI models into the editing workflow, turning a selection into a new layer while keeping lighting, shadows, and materials consistent. Generation models include Nano Banana, Seedream 4 with 1K/2K/4K resolution control, and Flux Kontext for context-aware edits and typography, while restoration and enhancement models cover GFPGAN face restoration, a background remover, SwinIR photo enhancement, and DDColor black-and-white colorization. Smart features include using the Photoshop foreground color in prompts, reference image support with automatic scaling, automatic aspect-ratio handling, real-time progress updates, and layer management with easy undo. Setup requires a Replicate account and API token.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Photoshop Plugin to incorporate Replicate AI Models",
-      "**8 powerful AI models** integrated seamlessly into your Photoshop workflow",
-      "🍌 Nano Banana",
-      "🌟 Seedream 4",
-      "⚡ Flux Kontext Pro/Max",
-      "👤 GFPGAN",
-      "Face restoration",
-      "🖼️ Background Remover",
-      "Transparent cutouts",
-      "📸 SwinIR",
-      "Photo enhancement",
-      "🎨 DDColor",
-      "B&W colorization",
-      "Your selection → AI magic → New layer"
+      "8 powerful AI models integrated seamlessly into your Photoshop workflow",
+      "Your selection → AI magic → New layer - keeping lighting, shadows, and materials perfectly consistent",
+      "Seedream 4: Premium 4K quality with resolution control (1K/2K/4K)",
+      "Flux Kontext: Context-aware edits with advanced typography support",
+      "GFPGAN: Professional face restoration for vintage photos",
+      "DDColor: Realistic colorization of black & white images",
+      "Foreground Color Integration: Use Photoshop colors in your prompts",
+      "Reference Image Support: Style transfer with automatic scaling",
+      "Set up Replicate"
     ],
-    "shortDescription": "A Photoshop plugin that integrates Replicate AI models into your editing workflow.",
+    "shortDescription": "A Photoshop plugin that integrates 8 Replicate AI models for generation, restoration, and enhancement.",
     "slug": "replicate-ai-models-for-photoshop-plugin"
   },
   "70300e6b744092dfc12a11e31fd1a0f776f9ad776507b5ee64cd696d8b06889f": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Targets NLP and ML workloads where grouping similar-length inputs reduces padding waste and improves computational efficiency. `kBatchSentences(sentences)` returns optimally grouped batches and `analyzeKBatches` provides detailed batch statistics. Ensures each batch meets minimum size requirements.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A text batching library that uses k-means clustering to group sentences by length for optimal processing, aimed at NLP tasks and machine-learning batch processing where grouping similar-length texts improves efficiency. Grouping by length reduces padding waste, improves computational efficiency, optimizes memory usage, and ensures each batch meets minimum size requirements. The main `kBatchSentences(sentences, options)` function returns an array of batches, with options for maximum batches, minimum sentences per batch, the minimum sentences required to split, and maximum k-means iterations. A companion `analyzeKBatches` function returns statistics about the resulting batches.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing",
+      "K-Batch is an intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing",
       "particularly useful for NLP tasks, machine learning batch processing",
-      "grouping sentences of similar length together can:",
       "Reduce padding waste",
       "Improve computational efficiency",
-      "Optimize memory usage",
-      "kBatchSentences, analyzeKBatches",
-      "Get optimally batched sentences",
-      "while ensuring each batch meets minimum size requirements"
+      "ensuring each batch meets minimum size requirements",
+      "maxBatches (Number): Maximum number of batches to create",
+      "maxIterations (Number): Maximum k-means iterations",
+      "analyzeKBatches"
     ],
-    "shortDescription": "Text batching library that uses k-means clustering to group sentences by length for optimal processing.",
+    "shortDescription": "A text batching library that uses k-means clustering to group sentences by length for efficient processing.",
     "slug": "k-batch"
   },
   "70d861242b40bef38053085d8faa6ae8fbee51dbc726416e9d87e772dba07f64": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It can toggle dark mode on or off for individual websites and persists settings across browser sessions. You can customize background, text, link, and border colors, which preview live on the active page as you drag each picker.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Chrome extension that provides a customizable dark mode for any website. Dark mode can be toggled on or off per individual website, with settings persisting across browser sessions. The popup lets you customize the background, text, link, and border colors, which preview live on the active page as you drag each picker before saving. It can also be toggled with a keyboard shortcut (Ctrl+Shift+S, or Command+Shift+S on Mac).",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Simply Dark is a Chrome extension that provides a customizable dark mode for any website.",
+      "Simply Dark is a Chrome extension that provides a customizable dark mode for any website",
       "Toggle dark mode on/off for individual websites",
       "Persistent settings across browser sessions",
-      "Background Color",
-      "Text Color",
-      "Link Color",
-      "Border Color",
-      "Color changes preview live on the active page as you drag each picker."
+      "Color changes preview live on the active page as you drag each picker",
+      "Click **Save** to persist the values",
+      "Use the keyboard shortcut (Ctrl+Shift+S or Command+Shift+S on Mac) to toggle dark mode"
     ],
     "shortDescription": "A Chrome extension that provides a customizable dark mode for any website.",
     "slug": "simply-dark"
@@ -1035,28 +1081,20 @@
     "slug": "fast-topic-analysis"
   },
   "7591a4fc929fe9f48167e1ce187143a0d51d2441163fb46ec64188e13dbc0e9d": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Run via `npx git-worktree-skill` to select target AI agents (Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, OpenCode) with arrow-key selection. Supports project or global installation paths and non-interactive installs via `--install <agent[,agent...]>`. Additional flags cover `--global`, `--project`, `--force`, `--list`, and `--version`.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An interactive installer for a Git Worktree Management skill that creates `SKILL.md` files following the Agent Skills standard. It supports nine AI agents, including Claude Code, GitHub Copilot, Windsurf, Cline, Cursor, Gemini CLI, Roo Code, Codex CLI, and OpenCode, installing to each agent’s skill location at project or global scope. It can run interactively to select agents, choose paths, and resolve conflicts, or non-interactively via `--install` with flags such as `--global`, `--project`, and `--force`. Each installed skill provides the agent with worktree command references, step-by-step workflows, a troubleshooting guide, and environment setup templates.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Interactive installer for Git Worktree Management skill",
-      "Creates proper SKILL.md files following the Agent Skills standard",
-      "Claude Code",
-      "GitHub Copilot",
-      "Windsurf",
-      "Cline",
-      "Cursor",
-      "Gemini CLI",
-      "Roo Code",
-      "Codex CLI",
-      "OpenCode",
-      "Interactive installation (select agents with arrow keys)",
+      "Creates proper `SKILL.md` files following the [Agent Skills standard](https://agentskills.io/specification)",
+      "Most agents support both project and global installation",
       "Non-interactive install for specific agents",
-      "Install with global paths preference",
-      "Install with project paths preference",
-      "Force overwrite existing skill files"
+      "Force overwrite existing skill files",
+      "Quick reference for all worktree commands",
+      "Step-by-step workflows for common scenarios",
+      "Environment setup templates (Node.js, Python)"
     ],
-    "shortDescription": "Interactive installer for a Git Worktree Management skill, producing `SKILL.md` files per the Agent Skills standard.",
+    "shortDescription": "An interactive installer that adds a Git Worktree Management skill to 9 AI coding agents.",
     "slug": "ai-skill-git-worktree"
   },
   "75a8199815368543f15fba4c02d2b18410da1a48b00fad0e45c77fba830f3f9d": {
@@ -1115,20 +1153,20 @@
     "slug": "ai-assistant-prompts"
   },
   "7b09189d22b5270471d2787c8fcb5215244c5545ef7abfdf91c291192e43eda2": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Prompts for an address, then appends an entry in the form `0.0.0.0 example.com` and flushes the DNS cache. Automatically elevates to administrator, detects duplicates, and optionally creates a timestamped backup of the hosts file before changes. Uses atomic writes with a temporary file and validates file integrity before and after modification.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A PowerShell script that blocks websites and domains by adding entries to the Windows hosts file, redirecting them to `0.0.0.0`. It automatically requests administrator privileges, validates input and detects duplicates, optionally creates timestamped backups, and flushes the DNS cache after modifying the file. Safety features include atomic writes via temporary files, multi-level validation of file integrity, automatic rollback from an emergency backup if corruption is detected, and graceful error handling. The repository also bundles Fiddler, a web debugging proxy, to help discover tracking and advertising domains worth blocking.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "A PowerShell script to block websites and domains by adding entries to your Windows hosts file",
-      "redirecting them to 0.0.0.0 in your Windows hosts file",
+      "redirecting them to `0.0.0.0` in your Windows hosts file",
       "Automatic administrator privilege elevation",
-      "Duplicate prevention: Checks if the address is already blocked",
+      "Input validation and duplicate detection",
       "Optional backup creation with timestamps",
       "DNS cache flushing after modification",
-      "Atomic write operations: Uses temporary files to prevent corruption during write operations",
-      "Multi-level validation: Validates file integrity, size, and content before and after modifications"
+      "Automatic rollback: Restores from emergency backup if corruption is detected",
+      "Fiddler is a web debugging proxy that logs all HTTP(S) traffic"
     ],
-    "shortDescription": "PowerShell script that blocks websites by adding `0.0.0.0` entries to the Windows hosts file.",
+    "shortDescription": "A PowerShell script that blocks websites and domains by adding entries to the Windows hosts file.",
     "slug": "add-block-to-hosts"
   },
   "7b3640f870d6a2bf73c9d68c711379343c4f33cce916679b8431a52077ac1dbf": {
@@ -1140,38 +1178,36 @@
     "slug": "jparkerweb"
   },
   "7b9849c6e0f80dcad5c96853e1e9d13998c14242ad48f8cb34b950381b9268f2": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "The example queries Ollama about Disney World and returns a structured response containing name, city, attractions, rides, and fun facts. Uses the `ollama` client along with `zod` and `zod-to-json-schema` to describe the expected shape. Configured via `OLLAMA_HOST` and `OLLAMA_MODEL` environment variables.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas. It queries a locally or remotely running Ollama model and returns a structured response built from a defined schema, shown with an example that asks about Disney World and returns fields such as name, city, attractions, rides, and fun facts. It relies on the ollama JavaScript client, zod for schema validation, zod-to-json-schema to convert schemas to JSON Schema, and dotenv for environment configuration. The Ollama host and model are set via a `.env` file.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "demonstrates how to get structured JSON responses from Ollama using Zod schemas",
-      "example queries Ollama about Disney World and returns a structured response containing:",
-      "Name",
-      "City",
-      "Attractions",
-      "Rides",
-      "Fun facts",
-      "ollama - Ollama JavaScript client",
-      "zod - TypeScript-first schema validation",
-      "zod-to-json-schema - Converts Zod schemas to JSON Schema",
-      "OLLAMA_HOST=http://localhost:11434",
-      "OLLAMA_MODEL=llama3.2:1b"
+      "A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas",
+      "running locally or remotely",
+      "The example queries Ollama about Disney World and returns a structured response containing",
+      "Ollama JavaScript client",
+      "TypeScript-first schema validation",
+      "Converts Zod schemas to JSON Schema",
+      "Update the `.env` file in the root directory with your Ollama host and model"
     ],
-    "shortDescription": "Node.js demo of obtaining structured JSON responses from Ollama using Zod schemas.",
+    "shortDescription": "A Node.js demo of getting structured JSON responses from Ollama using Zod schemas.",
     "slug": "ollama-structured-output-test"
   },
   "7cb03ba6951ae5cadccf4dab658aad3688a9957e3b0ed766cbaf764b9b8d69b1": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It includes 18 built-in presets and hardware acceleration that auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. A scriptable headless --no-tui mode with stdin pipe support enables use in CI/CD pipelines.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js package that restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model from Hugging Face. It restores punctuation marks such as periods, commas, and question marks, handles casing, and supports batch processing of multiple texts through the ONNX runtime. Required models are downloaded automatically from Hugging Face on first use and saved locally to the `./models` directory for reuse. The main `PunctuationRestorer` class exposes an async `restore(texts)` method that returns punctuated, cased sentences and handles model initialization and cleanup automatically.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
-      "**18 built-in presets**",
-      "**Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV",
-      "**Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines"
+      "restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model",
+      "Restores punctuation marks (periods, commas, question marks, etc.)",
+      "Handles casing",
+      "Supports batch processing of multiple texts",
+      "Models are automatically downloaded from Hugging Face on **first use** and saved locally to the `./models` directory for future use",
+      "async restore(texts: string[]): Promise<string[]>",
+      "Automatically handles model initialization and cleanup"
     ],
-    "shortDescription": "A cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built in Go and Charm's Bubble Tea.",
-    "slug": "shrinkray"
+    "shortDescription": "Node.js package that restores punctuation and casing to unpunctuated text using an ONNX model.",
+    "slug": "punctuation-restore"
   },
   "7f0f68430f88ad80fbfeccdd1f47d01bca373c011f428925ae6602753d633248": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
@@ -1198,22 +1234,21 @@
     "slug": "semantic-chunking"
   },
   "7fcf948785583de4117f5b9e0c12f6e8e9975198202367601691ca63bf027199": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Supports AI-generated banners, a Pixel Banner Plus Collection of images and videos, and fetching from Pexels, Pixabay, Flickr, and Unsplash via their APIs. Vault-local images, external files via `file:///`, and direct URLs are all accepted as sources, with MP4/MOV video banner support. Placement, transparency, border radius, and animation are configurable per-note via Obsidian properties.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An Obsidian plugin that adds customizable banner images to notes. It can generate banners with AI, browse the Pixel Banner Plus Collection of images and videos, or fetch images by keyword from third-party APIs including Pexels, Pixabay, Flickr, and Unsplash, and it also supports local vault images, external `file:///` references, direct URLs, and MP4/MOV video banners. All banner aspects are controlled through Obsidian's note properties, with control over position, transparency, border radius, animation, display mode, and banner icons. Workflow features include a visual banner selection modal, command-palette and hotkey integration, quick action icons, and folder-specific default settings.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "transforms your notes with customizable banner images",
-      "AI-Generated Banners: Create stunning, custom banners using AI generation without design skills",
-      "Banner Collection: Browse and use professional banner images and videos from the integrated Pixel Banner Plus Collection",
-      "3rd Party APIs: Connect to Pexels, Pixabay, Flickr, and Unsplash to automatically fetch banner images",
-      "Local Image Support: Use images from your vault",
-      "External File Support: Reference images outside your vault using the file:/// protocol",
-      "Video Banner Support: Add dynamic MP4 and MOV videos",
-      "Direct URL Banners",
-      "Control all banner aspects through Obsidian's properties feature",
-      "Customize transparency, border radius, animation effects"
+      "AI-Generated Banners: Create stunning, custom banners using AI generation",
+      "Browse and use professional banner images and videos from the integrated Pixel Banner Plus Collection",
+      "Connect to Pexels, Pixabay, Flickr, and Unsplash to automatically fetch banner images based on keywords",
+      "Reference images outside your vault using the `file:///` protocol",
+      "Add dynamic MP4 and MOV videos from your vault as animated banners",
+      "Control all banner aspects through Obsidian's `properties` feature",
+      "Choose between display modes (cover, auto, contain)",
+      "Banner Selection Modal: Quick visual picker for local images",
+      "Folder-Specific Settings: Configure default banner behavior per folder"
     ],
-    "shortDescription": "Obsidian plugin that adds customizable banner images (AI-generated, video, or from online sources) to the top of notes.",
+    "shortDescription": "Obsidian plugin that adds customizable banner images to notes, including AI-generated banners and images from Pexels, Pixabay, Flickr, and Unsplash.",
     "slug": "pixel-banner"
   },
   "8187ef6fb78766d348e9c142e0889ab8f6c9818538c9fbf4d23d4c48dbd288b7": {
@@ -1372,6 +1407,20 @@
     "shortDescription": "A zero-dependency, full-TypeScript collection of JavaScript functions for common embedding tasks.",
     "slug": "embedding-utils"
   },
+  "9c0b0ac16fd50a1231c2fef898bafb118d7e696862bb12de9b026a1145bf2c66": {
+    "generatedAt": "2026-06-04T15:44:17.176Z",
+    "longDescription": "AI-Assist Skills is a collection of AI agent skills that automate recurring engineering workflows and can be installed across multiple AI coding assistants. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf, and GitHub Copilot. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo. For authoring, the skills add command accepts a local path as its source, installing a skill directly from the working tree so it can be tested before committing or pushing.",
+    "model": "claude-opus-4-8",
+    "quotedSpans": [
+      "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
+      "Skills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.).",
+      "This single command removes any stale or renamed skills, then installs the latest version of every skill from this repo.",
+      "The `skills add` command accepts a local path as the source, so it installs directly from your working tree — no git push required.",
+      "you need to install it locally to test it **before** committing or pushing."
+    ],
+    "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows, installable across multiple AI coding assistants.",
+    "slug": "ai-assist-skills"
+  },
   "a4725b204c1aab559dd7fcde0541de660c62d28d2021ddddb8f7626f349c9dbd": {
     "generatedAt": "2026-05-23T16:52:00.000Z",
     "longDescription": "Skills are installed globally via skills.sh and auto-detected by 40+ AI agents including Claude Code, Cursor, Windsurf, and GitHub Copilot. A single command removes any stale or renamed skills, then installs the latest version of every skill from the repo.",
@@ -1383,6 +1432,27 @@
     ],
     "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows, installable across multiple AI coding assistants.",
     "slug": "ai-assistant-skills"
+  },
+  "a7d905c9be9a28e76bdfbafc38f9a0be340d315b0931bbc9613a3baa67a33c5e": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "An NPM package for semantically creating chunks from large texts, useful for workflows involving large language models (LLMs). It splits input text into sentences, generates a vector for each using a specified ONNX model, calculates cosine similarity for each sentence pair, and groups sentences into chunks based on a similarity threshold and maximum token size. Options include dynamic similarity thresholds, configurable chunk sizes, multiple embedding model options, quantized model support, and chunk prefixes for RAG workflows. It also includes a Web UI for experimenting with settings and can be run via Docker Compose.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "NPM Package for Semantically creating chunks from large texts. Useful for workflows involving large language models (LLMs).",
+      "The input text is split into an array of sentences",
+      "A vector is created for each sentence using the specified ONNX model",
+      "Cosine similarity scores are calculated for each sentence pair",
+      "Sentences are grouped into chunks based on the similarity threshold and max token size",
+      "Dynamic similarity thresholds",
+      "Configurable chunk sizes",
+      "Multiple embedding model options",
+      "Quantized model support",
+      "Chunk prefix support for RAG workflows",
+      "Web UI for experimenting with settings",
+      "The easiest way to run semantic-chunking is using Docker Compose"
+    ],
+    "shortDescription": "NPM package for semantically creating chunks from large texts for workflows involving large language models.",
+    "slug": "semantic-chunking"
   },
   "a83aba8c5b60ecc481265f421b7ae21634f71613819ca5c3bdd6210904c521e1": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -1400,6 +1470,22 @@
     ],
     "shortDescription": "Interactive web application for designing and visualizing colored patterns and image textures on a clover quilt template.",
     "slug": "clover-quilt-designer"
+  },
+  "ae15e7993dfa68ce077e4f8ec8e3cc23d9effc98531a8d54ac8f0b300e29065b": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "The portfolio site for eQuill Labs — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories. Content runs on Astro Content Collections with Markdown, gray-matter, and remark, while data is pulled from the GitHub GraphQL API via @octokit/graphql and the gh CLI. OG images are generated with Satori and resvg, static search is provided by Pagefind, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories",
+      "Astro Content Collections, Markdown, gray-matter, remark",
+      "GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Pagefind (static search index)",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects spanning LLM infrastructure, NLP, MCP tooling, and Obsidian.",
+    "slug": "equill-labs"
   },
   "af036b194e9c76856db390d548fcf414e766ee29e0a04d051592f2cac6963001": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -1505,19 +1591,21 @@
     "slug": "ollama-structured-output-test"
   },
   "b6edb7bafebe0fdf807b06a6523dca01df2665d4aeeb1856daf9b0b85f2c9bde": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "Built with vanilla JavaScript, Node.js, and Tailwind CSS, it offers grid, list, or cards layouts, password-hashed login with session management, tags, and search. It supports Docker deployment, JSON import/export, and installation as an app on mobile devices.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A self-hosted web application for curating and managing frequently visited links, built with vanilla JavaScript, Node.js, and Tailwind CSS. It offers grid, list, or card layouts, password-hashed authentication with session management, dark/light themes with accent and background color choices, search and filtering, custom colored tags, and drag-and-drop reordering. Links can carry icons from Material Icons, Font Awesome, or custom uploads, with auto-fetched favicons, and the whole collection can be imported and exported as JSON. It is Docker-ready with reverse-proxy BASE_PATH support, PWA install support, rate limiting, and CSRF protection.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "A lightweight, self-hosted web application for curating and managing your frequently visited links.",
-      "Built with vanilla JavaScript, Node.js, and Tailwind CSS.",
+      "A lightweight, self-hosted web application for curating and managing your frequently visited links",
+      "Built with vanilla JavaScript, Node.js, and Tailwind CSS",
       "Choose between grid, list, or cards layout",
       "Password-hashed login with session management",
+      "Dark/light mode with 8 accent colors and 20 background colors",
+      "Organize links with custom colored tags and filter by tag",
       "Backup and restore your links in JSON format",
-      "Easy deployment with Docker or docker-compose",
-      "Install as an app on mobile devices (\"Add to Home Screen\")"
+      "Built-in BASE_PATH support for serving from subpaths",
+      "Rate limiting and CSRF protection"
     ],
-    "shortDescription": "A lightweight, self-hosted web application for curating and managing your frequently visited links.",
+    "shortDescription": "A self-hosted web app for curating and managing your frequently visited links.",
     "slug": "simple-linkz"
   },
   "b7d7109517d1a249db9bea8a99a981422b559b0edd011eb747b80e72a41e86b8": {
@@ -1729,15 +1817,19 @@
     "slug": "nzbdrone-xtender"
   },
   "ccf3cb71864dbf82fdf77f43b30f7b28725c6e9dc995161d3b2c7d3650f4165d": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "`purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command, and removes the folder if it ends up empty. `purge-old-folders.ps1` calls that script against directories older than a given number of months within a target path. Both scripts accept a `-Force` flag to run without user confirmation.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "Two PowerShell scripts for managing and cleaning up old directories. `purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command and removes the folder itself if it is empty afterward. `purge-old-folders.ps1` calls that script for directories older than a specified number of months, cleaning up a target path in batches. Both accept a `-Force` flag to run without confirmation, and `purge-old-folders.ps1` can run interactively with a folder-browser dialog and prompts when no parameters are supplied.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "purge-files-in-folder.ps1 is a PowerShell script that deletes all files in a specified folder using the robocopy /purge command. If the folder is empty after the purge, the script deletes the folder as well.",
-      "purge-old-folders.ps1 is a PowerShell script that calls purge-files-in-folder.ps1 for directories older than a specified number of months.",
-      "-Force: Optional. Runs the script without requiring user confirmation."
+      "These two PowerShell scripts were designed to help manage and clean up by purging old directories",
+      "deletes all files in a specified folder using the `robocopy /purge` command",
+      "If the folder is empty after the purge, the script deletes the folder as well",
+      "calls `purge-files-in-folder.ps1` for directories older than a specified number of months",
+      "It helps in cleaning up old directories within a target path in batches",
+      "-Force: Optional. Runs the script without requiring user confirmation",
+      "Open a file browser dialog to select the target directory"
     ],
-    "shortDescription": "Two PowerShell scripts that purge files in a folder and clean up directories older than a specified number of months.",
+    "shortDescription": "Two PowerShell scripts for purging files and cleaning up old directories by age.",
     "slug": "purge-old-directories"
   },
   "cd610cf98980623d0f13ea5895b19ad6432a1cf9e6ac35f94d75b81fdb78d7b1": {
@@ -1753,18 +1845,21 @@
     "slug": "bedrock-proxy-endpoint"
   },
   "ceae768ec866c03a0c2330ee319b4fe2e680b7d9fc860c1e20e360caf17edb97": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It restores punctuation marks and casing, supports batch processing of multiple texts, and uses the ONNX runtime for inference. Required models are automatically downloaded from Hugging Face on first use and saved locally.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea. It ships 18 built-in presets across quality tiers, purpose-driven targets, and platform-specific options for Discord, YouTube, and TikTok, and can analyze a video to suggest an optimal preset. Hardware acceleration is auto-detected for NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. Batch processing compresses entire folders with parallel workers and progress tracking, while a headless `--no-tui` mode with stdin pipe support makes it scriptable for CI/CD pipelines. It is distributed as a single static binary for Windows, macOS, and Linux.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "A Node.js package that restores punctuation and casing to unpunctuated text using the `punctuation_fullstop_truecase_english` ONNX model",
-      "Restores punctuation marks (periods, commas, question marks, etc.)",
-      "Supports batch processing of multiple texts",
-      "Uses efficient ONNX runtime for inference",
-      "Models are automatically downloaded from Hugging Face on first use and saved locally to the `./models` directory for future use."
+      "A cross-platform CLI video compression tool powered by FFmpeg",
+      "featuring a wizard-style TUI built with Go and Charm's Bubble Tea",
+      "18 built-in presets -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)",
+      "Smart recommendations -- analyzes your video and suggests the optimal preset",
+      "Hardware acceleration -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV",
+      "Batch processing -- compress entire folders with parallel workers and progress tracking",
+      "Headless mode -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines",
+      "Cross-platform -- single static binary for Windows, macOS, and Linux"
     ],
-    "shortDescription": "A Node.js package that restores punctuation and casing to unpunctuated text using an ONNX model.",
-    "slug": "punctuation-restore"
+    "shortDescription": "A cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built in Go and Charm's Bubble Tea.",
+    "slug": "shrinkray"
   },
   "cf0a36cb205681e7e5e1b05ce469c16229290a906571c2ec96c3a81d93d440c4": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
@@ -1831,17 +1926,20 @@
     "slug": "node-webkit-example"
   },
   "d77a420eea91bc9d278bdfb609c732de10bbae0e37bbb78bcf84b18979e06a21": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It handles concurrent chat sessions with queue management and maintains client-server communication with heartbeat signals. It uses a RAG model for chat memory and manages inactive clients and job cleanups.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and uses a RAG model for chat memory. It also manages inactive clients and job cleanups. It can run against a local LLM via llama.cpp or a cloud API, uses Redis and Chroma vector storage in Docker containers, and supports embedding models such as all-MiniLM-L6-v2.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "This is a web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma.",
+      "web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma",
       "It handles concurrent chat sessions with advanced queue management",
       "maintains robust client-server communication with heartbeat signals",
       "utilizes a RAG model for chat memory",
-      "smartly manages inactive clients and job cleanups"
+      "smartly manages inactive clients and job cleanups",
+      "Download and Run an LLM via Llama.cpp",
+      "Skip this if using a cloud API",
+      "all-MiniLM-L6-v2"
     ],
-    "shortDescription": "A web-based chat application that integrates LLM capabilities with Bull Queue, Redis, and Chroma.",
+    "shortDescription": "Web-based LLM chat application with Bull Queue, Redis, and Chroma for queue management and RAG chat memory.",
     "slug": "queue-tha-llama"
   },
   "d896c6c9b5c96ef846009e5c2695af7d07e117042f5f133af1cbf3154543f0ee": {
@@ -1867,6 +1965,24 @@
     ],
     "shortDescription": "Card Generator for Shadows of Brimstone",
     "slug": "card-generator-sob"
+  },
+  "dc3fa306721972bfe41399baf8c01bb63a0a4818d87dfdc0fab904e2c1caa79c": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "A zero-dependency, full-TypeScript library that bundles vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation behind a single import. It is built to support semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. Capabilities include HNSW approximate nearest-neighbor search, hybrid search via reciprocal rank fusion (RRF), HDBSCAN clustering, quantization, dimensionality reduction through random projection, and markdown-aware chunking. It has zero production dependencies.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation -- zero dependencies, full TypeScript, one import.",
+      "Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases.",
+      "HNSW Search (Approximate Nearest Neighbor)",
+      "Hybrid Search (RRF)",
+      "HDBSCAN Clustering",
+      "Quantization",
+      "Dimensionality Reduction (Random Projection)",
+      "Markdown-aware chunking",
+      "Zero production dependencies"
+    ],
+    "shortDescription": "Zero-dependency TypeScript library for vector math, similarity search, ANN indexing, clustering, and embedding generation.",
+    "slug": "embedding-utils"
   },
   "dc85e7c92ef4cbe4b4eeb9a6fe5e8987486eabd497473a1e677473b0cde9dbe7": {
     "generatedAt": "2026-04-17T16:36:01.775Z",
@@ -1948,18 +2064,20 @@
     "slug": "simplesite-boilerplate"
   },
   "e205a0dbcdda05dfeaff8d1dc1b03d2ca1d5ba6ba2c12c4df298b0f2f39b1b68": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It provides a live preview with real-time rendering, 9 print-optimized themes, and PDF export with customizable page sizes, margins, and page numbers. Code is highlighted with Shiki, and the design is stateless with no account required.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A web app that converts Markdown to clean, printable HTML with PDF export. It offers live preview with real-time rendering, nine print-optimized themes, syntax highlighting powered by Shiki, and drag-and-drop upload of `.md`, `.markdown`, or `.txt` files. PDF export generates documents with customizable page sizes, margins, and page numbers, and the design is stateless with no account required. It can be run via a pre-built Docker image, docker-compose, or locally with Node.js, and exposes configuration through environment variables such as PORT, PDF_TIMEOUT, and PDF_CONCURRENT_LIMIT.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Convert Markdown to clean, printable HTML with PDF export",
-      "See formatted output as you type with real-time rendering",
-      "Choose from 9 print-optimized themes with live preview styling",
-      "Generate professional PDFs with customizable page sizes, margins, and page numbers",
-      "Beautiful code highlighting powered by Shiki",
-      "Stateless, privacy-focused design"
+      "Live Preview - See formatted output as you type with real-time rendering",
+      "Multiple Themes - Choose from 9 print-optimized themes",
+      "PDF Export - Generate professional PDFs with customizable page sizes, margins, and page numbers",
+      "Syntax Highlighting - Beautiful code highlighting powered by Shiki",
+      "File Upload - Drag and drop or upload `.md`, `.markdown`, or `.txt` files",
+      "No Account Required - Stateless, privacy-focused design",
+      "PDF_CONCURRENT_LIMIT"
     ],
-    "shortDescription": "Convert Markdown to clean, printable HTML with PDF export.",
+    "shortDescription": "A web app that converts Markdown to clean, printable HTML with PDF export.",
     "slug": "print-mark"
   },
   "e20adcbb0e6596e5a5dd9c5984a546beead0b3259590a29c5ca4309699c14890": {
@@ -1997,14 +2115,16 @@
     "slug": "kdm-cards"
   },
   "e35e51be03ef70fdd37b56421e41c45114414235546d1a17e5cd64fe257c3fa9": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It reads the image URL from a frontmatter or inline field and renders the image, avoiding duplication when the URL is already stored for Dataview queries. It also accepts size and alignment values. Live preview is not supported.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A DataviewJS script that renders a Markdown image in Obsidian's Reading View using an image URL stored in a frontmatter or inline field. It addresses the case where an image URL is kept in a field for dataview queries but should also display on its own note, avoiding the duplication of embedding the image separately. The script reads the URL from the supplied field and renders the image, and additionally accepts size and alignment values. It requires the Dataview plugin with JavaScript Queries enabled and is invoked through a `dv.view` call passing size, alignment, and field name.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "DataviewJS Script to render a Markdown image in Reading View using a local field for the source",
-      "This `dataviewjs` script will read the URL from your supplied field and reder the image using that source.",
-      "there are some quality of life improvements as it also accepts size and alignment values.",
-      "note: live preview is not supported"
+      "This `dataviewjs` script will read the URL from your supplied field and reder the image using that source",
+      "there are some quality of life improvements as it also accepts size and alignment values",
+      "this creates duplication, and is harder to maintain if the URL needs to be updated",
+      "Install the `Dataview` plugin and enable `JavaScript Queries`",
+      "await dv.view(\"scripts/obsidian-image-from-field\", [\"<size>\", \"<alignment>\", \"<field>\"])"
     ],
     "shortDescription": "A DataviewJS script that renders a Markdown image in Obsidian's Reading View using a URL stored in a note field.",
     "slug": "obsidian-image-from-field"
@@ -2052,20 +2172,18 @@
     "slug": "bivariate"
   },
   "e78b152a42e613d6cfe17ec80d3fe68ecc21d0fbb7feae4871b541a32ccc0781": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Implements CRUD operations plus database exploration, introspection, and custom SQL execution against a SQLite database path passed as a startup argument. Configured in an IDE's MCP settings (Cursor, VSCode) via `npx -y mcp-sqlite <path>`. Exposes tools including `db_info`, `list_tables`, and `get_table_schema`.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities. It exposes complete CRUD operations (create, read, update, delete) along with database exploration and introspection and the ability to execute custom SQL queries. Tools include db_info for database details, list_tables, get_table_schema, and record operations such as create_record and read_records with optional filtering, limit, and offset. The server is configured in an IDE's MCP settings (for example Cursor or VSCode) by running it via `npx` with the path to a SQLite database file passed as an argument.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities",
+      "a Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities",
       "Complete CRUD operations (Create, Read, Update, Delete)",
       "Database exploration and introspection",
       "Execute custom SQL queries",
-      "Your database path must be provided as an argument",
-      "db_info",
-      "list_tables",
-      "get_table_schema"
+      "Define the command in your IDE's MCP Server settings",
+      "Your database path must be provided as an argument"
     ],
-    "shortDescription": "Model Context Protocol (MCP) server that provides SQLite database interaction capabilities.",
+    "shortDescription": "Model Context Protocol (MCP) server that provides SQLite database interaction, including CRUD operations and custom SQL queries.",
     "slug": "mcp-sqlite"
   },
   "e8f13df6ff02a7f70363db5f73212d417c431ca39d1fb2d97104286be46e3c3c": {
@@ -2150,6 +2268,37 @@
     "shortDescription": "Clipboard-based text expansion tool for Linux, designed for Remote Desktop sessions.",
     "slug": "clip-expand"
   },
+  "f2852e6e5f323a27946378767a8e8b2a8907a12e052dc5077b36d04cee51abdf": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity. It creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations, and groups similar phrases within topics into coherent clusters using agglomerative or HDBSCAN algorithms. Cluster quality is measured via per-cluster cohesion and a global silhouette score, and preset configurations are offered for high precision, balanced, and performance use cases. The project centers on a generator that creates topic embeddings from training data and an interactive demo that analyzes text against them, powered by the embedding-utils library.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity",
+      "Creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations",
+      "Groups similar phrases within topics to form coherent semantic clusters using agglomerative or HDBSCAN algorithms",
+      "Measures cluster quality via per-cluster cohesion and global silhouette score",
+      "Offers preset configurations for different use cases (high precision, balanced, performance)",
+      "A generator (`generate.js`) that creates topic embeddings from training data",
+      "An interactive demo (`run-demo.js`) that analyzes text against these topic embeddings",
+      "All vector math, clustering, similarity, and embedding generation provided by the [`embedding-utils`]"
+    ],
+    "shortDescription": "A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity.",
+    "slug": "fast-topic-analysis"
+  },
+  "f3c89daa7e76b1e636b26a55d9f73f754e9d0ccdfa3ed4bc9be0cc05dc60bb97": {
+    "generatedAt": "2026-06-03T22:30:00.000Z",
+    "longDescription": "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf, and GitHub Copilot. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo. For authoring, the `skills add` command accepts a local path as the source, so a skill installs directly from the working tree to be tested before committing or pushing.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants",
+      "Skills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.)",
+      "This single command removes any stale or renamed skills, then installs the latest version of every skill from this repo",
+      "The `skills add` command accepts a local path as the source, so it installs directly from your working tree",
+      "you need to install it locally to test it **before** committing or pushing"
+    ],
+    "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows across multiple AI coding assistants.",
+    "slug": "ai-assistant-skills"
+  },
   "f409e367bf1ec45f9d4dc73ba95f3acd4852f5af1126a24d95cabf0d4a2a11c5": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "purge-files-in-folder.ps1 deletes all files in a specified folder using the robocopy /purge command, and deletes the folder if empty afterward. purge-old-folders.ps1 calls purge-files-in-folder.ps1 for directories older than a specified number of months, helping clean up old directories within a target path in batches.",
@@ -2175,16 +2324,19 @@
     "slug": "ref"
   },
   "f556d40167c7cf3f03854ebf56423b7be70255fbf8cdde65597a1725bbc8b297": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Stores email payloads as `.json` files in an `./emails` directory and iterates through them to send via SMTP. A `userconfig.json` holds SMTP server and authentication settings and is created interactively on first run. A `--email` flag supports non-interactive sending without the UI.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A CLI that provides a quick method for creating and sending test emails across test automation environments. It stores each email message as a JSON file in an `emails` directory, parsing common fields such as from, to, cc, bcc, subject, text, html, and attachments to build and send messages. A UI walks through creating new email files, selecting emails for deletion, and sending all emails, while a `--email` flag sends without the UI. SMTP server and authentication settings are kept in a personal `userconfig.json` file (git-ignored), and messages are sent using nodemailer.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Indigestion's goal is to provide a CLI that allows users a quick and easy method for creating and sending test emails in various test automation environments",
-      "Loops through all email .json files in the ./emails directory and attempts to send them using your SMTP server and authentication values stored in 'userconfig.json'",
-      "Indigestion creates a userconfig.json file the first time it is run",
-      "Pass the --email option to node app to send emails without using the UI"
+      "provide a CLI that allows users a quick and easy method for creating and sending `test emails` in various test automation environments",
+      "source data for email messages are stored in `json` format (one file per message)",
+      "All `json` files in the `emails` directory are parsed for common data fields",
+      "Pass the `--email` option to `node app` to send emails without using the UI",
+      "This file holds your SMTP server and authentication values for sending test emails",
+      "it is in the `.gitignore`",
+      "Emails are sent using `nodemailer`"
     ],
-    "shortDescription": "CLI for creating and sending test emails for use in test-automation environments.",
+    "shortDescription": "A CLI for creating and sending test emails in test automation environments.",
     "slug": "indigestion"
   },
   "f579a1e86380302e0c7ab511b9812ece1273186da8922630688d46d4e5b01c9b": {
@@ -2218,17 +2370,19 @@
     "slug": "trim-style"
   },
   "f9cd97e3e4cd6dc3cb6b980dd28344de30ee396f4c429c6433f333a0275f33a0": {
-    "generatedAt": "2026-05-23T16:52:00.000Z",
-    "longDescription": "It reduces text size based on token count so the result fits within a specified token limit for downstream LLM tasks. It uses the semantic-chunking library to split text into chunks that are then summarized, with customizable parameters like target token size and chunking thresholds.",
-    "model": "claude-opus-4-6-20250101",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An npm package that uses LLMs to distill large texts down to a manageable size with a map-reduce approach, ensuring text fits within a specified token limit before downstream LLM tasks. It reduces text size based on token count without losing the essence of the content, using the semantic-chunking library to split text into chunks that are then summarized. Parameters such as target token size, API base URL, chunking thresholds, model, stop tokens, and maximum distillation loops are configurable. It works with any OpenAI API compatible endpoint (such as together.ai) and defaults to a Llama 3 model.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach.",
-      "This ensures that the text fits within a specified token limit, which is crucial when interfacing with Large Language Models (LLMs) in downstreams tasks.",
-      "Reduces the size of text based on token count without losing the essence of the content.",
-      "Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized.",
-      "Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds."
+      "Use LLMs to distill large texts down to a manageable size by utilizing a map-reduce approach",
+      "This ensures that the text fits within a specified token limit",
+      "Reduces the size of text based on token count without losing the essence of the content",
+      "Uses the `semantic-chunking` library to intelligently split text into manageable chunks that are then summarized",
+      "Allows fine-tuning of various parameters like target token size, API base URL, and chunking thresholds",
+      "maxDistillationLoops: Maximum number of iterations while running distillation",
+      "An API key for running inference of OpenAI API compatible LLM models (together.ai, etc.)"
     ],
-    "shortDescription": "Use LLMs to distill large texts down to a manageable size with a map-reduce approach.",
+    "shortDescription": "npm package that uses LLMs in a map-reduce approach to distill large texts down to a target token size.",
     "slug": "llm-distillery"
   },
   "fa99696a9fb18d3b014d6e168e8443591e6a5d435194cdfc6bac791d8b95cb7d": {
@@ -2274,20 +2428,20 @@
     "slug": "clip-expand"
   },
   "fd8096409748711af9a768dd311fb14c54dfa15b39ed1347f29f17dbc50d11eb": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Enforces a grouping structure so visual regression suites scale from small to large projects without overwhelming complexity, and exposes all BackstopJS commands through the interface. Tests are authored via object files stored under `bivariate_data/test_scripts`, with Puppeteer interactions in `engine_scripts` and archived references in `bitmaps_reference_archive`. Runs on Node.js and uses headless Chrome (v59+).",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An opinionated interface for writing, running, and saving BackstopJS tests, aimed at making visual regression testing approachable for projects of any size without overwhelming complexity. It enforces a grouping structure and lets tests be written as manageable JavaScript object files rather than a single BackstopJS JSON config, while exposing all of BackstopJS's commands through the interface. All tests, scripts, and configuration live under a `bivariate_data` folder, with separate areas for test scripts, Puppeteer engine scripts that interact with the Chrome DOM before screenshots, and an archive of reference bitmaps. It runs on Node and headless Chrome, and is typically installed globally via npm.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "An opinionated interface for writing, running, and saving BackstopJS tests",
-      "Bivariate's goal is to allow for an approachable Visual Regression Testing suite that can be organized to accommodate small and large projects without overwhelming complexity",
+      "allow for an approachable Visual Regression Testing suite that can be organized to accommodate small and large projects without overwhelming complexity",
       "enforcing an opinionated grouping structure, providing a method to easily write tests via manageable object files",
       "allowing for all of BackstopJS's commands to be run from an interface",
-      "test_scripts holds user defined configuration and tests used to instruct BackstopJS",
-      "engine_scripts holds user defined Puppeteer scripts",
-      "bitmaps_reference_archive holds archived references",
-      "Bivariate utilizes headless Chrome which started shipping in Chrome v59"
+      "All tests, scripts, and configuration files are stored in the `bivariate_data` parent folder",
+      "engine_scripts holds user defined Puppeteer scripts for interacting with the Chrome DOM before saving a screen shot",
+      "Bivariate utilizes headless Chrome",
+      "recommended to install Bivariate globally"
     ],
-    "shortDescription": "Opinionated interface for writing, running, and saving BackstopJS visual regression tests.",
+    "shortDescription": "An opinionated interface for writing, running, and saving BackstopJS visual regression tests.",
     "slug": "bivariate"
   },
   "fe1decf53c51fc97520dbee03901623172230142d85ac4dcdf2473ecd47efece": {
@@ -2299,30 +2453,31 @@
     "slug": "jparkerweb"
   },
   "fead98a4e32f2d28b2aa10eeaeeacf59bbf7846c2f582290dc565331be61f351": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "A minimal demo page that runs `htmldiff.js` in the browser to visualize differences between HTML inputs. A live demo is hosted at `jparkerweb.github.io/htmldiff-example/index.html`.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "An example project that demonstrates `htmldiff.js` running in the browser, with a hosted demo page.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "example project to show htmldiff.js in the browser",
-      "This is an example project to show htmldiff.js in the browser",
-      "http://jparkerweb.github.io/htmldiff-example/index.html"
+      "This is an example project to show `htmldiff.js` in the browser",
+      "DEMO"
     ],
-    "shortDescription": "Example project showing `htmldiff.js` running in the browser.",
+    "shortDescription": "Example project that demonstrates htmldiff.js running in the browser.",
     "slug": "htmldiff-example"
   },
   "fee41a5fdcd434091afcebc54da5ad5d0fddd0d13ae3c0026c79527422045fa8": {
-    "generatedAt": "2026-04-21T18:19:31.431Z",
-    "longDescription": "Uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` under the hood, with optional vLLM-based OCR (OpenAI API) for PDFs. The `downCraft(fileBuffer, fileType?, options?)` function auto-detects file type when not specified. For PDFs, `pdfConverterType` selects between `standard`, `llm`, and `ocr` converters.",
-    "model": "claude-opus-4-7",
+    "generatedAt": "2026-06-03T22:35:00.000Z",
+    "longDescription": "A Node.js package that converts documents -- PDF, DOCX, PPTX, and XLSX -- into Markdown. It uses tesseract.js, mammoth, pdf.js, and turndown for conversion, and for PDFs it offers a choice of standard text extraction, Tesseract OCR, or vLLM-based OCR via the OpenAI API for higher-fidelity results. The main `downCraft(fileBuffer, fileType?, options?)` function accepts a document buffer and optional file type (auto-detected when omitted) and returns the Markdown string. The vLLM converter extracts embedded images, renders PDF pages to high-quality images, runs vLLM OCR, and cleans up temporary files, with LLM parameters configurable directly or via environment variables.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
-      "converting documents (PDF, DOCX, PPTX, and XLSX) into Markdown format",
-      "uses tesseract.js, mammoth, pdf.js, and turndown to convert documents to Markdown format",
-      "For PDFs, it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities (using the OpenAI API)",
-      "downCraft(fileBuffer, fileType?, options?)",
+      "Node.js package to simplify the process of converting documents (PDF, DOCX, PPTX, and XLSX) into Markdown format",
+      "It uses `tesseract.js`, `mammoth`, `pdf.js`, and `turndown` to convert documents to Markdown format",
+      "it also provides an option to use vLLMs (Vision Large Language Models) for advanced OCR capabilities (using the OpenAI API)",
       "If not provided the file type will be attempted to be auto-detected",
-      "pdfConverterType (string, optional): Converter to use for PDF files ('standard' | 'llm' | 'ocr')"
+      "OCR: Uses Tesseract.js for OCR",
+      "Extracts embedded images from the PDF",
+      "Converts PDF pages to high-quality images",
+      "Automatically cleans up temporary files"
     ],
-    "shortDescription": "Node.js package that converts PDF, DOCX, PPTX, and XLSX documents to Markdown.",
+    "shortDescription": "Node.js package that converts PDF, DOCX, PPTX, and XLSX documents into Markdown, with optional vLLM-based OCR for PDFs.",
     "slug": "down-craft"
   }
 }

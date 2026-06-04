@@ -5,6 +5,7 @@ type RawRepo = {
 	description: string | null;
 	url: string;
 	homepageUrl: string | null;
+	defaultBranchRef: { name: string } | null;
 	stargazerCount: number;
 	forkCount: number;
 	primaryLanguage: { name: string; color: string } | null;
