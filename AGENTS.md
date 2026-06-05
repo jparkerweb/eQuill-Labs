@@ -46,7 +46,7 @@ Details: [Deployment](./.agents-docs/AGENTS-deployment.md)
 
 ## Gotchas & Failure Modes
 
-Non-obvious traps: Pagefind indexes after the build, Windows chrome-launcher EPERM, intentional `html-validate` suppressions, axe/Playwright timing, and AA-tuned heading order and muted-text contrast. Read before touching build, tests, or a11y-sensitive markup.
+Non-obvious traps: Pagefind indexes after the build, Windows chrome-launcher EPERM, intentional `html-validate` suppressions, axe/Playwright timing, AA-tuned heading order and muted-text contrast, and the GitHub GraphQL `first: 25` page-size cap that prevents nginx 502s on `refresh:fetch`. Read before touching build, tests, the fetch pipeline, or a11y-sensitive markup.
 
 Details: [Gotchas & Failure Modes](./.agents-docs/AGENTS-gotchas.md)
 
