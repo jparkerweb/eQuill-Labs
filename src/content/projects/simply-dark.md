@@ -44,7 +44,7 @@ lastCommit: '2026-05-12T04:37:56Z'
 _source:
   repo: 'https://github.com/jparkerweb/simply-dark'
   sha: HEAD
-  fetchedAt: '2026-06-06T19:22:18.421Z'
+  fetchedAt: '2026-06-06T21:46:37.051Z'
 ---
 A Chrome extension that provides a customizable dark mode for any website. Dark mode can be toggled on or off per individual website, with settings persisting across browser sessions. The popup lets you customize the background, text, link, and border colors, which preview live on the active page as you drag each picker before saving. It can also be toggled with a keyboard shortcut (Ctrl+Shift+S, or Command+Shift+S on Mac).
 

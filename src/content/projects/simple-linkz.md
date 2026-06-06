@@ -55,6 +55,6 @@ lastCommit: '2026-05-12T04:41:43Z'
 _source:
   repo: 'https://github.com/jparkerweb/simple-linkz'
   sha: HEAD
-  fetchedAt: '2026-06-06T19:22:18.421Z'
+  fetchedAt: '2026-06-06T21:46:37.051Z'
 ---
 A self-hosted web application for curating and managing frequently visited links, built with vanilla JavaScript, Node.js, and Tailwind CSS. It offers grid, list, or card layouts, password-hashed authentication with session management, dark/light themes with accent and background color choices, search and filtering, custom colored tags, and drag-and-drop reordering. Links can carry icons from Material Icons, Font Awesome, or custom uploads, with auto-fetched favicons, and the whole collection can be imported and exported as JSON. It is Docker-ready with reverse-proxy BASE_PATH support, PWA install support, rate limiting, and CSRF protection.

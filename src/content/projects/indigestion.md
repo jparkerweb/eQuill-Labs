@@ -42,7 +42,7 @@ lastCommit: '2026-04-17T15:25:57Z'
 _source:
   repo: 'https://github.com/jparkerweb/indigestion'
   sha: HEAD
-  fetchedAt: '2026-06-06T19:22:18.421Z'
+  fetchedAt: '2026-06-06T21:46:37.051Z'
 ---
 A CLI that provides a quick method for creating and sending test emails across test automation environments. It stores each email message as a JSON file in an `emails` directory, parsing common fields such as from, to, cc, bcc, subject, text, html, and attachments to build and send messages. A UI walks through creating new email files, selecting emails for deletion, and sending all emails, while a `--email` flag sends without the UI. SMTP server and authentication settings are kept in a personal `userconfig.json` file (git-ignored), and messages are sent using nodemailer.
 

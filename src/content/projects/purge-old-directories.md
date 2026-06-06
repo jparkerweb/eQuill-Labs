@@ -46,6 +46,6 @@ lastCommit: '2026-04-21T17:29:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/purge-old-directories'
   sha: HEAD
-  fetchedAt: '2026-06-06T19:22:18.421Z'
+  fetchedAt: '2026-06-06T21:46:37.051Z'
 ---
 Two PowerShell scripts for managing and cleaning up old directories. `purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command and removes the folder itself if it is empty afterward. `purge-old-folders.ps1` calls that script for directories older than a specified number of months, cleaning up a target path in batches. Both accept a `-Force` flag to run without confirmation, and `purge-old-folders.ps1` can run interactively with a folder-browser dialog and prompts when no parameters are supplied.

@@ -11,3 +11,6 @@ mockups/
 .playwright-cli/
 specs/
 specs--completed/
+
+# Ephemeral change-set manifest produced by scripts/write-blurbs.ts
+data/blurb-requests.json

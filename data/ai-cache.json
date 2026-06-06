@@ -782,9 +782,9 @@
     "slug": "fast-topic-analysis"
   },
   "4d5ee8e3d9f7e909faa2250fb7f0b8596bd1962a914cfc8320ea2af89bedc426": {
-    "slug": "scribd-cli",
-    "shortDescription": "An interactive Windows terminal app that downloads public Scribd documents as PDFs from a document ID or pasted URL.",
+    "generatedAt": "2026-06-06T19:23:48.035Z",
     "longDescription": "scribd-cli is an interactive Windows terminal app (TUI) that takes a Scribd document ID — or a pasted document URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a visually faithful PDF of the document to ./downloads/<id>.pdf. It is built with Node.js and TypeScript, using Playwright (Chromium's native print-to-PDF) for rendering and an Ink terminal UI for interaction. The flow walks through a help screen, a prompt for the ID or URL, save options for file name and directory, live progress, and a final result. Only public documents are supported; there is no login, batch download, or anti-bot evasion.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "An interactive Windows terminal app (TUI)",
       "takes a Scribd **document ID** — or a pasted\ndocument URL",
@@ -797,8 +797,8 @@
       "**Live progress**",
       "**Result** — `Saved → <dir>/<name>.pdf (<n> pages)`"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-06-06T19:23:48.035Z"
+    "shortDescription": "An interactive Windows terminal app that downloads public Scribd documents as PDFs from a document ID or pasted URL.",
+    "slug": "scribd-cli"
   },
   "4d85a8e45b03b9036090f0d2f11ae6cd20fbd407f5a34ebab46652490a8698a9": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -943,6 +943,19 @@
     "shortDescription": "CSS snippet that renders bulleted list items as cards in Obsidian's Reading View.",
     "slug": "obsidian-bullet-cards"
   },
+  "5b16bc8af5acf16add84cacf11223dc0d432db146a26e8c5e84220523b573ea2": {
+    "generatedAt": "2026-06-06T00:00:00.000Z",
+    "longDescription": "scribd-cli is an interactive Windows terminal app (TUI) that takes a Scribd document ID — or a pasted document URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a visually faithful PDF of the document to ./downloads/<id>.pdf. It uses Node.js and TypeScript with Playwright (Chromium’s native print-to-PDF) for rendering and an Ink terminal UI. It requires Node.js ≥ 20 and auto-downloads a managed Chromium on first run via Playwright’s postinstall, so you never install a browser yourself. Only public documents are supported; there is no login, batch download, or anti-bot evasion.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "An interactive Windows terminal app (TUI) that takes a Scribd **document ID** — or a pasted document URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a **visually faithful PDF** of the document to `./downloads/<id>.pdf`.",
+      "It uses Node.js + TypeScript with [Playwright](https://playwright.dev) (Chromium’s native print-to-PDF) and an [Ink](https://github.com/vadimdemedes/ink) terminal UI.",
+      "Requires **Node.js ≥ 20**. Every option below auto-downloads a managed Chromium (~150 MB) on first run via Playwright’s `postinstall` — you never install a browser yourself.",
+      "Only **public** documents are supported. There is no login, batch download, or anti-bot evasion"
+    ],
+    "shortDescription": "An interactive Windows terminal app that downloads public Scribd documents as visually faithful PDFs from a document ID or pasted URL.",
+    "slug": "scribd-cli"
+  },
   "60cb5a662e421f196bb414b679d8aa51f8569e650efc6885e1ddef802c039b86": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Quickly identify which top-level subdirectories consume the most storage space. Supports network paths (SMB shares), shows real-time progress as directories are scanned, and if a scan is interrupted can resume from where it left off. Displays the largest directories ranked by size including last-modified date.",
@@ -1006,9 +1019,9 @@
     "slug": "clip-expand"
   },
   "65d7ba7532fd50f51b27bdbb6277480b43560d9ac5be9c4a819772cc4fe89d04": {
-    "slug": "equill-labs",
-    "shortDescription": "Portfolio site for eQuill Labs — a catalog of open-source projects by Justin Parker, built with Astro 6 and a GitHub-driven data pipeline.",
+    "generatedAt": "2026-06-06T19:23:48.035Z",
     "longDescription": "eQuill Labs is the portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories. Project data comes from the GitHub GraphQL API via @octokit/graphql and the gh CLI, rendered into Astro Content Collections as Markdown with gray-matter and remark. OG images are generated with Satori (HTML to SVG) and resvg (SVG to PNG), static search is powered by Pagefind, and the site is hosted on GitHub Pages. Testing uses Playwright with axe-core for accessibility, alongside Lighthouse CI and html-validate.",
+    "model": "claude-opus-4-6",
     "quotedSpans": [
       "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
       "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
@@ -1019,8 +1032,8 @@
       "Playwright + axe-core (a11y), Lighthouse CI, html-validate",
       "GitHub Pages"
     ],
-    "model": "claude-opus-4-6",
-    "generatedAt": "2026-06-06T19:23:48.035Z"
+    "shortDescription": "Portfolio site for eQuill Labs — a catalog of open-source projects by Justin Parker, built with Astro 6 and a GitHub-driven data pipeline.",
+    "slug": "equill-labs"
   },
   "6b4b7fe2225942923f545f05a704e8581b9e08aa042f754ae4e603fdeb1aa869": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
@@ -1403,6 +1416,22 @@
     ],
     "shortDescription": "Auto Hot Key script to remap Capslock + Left / Capslock + Right to Home / End keys.",
     "slug": "caps-left-right"
+  },
+  "90a49d219fd1d2640d9be91dd866686ba39bf27e0aa14df7a7e4ba806a672904": {
+    "generatedAt": "2026-06-06T00:00:00.000Z",
+    "longDescription": "eQuill Labs is the portfolio site for a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and TypeScript, with a GitHub-driven data pipeline that keeps project content in sync with live repositories. Content is managed through Astro Content Collections and Markdown, sourced from the GitHub GraphQL API via @octokit/graphql and the gh CLI. OG images are generated with Satori (HTML to SVG) and resvg (SVG to PNG), search is powered by Pagefind, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-4-6",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+      "Content | Astro Content Collections, Markdown, gray-matter, remark",
+      "Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "OG Images | Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Search | Pagefind (static search index)",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Catalog site for eQuill Labs — open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+    "slug": "equill-labs"
   },
   "9142197e58e3e20d22a2cdba561bedf2f61053f572ea8e35a24c2f0cb7e109cc": {
     "generatedAt": "2026-04-15T23:30:00.000Z",

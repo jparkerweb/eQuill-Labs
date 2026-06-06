@@ -54,7 +54,7 @@ lastCommit: '2026-04-17T04:47:04Z'
 _source:
   repo: 'https://github.com/jparkerweb/web-augmented-generation'
   sha: HEAD
-  fetchedAt: '2026-06-06T19:22:18.421Z'
+  fetchedAt: '2026-06-06T21:46:37.051Z'
 ---
 A Node.js application that performs web-augmented generation using web search results from SearXNG and various LLM providers via OpenAI-compatible API calls. It rephrases user queries for better web searching, searches with SearXNG, then fetches and summarizes content from the results before generating a response. It supports streaming responses, content similarity checking and repetition detection, detailed logging, and an interactive CLI. Multiple LLM providers are supported, including Ollama, together.ai, and llama.cpp, and it can apply semantic chunking to scraped page content for higher-quality answers.
 
