@@ -36,18 +36,18 @@ languages:
     percent: 86.75
   - name: CSS
     percent: 13.25
-stars: 53
+stars: 52
 links:
   repo: 'https://github.com/jparkerweb/rich-foot'
   homepage: 'https://www.equilllabs.com/projects/rich-foot.html'
 featured: false
-sortOrder: 947
+sortOrder: 948
 status: active
 lastCommit: '2026-06-04T01:02:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/rich-foot'
   sha: HEAD
-  fetchedAt: '2026-06-04T15:41:42.191Z'
+  fetchedAt: '2026-06-06T19:22:18.421Z'
 ---
 Rich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created and modified dates. Backlinks show which notes link to the current note, while outlinks (disabled by default) show which notes it links to, both displayed as tag-like links. It also detects links in a note’s frontmatter, including YAML link lists. The settings panel provides visibility toggles for each section and style settings such as opacity and border controls, plus an option to exclude specific folders from displaying the footer.
 

@@ -46,7 +46,7 @@ lastCommit: '2026-04-17T16:13:09Z'
 _source:
   repo: 'https://github.com/jparkerweb/random-pexels-image'
   sha: HEAD
-  fetchedAt: '2026-06-04T15:41:42.191Z'
+  fetchedAt: '2026-06-06T19:22:18.421Z'
 ---
 A Node.js application that provides an endpoint to search Pexels and return a randomly selected image, allowing hotlinking by directly returning the image data. It fetches images from the Pexels API based on query parameters such as size, keyword, and orientation, and when no keyword is supplied it picks a random word from a list of 300. It is intended for web applications or services that need to dynamically fetch and display Pexels images without storing them locally. The server reads a Pexels API key and port from a `.env` file and exposes a `/search-image` GET endpoint.
 

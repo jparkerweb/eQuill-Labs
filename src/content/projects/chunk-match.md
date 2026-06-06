@@ -50,7 +50,7 @@ lastCommit: '2026-04-17T15:15:18Z'
 _source:
   repo: 'https://github.com/jparkerweb/chunk-match'
   sha: HEAD
-  fetchedAt: '2026-06-04T15:41:42.191Z'
+  fetchedAt: '2026-06-06T19:22:18.421Z'
 ---
 A Node.js library that semantically chunks text and matches it against a user query using cosine similarity for relevant text retrieval. It returns chunks sorted by relevance with similarity scores, and exposes configurable similarity thresholds and chunk sizes. It is built on top of semantic-chunking for the underlying text processing and supports various ONNX embedding models. The main `matchChunks(documents, query, options)` function takes an array of document objects, a query string, and options such as maxResults, minSimilarity, and detailed chunkingOptions.
 

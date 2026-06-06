@@ -50,6 +50,6 @@ lastCommit: '2026-04-21T18:32:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/queue-tha-llama'
   sha: HEAD
-  fetchedAt: '2026-06-04T15:41:42.191Z'
+  fetchedAt: '2026-06-06T19:22:18.421Z'
 ---
 A web-based chat application that integrates Large Language Model (LLM) capabilities with Bull Queue, Redis, and Chroma. It handles concurrent chat sessions with queue management, maintains client-server communication with heartbeat signals, and uses a RAG model for chat memory. It also manages inactive clients and job cleanups. It can run against a local LLM via llama.cpp or a cloud API, uses Redis and Chroma vector storage in Docker containers, and supports embedding models such as all-MiniLM-L6-v2.

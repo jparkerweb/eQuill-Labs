@@ -42,6 +42,6 @@ lastCommit: '2026-04-20T17:58:37Z'
 _source:
   repo: 'https://github.com/jparkerweb/steph-shot'
   sha: HEAD
-  fetchedAt: '2026-06-04T15:41:42.191Z'
+  fetchedAt: '2026-06-06T19:22:18.421Z'
 ---
 A Windows tool that quickly saves a screenshot to disk and copies it to the clipboard. After installation it adds a desktop shortcut and can be launched by default with Ctrl+Shift+A. Screenshots are automatically saved to a "Steph-Shots" folder in the user’s Downloads directory and simultaneously placed on the clipboard ready to paste. It is distributed as a Windows SFX installer packaged with WinRAR, and includes a `setup.cmd` to manually create the desktop shortcut if needed.
