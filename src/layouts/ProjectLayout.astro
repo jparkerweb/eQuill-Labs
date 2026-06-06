@@ -186,7 +186,11 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
       </aside>
 
       <h1 class="name">{data.name}</h1>
-      {data.tagline && <p class="tagline">{data.tagline}</p>}
+      {
+        (data.taglineFull ?? data.tagline) && (
+          <p class="tagline">{data.taglineFull ?? data.tagline}</p>
+        )
+      }
 
       <div class="body prose">
         <slot />

@@ -5,7 +5,11 @@ slug: embedding-utils
 tagline: >-
   Vector math, similarity search, ANN indexing, clustering, async pipelines,
   evaluation metrics, and multi-provider embedding generation -- zero
-  dependencies,...
+  dependencies,…
+taglineFull: >-
+  Vector math, similarity search, ANN indexing, clustering, async pipelines,
+  evaluation metrics, and multi-provider embedding generation -- zero
+  dependencies, full TypeScript, one import.
 description:
   short: >-
     Zero-dependency TypeScript library for vector math, similarity search, ANN

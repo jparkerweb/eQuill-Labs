@@ -29,6 +29,7 @@ const ProjectSchema = z.object({
 	id: z.string(),
 	name: z.string(),
 	tagline: z.string().max(160),
+	taglineFull: z.string().optional(),
 	description: z.object({
 		short: z.string(),
 		long: z.string(),
@@ -117,13 +118,20 @@ function absolutizeReadmeUrls(md: string, repoUrl: string, branch: string): stri
 function truncateTagline(src: string): string {
 	const cleaned = src.replace(/\s+/g, ' ').trim();
 	if (cleaned.length <= 160) return cleaned;
-	return cleaned.slice(0, 157).trimEnd() + '...';
+	// Back up to the last word boundary so we never cut mid-word ("…every laz…").
+	const head = cleaned.slice(0, 157);
+	const lastSpace = head.lastIndexOf(' ');
+	const trimmed = (lastSpace > 0 ? head.slice(0, lastSpace) : head)
+		// drop any trailing punctuation/dashes left dangling before the ellipsis
+		.replace(/[\s—–-]+$/, '');
+	return trimmed + '…';
 }
 
 function buildProject(cp: CuratedProject, snapshotFetchedAt: string, aiCache: Record<string, CachedBlurb>) {
 	const repo = cp.raw;
 	const readme = parseReadme(repo.readme?.text ?? '');
-	const tagline = truncateTagline(readme.tagline ?? repo.description ?? cp.name);
+	const taglineFull = (readme.tagline ?? repo.description ?? cp.name).replace(/\s+/g, ' ').trim();
+	const tagline = truncateTagline(taglineFull);
 
 	const topics = cp.topics;
 	const cacheKey = contentHash(
@@ -154,6 +162,8 @@ function buildProject(cp: CuratedProject, snapshotFetchedAt: string, aiCache: Re
 		name: cp.name,
 		slug: cp.slug,
 		tagline,
+		// Full, unsliced tagline for the project page; bounded `tagline` is kept for cards, OG image, and meta.
+		...(taglineFull !== tagline ? { taglineFull } : {}),
 		description: {
 			short: cached?.shortDescription ?? repo.description ?? '',
 			long: cached?.longDescription ?? '',

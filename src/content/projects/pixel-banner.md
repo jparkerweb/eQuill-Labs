@@ -5,7 +5,12 @@ slug: pixel-banner
 tagline: >-
   Pixel Banner is a powerful Obsidian plugin that transforms your notes with
   customizable banner images, creating visually stunning headers that enhance
-  your k...
+  your…
+taglineFull: >-
+  Pixel Banner is a powerful Obsidian plugin that transforms your notes with
+  customizable banner images, creating visually stunning headers that enhance
+  your knowledge workspace. Go beyond simple note-taking with banners that
+  provide visual context and improved aesthetics.
 description:
   short: >-
     Obsidian plugin that adds customizable banner images to notes, including

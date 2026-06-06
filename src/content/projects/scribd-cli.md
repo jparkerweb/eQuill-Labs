@@ -4,8 +4,12 @@ name: scribd-cli
 slug: scribd-cli
 tagline: >-
   An interactive Windows terminal app (TUI) that takes a Scribd document ID — or
+  a pasted document URL — headless-renders the embed page, fully loads every…
+taglineFull: >-
+  An interactive Windows terminal app (TUI) that takes a Scribd document ID — or
   a pasted document URL — headless-renders the embed page, fully loads every
-  laz...
+  lazy-loaded page, and saves a visually faithful PDF of the document to
+  ./downloads/<id>.pdf.
 description:
   short: >-
     An interactive Windows terminal app that downloads public Scribd documents

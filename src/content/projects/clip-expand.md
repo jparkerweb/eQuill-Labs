@@ -4,8 +4,12 @@ name: clip-expand
 slug: clip-expand
 tagline: >-
   A lightweight, clipboard-based text expansion tool for Linux systems. Designed
-  with Remote Desktop sessions in mind, ClipExpand copies your text snippets
-  to...
+  with Remote Desktop sessions in mind, ClipExpand copies your text snippets to…
+taglineFull: >-
+  A lightweight, clipboard-based text expansion tool for Linux systems. Designed
+  with Remote Desktop sessions in mind, ClipExpand copies your text snippets to
+  the clipboard for easy pasting, making it perfect for both local and remote
+  workflows.
 description:
   short: >-
     A clipboard-based text expansion tool for Linux, designed for local and

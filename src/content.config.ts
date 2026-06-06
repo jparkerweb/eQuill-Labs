@@ -7,6 +7,7 @@ const projects = defineCollection({
 		id: z.string(),
 		name: z.string(),
 		tagline: z.string().max(160),
+		taglineFull: z.string().optional(),
 		description: z.object({
 			short: z.string(),
 			long: z.string(),

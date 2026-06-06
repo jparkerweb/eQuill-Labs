@@ -4,8 +4,8 @@ name: bedrock-wrapper
 slug: bedrock-wrapper
 tagline: >-
   Bedrock Wrapper is an npm package that simplifies the integration of existing
-  OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.
-  Fol...
+  OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs.…
+taglineFull: "Bedrock Wrapper is an npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs. Follow the steps below to integrate into your own application, or alternativly use the \U0001F500 Bedrock Proxy Endpoint project to spin up your own custom OpenAI server endpoint for even easier inference (using the standard baseUrl, and apiKey params)."
 description:
   short: >-
     npm package that adapts OpenAI-compatible API objects to AWS Bedrock

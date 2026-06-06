@@ -4,8 +4,12 @@ name: llm-distillery
 slug: llm-distillery
 tagline: >-
   Use LLMs to distill large texts down to a manageable size by utilizing a
+  map-reduce approach. This ensures that the text fits within a specified token…
+taglineFull: >-
+  Use LLMs to distill large texts down to a manageable size by utilizing a
   map-reduce approach. This ensures that the text fits within a specified token
-  limit,...
+  limit, which is crucial when interfacing with Large Language Models (LLMs) in
+  downstreams tasks.
 description:
   short: >-
     npm package that uses LLMs in a map-reduce approach to distill large texts

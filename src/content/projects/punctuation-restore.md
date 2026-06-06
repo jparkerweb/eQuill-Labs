@@ -4,8 +4,11 @@ name: punctuation-restore
 slug: punctuation-restore
 tagline: >-
   A Node.js package that restores punctuation and casing to unpunctuated text
+  using the punctuation_fullstop_truecase_english ONNX model:…
+taglineFull: >-
+  A Node.js package that restores punctuation and casing to unpunctuated text
   using the punctuation_fullstop_truecase_english ONNX model:
-  https://huggingface.c...
+  https://huggingface.co/1-800-BAD-CODE/punctuation_fullstop_truecase_english
 description:
   short: >-
     Node.js package that restores punctuation and casing to unpunctuated text

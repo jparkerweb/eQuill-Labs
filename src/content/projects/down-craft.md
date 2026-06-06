@@ -5,7 +5,13 @@ slug: down-craft
 tagline: >-
   Node.js package to simplify the process of converting documents (PDF, DOCX,
   PPTX, and XLSX) into Markdown format. It uses tesseract.js, mammoth, pdf.js,
-  and...
+  and…
+taglineFull: >-
+  Node.js package to simplify the process of converting documents (PDF, DOCX,
+  PPTX, and XLSX) into Markdown format. It uses tesseract.js, mammoth, pdf.js,
+  and turndown to convert documents to Markdown format. For PDFs, it also
+  provides an option to use vLLMs (Vision Large Language Models) for advanced
+  OCR capabilities (using the OpenAI API).
 description:
   short: >-
     Node.js package that converts PDF, DOCX, PPTX, and XLSX documents into

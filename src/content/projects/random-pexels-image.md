@@ -4,8 +4,11 @@ name: random-pexels-image
 slug: random-pexels-image
 tagline: >-
   Simple Node.js application that provides an endpoint to search Pexels and
+  return a randomly selected image. It allows hotlinking images by directly…
+taglineFull: >-
+  Simple Node.js application that provides an endpoint to search Pexels and
   return a randomly selected image. It allows hotlinking images by directly
-  returning...
+  returning the image data.
 description:
   short: >-
     Node.js app that exposes an endpoint to search Pexels and return a randomly

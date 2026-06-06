@@ -4,8 +4,12 @@ name: k-batch
 slug: k-batch
 tagline: >-
   K-Batch is an intelligent text batching library that uses k-means clustering
+  to group sentences by length for optimal processing. It's particularly useful…
+taglineFull: >-
+  K-Batch is an intelligent text batching library that uses k-means clustering
   to group sentences by length for optimal processing. It's particularly useful
-  fo...
+  for NLP tasks, machine learning batch processing, and any scenario where
+  processing similar-length texts together improves efficiency.
 description:
   short: >-
     A text batching library that uses k-means clustering to group sentences by
