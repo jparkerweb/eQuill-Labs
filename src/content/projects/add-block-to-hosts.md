@@ -46,6 +46,6 @@ lastCommit: '2026-04-17T16:06:31Z'
 _source:
   repo: 'https://github.com/jparkerweb/add-block-to-hosts'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
 A PowerShell script that blocks websites and domains by adding entries to the Windows hosts file, redirecting them to `0.0.0.0`. It automatically requests administrator privileges, validates input and detects duplicates, optionally creates timestamped backups, and flushes the DNS cache after modifying the file. Safety features include atomic writes via temporary files, multi-level validation of file integrity, automatic rollback from an emergency backup if corruption is detected, and graceful error handling. The repository also bundles Fiddler, a web debugging proxy, to help discover tracking and advertising domains worth blocking.

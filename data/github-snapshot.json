@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-06T21:46:37.051Z",
+  "fetchedAt": "2026-07-04T00:36:27.186Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast & Engineer  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -9,13 +9,13 @@
   },
   "repos": [
     {
-      "createdAt": "2026-06-06T19:16:20Z",
+      "createdAt": "2026-06-17T20:01:30Z",
       "defaultBranchRef": {
         "name": "main"
       },
-      "description": "📃 CLI app to help in downloading scribd documents",
+      "description": "🦚 image to vector app",
       "forkCount": 0,
-      "homepageUrl": null,
+      "homepageUrl": "https://jparkerweb.github.io/vector-it/",
       "isArchived": false,
       "isFork": false,
       "issues": {
@@ -25,37 +25,339 @@
         "edges": [
           {
             "node": {
-              "name": "TypeScript"
+              "name": "HTML"
             },
-            "size": 34438
+            "size": 307
           },
           {
             "node": {
-              "name": "JavaScript"
+              "name": "Rust"
             },
-            "size": 871
+            "size": 295679
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 222276
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 24
           }
         ],
-        "totalSize": 35309
+        "totalSize": 518286
       },
       "licenseInfo": {
         "spdxId": "Apache-2.0"
       },
-      "name": "scribd-cli",
+      "name": "vector-it",
       "primaryLanguage": {
-        "color": "#3178c6",
-        "name": "TypeScript"
+        "color": "#dea584",
+        "name": "Rust"
       },
-      "pushedAt": "2026-06-06T21:21:21Z",
+      "pushedAt": "2026-07-04T00:10:54Z",
       "readme": {
-        "text": "# scribd-cli\n\n<img src=\"https://github.com/jparkerweb/scribd-cli/blob/main/scribd-cli.jpg?raw=true\" alt=\"banner\" style=\"max-height:300px;\">\n\nAn interactive Windows terminal app (TUI) that takes a Scribd **document ID** — or a pasted\ndocument URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a\n**visually faithful PDF** of the document to `./downloads/<id>.pdf`.\n\nIt uses Node.js + TypeScript with [Playwright](https://playwright.dev) (Chromium's native\nprint-to-PDF) and an [Ink](https://github.com/vadimdemedes/ink) terminal UI.\n\n> Only **public** documents are supported. There is no login, batch download, or anti-bot\n> evasion — see [Scope](#scope).\n\n---\n\n## Install\n\nRequires **Node.js ≥ 20**. Every option below auto-downloads a managed Chromium (~150 MB) on first\nrun via Playwright's `postinstall` — you never install a browser yourself. If that step is ever\nskipped, run `npx playwright install chromium` once.\n\n### Run it once — no install, no clone\n\n```powershell\nnpx github:jparkerweb/scribd-cli\n```\n\nFetches the repo and launches the app; nothing is added to your `PATH`.\n\n### Install a global `scribd-cli` command — no clone (recommended)\n\n```powershell\nnpx github:jparkerweb/scribd-cli install-global\nscribd-cli\n```\n\nThe `install-global` subcommand installs a global copy from the package npx just fetched\n(`npm install -g <dir>` under the hood) — reliable, with no compiler needed since `dist/` ships\nprebuilt. npm puts the launcher in its global bin dir (`npm config get prefix`; on Windows that's\n`…\\AppData\\Roaming\\npm`, already on `PATH`). Remove it later with `npm rm -g scribd-cli`.\n\n> **Avoid** `npm install -g github:jparkerweb/scribd-cli` — on some Windows/npm setups it reports\n> success but silently drops files during extraction (an npm tar bug), leaving a broken command.\n> Use the `install-global` form above. _(Once published to npm, all of this shortens to\n> `npx scribd-cli` / `npm install -g scribd-cli`.)_\n\n### From a clone — development / from source\n\n```powershell\ngit clone git@github.com:jparkerweb/scribd-cli.git   # or https://github.com/jparkerweb/scribd-cli.git\ncd scribd-cli\nnpm install\n```\n\nFrom a clone you can run it with `npm run dev`, install a global copy with `npm install -g .`, or\ncreate a live-updating global command with `npm link` (rebuild via `npm run build` to refresh it).\n\n## Usage\n\nDev mode (runs the TypeScript directly via `tsx`):\n\n```powershell\nnpm run dev\n```\n\nBuilt CLI:\n\n```powershell\nnpm run build\nnpm start          # = node dist/index.js\n# or, if installed/linked globally: scribd-cli\n```\n\nVerbose diagnostics (printed to stderr) with `--debug`:\n\n```powershell\nnpm run dev -- --debug\n# or, when installed globally: scribd-cli --debug\n```\n\n### What you'll see\n\n1. **Help screen** — the Scribd homepage link and how to find a document ID.\n2. **Prompt** — enter a raw ID _or_ paste a full document URL. Invalid input is rejected inline.\n3. **Save options** — choose a file name (default: the document ID) and a directory (default:\n   `./downloads`). Press Enter on either field to accept its default.\n4. **Live progress** — launching → loading page → loading pages (scroll) → rendering → saving.\n5. **Result** — `Saved → <dir>/<name>.pdf (<n> pages)`.\n\n## How to find a document ID\n\nOpen any document on Scribd and look at the URL:\n\n```\nhttps://www.scribd.com/document/507779687/rulebook-zombicide-2nd-edition\n                                ^^^^^^^^^\n                                this is the ID\n```\n\nThe number after `/document/` (here `507779687`) is the ID. You can paste the whole URL or just\nthe number.\n\n## Output\n\nBy default the PDF is written to:\n\n```\n./downloads/<id>.pdf\n```\n\nAt the **Save options** step you can override the file name and directory; pressing Enter on an\nempty field keeps the default (file name = the document ID, directory = `./downloads`). The target\ndirectory is created automatically if it doesn't exist, and the file name is sanitized to a safe\nset of characters (spaces and hyphens are preserved).\n\n## Exit codes\n\n| Code | Meaning             | Message                                                                     |\n| ---- | ------------------- | --------------------------------------------------------------------------- |\n| 0    | Success             | `Saved → ./downloads/<id>.pdf (<n> pages)`                                  |\n| 1    | Unknown error       | An unexpected error occurred.                                               |\n| 2    | Invalid input       | That doesn't look like a valid Scribd ID or document URL.                   |\n| 3    | Not found / private | Document not found or is private/unavailable.                               |\n| 4    | Empty content       | No readable content found in the document container.                        |\n| 5    | Network             | Network problem reaching Scribd — check your connection.                    |\n| 6    | Browser launch      | Couldn't start the headless browser. Try `npx playwright install chromium`. |\n\n## Configuration\n\nAll tunables — output directory, container selector, timeouts, scroll parameters, and the\nbrowser identity — live in [`src/config.ts`](src/config.ts). If Scribd changes the page\ncontainer class, update `selector` there (single-point fix).\n\n## Manual checks\n\nNo automated test framework is used (manual verification only). Two ad-hoc harnesses live under\n`scripts/` (excluded from the build):\n\n```powershell\nnpx tsx scripts/url.manual.ts                 # exercise ID/URL parsing\nnpx tsx scripts/download.manual.ts 507779687  # run a full download for one ID\n```\n\n## Scope\n\n**Out of scope:** authenticated/private documents, Scribd login, batch downloads, non-Windows\ntargeting (may work but unverified), anti-bot evasion beyond realistic browser behavior, and OCR\n/ PDF post-editing.\n\n## Requirements\n\n- Node.js ≥ 20 LTS\n- Windows 11 / PowerShell (primary target)\n"
+        "text": "# VectorIt\r\n\r\n<div align=\"center\">\r\n\r\n<img src=\"https://github.com/jparkerweb/vector-it/blob/main/banner.jpg?raw=true\" alt=\"banner\" style=\"max-height:300px;\">\r\n\r\n### ⚡ *Pixels in. Vectors out. No questions asked.* ⚡\r\n\r\n**Open-source desktop app that converts raster images into vector graphics.**\r\n\r\nVectorIt converts PNG, JPG, BMP, GIF, and TIFF images into clean SVG, EPS, PDF, and DXF vector output.  \r\nBuilt with **Rust** for blazing speed and **Tauri v2** for a featherweight desktop shell (~5 MB),  \r\nwrapped in a **React + TypeScript** frontend.\r\n\r\n`────────────────────────── ◈ ──────────────────────────`\r\n\r\n[![License](https://img.shields.io/badge/license-Apache--2.0-ff00ff?style=flat-square&logo=apache)](LICENSE)\r\n[![Built With](https://img.shields.io/badge/built_with-Rust_🦀-e44d26?style=flat-square&logo=rust&logoColor=white)](#-tech-stack)\r\n[![Desktop](https://img.shields.io/badge/desktop-Tauri_v2-00e5ff?style=flat-square&logo=tauri&logoColor=white)](#-tech-stack)\r\n[![Frontend](https://img.shields.io/badge/frontend-React_⚛️-61dafb?style=flat-square&logo=react&logoColor=black)](#-tech-stack)\r\n\r\n</div>\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 📥 Download\r\n\r\n> *Runs on Windows, macOS, and Linux.*\r\n\r\nGrab the latest installer for your platform from the [**Releases page**](https://github.com/jparkerweb/vector-it/releases/latest):\r\n\r\n| Platform | Package |\r\n|:---------|:--------|\r\n| 🪟 **Windows 10 / 11** | NSIS installer (`.exe`) or MSI |\r\n| 🍎 **macOS** (Apple Silicon & Intel) | Disk image (`.dmg`) |\r\n| 🐧 **Linux** | AppImage, `.deb`, or `.rpm` |\r\n\r\n> ⚠️ **macOS note:** builds are **not code-signed or notarized** (this is a free open-source project without an Apple Developer subscription). The first time you open the app, macOS will warn that it can't verify the developer:\r\n> - **Right-click** (or Ctrl-click) `VectorIt.app` → **Open** → **Open**, *or*\r\n> - If macOS says the app \"is damaged and can't be opened\", clear the quarantine flag from Terminal:\r\n>   ```bash\r\n>   xattr -cr /Applications/VectorIt.app\r\n>   ```\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🌟 Features\r\n\r\n> *Maximum power. Minimum friction.*\r\n\r\n| | Feature | Description |\r\n|---|---------|-------------|\r\n| 🎨 | **Multi-format input** | PNG, JPG, BMP, GIF, TIFF — plus SVG opened for direct editing |\r\n| 📐 | **Multi-format output** | SVG (optionally color-grouped), EPS, PDF, DXF (per-color layers), PNG up to 4× |\r\n| 🧭 | **Tracing modes** | Color, Grayscale, Black & White, and Centerline (single-stroke skeleton) tracing |\r\n| 🔍 | **Compare with original** | Hold <kbd>O</kbd> to peek at the source image and judge trace fidelity |\r\n| ✏️ | **Full vector editing** | Select, draw, shapes, lines, erase, reshape nodes, fill — with undo/redo |\r\n| 🖌️ | **Palette tools** | Output palette panel: recolor or merge any color across the whole result |\r\n| ⚙️ | **Smart presets** | Logo, Illustration, Photo, Pixel Art, B&W, Grayscale, Sketch, Detailed — auto-suggested by image analysis |\r\n| 🎛️ | **Fine-tune controls** | Colors, thresholds, speckle filter, path mode, edge straightening, layering |\r\n| ⚡ | **Fast & responsive** | Multi-threaded pipeline; slider changes cancel stale work and re-trace live |\r\n| ⌨️ | **Keyboard-first** | One-key tools, zoom keys, clipboard paste, Quick Save — press <kbd>?</kbd> for the cheat sheet |\r\n| 🖱️ | **Drag-and-drop** | Drop images in anytime; drag exported files out to other applications |\r\n| 📏 | **Auto-resize** | Handles large images (20MP+) by auto-downsampling for analysis |\r\n| 💾 | **Session memory** | Settings persist across launches; `Ctrl+S` re-exports with last settings |\r\n| 🔒 | **Fully offline** | No internet required — your pixels stay yours |\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 📂 Project Structure\r\n\r\n> *Two crates. One mission.*\r\n\r\n```\r\nvector-it/\r\n├── Cargo.toml                  # Rust workspace root (defines both crates)\r\n├── Cargo.lock                  # Locked dependency versions\r\n├── vectorit-core/              # ⚡ Pure Rust library — vectorization engine\r\n│   ├── Cargo.toml\r\n│   ├── src/\r\n│   │   ├── lib.rs              # Library entry point\r\n│   │   ├── types.rs            # All shared types/structs/enums\r\n│   │   ├── pipeline.rs         # Orchestrates the vectorization stages\r\n│   │   ├── decoder.rs          # Image loading (PNG/JPG/BMP/GIF/TIFF)\r\n│   │   ├── resizer.rs          # Box-filter downsample for large images\r\n│   │   ├── quantizer.rs        # K-means++ color quantization\r\n│   │   ├── segmenter.rs        # Connected-component labeling\r\n│   │   ├── tracer.rs           # Marching-squares boundary tracing\r\n│   │   ├── simplifier.rs       # Path point reduction\r\n│   │   ├── corner.rs           # Corner detection in traced paths\r\n│   │   ├── fitter.rs           # Bézier curve fitting\r\n│   │   ├── optimizer.rs        # Path optimization passes\r\n│   │   ├── detector.rs         # Feature detection utilities\r\n│   │   ├── aa_detector.rs      # Anti-aliasing detection\r\n│   │   ├── subpixel.rs         # Sub-pixel precision helpers\r\n│   │   ├── editor.rs           # Segmentation editor operations\r\n│   │   └── export/             # Output format exporters\r\n│   │       ├── svg.rs, eps.rs, pdf.rs, dxf.rs, bitmap.rs\r\n│   ├── tests/                  # Integration & property tests\r\n│   └── benches/                # Criterion performance benchmarks\r\n│\r\n├── vectorit-app/               # 🖥️ Tauri desktop application\r\n│   ├── package.json            # Node.js / npm config (frontend deps)\r\n│   ├── vite.config.ts          # Vite bundler config\r\n│   ├── tsconfig.json           # TypeScript config\r\n│   ├── index.html              # HTML entry point\r\n│   ├── src/                    # React + TypeScript frontend\r\n│   │   ├── App.tsx             # Main UI component\r\n│   │   ├── main.tsx            # React entry point\r\n│   │   ├── stores/             # Zustand state management\r\n│   │   ├── components/         # UI components (Canvas, Wizard, Editor, etc.)\r\n│   │   ├── hooks/              # Custom React hooks\r\n│   │   └── utils/              # Shared utility functions\r\n│   └── src-tauri/              # Tauri Rust backend (thin wrapper)\r\n│       ├── Cargo.toml\r\n│       ├── tauri.conf.json     # Tauri app configuration\r\n│       └── src/\r\n│           ├── main.rs         # Entry point\r\n│           ├── lib.rs          # Command registration\r\n│           ├── commands.rs     # IPC command handlers\r\n│           ├── clipboard.rs    # Clipboard paste support\r\n│           └── dragdrop.rs     # Drag-and-drop file handling\r\n│\r\n├── docs/                       # Architecture documentation\r\n└── .github/workflows/          # CI/CD (GitHub Actions)\r\n```\r\n\r\n> 🔑 **Key concept:** This is a Rust *workspace* with two crates:\r\n> - `vectorit-core` — the engine (pure library, no UI)\r\n> - `vectorit-app/src-tauri` — the desktop shell (depends on `vectorit-core`)\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🔌 Prerequisites (First-Time Setup)\r\n\r\n> *Jack in before you ride the grid.*\r\n\r\n### `01` 🦀 Install Rust\r\n\r\nGo to <https://rustup.rs/> and run the installer. On Windows this downloads `rustup-init.exe`.\r\n\r\n- Accept all defaults (it installs `rustc`, `cargo`, and the platform toolchain)\r\n- **Windows requires:** Visual Studio Build Tools with \"Desktop development with C++\" workload\r\n  - If you don't have it, the Rust installer will prompt you to install it\r\n  - Or download from: <https://visualstudio.microsoft.com/visual-cpp-build-tools/>\r\n- **macOS requires:** Xcode Command Line Tools — `xcode-select --install`\r\n- **Linux requires:** the Tauri system libraries, e.g. on Debian/Ubuntu:\r\n  ```bash\r\n  sudo apt-get install libwebkit2gtk-4.1-dev build-essential curl wget file \\\r\n    libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev\r\n  ```\r\n\r\nAfter install, open a **new** terminal and verify:\r\n```powershell\r\nrustc --version    # Should show 1.78+ (e.g., rustc 1.82.0)\r\ncargo --version    # Should show cargo 1.78+\r\n```\r\n\r\n### `02` 🟢 Install Node.js\r\n\r\nGo to <https://nodejs.org/> and install the **LTS** version (v20+).\r\n\r\nVerify:\r\n```powershell\r\nnode --version     # Should show v20.x or v22.x\r\nnpm --version      # Should show 10.x+\r\n```\r\n\r\n### `03` 📦 Install Tauri CLI\r\n\r\n```powershell\r\ncargo install tauri-cli\r\n```\r\n\r\nThis compiles from source and takes 2–5 minutes the first time. After it finishes:\r\n```powershell\r\ncargo tauri --version   # Should show tauri-cli 2.x\r\n```\r\n\r\n### `04` 🪟 (Windows) WebView2 Runtime\r\n\r\nTauri uses WebView2 (built into Windows 10/11). If you're on Windows 10 and it's not installed:  \r\n<https://developer.microsoft.com/en-us/microsoft-edge/webview2/>\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🚀 Building & Running\r\n\r\n### ⚡ Development Mode (hot-reload)\r\n\r\n```powershell\r\ncd vectorit-app\r\nnpm install              # Install frontend dependencies (first time only)\r\ncargo tauri dev          # Starts dev server + compiles Rust + opens window\r\n```\r\n\r\n**What happens:**\r\n1. Vite starts a dev server at `http://localhost:1420` (frontend hot-reload)\r\n2. Cargo compiles the Rust backend (first build takes 2–5 min, subsequent builds are fast)\r\n3. A desktop window opens showing the app\r\n\r\n> ⏳ **First build is slow** — Rust compiles ~200+ dependency crates. After that, incremental builds are 5–15 seconds.\r\n\r\n### 📦 Production Build (installer)\r\n\r\n```powershell\r\ncd vectorit-app\r\nnpm install\r\ncargo tauri build\r\n```\r\n\r\nProduces native installers under `target/release/bundle/`:\r\n\r\n| Platform | Output |\r\n|:---------|:-------|\r\n| 🪟 Windows | `nsis/VectorIt_1.3.1_x64-setup.exe`, `msi/VectorIt_1.3.1_x64_en-US.msi` |\r\n| 🍎 macOS | `dmg/VectorIt_1.3.1_aarch64.dmg` (or `x64`), `macos/VectorIt.app` |\r\n| 🐧 Linux | `appimage/VectorIt_1.3.1_amd64.AppImage`, `deb/…​.deb`, `rpm/…​.rpm` |\r\n\r\n### 🧪 Running just the core library tests (no UI)\r\n\r\n```powershell\r\ncd vectorit-core\r\ncargo test\r\n```\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🔧 Troubleshooting\r\n\r\n> *When the neon flickers…*\r\n\r\n<details>\r\n<summary>💥 <b>\"Couldn't recognize the current folder as a Tauri project\"</b></summary>\r\n\r\nYou must run `cargo tauri dev` from the `vectorit-app/` directory (where `package.json` lives), **NOT** from the workspace root.\r\n</details>\r\n\r\n<details>\r\n<summary>💥 <b>Stale build cache errors (paths to old directories)</b></summary>\r\n\r\n```powershell\r\ncargo clean\r\ncargo tauri dev\r\n```\r\n</details>\r\n\r\n<details>\r\n<summary>💥 <b>\"linker `link.exe` not found\"</b></summary>\r\n\r\nYou need Visual Studio Build Tools with C++ workload. Install from:  \r\n<https://visualstudio.microsoft.com/visual-cpp-build-tools/>\r\n</details>\r\n\r\n<details>\r\n<summary>💥 <b>npm install fails</b></summary>\r\n\r\nMake sure you're in `vectorit-app/` (not the root). Delete `node_modules` and retry:\r\n```powershell\r\ncd vectorit-app\r\nRemove-Item -Recurse node_modules\r\nnpm install\r\n```\r\n</details>\r\n\r\n<details>\r\n<summary>💥 <b>Vite port already in use</b></summary>\r\n\r\nAnother process is using port 1420. Kill it or change the port in `vite.config.ts`.\r\n</details>\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🕹️ Usage\r\n\r\n### ⚡ Quick Start — 3 clicks to vector glory\r\n\r\n```\r\n ┌─────────┐      ┌─────────┐      ┌─────────┐\r\n │  OPEN   │ ───▶ │  AUTO   │ ───▶ │ EXPORT  │\r\n │ 🖼️ Load │      │ ⚙️ Trace │      │ 💾 Save │\r\n └─────────┘      └─────────┘      └─────────┘\r\n```\r\n\r\n1. **Open** — Click \"Open\" or drag an image onto the window\r\n2. **Auto** — VectorIt auto-vectorizes with the selected preset\r\n3. **Export** — Click \"Export\" to save as SVG/EPS/PDF/DXF\r\n\r\n### ⌨️ Keyboard Shortcuts\r\n\r\n> On macOS, use `Cmd` wherever `Ctrl` is listed.\r\n\r\n| Shortcut | Action |\r\n|:---------|:-------|\r\n| `Ctrl+V` | Paste image from clipboard |\r\n| `Ctrl+S` | Quick Save (re-export with last settings) |\r\n| `Ctrl+Z` | Undo (in canvas/segmentation editor) |\r\n| `Ctrl+Shift+Z` | Redo (in canvas editor) |\r\n\r\n### 🎛️ Sidebar Controls\r\n\r\n| Control | What it does |\r\n|:--------|:------------|\r\n| **Preset** | One-click configurations (Logo, Photo, Pixel Art, etc.) |\r\n| **Quality** | Low (fast) / Medium / High (best fidelity) |\r\n| **Colors** | How many colors to quantize to (2–32) |\r\n| **Path Mode** | Polygon = sharp edges, Spline = smooth curves |\r\n| **Speckle Filter** | Remove tiny noise regions (higher = cleaner) |\r\n| **Color Precision** | How aggressively to merge similar colors |\r\n| **Corner Threshold** | Angle to treat as a sharp corner vs smooth curve |\r\n| **Auto-Render** | Re-process automatically when you change settings |\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🧪 Running Tests\r\n\r\n```powershell\r\n# ⚡ All tests (from workspace root)\r\ncargo test --workspace\r\n\r\n# 🦀 Just the core engine tests\r\ncd vectorit-core\r\ncargo test\r\n\r\n# 🔬 Integration tests only (format validation)\r\ncargo test --test format_tests\r\n\r\n# 📊 Performance benchmarks\r\ncargo bench\r\n\r\n# ✅ Frontend type-check\r\ncd vectorit-app\r\nnpm run build\r\n```\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 💾 Tech Stack\r\n\r\n> *The machines under the hood.*\r\n\r\n| | Layer | Technology | Why |\r\n|---|-------|-----------|-----|\r\n| 🦀 | Core Engine | **Rust** | Fast, memory-safe, compiles to native code |\r\n| 🖥️ | Desktop Shell | **Tauri v2** | Lightweight (~5 MB), uses OS webview, Rust backend |\r\n| ⚛️ | Frontend | **React 18 + TypeScript** | Component model, type safety |\r\n| 🎨 | Styling | **Tailwind CSS v4** | Utility-first, fast iteration |\r\n| 🧠 | State | **Zustand** | Lightweight React state management |\r\n| ⚡ | Bundler | **Vite** | Fast HMR (hot module reload) for development |\r\n| 🔍 | Vectorization | **vtracer** crate | Battle-tested image tracing engine |\r\n| 🧬 | Color Science | **palette** crate | CIE Lab color space conversions |\r\n| 📄 | PDF Output | **pdf-writer** crate | Low-level PDF generation |\r\n| 📐 | DXF Output | **dxf** crate | AutoCAD DXF file format |\r\n| 📊 | Testing | **criterion** | Statistical benchmarking for Rust |\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🏗️ Architecture\r\n\r\n> *The signal path.*\r\n\r\n```\r\n  ┌───────┐   ┌────────┐   ┌──────────┐   ┌─────────┐   ┌────────┐   ┌─────────┐   ┌────────┐\r\n  │ IMAGE │──▶│ RESIZE │──▶│ QUANTIZE │──▶│ SEGMENT │──▶│ EDITOR │──▶│  TRACE  │──▶│ EXPORT │\r\n  └───────┘   └────────┘   └──────────┘   └─────────┘   └────────┘   └─────────┘   └────────┘\r\n     📷          📏            🎨             🧩           ✏️            ✒️            💾\r\n```\r\n\r\n| Stage | What it does |\r\n|:------|:-------------|\r\n| **Resize** | Auto-downsample images > 4MP for analysis speed |\r\n| **Quantize** | K-means++ clustering in CIE Lab color space → fixed palette |\r\n| **Segment** | Flood-fill connected components → regions |\r\n| **Editor** | Optional manual region corrections (paint/split/merge) |\r\n| **Trace** | vtracer converts pixel data → Bézier paths; custom modules (tracer, simplifier, corner, fitter, optimizer) provide additional boundary tracing and path refinement |\r\n| **Export** | Serialize to SVG / EPS / PDF / DXF / Bitmap |\r\n\r\nSee [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for full details including IPC protocol and module dependency graph.\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 🤝 Contributing\r\n\r\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, code style, and PR guidelines.\r\n\r\n`═══════════════════════════════════════════════════════════════`\r\n\r\n## 📜 License\r\n\r\nLicensed under [Apache-2.0](LICENSE).\r\n\r\n<div align=\"center\">\r\n\r\n```\r\n╔══════════════════════════════════════════════════════════════╗\r\n║          P I X E L S   I N  ·  V E C T O R S   O U T       ║\r\n╚══════════════════════════════════════════════════════════════╝\r\n```\r\n\r\n*Made with 🦀 Rust, ⚡ Tauri, and mass quantities of mass quantities of mass quantities of neon.*\r\n\r\n</div>\r\n\r\n"
       },
       "repositoryTopics": {
         "nodes": []
       },
       "stargazerCount": 0,
-      "updatedAt": "2026-06-06T21:21:24Z",
-      "url": "https://github.com/jparkerweb/scribd-cli"
+      "updatedAt": "2026-07-04T00:10:57Z",
+      "url": "https://github.com/jparkerweb/vector-it"
+    },
+    {
+      "createdAt": "2026-06-29T03:52:57Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "🌻 Collection of Cottage Garden tools",
+      "forkCount": 0,
+      "homepageUrl": "https://jparkerweb.github.io/cottage-garden/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 59304
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 158286
+          }
+        ],
+        "totalSize": 217590
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "cottage-garden",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-07-01T04:21:27Z",
+      "readme": {
+        "text": "# 🌿 The Cottage Garden Companion\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg\" alt=\"banner\" style=\"max-height:400px\">\n\nA small, growing toolbox of plain-spoken helpers for the home gardener — *feed your beds, pair your plants, and tend a cottage border with a little more confidence.*\n\nEvery tool is a **self-contained, single-file HTML page** dressed as a pressed-herbarium specimen sheet: warm recycled-paper surfaces, deep botanical ink, and an old-press serif over a clean grotesque. There is **no build system, no dependencies, and no backend** — each tool is one `.html` file that opens directly from disk.\n\n---\n\n## The collection\n\n| Tool | File | What it does |\n|---|---|---|\n| **The Cottage Garden Companion** | [`src/index.html`](src/index.html) | Landing/hub page linking the collection. |\n| **The Fertilizer Plot** | [`src/fertilizer.html`](src/fertilizer.html) | Turns any **N–P–K** ratio into a generative, hand-drawn plant, then works out feed dose, timing and cost. |\n| **The Companion Bed** | [`src/companion-planter.html`](src/companion-planter.html) | **139 plants** with ranked companion + \"keep apart\" relationships, and why each pair works — deep-links a recommended feed straight into the Fertilizer Plot. |\n\nMore tools are *taking root* (a sowing calendar, a watering guide, and more to come).\n\n---\n\n## Getting started\n\nThere is nothing to install. Pick whichever suits you:\n\n- **Open directly** — double-click `src/index.html`, or open `file:///…/src/index.html` in any modern browser. The pages are designed to work fully from `file://`.\n- **Serve the folder** (only if a browser blocks something over `file://`) — any static server works:\n\n  ```bash\n  npx serve src\n  # or\n  npx serve docs   # the built/published copy\n  ```\n\n  Then visit the page in your browser.\n\nThe **only** network request is the Google Fonts `<link>` (Fraunces + Hanken Grotesk); everything else — logic, data, and SVG artwork — is inline. Offline, the pages still work with fallback fonts.\n\n---\n\n## How it's built\n\nEach published tool is one `.html` file holding its markup, `<style>`, a vanilla-JS IIFE, and its data. (A larger tool may keep its data and artwork in `src/_includes/` partials while you work — the build folds them back in, so the page you ship is still a single file.) Inside the IIFE, every tool follows the same data-driven shape:\n\n> **Data → Derive (pure) → Render → State / Wiring**, with a single top-level `render()` per state change.\n\n- **No framework, no reactive store** — just plain functions and one `state` object.\n- **ES5-friendly vanilla JS** — `\"use strict\"`, `var`, classic `function` declarations.\n- **Plain CSS** with custom properties and `clamp()` for fluid sizing; no preprocessor, no utility framework.\n- **Inline SVG** for all graphics (no image assets).\n- **State is shareable** — selections round-trip through the URL hash + `localStorage`, so a copied link restores the same view. Dark mode chosen in any tool carries across all of them.\n\nThere is no shared stylesheet or script: the design tokens, the cross-tool nav, and the theme logic are **duplicated verbatim** in each file by design. When you change shared chrome, change it in **every** file.\n\nThe tool sources live in [`src/`](src). There is still no compile step — the \"build\" stages `src/` into [`docs/`](docs), the folder GitHub Pages publishes, inlining any `src/_includes/` partials so each published page is self-contained:\n\n```bash\nnode .claude/skills/build/scripts/build.mjs\n```\n\nThis regenerates `docs/` from scratch each time, so it never holds stale files. (The pipeline is structured so a further transform — minification, asset processing — can be slotted in later without reworking it.)\n\nSee [`AGENTS.md`](AGENTS.md) and the [`.agents-docs/`](.agents-docs) folder for the full architecture, conventions, and coupling contracts.\n\n---\n\n## Design\n\nThe aesthetic is **flat and paper-first**, keyed to the three garden nutrients the tools teach:\n\n- **Nitrogen** — leaf green\n- **Phosphorus** — bloom pink\n- **Potassium** — vigour gold\n\n…the only saturated colour in an otherwise muted palette. Type is set in **Fraunces** (italic display serif) over **Hanken Grotesk** (UI), with a full light/dark (\"evening garden\") token set.\n\n[`DESIGN.md`](DESIGN.md) is the canonical design-system source of truth.\n\n---\n\n## Verifying changes\n\nThere's no automated test step — verification is a manual smoke-check. After any change, confirm:\n\n- **No console errors** on load or interaction.\n- **Light + dark parity** — toggle the theme; both must read correctly.\n- **Responsive** — exercise desktop, tablet, and the narrow mobile breakpoints (grids collapse around 860 / 620 / 430px).\n- **Keyboard operable** — visible focus rings, list/option keyboard nav, no focus traps.\n- **Reduced motion respected** — `prefers-reduced-motion` disables transforms/animation.\n- **State round-trips** — change selections, copy the link, reload; the state restores (a stale/invalid id falls back to the default).\n- **Cross-tool links** — the shared nav and the *\"Feed this →\"* deep-link land on the right page with the right preset preloaded.\n\n---\n\n## A friendly note\n\nGardening lore varies by soil, season and source, so treat each tool as a good starting point, not a rule.\n\n— *from soil to bloom* 🌱\n\n---\n\n## License\n\nLicensed under the [Apache License 2.0](LICENSE).\n"
+      },
+      "repositoryTopics": {
+        "nodes": []
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-07-01T04:21:31Z",
+      "url": "https://github.com/jparkerweb/cottage-garden"
+    },
+    {
+      "createdAt": "2024-09-17T15:49:53Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "🤖 A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
+      "forkCount": 11,
+      "homepageUrl": "",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 13603
+          }
+        ],
+        "totalSize": 13603
+      },
+      "licenseInfo": null,
+      "name": "ai-assist-skills",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-06-29T04:22:50Z",
+      "readme": {
+        "text": "# AI-Assist Skills\n\n<img src=\"https://github.com/jparkerweb/ai-assist-skills/blob/main/ai-assist-skills.jpg?raw=true\" alt=\"banner\" style=\"max-height:300px;\">\n\nA collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.\n\n## Installation\n\n### Sync all skills (recommended)\n\nThis single command removes any stale or renamed skills, then installs the latest version of every skill from this repo. Run it any time to stay current:\n\n```bash\nnpx github:jparkerweb/ai-assist-skills\n```\n\nSkills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.).\n\n<img src=\"https://github.com/jparkerweb/ai-assist-skills/blob/main/ai-assist-install.jpg?raw=true\" style=\"max-width: 593px;\">\n\n## Local Development\n\nWhen creating or editing a skill, you need to install it locally to test it **before** committing or pushing. The `skills add` command accepts a local path as the source, so it installs directly from your working tree — no git push required.\n\n### Install a single skill from your local repo\n\n```bash\nnpm run dev:install -- ai-assist-design-creator\n```\n\nThis is equivalent to:\n\n```bash\nnpx skills add . -g --skill ai-assist-design-creator -y\n```\n\nBoth commands install the skill globally from your local working directory, overwriting any previously installed version. Run it again after every edit to pick up your changes.\n\n### Re-install to pick up edits\n\nThe same command overwrites the installed copy — there is no separate \"update\" step:\n\n```bash\nnpm run dev:install -- ai-assist-design-creator\n# edit SKILL.md...\nnpm run dev:install -- ai-assist-design-creator   # picks up the latest changes\n```\n\n### Verify installation\n\n```bash\nnpx skills list -g | grep ai-assist-design-creator\n```\n\n### Re-sync everything from GitHub (restore production state)\n\nOnce you're done testing locally and your changes are merged, run the full sync to pull from the remote repo and discard your local install:\n\n```bash\nnpm run sync\n# or\nnpx github:jparkerweb/ai-assist-skills\n```\n\n> **Note:** `npm run dev:install` installs from your local working tree, which means it picks up uncommitted changes. This is intentional — it's the fastest way to iterate on a skill. Just remember to run `npm run sync` afterward to restore a clean state from the remote repo.\n\n## Available Skills\n\n### [ai-assist-changelog-bump](skills/ai-assist-changelog-bump/SKILL.md)\nValidates and fixes the `CHANGELOG.md` version number before a PR/commit/push — reads `main` to find the latest version, classifies the branch's changes, computes the correct next semver, drafts or corrects the entry, and keeps `package.json`'s version aligned.\n\n### [ai-assist-design-creator](skills/ai-assist-design-creator/SKILL.md)\nReverse-engineers a website's visual design system from a URL and produces a fully spec-compliant `DESIGN.md` file with YAML design tokens (colors, typography, spacing, rounded corners, components) and human-readable rationale sections.\n\n### [ai-assist-discovery](skills/ai-assist-discovery/SKILL.md)\nDeep research and analysis for codebases, technologies, domains, and feasibility assessments with analytical frameworks and confidence-graded findings.\n\n### [ai-assist-dockerize-website](skills/ai-assist-dockerize-website/SKILL.md)\nGuides you from a project folder to a working Docker container that serves a static site or documentation folder. Detects whether to serve ready-made HTML, build a site generator's output, or render a raw markdown docs folder; generates a Dockerfile, `.dockerignore`, `docker-compose.yml`, and a README section; then offers to build/smoke-test and publish to Docker Hub or GHCR.\n\n### [ai-assist-git-commit](skills/ai-assist-git-commit/SKILL.md)\nStages and commits changes using a standard commit message format with an `AI Assisted` tag.\n\n### [ai-assist-git-pr](skills/ai-assist-git-pr/SKILL.md)\nAdaptive GitHub PR lifecycle — create PRs, generate descriptions, investigate review comments with deep analysis and batch approval, check merge readiness. All via `gh` CLI.\n\n### [ai-assist-npm-update](skills/ai-assist-npm-update/SKILL.md)\nFinds every `package.json` under the current directory, runs `npm outdated`, bumps each outdated dependency to its `^<wanted>` (in-range) version, and runs `npm install`. Supports `--dry-run`.\n\n### [ai-assist-observability-audit](skills/ai-assist-observability-audit/SKILL.md)\n17-dimension observability posture assessment with tier activation, health scoring, and cost analysis.\n\n### [ai-assist-project-summary](skills/ai-assist-project-summary/SKILL.md)\nGenerate project overviews with engineer status updates (recent work, in-progress, issues, roadmap) and offer to surgically enhance existing documentation.\n\n### [ai-assist-security-audit](skills/ai-assist-security-audit/SKILL.md)\n16-dimension security posture assessment with CWE references, health scoring, and remediation plans.\n\n### [ai-assist-tech-debt](skills/ai-assist-tech-debt/SKILL.md)\n22-dimension, 5-tier technical debt audit with weighted health scoring and prioritized remediation.\n\n### [ai-assist-test-audit](skills/ai-assist-test-audit/SKILL.md)\n16-dimension test suite audit with depth control (quick/standard/deep), gap matrix, and health scoring.\n\n> **Tip:** All skills are prefixed with `ai-assist-` so you can type `/ai-assist-` in your AI agent to see a list of all available skills (some agents like Windsurf will also recognize them by `@` referencing them).\n\n### Other skills.sh commands\n\n```bash\nnpx skills list          # Show installed skills\nnpx skills check         # Check for updates\nnpx skills update        # Apply updates (won't remove stale skills — use sync above)\nnpx skills remove        # Uninstall skills\n```\n\n**Install a specific skill only:**\n\n```bash\nnpx skills add jparkerweb/ai-assist-skills -g --skill ai-assist-discovery -y\n```\n\n## Skills\n\n### ai-assist-changelog-bump\n\nValidates and fixes the `CHANGELOG.md` version number before a PR, commit, or push.\n\n**Usage:**\n\n```\n/ai-assist-changelog-bump\n```\n\nThe skill will:\n\n1. Read `main`'s CHANGELOG to find the current latest version\n2. Classify the branch's changes (new skill, capability, behavior change, or bug fix)\n3. Compute the correct next semver and compare it against the branch's entry\n4. Draft a new entry or fix the version/date, with approval before writing\n5. Align `package.json`'s `version` (if present) with the latest released version\n\n### ai-assist-design-creator\n\nReverse-engineers a website's visual design system from a URL and produces a fully spec-compliant `DESIGN.md` file.\n\n**Usage:**\n\n```\n/ai-assist-design-creator https://example.com\n```\n\n### ai-assist-discovery\n\nDeep research and analysis workflow for codebases, technologies, domains, ideas, or data.\n\n**Usage:**\n\n```\n/ai-assist-discovery React Server Components feasibility\n```\n\nThe skill will:\n\n1. Classify the target type (codebase, technology, domain, idea, data) and detect variants\n2. Select analytical frameworks appropriate to the target and depth level\n3. Gather evidence from multiple authoritative sources with confidence grading\n4. Produce structured documentation with executive summary, findings, and framework outputs in chat\n5. Optionally save research to `docs/research/`, only after explicit user confirmation\n\n### ai-assist-git-commit\n\nStages and commits changes using a standard commit message format.\n\n**Prerequisites:**\n\n- Must be in a git repository with uncommitted changes\n\n**Usage:**\n\n```\n/ai-assist-git-commit\n```\n\nOr pass a commit description directly:\n\n```\n/ai-assist-git-commit fix timeout on report export\n```\n\nThe skill will:\n\n1. Check for staged/unstaged changes\n2. Draft a commit message and ask for approval (unless a description was provided)\n3. Stage relevant files and create the commit in the format: description, blank line, `AI Assisted`\n4. Show the resulting commit for confirmation\n\n### ai-assist-git-pr\n\nAdaptive GitHub PR lifecycle skill with four modes: Create, Describe, Comments, and Status.\n\n**Prerequisites:**\n\n- GitHub CLI (`gh`) v2.83+ installed and authenticated\n\n**Usage:**\n\n```\n/ai-assist-git-pr\n```\n\nOr describe what you need:\n\n```\n/ai-assist-git-pr create a PR\n/ai-assist-git-pr describe this PR\n/ai-assist-git-pr check comments\n/ai-assist-git-pr is this ready to merge?\n```\n\nThe skill will:\n\n1. Detect the mode from your request (Create, Describe, Comments, or Status)\n2. **Create:** Analyze the diff, draft title + body, preview for approval, create via `gh pr create`\n3. **Describe:** Analyze the diff, draft an evidence-based description, preview for approval, update via `gh pr edit`\n4. **Comments:** Fetch all inline + issue-level comments, investigate each silently (full file context, code path tracing, online research), present a summary-first report with recommended fixes, batch approval with opt-out\n5. **Status:** Report merge readiness — CI checks, review approvals, conflicts, draft status, PR size\n\nAll operations use `gh` CLI exclusively. Reads are automatic; writes require preview + explicit approval. Never merges, closes, or force pushes.\n\n### ai-assist-npm-update\n\nBulk-updates outdated npm dependencies across one or more `package.json` files to their in-range \"wanted\" versions.\n\n**Usage:**\n\n```\n/ai-assist-npm-update\n/ai-assist-npm-update --dry-run\n```\n\nThe skill will:\n\n1. Find every `package.json` under the current directory (skipping `node_modules` and other vendored/output folders)\n2. Run `npm outdated` for each project\n3. Rewrite each outdated dependency's version specifier to `^<wanted>` (the newest version allowed by the existing semver range — not a major-version jump)\n4. Run `npm install` in each updated project to refresh the lockfile\n\nRun with `--dry-run` first to preview every change without writing files or installing.\n\n### ai-assist-dockerize-website\n\nGuides you through containerizing and serving a simple website or documentation folder with Docker.\n\n**Prerequisites:**\n\n- Docker installed (Docker Desktop on Windows/Mac) to build and run the container — though the skill can generate the files without it\n\n**Usage:**\n\n```\n/ai-assist-dockerize-website\n/ai-assist-dockerize-website ./docs --port 8080\n```\n\nThe skill will:\n\n1. Inspect the project and classify it — ready-to-serve static HTML, a buildable site (Vite/Astro/MkDocs/Hugo/etc.), or a raw markdown docs folder\n2. Confirm what to serve, the host port, and image/container names (pre-filled from the detection)\n3. Generate a `Dockerfile` (single- or multi-stage), `.dockerignore`, `docker-compose.yml`, and a \"Running with Docker\" README section\n4. Offer to build the image and smoke-test that it serves an HTTP 200\n5. Optionally walk through publishing the image to Docker Hub or GHCR\n\n### ai-assist-observability-audit\n\n17-dimension observability posture assessment with tier activation, health scoring, and cost analysis.\n\n**Usage:**\n\n```\n/ai-assist-observability-audit\n```\n\nThe skill will:\n\n1. Detect the observability stack and classify the project tier (Universal/Service/Distributed)\n2. Activate applicable dimensions and audit each systematically\n3. Perform cross-cutting cost analysis across all telemetry types\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n### ai-assist-project-summary\n\nGenerate a project overview with engineer status updates and documentation enhancement.\n\n**Usage:**\n\n```\n/ai-assist-project-summary\n```\n\nThe skill will:\n\n1. Read AGENTS.md, README, specs, package manifests, and git history\n2. Detect project type and generate a plain-language project overview\n3. Produce an engineer status update: recently completed, in-progress, issues/gaps, roadmap, suggested improvements\n4. Offer to surgically enhance existing documentation (README, AGENTS.md) based on findings\n\n### ai-assist-security-audit\n\n16-dimension security posture assessment with CWE references and health scoring.\n\n**Usage:**\n\n```\n/ai-assist-security-audit auth crypto\n```\n\nThe skill will:\n\n1. Detect the tech stack and map the attack surface\n2. Run audit tools (npm audit, pip-audit, etc.) for a deterministic baseline\n3. Activate and audit applicable dimensions with CWE/CVE references\n4. Produce a health score (0-100) with severity-ranked findings and remediation plan\n\n### ai-assist-tech-debt\n\n22-dimension, 5-tier technical debt audit across code, architecture, infrastructure, quality processes, and operations.\n\n**Usage:**\n\n```\n/ai-assist-tech-debt\n```\n\nThe skill will:\n\n1. Detect the tech stack and classify project type (Web/API/CLI/Library/etc.)\n2. Run linters, formatters, and audit tools for a deterministic baseline\n3. Audit all activated dimensions across 5 tiers with weighted scoring\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n### ai-assist-test-audit\n\n16-dimension test suite audit with depth control (quick/standard/deep).\n\n**Usage:**\n\n```\n/ai-assist-test-audit standard\n```\n\nThe skill will:\n\n1. Detect the test framework and run the test suite for deterministic metrics\n2. Activate dimensions based on depth level (quick=3, standard=12-14, deep=16)\n3. Audit each dimension and build a module-by-dimension gap matrix\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n## Contributing\n\nTo add a new skill:\n\n1. Create a new directory under `skills/` with your skill name (prefixed with `ai-assist-`)\n2. Add a `SKILL.md` file with YAML frontmatter (`name`, `description`) and markdown instructions. For larger skills with detailed checklists or scoring models, add a `references/` directory with reference material loaded on-demand.\n3. Update this README's \"Available Skills\" section\n4. Add an entry to `CHANGELOG.md`\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ai"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-prompts"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-plugin"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-workflow"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-skills"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 83,
+      "updatedAt": "2026-06-29T04:22:54Z",
+      "url": "https://github.com/jparkerweb/ai-assist-skills"
+    },
+    {
+      "createdAt": "2024-09-05T22:03:07Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "🦶 Obsidian plugin that adds backlink/outlink tags and created/modified dates to the footer of your notes",
+      "forkCount": 2,
+      "homepageUrl": "https://www.equilllabs.com/projects/rich-foot.html",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 14
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 89504
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 14389
+          }
+        ],
+        "totalSize": 103893
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "rich-foot",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-06-15T14:50:28Z",
+      "readme": {
+        "text": "# 🦶 Rich Foot\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/rich-foot/refs/heads/main/rich-foot.jpg\" alt=\"banner\">\n\nRich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n## Features\n\n- Adds `backlinks` to the footer of your notes (links FROM other notes TO this note)\n- Adds `outlinks` to the footer of your notes (links FROM this note TO other notes)\n- Displays `created` and `modified` dates for each note\n- Supports links in frontmatter\n- Stylish appearance with tag-like links\n- Highly customizable appearance with opacity and border controls\n- Option to exclude folder(s) from displaying 🦶 Rich Foot\n\n![example](example.jpg)\n\n## Installation\n\n1. Open Obsidian and go to Settings\n2. Navigate to Community Plugins and disable Safe Mode\n3. Click on Browse and search for \"Rich Foot\"\n4. Install the plugin and enable it\n\n## Usage\n\nOnce installed and enabled, Rich Foot will automatically add the following to the footer of your notes:\n\n- Backlinks: Displayed as tags showing which notes link TO this note\n- Outlinks: Displayed as tags showing which notes this note links TO (disabled by default)\n- Created Date: Shows when the note was first created\n- Modified Date: Shows when the note was last modified\n\n### Frontmatter Support\n\nRich Foot also detects links in your note's frontmatter. For example:\n\n```yaml\n---\nlinks:\n  - \"[[Some Note]]\"\n  - \"[[Another Note]]\"\n---\n```\n\n## Customization\n\nRich Foot provides several customization options through its settings panel:\n\n### Visibility Settings\n\nYou can toggle the visibility of each section:\n- Show/Hide Backlinks\n- Show/Hide Outlinks (disabled by default)\n- Show/Hide Dates\n\n### Style Settings\n\nCustomize the appearance of your Rich Foot:\n\n#### Border Customization\n- **Border Width**: Adjust thickness from 1-10px\n- **Border Style**: Choose from various styles (solid, dashed, dotted, double, groove, ridge, inset, outset)\n- **Border Opacity**: Control border transparency (0-1)\n- **Border Color**: Choose custom color for the border with color picker\n\n#### Links Customization\n- **Link Border Radius**: Adjust the roundness of link corners (0-15px)\n- **Links Opacity**: Control transparency of backlinks and outlinks (0-1)\n- **Links Color**: Choose custom color for backlinks and outlinks with color picker\n\n#### Dates Customization\n- **Dates Opacity**: Control transparency of created/modified dates (0-1)\n- **Dates Color**: Choose custom color for created/modified dates with color picker\n\nEach setting includes a reset button to quickly return to default values.\n\n### Excluding Folders\n\nYou can prevent Rich Foot from appearing in specific folders:\n\n1. Go to Obsidian Settings\n2. Navigate to the Rich Foot plugin settings\n3. Use the \"Add excluded folder\" section to:\n   - Manually enter a folder path\n   - Use the \"Browse\" button to select a folder\n   - Click \"Add\" to add it to the exclusion list\n4. Use the \"Delete\" button next to any folder to remove it from the exclusion list\n\nNotes:\n- Excluding a folder will hide Rich Foot completely from notes in that folder\n- Excluded folders also affect all subfolders\n- Links from notes in excluded folders will still appear in the backlinks of other notes\n\n![settings](rich-foot-settings.jpg)\n\n## License\n\nThis project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.\n\n## Appreciation\nIf you enjoy this plugin please consider sending me a tip to support my work 😀\n### [🍵 tip me here](https://ko-fi.com/jparkerweb)\n\n## Support\n\nIf you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/jparkerweb/rich-foot).\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\n## Author\n\nCreated by Justin Parker\n\n---\n\nEnjoy adding rich footers to your Obsidian notes with Rich Foot! 👣\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "equill-plugin"
+            }
+          },
+          {
+            "topic": {
+              "name": "footer"
+            }
+          },
+          {
+            "topic": {
+              "name": "obsidian"
+            }
+          },
+          {
+            "topic": {
+              "name": "obsidian-plugin"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 52,
+      "updatedAt": "2026-06-17T13:04:41Z",
+      "url": "https://github.com/jparkerweb/rich-foot"
+    },
+    {
+      "createdAt": "2026-03-22T03:47:16Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "forkCount": 0,
+      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "Ruby"
+            },
+            "size": 1516
+          },
+          {
+            "node": {
+              "name": "Makefile"
+            },
+            "size": 707
+          },
+          {
+            "node": {
+              "name": "Go"
+            },
+            "size": 388320
+          },
+          {
+            "node": {
+              "name": "PowerShell"
+            },
+            "size": 9700
+          },
+          {
+            "node": {
+              "name": "Shell"
+            },
+            "size": 12426
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 27460
+          }
+        ],
+        "totalSize": 440129
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "shrinkray",
+      "primaryLanguage": {
+        "color": "#00ADD8",
+        "name": "Go"
+      },
+      "pushedAt": "2026-06-12T20:16:45Z",
+      "readme": {
+        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n---\n\n### [Watch the promo YouTube video](https://www.youtube.com/watch?v=mhFh5wgaruQ)\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "topic": {
+              "name": "golang"
+            }
+          },
+          {
+            "topic": {
+              "name": "movie-processing"
+            }
+          },
+          {
+            "topic": {
+              "name": "shrink"
+            }
+          },
+          {
+            "topic": {
+              "name": "video-compression"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-cli"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-06-12T20:17:04Z",
+      "url": "https://github.com/jparkerweb/shrinkray"
     },
     {
       "createdAt": "2024-11-16T21:22:07Z",
@@ -117,7 +419,7 @@
         "color": "#e34c26",
         "name": "HTML"
       },
-      "pushedAt": "2026-06-06T19:45:36Z",
+      "pushedAt": "2026-06-06T22:31:46Z",
       "readme": {
         "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
       },
@@ -131,17 +433,17 @@
         ]
       },
       "stargazerCount": 1,
-      "updatedAt": "2026-06-06T19:45:40Z",
+      "updatedAt": "2026-06-06T22:31:50Z",
       "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
-      "createdAt": "2024-09-17T15:49:53Z",
+      "createdAt": "2026-06-06T19:16:20Z",
       "defaultBranchRef": {
         "name": "main"
       },
-      "description": "🤖 A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
-      "forkCount": 11,
-      "homepageUrl": "",
+      "description": "📃 CLI app to help in downloading scribd documents",
+      "forkCount": 0,
+      "homepageUrl": null,
       "isArchived": false,
       "isFork": false,
       "issues": {
@@ -151,125 +453,37 @@
         "edges": [
           {
             "node": {
-              "name": "JavaScript"
+              "name": "TypeScript"
             },
-            "size": 13603
-          }
-        ],
-        "totalSize": 13603
-      },
-      "licenseInfo": null,
-      "name": "ai-assist-skills",
-      "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
-      },
-      "pushedAt": "2026-06-04T15:11:37Z",
-      "readme": {
-        "text": "# AI-Assist Skills\n\n<img src=\"https://github.com/jparkerweb/ai-assist-skills/blob/main/ai-assist-skills.jpg?raw=true\" alt=\"banner\" style=\"max-height:300px;\">\n\nA collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.\n\n## Installation\n\n### Sync all skills (recommended)\n\nThis single command removes any stale or renamed skills, then installs the latest version of every skill from this repo. Run it any time to stay current:\n\n```bash\nnpx github:jparkerweb/ai-assist-skills\n```\n\nSkills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.).\n\n<img src=\"https://github.com/jparkerweb/ai-assist-skills/blob/main/ai-assist-install.jpg?raw=true\" style=\"max-width: 593px;\">\n\n## Local Development\n\nWhen creating or editing a skill, you need to install it locally to test it **before** committing or pushing. The `skills add` command accepts a local path as the source, so it installs directly from your working tree — no git push required.\n\n### Install a single skill from your local repo\n\n```bash\nnpm run dev:install -- ai-assist-design-creator\n```\n\nThis is equivalent to:\n\n```bash\nnpx skills add . -g --skill ai-assist-design-creator -y\n```\n\nBoth commands install the skill globally from your local working directory, overwriting any previously installed version. Run it again after every edit to pick up your changes.\n\n### Re-install to pick up edits\n\nThe same command overwrites the installed copy — there is no separate \"update\" step:\n\n```bash\nnpm run dev:install -- ai-assist-design-creator\n# edit SKILL.md...\nnpm run dev:install -- ai-assist-design-creator   # picks up the latest changes\n```\n\n### Verify installation\n\n```bash\nnpx skills list -g | grep ai-assist-design-creator\n```\n\n### Re-sync everything from GitHub (restore production state)\n\nOnce you're done testing locally and your changes are merged, run the full sync to pull from the remote repo and discard your local install:\n\n```bash\nnpm run sync\n# or\nnpx github:jparkerweb/ai-assist-skills\n```\n\n> **Note:** `npm run dev:install` installs from your local working tree, which means it picks up uncommitted changes. This is intentional — it's the fastest way to iterate on a skill. Just remember to run `npm run sync` afterward to restore a clean state from the remote repo.\n\n## Available Skills\n\n### [ai-assist-changelog-bump](skills/ai-assist-changelog-bump/SKILL.md)\nValidates and fixes the `CHANGELOG.md` version number before a PR/commit/push — reads `main` to find the latest version, classifies the branch's changes, computes the correct next semver, drafts or corrects the entry, and keeps `package.json`'s version aligned.\n\n### [ai-assist-design-creator](skills/ai-assist-design-creator/SKILL.md)\nReverse-engineers a website's visual design system from a URL and produces a fully spec-compliant `DESIGN.md` file with YAML design tokens (colors, typography, spacing, rounded corners, components) and human-readable rationale sections.\n\n### [ai-assist-discovery](skills/ai-assist-discovery/SKILL.md)\nDeep research and analysis for codebases, technologies, domains, and feasibility assessments with analytical frameworks and confidence-graded findings.\n\n### [ai-assist-git-commit](skills/ai-assist-git-commit/SKILL.md)\nStages and commits changes using a standard commit message format with an `AI Assisted` tag.\n\n### [ai-assist-git-pr](skills/ai-assist-git-pr/SKILL.md)\nAdaptive GitHub PR lifecycle — create PRs, generate descriptions, investigate review comments with deep analysis and batch approval, check merge readiness. All via `gh` CLI.\n\n### [ai-assist-npm-update](skills/ai-assist-npm-update/SKILL.md)\nFinds every `package.json` under the current directory, runs `npm outdated`, bumps each outdated dependency to its `^<wanted>` (in-range) version, and runs `npm install`. Supports `--dry-run`.\n\n### [ai-assist-observability-audit](skills/ai-assist-observability-audit/SKILL.md)\n17-dimension observability posture assessment with tier activation, health scoring, and cost analysis.\n\n### [ai-assist-project-summary](skills/ai-assist-project-summary/SKILL.md)\nGenerate project overviews with engineer status updates (recent work, in-progress, issues, roadmap) and offer to surgically enhance existing documentation.\n\n### [ai-assist-security-audit](skills/ai-assist-security-audit/SKILL.md)\n16-dimension security posture assessment with CWE references, health scoring, and remediation plans.\n\n### [ai-assist-tech-debt](skills/ai-assist-tech-debt/SKILL.md)\n22-dimension, 5-tier technical debt audit with weighted health scoring and prioritized remediation.\n\n### [ai-assist-test-audit](skills/ai-assist-test-audit/SKILL.md)\n16-dimension test suite audit with depth control (quick/standard/deep), gap matrix, and health scoring.\n\n> **Tip:** All skills are prefixed with `ai-assist-` so you can type `/ai-assist-` in your AI agent to see a list of all available skills (some agents like Windsurf will also recognize them by `@` referencing them).\n\n### Other skills.sh commands\n\n```bash\nnpx skills list          # Show installed skills\nnpx skills check         # Check for updates\nnpx skills update        # Apply updates (won't remove stale skills — use sync above)\nnpx skills remove        # Uninstall skills\n```\n\n**Install a specific skill only:**\n\n```bash\nnpx skills add jparkerweb/ai-assist-skills -g --skill ai-assist-discovery -y\n```\n\n## Skills\n\n### ai-assist-changelog-bump\n\nValidates and fixes the `CHANGELOG.md` version number before a PR, commit, or push.\n\n**Usage:**\n\n```\n/ai-assist-changelog-bump\n```\n\nThe skill will:\n\n1. Read `main`'s CHANGELOG to find the current latest version\n2. Classify the branch's changes (new skill, capability, behavior change, or bug fix)\n3. Compute the correct next semver and compare it against the branch's entry\n4. Draft a new entry or fix the version/date, with approval before writing\n5. Align `package.json`'s `version` (if present) with the latest released version\n\n### ai-assist-design-creator\n\nReverse-engineers a website's visual design system from a URL and produces a fully spec-compliant `DESIGN.md` file.\n\n**Usage:**\n\n```\n/ai-assist-design-creator https://example.com\n```\n\n### ai-assist-discovery\n\nDeep research and analysis workflow for codebases, technologies, domains, ideas, or data.\n\n**Usage:**\n\n```\n/ai-assist-discovery React Server Components feasibility\n```\n\nThe skill will:\n\n1. Classify the target type (codebase, technology, domain, idea, data) and detect variants\n2. Select analytical frameworks appropriate to the target and depth level\n3. Gather evidence from multiple authoritative sources with confidence grading\n4. Produce structured documentation with executive summary, findings, and framework outputs in chat\n5. Optionally save research to `docs/research/`, only after explicit user confirmation\n\n### ai-assist-git-commit\n\nStages and commits changes using a standard commit message format.\n\n**Prerequisites:**\n\n- Must be in a git repository with uncommitted changes\n\n**Usage:**\n\n```\n/ai-assist-git-commit\n```\n\nOr pass a commit description directly:\n\n```\n/ai-assist-git-commit fix timeout on report export\n```\n\nThe skill will:\n\n1. Check for staged/unstaged changes\n2. Draft a commit message and ask for approval (unless a description was provided)\n3. Stage relevant files and create the commit in the format: description, blank line, `AI Assisted`\n4. Show the resulting commit for confirmation\n\n### ai-assist-git-pr\n\nAdaptive GitHub PR lifecycle skill with four modes: Create, Describe, Comments, and Status.\n\n**Prerequisites:**\n\n- GitHub CLI (`gh`) v2.83+ installed and authenticated\n\n**Usage:**\n\n```\n/ai-assist-git-pr\n```\n\nOr describe what you need:\n\n```\n/ai-assist-git-pr create a PR\n/ai-assist-git-pr describe this PR\n/ai-assist-git-pr check comments\n/ai-assist-git-pr is this ready to merge?\n```\n\nThe skill will:\n\n1. Detect the mode from your request (Create, Describe, Comments, or Status)\n2. **Create:** Analyze the diff, draft title + body, preview for approval, create via `gh pr create`\n3. **Describe:** Analyze the diff, draft an evidence-based description, preview for approval, update via `gh pr edit`\n4. **Comments:** Fetch all inline + issue-level comments, investigate each silently (full file context, code path tracing, online research), present a summary-first report with recommended fixes, batch approval with opt-out\n5. **Status:** Report merge readiness — CI checks, review approvals, conflicts, draft status, PR size\n\nAll operations use `gh` CLI exclusively. Reads are automatic; writes require preview + explicit approval. Never merges, closes, or force pushes.\n\n### ai-assist-npm-update\n\nBulk-updates outdated npm dependencies across one or more `package.json` files to their in-range \"wanted\" versions.\n\n**Usage:**\n\n```\n/ai-assist-npm-update\n/ai-assist-npm-update --dry-run\n```\n\nThe skill will:\n\n1. Find every `package.json` under the current directory (skipping `node_modules` and other vendored/output folders)\n2. Run `npm outdated` for each project\n3. Rewrite each outdated dependency's version specifier to `^<wanted>` (the newest version allowed by the existing semver range — not a major-version jump)\n4. Run `npm install` in each updated project to refresh the lockfile\n\nRun with `--dry-run` first to preview every change without writing files or installing.\n\n### ai-assist-observability-audit\n\n17-dimension observability posture assessment with tier activation, health scoring, and cost analysis.\n\n**Usage:**\n\n```\n/ai-assist-observability-audit\n```\n\nThe skill will:\n\n1. Detect the observability stack and classify the project tier (Universal/Service/Distributed)\n2. Activate applicable dimensions and audit each systematically\n3. Perform cross-cutting cost analysis across all telemetry types\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n### ai-assist-project-summary\n\nGenerate a project overview with engineer status updates and documentation enhancement.\n\n**Usage:**\n\n```\n/ai-assist-project-summary\n```\n\nThe skill will:\n\n1. Read AGENTS.md, README, specs, package manifests, and git history\n2. Detect project type and generate a plain-language project overview\n3. Produce an engineer status update: recently completed, in-progress, issues/gaps, roadmap, suggested improvements\n4. Offer to surgically enhance existing documentation (README, AGENTS.md) based on findings\n\n### ai-assist-security-audit\n\n16-dimension security posture assessment with CWE references and health scoring.\n\n**Usage:**\n\n```\n/ai-assist-security-audit auth crypto\n```\n\nThe skill will:\n\n1. Detect the tech stack and map the attack surface\n2. Run audit tools (npm audit, pip-audit, etc.) for a deterministic baseline\n3. Activate and audit applicable dimensions with CWE/CVE references\n4. Produce a health score (0-100) with severity-ranked findings and remediation plan\n\n### ai-assist-tech-debt\n\n22-dimension, 5-tier technical debt audit across code, architecture, infrastructure, quality processes, and operations.\n\n**Usage:**\n\n```\n/ai-assist-tech-debt\n```\n\nThe skill will:\n\n1. Detect the tech stack and classify project type (Web/API/CLI/Library/etc.)\n2. Run linters, formatters, and audit tools for a deterministic baseline\n3. Audit all activated dimensions across 5 tiers with weighted scoring\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n### ai-assist-test-audit\n\n16-dimension test suite audit with depth control (quick/standard/deep).\n\n**Usage:**\n\n```\n/ai-assist-test-audit standard\n```\n\nThe skill will:\n\n1. Detect the test framework and run the test suite for deterministic metrics\n2. Activate dimensions based on depth level (quick=3, standard=12-14, deep=16)\n3. Audit each dimension and build a module-by-dimension gap matrix\n4. Produce a health score (0-100) with severity-ranked findings and improvement plan\n\n## Contributing\n\nTo add a new skill:\n\n1. Create a new directory under `skills/` with your skill name (prefixed with `ai-assist-`)\n2. Add a `SKILL.md` file with YAML frontmatter (`name`, `description`) and markdown instructions. For larger skills with detailed checklists or scoring models, add a `references/` directory with reference material loaded on-demand.\n3. Update this README's \"Available Skills\" section\n4. Add an entry to `CHANGELOG.md`\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ai"
-            }
+            "size": 34438
           },
-          {
-            "topic": {
-              "name": "ai-prompts"
-            }
-          },
-          {
-            "topic": {
-              "name": "equill-plugin"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-workflow"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-skills"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 82,
-      "updatedAt": "2026-06-04T15:11:40Z",
-      "url": "https://github.com/jparkerweb/ai-assist-skills"
-    },
-    {
-      "createdAt": "2024-09-05T22:03:07Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "🦶 Obsidian plugin that adds backlink/outlink tags and created/modified dates to the footer of your notes",
-      "forkCount": 2,
-      "homepageUrl": "https://www.equilllabs.com/projects/rich-foot.html",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 13
-      },
-      "languages": {
-        "edges": [
           {
             "node": {
               "name": "JavaScript"
             },
-            "size": 85486
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 13059
+            "size": 871
           }
         ],
-        "totalSize": 98545
+        "totalSize": 35309
       },
       "licenseInfo": {
-        "spdxId": "MIT"
+        "spdxId": "Apache-2.0"
       },
-      "name": "rich-foot",
+      "name": "scribd-cli",
       "primaryLanguage": {
-        "color": "#f1e05a",
-        "name": "JavaScript"
+        "color": "#3178c6",
+        "name": "TypeScript"
       },
-      "pushedAt": "2026-06-04T01:02:01Z",
+      "pushedAt": "2026-06-06T21:21:21Z",
       "readme": {
-        "text": "# 🦶 Rich Foot\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/rich-foot/refs/heads/main/rich-foot.jpg\" alt=\"banner\">\n\nRich Foot is an Obsidian plugin that enhances the footer of your notes by adding backlinks, outlinks, and created/modified dates.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n## Features\n\n- Adds `backlinks` to the footer of your notes (links FROM other notes TO this note)\n- Adds `outlinks` to the footer of your notes (links FROM this note TO other notes)\n- Displays `created` and `modified` dates for each note\n- Supports links in frontmatter\n- Stylish appearance with tag-like links\n- Highly customizable appearance with opacity and border controls\n- Option to exclude folder(s) from displaying 🦶 Rich Foot\n\n![example](example.jpg)\n\n## Installation\n\n1. Open Obsidian and go to Settings\n2. Navigate to Community Plugins and disable Safe Mode\n3. Click on Browse and search for \"Rich Foot\"\n4. Install the plugin and enable it\n\n## Usage\n\nOnce installed and enabled, Rich Foot will automatically add the following to the footer of your notes:\n\n- Backlinks: Displayed as tags showing which notes link TO this note\n- Outlinks: Displayed as tags showing which notes this note links TO (disabled by default)\n- Created Date: Shows when the note was first created\n- Modified Date: Shows when the note was last modified\n\n### Frontmatter Support\n\nRich Foot also detects links in your note's frontmatter. For example:\n\n```yaml\n---\nlinks:\n  - \"[[Some Note]]\"\n  - \"[[Another Note]]\"\n---\n```\n\n## Customization\n\nRich Foot provides several customization options through its settings panel:\n\n### Visibility Settings\n\nYou can toggle the visibility of each section:\n- Show/Hide Backlinks\n- Show/Hide Outlinks (disabled by default)\n- Show/Hide Dates\n\n### Style Settings\n\nCustomize the appearance of your Rich Foot:\n\n#### Border Customization\n- **Border Width**: Adjust thickness from 1-10px\n- **Border Style**: Choose from various styles (solid, dashed, dotted, double, groove, ridge, inset, outset)\n- **Border Opacity**: Control border transparency (0-1)\n- **Border Color**: Choose custom color for the border with color picker\n\n#### Links Customization\n- **Link Border Radius**: Adjust the roundness of link corners (0-15px)\n- **Links Opacity**: Control transparency of backlinks and outlinks (0-1)\n- **Links Color**: Choose custom color for backlinks and outlinks with color picker\n\n#### Dates Customization\n- **Dates Opacity**: Control transparency of created/modified dates (0-1)\n- **Dates Color**: Choose custom color for created/modified dates with color picker\n\nEach setting includes a reset button to quickly return to default values.\n\n### Excluding Folders\n\nYou can prevent Rich Foot from appearing in specific folders:\n\n1. Go to Obsidian Settings\n2. Navigate to the Rich Foot plugin settings\n3. Use the \"Add excluded folder\" section to:\n   - Manually enter a folder path\n   - Use the \"Browse\" button to select a folder\n   - Click \"Add\" to add it to the exclusion list\n4. Use the \"Delete\" button next to any folder to remove it from the exclusion list\n\nNotes:\n- Excluding a folder will hide Rich Foot completely from notes in that folder\n- Excluded folders also affect all subfolders\n- Links from notes in excluded folders will still appear in the backlinks of other notes\n\n![settings](rich-foot-settings.jpg)\n\n## License\n\nThis project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.\n\n## Appreciation\nIf you enjoy this plugin please consider sending me a tip to support my work 😀\n### [🍵 tip me here](https://ko-fi.com/jparkerweb)\n\n## Support\n\nIf you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/jparkerweb/rich-foot).\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\n## Author\n\nCreated by Justin Parker\n\n---\n\nEnjoy adding rich footers to your Obsidian notes with Rich Foot! 👣\n"
+        "text": "# scribd-cli\n\n<img src=\"https://github.com/jparkerweb/scribd-cli/blob/main/scribd-cli.jpg?raw=true\" alt=\"banner\" style=\"max-height:300px;\">\n\nAn interactive Windows terminal app (TUI) that takes a Scribd **document ID** — or a pasted\ndocument URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a\n**visually faithful PDF** of the document to `./downloads/<id>.pdf`.\n\nIt uses Node.js + TypeScript with [Playwright](https://playwright.dev) (Chromium's native\nprint-to-PDF) and an [Ink](https://github.com/vadimdemedes/ink) terminal UI.\n\n> Only **public** documents are supported. There is no login, batch download, or anti-bot\n> evasion — see [Scope](#scope).\n\n---\n\n## Install\n\nRequires **Node.js ≥ 20**. Every option below auto-downloads a managed Chromium (~150 MB) on first\nrun via Playwright's `postinstall` — you never install a browser yourself. If that step is ever\nskipped, run `npx playwright install chromium` once.\n\n### Run it once — no install, no clone\n\n```powershell\nnpx github:jparkerweb/scribd-cli\n```\n\nFetches the repo and launches the app; nothing is added to your `PATH`.\n\n### Install a global `scribd-cli` command — no clone (recommended)\n\n```powershell\nnpx github:jparkerweb/scribd-cli install-global\nscribd-cli\n```\n\nThe `install-global` subcommand installs a global copy from the package npx just fetched\n(`npm install -g <dir>` under the hood) — reliable, with no compiler needed since `dist/` ships\nprebuilt. npm puts the launcher in its global bin dir (`npm config get prefix`; on Windows that's\n`…\\AppData\\Roaming\\npm`, already on `PATH`). Remove it later with `npm rm -g scribd-cli`.\n\n> **Avoid** `npm install -g github:jparkerweb/scribd-cli` — on some Windows/npm setups it reports\n> success but silently drops files during extraction (an npm tar bug), leaving a broken command.\n> Use the `install-global` form above. _(Once published to npm, all of this shortens to\n> `npx scribd-cli` / `npm install -g scribd-cli`.)_\n\n### From a clone — development / from source\n\n```powershell\ngit clone git@github.com:jparkerweb/scribd-cli.git   # or https://github.com/jparkerweb/scribd-cli.git\ncd scribd-cli\nnpm install\n```\n\nFrom a clone you can run it with `npm run dev`, install a global copy with `npm install -g .`, or\ncreate a live-updating global command with `npm link` (rebuild via `npm run build` to refresh it).\n\n## Usage\n\nDev mode (runs the TypeScript directly via `tsx`):\n\n```powershell\nnpm run dev\n```\n\nBuilt CLI:\n\n```powershell\nnpm run build\nnpm start          # = node dist/index.js\n# or, if installed/linked globally: scribd-cli\n```\n\nVerbose diagnostics (printed to stderr) with `--debug`:\n\n```powershell\nnpm run dev -- --debug\n# or, when installed globally: scribd-cli --debug\n```\n\n### What you'll see\n\n1. **Help screen** — the Scribd homepage link and how to find a document ID.\n2. **Prompt** — enter a raw ID _or_ paste a full document URL. Invalid input is rejected inline.\n3. **Save options** — choose a file name (default: the document ID) and a directory (default:\n   `./downloads`). Press Enter on either field to accept its default.\n4. **Live progress** — launching → loading page → loading pages (scroll) → rendering → saving.\n5. **Result** — `Saved → <dir>/<name>.pdf (<n> pages)`.\n\n## How to find a document ID\n\nOpen any document on Scribd and look at the URL:\n\n```\nhttps://www.scribd.com/document/507779687/rulebook-zombicide-2nd-edition\n                                ^^^^^^^^^\n                                this is the ID\n```\n\nThe number after `/document/` (here `507779687`) is the ID. You can paste the whole URL or just\nthe number.\n\n## Output\n\nBy default the PDF is written to:\n\n```\n./downloads/<id>.pdf\n```\n\nAt the **Save options** step you can override the file name and directory; pressing Enter on an\nempty field keeps the default (file name = the document ID, directory = `./downloads`). The target\ndirectory is created automatically if it doesn't exist, and the file name is sanitized to a safe\nset of characters (spaces and hyphens are preserved).\n\n## Exit codes\n\n| Code | Meaning             | Message                                                                     |\n| ---- | ------------------- | --------------------------------------------------------------------------- |\n| 0    | Success             | `Saved → ./downloads/<id>.pdf (<n> pages)`                                  |\n| 1    | Unknown error       | An unexpected error occurred.                                               |\n| 2    | Invalid input       | That doesn't look like a valid Scribd ID or document URL.                   |\n| 3    | Not found / private | Document not found or is private/unavailable.                               |\n| 4    | Empty content       | No readable content found in the document container.                        |\n| 5    | Network             | Network problem reaching Scribd — check your connection.                    |\n| 6    | Browser launch      | Couldn't start the headless browser. Try `npx playwright install chromium`. |\n\n## Configuration\n\nAll tunables — output directory, container selector, timeouts, scroll parameters, and the\nbrowser identity — live in [`src/config.ts`](src/config.ts). If Scribd changes the page\ncontainer class, update `selector` there (single-point fix).\n\n## Manual checks\n\nNo automated test framework is used (manual verification only). Two ad-hoc harnesses live under\n`scripts/` (excluded from the build):\n\n```powershell\nnpx tsx scripts/url.manual.ts                 # exercise ID/URL parsing\nnpx tsx scripts/download.manual.ts 507779687  # run a full download for one ID\n```\n\n## Scope\n\n**Out of scope:** authenticated/private documents, Scribd login, batch downloads, non-Windows\ntargeting (may work but unverified), anti-bot evasion beyond realistic browser behavior, and OCR\n/ PDF post-editing.\n\n## Requirements\n\n- Node.js ≥ 20 LTS\n- Windows 11 / PowerShell (primary target)\n"
       },
       "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "equill-plugin"
-            }
-          },
-          {
-            "topic": {
-              "name": "footer"
-            }
-          },
-          {
-            "topic": {
-              "name": "obsidian"
-            }
-          },
-          {
-            "topic": {
-              "name": "obsidian-plugin"
-            }
-          }
-        ]
+        "nodes": []
       },
-      "stargazerCount": 52,
-      "updatedAt": "2026-06-05T14:18:48Z",
-      "url": "https://github.com/jparkerweb/rich-foot"
+      "stargazerCount": 0,
+      "updatedAt": "2026-06-06T21:21:24Z",
+      "url": "https://github.com/jparkerweb/scribd-cli"
     },
     {
       "createdAt": "2024-02-27T22:00:57Z",
@@ -689,110 +903,6 @@
       "url": "https://github.com/jparkerweb/summit-ridge-wiki"
     },
     {
-      "createdAt": "2026-03-22T03:47:16Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
-      "forkCount": 0,
-      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "Ruby"
-            },
-            "size": 1516
-          },
-          {
-            "node": {
-              "name": "Makefile"
-            },
-            "size": 707
-          },
-          {
-            "node": {
-              "name": "Go"
-            },
-            "size": 388320
-          },
-          {
-            "node": {
-              "name": "PowerShell"
-            },
-            "size": 9700
-          },
-          {
-            "node": {
-              "name": "Shell"
-            },
-            "size": 12426
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 27460
-          }
-        ],
-        "totalSize": 440129
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "shrinkray",
-      "primaryLanguage": {
-        "color": "#00ADD8",
-        "name": "Go"
-      },
-      "pushedAt": "2026-05-12T04:45:57Z",
-      "readme": {
-        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n---\n\n### [Watch the promo YouTube video](https://www.youtube.com/watch?v=mhFh5wgaruQ)\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ffmpeg"
-            }
-          },
-          {
-            "topic": {
-              "name": "golang"
-            }
-          },
-          {
-            "topic": {
-              "name": "movie-processing"
-            }
-          },
-          {
-            "topic": {
-              "name": "shrink"
-            }
-          },
-          {
-            "topic": {
-              "name": "video-compression"
-            }
-          },
-          {
-            "topic": {
-              "name": "equill-cli"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-05-12T04:46:01Z",
-      "url": "https://github.com/jparkerweb/shrinkray"
-    },
-    {
       "createdAt": "2025-01-27T20:36:14Z",
       "defaultBranchRef": {
         "name": "main"
@@ -872,8 +982,8 @@
           }
         ]
       },
-      "stargazerCount": 4,
-      "updatedAt": "2026-05-12T04:44:08Z",
+      "stargazerCount": 5,
+      "updatedAt": "2026-06-11T07:58:06Z",
       "url": "https://github.com/jparkerweb/punctuation-restore"
     },
     {
@@ -1697,7 +1807,7 @@
         "name": "main"
       },
       "description": "🍶 llm-distillery ⇢ use LLMs to run map-reduce summarization tasks on large documents until a target token size is met.",
-      "forkCount": 1,
+      "forkCount": 0,
       "homepageUrl": "https://www.npmjs.com/package/llm-distillery",
       "isArchived": false,
       "isFork": false,
@@ -2172,7 +2282,7 @@
         "name": "main"
       },
       "description": "🧠 InferIQ is an LLM Evaluation framework that leverages LLMs to Evaluate other LLMs",
-      "forkCount": 1,
+      "forkCount": 0,
       "homepageUrl": "",
       "isArchived": false,
       "isFork": false,
@@ -2662,12 +2772,12 @@
         "name": "main"
       },
       "description": "🚩 Enhance your Obsidian notes with customizable banner images, including AI-generated designs and a curated store of downloadable banners. Transform your workspace with visually stunning headers that add context, improve aesthetics, and take your note-taking beyond the ordinary.",
-      "forkCount": 11,
+      "forkCount": 13,
       "homepageUrl": "https://www.equilllabs.com/projects/pixel-banner.html",
       "isArchived": false,
       "isFork": false,
       "issues": {
-        "totalCount": 28
+        "totalCount": 29
       },
       "languages": {
         "edges": [
@@ -2737,8 +2847,8 @@
           }
         ]
       },
-      "stargazerCount": 198,
-      "updatedAt": "2026-05-29T16:14:10Z",
+      "stargazerCount": 202,
+      "updatedAt": "2026-06-22T17:16:19Z",
       "url": "https://github.com/jparkerweb/pixel-banner"
     },
     {
@@ -3020,8 +3130,8 @@
           }
         ]
       },
-      "stargazerCount": 16,
-      "updatedAt": "2026-04-21T16:29:14Z",
+      "stargazerCount": 17,
+      "updatedAt": "2026-06-20T13:01:37Z",
       "url": "https://github.com/jparkerweb/bedrock-proxy-endpoint"
     },
     {
@@ -3035,7 +3145,7 @@
       "isArchived": false,
       "isFork": false,
       "issues": {
-        "totalCount": 0
+        "totalCount": 1
       },
       "languages": {
         "edges": [
@@ -3109,8 +3219,8 @@
           }
         ]
       },
-      "stargazerCount": 108,
-      "updatedAt": "2026-06-04T23:43:33Z",
+      "stargazerCount": 113,
+      "updatedAt": "2026-07-01T21:39:06Z",
       "url": "https://github.com/jparkerweb/mcp-sqlite"
     },
     {
@@ -3899,8 +4009,8 @@
           }
         ]
       },
-      "stargazerCount": 7,
-      "updatedAt": "2026-05-15T21:19:19Z",
+      "stargazerCount": 6,
+      "updatedAt": "2026-06-17T13:01:03Z",
       "url": "https://github.com/jparkerweb/obsidian-element-enhancer"
     },
     {

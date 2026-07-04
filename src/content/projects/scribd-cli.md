@@ -47,7 +47,7 @@ lastCommit: '2026-06-06T21:21:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/scribd-cli'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
 scribd-cli is an interactive Windows terminal app (TUI) that takes a Scribd document ID — or a pasted document URL — headless-renders the embed page, fully loads every lazy-loaded page, and saves a visually faithful PDF of the document to ./downloads/<id>.pdf. It uses Node.js and TypeScript with Playwright (Chromium’s native print-to-PDF) for rendering and an Ink terminal UI. It requires Node.js ≥ 20 and auto-downloads a managed Chromium on first run via Playwright’s postinstall, so you never install a browser yourself. Only public documents are supported; there is no login, batch download, or anti-bot evasion.
 

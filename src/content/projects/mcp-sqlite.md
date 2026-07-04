@@ -40,7 +40,7 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 108
+stars: 113
 links:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   homepage: 'https://www.npmjs.com/package/mcp-sqlite'
@@ -51,7 +51,7 @@ lastCommit: '2026-04-05T04:51:05Z'
 _source:
   repo: 'https://github.com/jparkerweb/mcp-sqlite'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
 A Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities. It exposes complete CRUD operations (create, read, update, delete) along with database exploration and introspection and the ability to execute custom SQL queries. Tools include db_info for database details, list_tables, get_table_schema, and record operations such as create_record and read_records with optional filtering, limit, and offset. The server is configured in an IDE's MCP settings (for example Cursor or VSCode) by running it via `npx` with the path to a SQLite database file passed as an argument.
 

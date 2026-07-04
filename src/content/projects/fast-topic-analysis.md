@@ -53,7 +53,7 @@ lastCommit: '2026-05-27T18:13:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
 A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity. It creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations, and groups similar phrases within topics into coherent clusters using agglomerative or HDBSCAN algorithms. Cluster quality is measured via per-cluster cohesion and a global silhouette score, and preset configurations are offered for high precision, balanced, and performance use cases. The project centers on a generator that creates topic embeddings from training data and an interactive demo that analyzes text against them, powered by the embedding-utils library.
 

@@ -5,19 +5,20 @@ slug: shrinkray
 tagline: 'Less bytes, same vibes.'
 description:
   short: >-
-    A cross-platform CLI video compression tool powered by FFmpeg, with a
+    Cross-platform CLI video compression tool powered by FFmpeg, with a
     wizard-style TUI built in Go and Charm's Bubble Tea.
   long: >-
-    A cross-platform CLI video compression tool powered by FFmpeg, featuring a
-    wizard-style TUI built with Go and Charm's Bubble Tea. It ships 18 built-in
-    presets across quality tiers, purpose-driven targets, and platform-specific
-    options for Discord, YouTube, and TikTok, and can analyze a video to suggest
-    an optimal preset. Hardware acceleration is auto-detected for NVIDIA NVENC,
-    AMD AMF, Apple VideoToolbox, and Intel QSV. Batch processing compresses
-    entire folders with parallel workers and progress tracking, while a headless
-    `--no-tui` mode with stdin pipe support makes it scriptable for CI/CD
-    pipelines. It is distributed as a single static binary for Windows, macOS,
-    and Linux.
+    Shrinkray is a cross-platform CLI video compression tool powered by FFmpeg,
+    featuring a wizard-style TUI built with Go and Charm's Bubble Tea. The
+    interactive TUI wizard offers step-by-step guided compression with real-time
+    preview, 18 built-in presets spanning quality tiers, purpose-driven options,
+    and platform-specific targets such as Discord, YouTube, and TikTok, plus
+    recommendations that analyze your video and suggest a preset. Hardware
+    acceleration is auto-detected across NVIDIA NVENC, AMD AMF, Apple
+    VideoToolbox, and Intel QSV, and batch processing compresses entire folders
+    with parallel workers and progress tracking. A scriptable --no-tui headless
+    mode with stdin pipe support serves CI/CD pipelines, and the tool ships as a
+    single static binary for Windows, macOS, and Linux.
 banner:
   src: >-
     https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true
@@ -53,10 +54,10 @@ links:
 featured: true
 sortOrder: 2
 status: active
-lastCommit: '2026-05-12T04:45:57Z'
+lastCommit: '2026-06-12T20:16:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/shrinkray'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
-A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea. It ships 18 built-in presets across quality tiers, purpose-driven targets, and platform-specific options for Discord, YouTube, and TikTok, and can analyze a video to suggest an optimal preset. Hardware acceleration is auto-detected for NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV. Batch processing compresses entire folders with parallel workers and progress tracking, while a headless `--no-tui` mode with stdin pipe support makes it scriptable for CI/CD pipelines. It is distributed as a single static binary for Windows, macOS, and Linux.
+Shrinkray is a cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea. The interactive TUI wizard offers step-by-step guided compression with real-time preview, 18 built-in presets spanning quality tiers, purpose-driven options, and platform-specific targets such as Discord, YouTube, and TikTok, plus recommendations that analyze your video and suggest a preset. Hardware acceleration is auto-detected across NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV, and batch processing compresses entire folders with parallel workers and progress tracking. A scriptable --no-tui headless mode with stdin pipe support serves CI/CD pipelines, and the tool ships as a single static binary for Windows, macOS, and Linux.

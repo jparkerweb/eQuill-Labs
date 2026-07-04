@@ -51,6 +51,6 @@ lastCommit: '2026-05-12T04:40:41Z'
 _source:
   repo: 'https://github.com/jparkerweb/print-mark'
   sha: HEAD
-  fetchedAt: '2026-06-06T21:46:37.051Z'
+  fetchedAt: '2026-07-04T00:36:27.186Z'
 ---
 A web app that converts Markdown to clean, printable HTML with PDF export. It offers live preview with real-time rendering, nine print-optimized themes, syntax highlighting powered by Shiki, and drag-and-drop upload of `.md`, `.markdown`, or `.txt` files. PDF export generates documents with customizable page sizes, margins, and page numbers, and the design is stateless with no account required. It can be run via a pre-built Docker image, docker-compose, or locally with Node.js, and exposes configuration through environment variables such as PORT, PDF_TIMEOUT, and PDF_CONCURRENT_LIMIT.
