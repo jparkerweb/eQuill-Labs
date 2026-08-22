@@ -7,6 +7,22 @@ import { parseReadme } from '../src/lib/readme-parse.ts';
 
 import { contentHash } from './lib/hash.ts';
 
+/**
+ * Escape bare `<` in generated prose so it renders as literal text.
+ *
+ * The long description is prose, never markup, but it can legitimately mention
+ * things like `./downloads/<id>.pdf`. Astro 7's markdown processor re-emits raw
+ * HTML verbatim instead of escaping unknown tags, so a bare `<id>` becomes an
+ * unclosed element that swallows the rest of the document. Code spans are left
+ * alone: markdown already escapes their contents.
+ */
+function escapeBareAngleBrackets(prose: string): string {
+	return prose
+		.split(/(`+[^`]*?`+)/g)
+		.map((part, i) => (i % 2 === 1 ? part : part.replace(/</g, '&lt;')))
+		.join('');
+}
+
 const SNAPSHOT_PATH = 'data/github-snapshot.json';
 const FEATURED_PATH = 'site/featured.json';
 const CONTENT_DIR = 'src/content/projects';
@@ -249,7 +265,7 @@ function main() {
 		// `## Installation` section (verbatim) as the final section. Astro
 		// compiles this markdown body to HTML when the page renders.
 		const sections: string[] = [];
-		if (project.description.long) sections.push(project.description.long);
+		if (project.description.long) sections.push(escapeBareAngleBrackets(project.description.long));
 		if (installSection) sections.push(installSection);
 		const body = sections.length ? `${sections.join('\n\n')}\n` : '';
 		const md = matter.stringify(body, project);
