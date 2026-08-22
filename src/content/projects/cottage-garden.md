@@ -48,7 +48,7 @@ lastCommit: '2026-07-01T04:21:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/cottage-garden'
   sha: HEAD
-  fetchedAt: '2026-07-04T00:36:27.186Z'
+  fetchedAt: '2026-08-22T04:26:17.944Z'
 ---
 The Cottage Garden Companion is a small, growing toolbox of plain-spoken helpers for the home gardener. Every tool is a self-contained, single-file HTML page with no build system, no dependencies, and no backend — each is one .html file that opens directly from disk. The Fertilizer Plot turns any N–P–K ratio into a generative, hand-drawn plant, then works out feed dose, timing, and cost. The Companion Bed covers 139 plants with ranked companion and "keep apart" relationships and why each pair works, and deep-links a recommended feed straight into the Fertilizer Plot. Aside from a single Google Fonts link, all logic, data, and SVG artwork is inline.
 

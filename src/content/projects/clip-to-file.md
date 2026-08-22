@@ -6,17 +6,20 @@ tagline: >-
   PowerShell utility that instantly saves your clipboard content to organized
   files with timestamped names.
 description:
-  short: A PowerShell utility that saves clipboard content to timestamped files.
+  short: >-
+    PowerShell utility that saves clipboard content to timestamped files,
+    detecting images and text automatically.
   long: >-
-    A PowerShell utility that saves clipboard content to organized files with
-    timestamped names. It automatically detects whether the clipboard holds an
-    image or text, saving images as high-quality JPEGs and text as UTF-8 files
-    using a `YYYYMMDD_HHMMSS` naming format, and resolves conflicts by appending
-    numbers to duplicate filenames. Behavior is controlled through a simple INI
-    configuration file that sets the save path and whether to open Windows
-    Explorer with the saved file selected. The README also shows how to bind it
-    to a keyboard shortcut with AutoHotkey, optionally compiled to a standalone
-    EXE.
+    A PowerShell utility that saves whatever is on the clipboard to a file in
+    one command with zero configuration. It automatically detects whether the
+    clipboard holds an image or text, writing images as high-quality JPEG and
+    text as UTF-8, each named with a YYYYMMDD_HHMMSS timestamp. Duplicate
+    filenames are handled automatically by appending an incrementing number.
+    Settings live in a simple INI file created on first run, covering the save
+    path, whether to open the containing folder after saving, and whether to
+    copy the saved file path back to the clipboard. It can optionally open
+    Windows Explorer with the saved file already selected, and reports errors
+    with pause prompts so the message is readable before the window closes.
 banner:
   src: 'https://github.com/jparkerweb/clip-to-file/raw/main/.readme/clip-to-file.jpg'
   alt: clip-to-file banner
@@ -34,19 +37,19 @@ theme: utilities
 primaryLanguage: PowerShell
 languages:
   - name: PowerShell
-    percent: 98.15
+    percent: 98.38
   - name: AutoHotkey
-    percent: 1.85
+    percent: 1.62
 stars: 0
 links:
   repo: 'https://github.com/jparkerweb/clip-to-file'
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-05-12T04:41:02Z'
+lastCommit: '2026-08-20T16:27:27Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-to-file'
   sha: HEAD
-  fetchedAt: '2026-07-04T00:36:27.186Z'
+  fetchedAt: '2026-08-22T04:26:17.944Z'
 ---
-A PowerShell utility that saves clipboard content to organized files with timestamped names. It automatically detects whether the clipboard holds an image or text, saving images as high-quality JPEGs and text as UTF-8 files using a `YYYYMMDD_HHMMSS` naming format, and resolves conflicts by appending numbers to duplicate filenames. Behavior is controlled through a simple INI configuration file that sets the save path and whether to open Windows Explorer with the saved file selected. The README also shows how to bind it to a keyboard shortcut with AutoHotkey, optionally compiled to a standalone EXE.
+A PowerShell utility that saves whatever is on the clipboard to a file in one command with zero configuration. It automatically detects whether the clipboard holds an image or text, writing images as high-quality JPEG and text as UTF-8, each named with a YYYYMMDD_HHMMSS timestamp. Duplicate filenames are handled automatically by appending an incrementing number. Settings live in a simple INI file created on first run, covering the save path, whether to open the containing folder after saving, and whether to copy the saved file path back to the clipboard. It can optionally open Windows Explorer with the saved file already selected, and reports errors with pause prompts so the message is readable before the window closes.

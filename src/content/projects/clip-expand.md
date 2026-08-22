@@ -40,17 +40,17 @@ primaryLanguage: Shell
 languages:
   - name: Shell
     percent: 100
-stars: 0
+stars: 1
 links:
   repo: 'https://github.com/jparkerweb/clip-expand'
 featured: false
-sortOrder: 1000
+sortOrder: 999
 status: active
 lastCommit: '2026-05-12T04:39:48Z'
 _source:
   repo: 'https://github.com/jparkerweb/clip-expand'
   sha: HEAD
-  fetchedAt: '2026-07-04T00:36:27.186Z'
+  fetchedAt: '2026-08-22T04:26:17.944Z'
 ---
 A clipboard-based text expansion tool for Linux systems, designed with Remote Desktop sessions in mind so snippets are copied to the clipboard for easy pasting in both local and remote workflows. Snippets are simple text files stored in a `~/.clipexpand/` directory with subdirectory support, selected through a visual dialog and accessed via a customizable keyboard shortcut, with toast notifications confirming each action. It works across local X11/Wayland sessions, Remote Desktop (RDP, VNC), and SSH with X forwarding on Debian-based distributions. It depends on bash, zenity, xsel, and notify-send, and ships an install script that sets everything up.
 

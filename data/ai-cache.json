@@ -1,4 +1,25 @@
 {
+  "0232d8f5092045822d2e24e9c7c3a58c56ecc933448dedd8bee687e0a46d987d": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "An open-source desktop application that converts raster images into vector graphics. It accepts PNG, JPG, BMP, GIF, and TIFF input and produces clean SVG, EPS, PDF, and DXF output. The app is built with Rust and uses Tauri v2 for a desktop shell of roughly 5 MB, wrapped in a React and TypeScript frontend, and is licensed under Apache-2.0. It runs on Windows, macOS, and Linux, distributed as an NSIS installer or MSI, a disk image, and AppImage, .deb, or .rpm packages. macOS builds are not code-signed or notarized, so the first launch requires opening the app explicitly through the right-click Open flow.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Open-source desktop app that converts raster images into vector graphics.",
+      "VectorIt converts PNG, JPG, BMP, GIF, and TIFF images into clean SVG, EPS, PDF, and DXF vector output.",
+      "Built with **Rust**",
+      "**Tauri v2** for a featherweight desktop shell (~5 MB)",
+      "wrapped in a **React + TypeScript** frontend.",
+      "license-Apache--2.0",
+      "Runs on Windows, macOS, and Linux.",
+      "NSIS installer (`.exe`) or MSI",
+      "Disk image (`.dmg`)",
+      "AppImage, `.deb`, or `.rpm`",
+      "builds are **not code-signed or notarized**",
+      "**Right-click** (or Ctrl-click) `VectorIt.app`"
+    ],
+    "shortDescription": "Open-source desktop app that converts raster images into vector graphics, built with Rust and Tauri v2.",
+    "slug": "vector-it"
+  },
   "02eeaa3bd8e08a991bc4d6bb90c13f4bb5dfafb59b1d9f3f47a2d7de58db6437": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "In-browser tool to help gather class names and generate Puppeteer scripts for use with Bivariate.",
@@ -23,6 +44,30 @@
     ],
     "shortDescription": "Web-based chat app integrating LLM capabilities with Bull Queue, Redis, and Chroma for concurrent chat sessions.",
     "slug": "queue-tha-llama"
+  },
+  "049bbbdccb925fbfe9bbf14a6223c0379a5d168c02d2eb2c15439b332380f4a0": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "A TypeScript library covering vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation behind a single import, with zero production dependencies. It targets semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. The API includes HNSW approximate nearest-neighbor search, hybrid search with reciprocal rank fusion and score normalization, HDBSCAN clustering, aggregation, quantization, and random-projection dimensionality reduction. It also provides markdown-aware chunking, storage, model management, and higher-level APIs, plus documented local inference setup and multiple embedding providers.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation -- zero dependencies, full TypeScript, one import.",
+      "Build semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases.",
+      "[HNSW Search](#hnsw-search-approximate-nearest-neighbor)",
+      "[Hybrid Search (RRF)](#hybrid-search-rrf--score-normalization)",
+      "[HDBSCAN Clustering](#hdbscan-clustering)",
+      "[Aggregation](#aggregation)",
+      "[Quantization](#quantization)",
+      "[Dimensionality Reduction](#dimensionality-reduction-random-projection)",
+      "[Markdown Chunking](#markdown-aware-chunking)",
+      "[Storage](#storage)",
+      "[Model Management](#model-management)",
+      "[High-Level APIs](#high-level-apis)",
+      "[Local inference setup](#local-inference-setup)",
+      "[Providers](#providers)",
+      "**Zero production dependencies** -- nothing to audit, nothing to break"
+    ],
+    "shortDescription": "Zero-dependency TypeScript library for vector math, similarity search, ANN indexing, clustering, and embedding generation.",
+    "slug": "embedding-utils"
   },
   "04cfac6e62ab7dcc6f250fefbb10bd0213418a52d5d2a8ff1efde918f66aa94a": {
     "generatedAt": "2026-06-03T22:35:00.000Z",
@@ -156,6 +201,24 @@
     "shortDescription": "Vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation.",
     "slug": "embedding-utils"
   },
+  "0c7c7ab935a2dfdd87c7ca8ad69b9a2ea8a8cd59efe572d70b6440ebcc9830ea": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "Plan2Code turns an approved plan into a set of phase documents in your repository, then has the coding agent build against those documents one phase at a time. Progress lives in files instead of chat history, so the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. It installs as Agent Skills through the skills CLI and works with every agent that CLI supports, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, and Gemini CLI. It is written in TypeScript, released under MIT, and requires Node.js 18 or later.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents. Send the plan",
+      "you approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time",
+      "Progress lives in files instead of chat history",
+      "so the next session, the next agent, and the next engineer all start from the same specs.",
+      "Six commands, each posted separately. Two of them are optional.",
+      "Requires [Node.js](https://nodejs.org/) 18 or later",
+      "builds the workflow as Agent Skills, delegates installation to `skills add`",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code",
+      "Version 2.2.0"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents: you approve a plan, and the agent builds to phase documents committed in your repo.",
+    "slug": "plan2code"
+  },
   "0d9b63a90c2ec076837fc44d0068056e57a8e92c3a302d55d8d7394698fcff78": {
     "generatedAt": "2026-04-17T16:36:01.775Z",
     "longDescription": "Pits two sentence splitters against one another with real-time comparison and visual color-coding for easy comparison. Built on an Express.js backend with a vanilla JavaScript frontend.",
@@ -211,6 +274,30 @@
     ],
     "shortDescription": "Card Generator for Shadows of Brimstone.",
     "slug": "card-generator-sob"
+  },
+  "1072be731280a9f3e7382a8201340845ba7e2400e42386619868cf252dc3ef97": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "An NPM package for semantically creating chunks from large texts, aimed at workflows involving large language models. It splits the input into sentences, generates a vector for each using a specified ONNX model, calculates cosine similarity for each sentence pair, and groups sentences into chunks according to a similarity threshold and a maximum token size. Adjacent chunks that are similar can optionally be rebalanced and combined into larger ones up to that maximum, and the final chunks are returned as an array of objects. Configuration covers dynamic similarity thresholds, chunk sizes, multiple embedding model options, quantized model support, and chunk prefixes for RAG workflows. A web UI for experimenting with settings is included and can be run through Docker Compose, alongside a hosted online demo.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "NPM Package for Semantically creating chunks from large texts. Useful for workflows involving large language models (LLMs).",
+      "**Sentence Splitting**: The input text is split into an array of sentences.",
+      "**Embedding Generation**: A vector is created for each sentence using the specified ONNX model.",
+      "**Similarity Calculation**: Cosine similarity scores are calculated for each sentence pair.",
+      "**Chunk Formation**: Sentences are grouped into chunks based on the similarity threshold and max token size.",
+      "**Chunk Rebalancing**: Optionally, similar adjacent chunks are combined into larger ones up to the max token size.",
+      "**Output**: The final chunks are returned as an array of objects",
+      "Dynamic similarity thresholds",
+      "Configurable chunk sizes",
+      "Multiple embedding model options",
+      "Quantized model support",
+      "Chunk prefix support for RAG workflows",
+      "Web UI for experimenting with settings",
+      "The easiest way to run semantic-chunking is using Docker Compose",
+      "Online Demo"
+    ],
+    "shortDescription": "NPM package that semantically splits large texts into chunks based on sentence similarity, for LLM and RAG workflows.",
+    "slug": "semantic-chunking"
   },
   "111d6362e4f622de5b5872bbf5fd0c0b3fb0084ae034f65df307696f666a9b84": {
     "generatedAt": "2026-04-17T16:36:01.775Z",
@@ -367,6 +454,14 @@
     "shortDescription": "An example project to show htmldiff.js in the browser.",
     "slug": "htmldiff-example"
   },
+  "1aa604cf1f972cff9189aaa22ba72376319b0054591b4da0688333d0104bb2cb": {
+    "generatedAt": "2026-08-22T04:27:28.015Z",
+    "longDescription": "",
+    "model": "claude-opus-5",
+    "quotedSpans": [],
+    "shortDescription": "",
+    "slug": "groundhog"
+  },
   "1aabfe8433d7a59cf0e0e888b1066097e6a845dd94b125625d42102f9fa52080": {
     "generatedAt": "2026-07-04T00:41:20.900Z",
     "longDescription": "Shrinkray is a cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea. The interactive TUI wizard offers step-by-step guided compression with real-time preview, 18 built-in presets spanning quality tiers, purpose-driven options, and platform-specific targets such as Discord, YouTube, and TikTok, plus recommendations that analyze your video and suggest a preset. Hardware acceleration is auto-detected across NVIDIA NVENC, AMD AMF, Apple VideoToolbox, and Intel QSV, and batch processing compresses entire folders with parallel workers and progress tracking. A scriptable --no-tui headless mode with stdin pipe support serves CI/CD pipelines, and the tool ships as a single static binary for Windows, macOS, and Linux.",
@@ -437,6 +532,28 @@
     ],
     "shortDescription": "DataviewJS script that renders a Markdown image in Reading View using a URL stored in a note field.",
     "slug": "obsidian-image-from-field"
+  },
+  "20193716b5142038ecbde10d3b288343c979b6c82b11e8428f8d292b2f758dba": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "A PowerShell utility that saves whatever is on the clipboard to a file in one command with zero configuration. It automatically detects whether the clipboard holds an image or text, writing images as high-quality JPEG and text as UTF-8, each named with a YYYYMMDD_HHMMSS timestamp. Duplicate filenames are handled automatically by appending an incrementing number. Settings live in a simple INI file created on first run, covering the save path, whether to open the containing folder after saving, and whether to copy the saved file path back to the clipboard. It can optionally open Windows Explorer with the saved file already selected, and reports errors with pause prompts so the message is readable before the window closes.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "PowerShell utility that instantly saves your clipboard content to organized files with timestamped names.",
+      "**Smart Detection**: Automatically detects images and text in your clipboard",
+      "**Instant Save**: One command saves clipboard content with zero configuration",
+      "**Organized Output**: Files saved with clean timestamps (`YYYYMMDD_HHMMSS` format)",
+      "**Conflict Resolution**: Automatically handles duplicate filenames by appending numbers",
+      "**Output**: `20250118_143025.jpg` (saved as high-quality JPEG)",
+      "**Output**: `20250118_143025.txt` (saved as UTF-8 text file)",
+      "**Configurable**: Simple INI-based configuration with sensible defaults",
+      "SavePath=",
+      "OpenFolderAfterSave=false",
+      "CopyPathToClipboard=true",
+      "**Explorer Integration**: Optionally open Windows Explorer with the saved file selected",
+      "**Error Handling**: Friendly error messages with pause prompts to read before window closes"
+    ],
+    "shortDescription": "PowerShell utility that saves clipboard content to timestamped files, detecting images and text automatically.",
+    "slug": "clip-to-file"
   },
   "20282f2ef84e387aa1929b00ab128d14ef934f8bac6078579b5f6c6b941aca00": {
     "generatedAt": "2026-07-04T00:41:20.900Z",
@@ -545,6 +662,14 @@
     ],
     "shortDescription": "A PowerShell utility that saves clipboard content to timestamped files.",
     "slug": "clip-to-file"
+  },
+  "256eea9b35e9204c593fb229df40e5cab92d28913cff29ecd0fe88455fe56bfc": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "",
+    "model": "claude-opus-5",
+    "quotedSpans": [],
+    "shortDescription": "",
+    "slug": "groundhog"
   },
   "278e82ce631cda1fc9a513d8a776aa4a0684f4195270c50cfb1178b1defe06a7": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -677,6 +802,21 @@
     ],
     "shortDescription": "Spin up your own OpenAI-compatible API endpoint that proxies calls to AWS Bedrock for LLM text inference.",
     "slug": "bedrock-proxy-endpoint"
+  },
+  "36657bf5525cdb3f8abf3f79d44d920554cf23f5017ea8cd1dee8285e13c441e": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "A collection of AI agent skills that automate recurring engineering workflows and can be installed across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so re-running it is the way to stay current. Skills are installed globally via skills.sh and auto-detected by more than 40 AI agents, including Claude Code, Cursor, Windsurf, and GitHub Copilot. For authoring, the skills add command accepts a local path as its source, so a skill installs directly from your working tree with no git push required, and re-running the same command overwrites the installed copy rather than requiring a separate update step.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
+      "This single command removes any stale or renamed skills, then installs the latest version of every skill from this repo. Run it any time to stay current",
+      "Skills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.)",
+      "The `skills add` command accepts a local path as the source, so it installs directly from your working tree",
+      "no git push required",
+      "The same command overwrites the installed copy"
+    ],
+    "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows, installable across multiple AI coding assistants.",
+    "slug": "ai-assist-skills"
   },
   "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -2024,6 +2164,26 @@
     "shortDescription": "Node.js package that restores punctuation and casing to unpunctuated text using an ONNX model.",
     "slug": "punctuation-restore"
   },
+  "d0b466e2ed9f4a4f92e9c1727ae12800e27fca1f5b36690423b7d9c8496b41c6": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "Authoritative governing documents for the Summit Ridge townhome HOA live as read-only ground truth in a source directory, and an AI assistant synthesizes them into a structured wiki that can be queried in plain English. The approach follows Andrej Karpathy's LLM Wiki pattern: instead of doing one-shot RAG over raw documents on every question, the model incrementally builds and maintains a persistent, cross-linked markdown wiki, so knowledge compounds and contradictions get flagged once rather than rediscovered every query. An ask command answers questions using the wiki as authoritative context, with citations back to the original source sections. A sync command incrementally rebuilds the wiki when source documents change, re-ingesting only files whose SHA-256 hash changed. The generated tree includes a categorized index of every wiki page and an append-only log of sync runs.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "An LLM-maintained knowledge base for the Summit Ridge townhome HOA.",
+      "Authoritative governing documents live in `source/`; an AI assistant synthesizes them into a structured wiki under `wiki/` that you can query in plain English.",
+      "Inspired by [Andrej Karpathy's LLM Wiki pattern]",
+      "instead of doing one-shot RAG over raw documents on every question, the LLM incrementally builds and maintains a persistent, cross-linked markdown wiki",
+      "Knowledge compounds; contradictions get flagged once, not rediscovered every query.",
+      "An **ask** command that answers questions using the wiki as authoritative context, with citations back to the original source sections.",
+      "A **sync** command that incrementally rebuilds the wiki when source documents change",
+      "only files whose SHA-256 hash changed get re-ingested",
+      "index.md               ← categorized catalog of every wiki page",
+      "log.md                 ← append-only chronological record of sync runs",
+      "source/                    ← immutable governing documents (read-only ground truth)"
+    ],
+    "shortDescription": "An LLM-maintained knowledge base for the Summit Ridge townhome HOA, queryable in plain English with citations to source sections.",
+    "slug": "summit-ridge-wiki"
+  },
   "d20a2d4ddbce99dd9cc5ea52521150e6b14391f3e8050be1f10de9af3af6d850": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Adds backlinks (links FROM other notes TO this note) and outlinks (links FROM this note TO other notes) to the footer. Displays created and modified dates for each note, supports links in frontmatter, and offers customization through opacity and border controls, plus options to exclude folders.",
@@ -2129,6 +2289,26 @@
     ],
     "shortDescription": "Zero-dependency TypeScript library for vector math, similarity search, ANN indexing, clustering, and embedding generation.",
     "slug": "embedding-utils"
+  },
+  "dc66aa3c22dd796365fd60959eadb711f43fcbcae02f410f5bc475b235ff1165": {
+    "generatedAt": "2026-08-22T04:00:20.740Z",
+    "longDescription": "The portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro and Tailwind CSS 4 on top of a GitHub-driven data pipeline that keeps project content in sync with live repositories, pulling repo data through the GitHub GraphQL API via @octokit/graphql and the gh CLI. Content is managed as Astro Content Collections in Markdown with gray-matter and remark, while Open Graph images are rendered with Satori and resvg. Static search is provided by Pagefind and icons by Lucide. Testing spans accessibility via Playwright and axe-core, plus Lighthouse CI and html-validate, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com)",
+      "a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts",
+      "a GitHub-driven data pipeline that keeps project content in sync with live repositories",
+      "GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "Astro Content Collections, Markdown, gray-matter, remark",
+      "Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Pagefind (static search index)",
+      "Icons | Lucide",
+      "Playwright + axe-core (a11y), Lighthouse CI, html-validate",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects driven by a GitHub-backed content pipeline.",
+    "slug": "equill-labs"
   },
   "dc85e7c92ef4cbe4b4eeb9a6fe5e8987486eabd497473a1e677473b0cde9dbe7": {
     "generatedAt": "2026-04-17T16:36:01.775Z",

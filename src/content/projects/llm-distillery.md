@@ -52,7 +52,7 @@ languages:
     percent: 19.33
   - name: CSS
     percent: 18.07
-stars: 12
+stars: 13
 links:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   homepage: 'https://www.npmjs.com/package/llm-distillery'
@@ -63,7 +63,7 @@ lastCommit: '2026-05-12T04:36:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/llm-distillery'
   sha: HEAD
-  fetchedAt: '2026-07-04T00:36:27.186Z'
+  fetchedAt: '2026-08-22T04:26:17.944Z'
 ---
 An npm package that uses LLMs to distill large texts down to a manageable size with a map-reduce approach, ensuring text fits within a specified token limit before downstream LLM tasks. It reduces text size based on token count without losing the essence of the content, using the semantic-chunking library to split text into chunks that are then summarized. Parameters such as target token size, API base URL, chunking thresholds, model, stop tokens, and maximum distillation loops are configurable. It works with any OpenAI API compatible endpoint (such as together.ai) and defaults to a Llama 3 model.
 
