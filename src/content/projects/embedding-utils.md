@@ -57,7 +57,7 @@ lastCommit: '2026-08-14T20:35:30Z'
 _source:
   repo: 'https://github.com/jparkerweb/embedding-utils'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:24:27.142Z'
+  fetchedAt: '2026-08-27T05:37:42.638Z'
 ---
 A TypeScript library covering vector math, similarity search, ANN indexing, clustering, async pipelines, evaluation metrics, and multi-provider embedding generation behind a single import, with zero production dependencies. It targets semantic search, RAG pipelines, recommendation engines, duplicate detection, and document clustering without pulling in heavy ML frameworks or vector databases. The API includes HNSW approximate nearest-neighbor search, hybrid search with reciprocal rank fusion and score normalization, HDBSCAN clustering, aggregation, quantization, and random-projection dimensionality reduction. It also provides markdown-aware chunking, storage, model management, and higher-level APIs, plus documented local inference setup and multiple embedding providers.
 

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-27T05:24:27.142Z",
+  "fetchedAt": "2026-08-27T05:37:42.638Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast & Engineer  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,83 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2024-11-16T21:22:07Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 820
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 4099
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 9096932
+          },
+          {
+            "node": {
+              "name": "Go Template"
+            },
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 60392
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 109563
+          }
+        ],
+        "totalSize": 9271972
+      },
+      "licenseInfo": null,
+      "name": "eQuill-Labs",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-08-27T05:27:13Z",
+      "readme": {
+        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Banner framing | A `data=\"…\"` attribute on that same `<img>`, holding CSS declarations | Applied as an inline `style` on the card and project-page banner `<img>` |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\n#### Framing the banner with `data=\"…\"`\n\nA banner that looks right at full width in a README is often cropped badly by the card, which renders it in a short fixed-height box with `object-fit: cover`. To steer that crop from the repo itself, put CSS declarations in a `data` attribute on the banner `<img>`:\n\n```html\n<img\n  src=\"https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg\"\n  alt=\"banner\"\n  data=\"object-position:bottom;\"\n  style=\"max-height:400px\">\n```\n\n`refresh:render` stores that value as `banner.style` in the project's frontmatter, and `ProjectCard.astro` / `ProjectLayout.astro` apply it as an inline `style` on the banner `<img>`, layering over the component's own CSS. The example above keeps the bottom of the image in frame instead of the default centered crop.\n\nNotes:\n\n- Only the `data` attribute is read. The `style` attribute on the README `<img>` is ignored (it governs how the image renders on GitHub, which is a different box).\n- Values are sanitized before use: only well-formed `prop: value` declarations survive, and anything containing markup characters, braces, or `url(...)` is dropped. The result is capped at 300 characters.\n- `object-position`, `object-fit`, `transform`, and `filter` are the useful ones in practice. The banner box sizing itself stays under the site's control.\n- Relative image paths (`docs/banner.png`) are resolved to `raw.githubusercontent.com` on the repo's default branch, so a banner does not need an absolute URL in the README.\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "not-portfolio"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-08-27T05:27:49Z",
+      "url": "https://github.com/jparkerweb/eQuill-Labs"
+    },
     {
       "createdAt": "2025-12-03T04:59:18Z",
       "defaultBranchRef": {
@@ -80,7 +157,7 @@
         ]
       },
       "stargazerCount": 0,
-      "updatedAt": "2026-08-27T05:19:36Z",
+      "updatedAt": "2026-08-27T05:24:39Z",
       "url": "https://github.com/jparkerweb/plan2code"
     },
     {
@@ -196,13 +273,33 @@
         "nodes": [
           {
             "topic": {
-              "name": "not-portfolio"
+              "name": "alarm"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-library"
+            }
+          },
+          {
+            "topic": {
+              "name": "golang"
+            }
+          },
+          {
+            "topic": {
+              "name": "reminder"
+            }
+          },
+          {
+            "topic": {
+              "name": "timer"
             }
           }
         ]
       },
       "stargazerCount": 0,
-      "updatedAt": "2026-08-27T00:59:35Z",
+      "updatedAt": "2026-08-27T05:36:47Z",
       "url": "https://github.com/jparkerweb/groundhog"
     },
     {
@@ -277,83 +374,6 @@
       "stargazerCount": 88,
       "updatedAt": "2026-08-22T17:34:04Z",
       "url": "https://github.com/jparkerweb/ai-assist-skills"
-    },
-    {
-      "createdAt": "2024-11-16T21:22:07Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "🖋️ eQuill Labs website and digital assets",
-      "forkCount": 0,
-      "homepageUrl": "https://www.equilllabs.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 820
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 4099
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 9096932
-          },
-          {
-            "node": {
-              "name": "Go Template"
-            },
-            "size": 166
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 58047
-          },
-          {
-            "node": {
-              "name": "Astro"
-            },
-            "size": 108864
-          }
-        ],
-        "totalSize": 9268928
-      },
-      "licenseInfo": null,
-      "name": "eQuill-Labs",
-      "primaryLanguage": {
-        "color": "#e34c26",
-        "name": "HTML"
-      },
-      "pushedAt": "2026-08-22T04:48:00Z",
-      "readme": {
-        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "not-portfolio"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-08-22T04:48:09Z",
-      "url": "https://github.com/jparkerweb/eQuill-Labs"
     },
     {
       "createdAt": "2025-09-19T05:33:22Z",
