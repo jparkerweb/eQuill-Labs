@@ -6,6 +6,8 @@ import type { Root, Content, Image, Link, Heading, List, Paragraph } from 'mdast
 
 export type ReadmeExtract = {
 	hero?: string;
+	/** Extra CSS the hero <img> carried in its `data` attribute, applied inline to the card banner. */
+	heroStyle?: string;
 	tagline?: string;
 	features: string[];
 	demos: Array<{ label: string; url: string }>;
@@ -37,7 +39,11 @@ export function parseReadme(markdown: string): ReadmeExtract {
 
 	// hero: first image with alt containing "banner", else first image in document.
 	// Matches both markdown images (![alt](url)) and raw HTML <img> tags.
-	type ImgRef = { url: string; alt: string };
+	//
+	// A raw <img> may also carry a `data` attribute holding CSS declarations
+	// (e.g. data="object-position:bottom;"). When that image becomes the hero the
+	// declarations ride along as `heroStyle` and get applied inline to the banner.
+	type ImgRef = { url: string; alt: string; style?: string };
 	let firstImage: ImgRef | undefined;
 	let bannerImage: ImgRef | undefined;
 	const consider = (ref: ImgRef) => {
@@ -56,12 +62,16 @@ export function parseReadme(markdown: string): ReadmeExtract {
 				const src = /\bsrc\s*=\s*["']([^"']+)["']/i.exec(tag)?.[1];
 				if (!src) continue;
 				const alt = /\balt\s*=\s*["']([^"']*)["']/i.exec(tag)?.[1] ?? '';
-				consider({ url: src, alt });
+				const style = sanitizeStyle(/\bdata\s*=\s*["']([^"']*)["']/i.exec(tag)?.[1]);
+				consider({ url: src, alt, ...(style ? { style } : {}) });
 			}
 		}
 	});
-	const hero = (bannerImage ?? firstImage)?.url;
-	if (hero) result.hero = hero;
+	const heroRef = bannerImage ?? firstImage;
+	if (heroRef?.url) {
+		result.hero = heroRef.url;
+		if (heroRef.style) result.heroStyle = heroRef.style;
+	}
 
 	// tagline: first paragraph after H1
 	const h1Idx = children.findIndex((n) => n.type === 'heading' && (n as Heading).depth === 1);
@@ -164,6 +174,22 @@ export function parseReadme(markdown: string): ReadmeExtract {
 	}
 
 	return result;
+}
+
+/**
+ * Keep only what can safely live in an inline `style` attribute: CSS declarations
+ * of the form `prop: value`, separated by semicolons. Anything with markup
+ * characters, comments, or CSS functions that fetch (`url(...)`) is dropped.
+ */
+function sanitizeStyle(raw: string | undefined): string | undefined {
+	if (!raw) return undefined;
+	const declarations = raw
+		.split(';')
+		.map((d) => d.trim())
+		.filter(Boolean)
+		.filter((d) => /^[a-z-]+\s*:\s*[^<>"'();{}]+$/i.test(d) && !/url\s*\(/i.test(d));
+	if (declarations.length === 0) return undefined;
+	return declarations.join('; ').slice(0, 300);
 }
 
 function walk(node: unknown, visit: (n: Content | Root) => void): void {

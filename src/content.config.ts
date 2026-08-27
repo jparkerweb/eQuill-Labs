@@ -17,6 +17,9 @@ const projects = defineCollection({
 				src: z.string(),
 				alt: z.string(),
 				source: z.enum(['repo', 'local', 'generated']),
+				// Extra CSS declarations from the README <img data="..."> attribute,
+				// applied inline to the banner <img> (e.g. "object-position: bottom").
+				style: z.string().optional(),
 			})
 			.optional(),
 		topics: z.array(z.string()),

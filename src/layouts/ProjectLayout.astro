@@ -29,6 +29,8 @@ const ogImage = `/og/${slug}.png`;
 
 const rawBanner = data.banner?.src;
 const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : undefined;
+// Extra CSS the repo README attached to its banner image via `data="..."`.
+const bannerStyle = bannerSrc ? (data.banner?.style ?? undefined) : undefined;
 ---
 
 <BaseLayout title={title} description={description} image={ogImage} type="article">
@@ -48,7 +50,7 @@ const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : unde
     <div class="banner">
       {
         bannerSrc ? (
-          <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} />
+          <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} style={bannerStyle} />
         ) : (
           <ProjectFallbackArt slug={slug} />
         )

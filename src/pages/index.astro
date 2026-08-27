@@ -15,9 +15,13 @@ const personSameAs = [
 
 const all = await getCollection('projects');
 const visible = all.filter((e) => e.data.status !== 'hidden');
+// Featured set, most recently updated first (same ordering as /projects).
 const featured = visible
   .filter((e) => e.data.featured)
-  .sort((a, b) => (a.data.sortOrder ?? 100) - (b.data.sortOrder ?? 100));
+  .sort(
+    (a, b) =>
+      new Date(b.data.lastCommit ?? 0).getTime() - new Date(a.data.lastCommit ?? 0).getTime(),
+  );
 
 const allLivingProjects = visible;
 ---

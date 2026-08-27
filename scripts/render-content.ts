@@ -55,6 +55,9 @@ const ProjectSchema = z.object({
 			src: z.string(),
 			alt: z.string(),
 			source: z.enum(['repo', 'local', 'generated']),
+			// Extra CSS declarations from the README <img data="..."> attribute,
+			// applied inline to the banner <img> (e.g. "object-position: bottom").
+			style: z.string().optional(),
 		})
 		.optional(),
 	topics: z.array(z.string()),
@@ -131,6 +134,18 @@ function absolutizeReadmeUrls(md: string, repoUrl: string, branch: string): stri
 	return out;
 }
 
+// Resolve a README hero image path to an absolute URL. A banner referenced
+// repo-relatively (e.g. `docs/banner.png`) is meaningless once it leaves the
+// README, and the card/page components only render absolute http(s) sources,
+// so it is pinned to raw.githubusercontent on the repo's default branch.
+function absolutizeHero(url: string, repoUrl: string, branch: string): string {
+	if (!isRelativeUrl(url)) return url;
+	const m = /^https?:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?\/?$/i.exec(repoUrl);
+	if (!m) return url;
+	const [, owner, repo] = m;
+	return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/` + url.replace(/^\.?\/+/, '');
+}
+
 function truncateTagline(src: string): string {
 	const cleaned = src.replace(/\s+/g, ' ').trim();
 	if (cleaned.length <= 160) return cleaned;
@@ -170,7 +185,12 @@ function buildProject(cp: CuratedProject, snapshotFetchedAt: string, aiCache: Re
 	if (repo.homepageUrl) links.homepage = repo.homepageUrl;
 
 	const banner = readme.hero
-		? { src: readme.hero, alt: `${cp.name} banner`, source: 'repo' as const }
+		? {
+				src: absolutizeHero(readme.hero, repo.url, repo.defaultBranchRef?.name ?? 'main'),
+				alt: `${cp.name} banner`,
+				source: 'repo' as const,
+				...(readme.heroStyle ? { style: readme.heroStyle } : {}),
+			}
 		: undefined;
 
 	return {

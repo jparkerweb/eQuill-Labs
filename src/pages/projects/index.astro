@@ -8,16 +8,16 @@ import JsonLd from '@/components/seo/JsonLd.astro';
 const siteURL = Astro.site ?? new URL('https://www.equilllabs.com');
 
 const all = await getCollection('projects');
+// Most recently updated first: the catalog reads as a feed of what is moving.
+// Stars, then name, only break ties between repos pushed at the same instant.
 const visible = all
   .filter((e) => e.data.status !== 'hidden')
   .sort((a, b) => {
-    const fa = a.data.featured ? 0 : 1;
-    const fb = b.data.featured ? 0 : 1;
-    if (fa !== fb) return fa - fb;
-    const sa = a.data.sortOrder ?? 100;
-    const sb = b.data.sortOrder ?? 100;
-    if (sa !== sb) return sa - sb;
-    return b.data.stars - a.data.stars;
+    const ta = new Date(a.data.lastCommit ?? 0).getTime();
+    const tb = new Date(b.data.lastCommit ?? 0).getTime();
+    if (ta !== tb) return tb - ta;
+    if (a.data.stars !== b.data.stars) return b.data.stars - a.data.stars;
+    return a.data.name.localeCompare(b.data.name);
   });
 
 const featuredCount = visible.filter((e) => e.data.featured).length;

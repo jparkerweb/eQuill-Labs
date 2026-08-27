@@ -16,6 +16,8 @@ const extraTopics = (data.topics?.length ?? 0) - 1;
 
 const rawBanner = data.banner?.src;
 const bannerSrc = rawBanner && /^https?:\/\//.test(rawBanner) ? rawBanner : undefined;
+// Extra CSS the repo README attached to its banner image via `data="..."`.
+const bannerStyle = bannerSrc ? (data.banner?.style ?? undefined) : undefined;
 
 const filterAttrs: Record<string, string> = {
   'data-slug': slug,
@@ -32,7 +34,12 @@ const filterAttrs: Record<string, string> = {
     <div class="banner">
       {
         bannerSrc ? (
-          <img src={bannerSrc} alt={data.banner?.alt ?? `${data.name} banner`} loading="lazy" />
+          <img
+            src={bannerSrc}
+            alt={data.banner?.alt ?? `${data.name} banner`}
+            style={bannerStyle}
+            loading="lazy"
+          />
         ) : (
           <ProjectFallbackArt slug={slug} />
         )

@@ -99,10 +99,32 @@ When rendering project content, the pipeline scrapes each repo's README for extr
 | Signal | How to mark it in the README | Where it shows up |
 |--------|------------------------------|-------------------|
 | Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |
+| Banner framing | A `data="…"` attribute on that same `<img>`, holding CSS declarations | Applied as an inline `style` on the card and project-page banner `<img>` |
 | Tagline | First paragraph after the H1 | Card tagline + project page subtitle |
 | Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |
 | Demo link | Any `<a>` tag with `data-tag="demo"` , e.g. `<a href="https://semantic-chunking.equilllabs.com/" data-tag="demo">semantic-chunking.equilllabs.com</a>` | "Demo" link on the project page sidebar, rendered above the Repository link |
 | Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |
+
+#### Framing the banner with `data="…"`
+
+A banner that looks right at full width in a README is often cropped badly by the card, which renders it in a short fixed-height box with `object-fit: cover`. To steer that crop from the repo itself, put CSS declarations in a `data` attribute on the banner `<img>`:
+
+```html
+<img
+  src="https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg"
+  alt="banner"
+  data="object-position:bottom;"
+  style="max-height:400px">
+```
+
+`refresh:render` stores that value as `banner.style` in the project's frontmatter, and `ProjectCard.astro` / `ProjectLayout.astro` apply it as an inline `style` on the banner `<img>`, layering over the component's own CSS. The example above keeps the bottom of the image in frame instead of the default centered crop.
+
+Notes:
+
+- Only the `data` attribute is read. The `style` attribute on the README `<img>` is ignored (it governs how the image renders on GitHub, which is a different box).
+- Values are sanitized before use: only well-formed `prop: value` declarations survive, and anything containing markup characters, braces, or `url(...)` is dropped. The result is capped at 300 characters.
+- `object-position`, `object-fit`, `transform`, and `filter` are the useful ones in practice. The banner box sizing itself stays under the site's control.
+- Relative image paths (`docs/banner.png`) are resolved to `raw.githubusercontent.com` on the repo's default branch, so a banner does not need an absolute URL in the README.
 
 The `data-tag="demo"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.
 
