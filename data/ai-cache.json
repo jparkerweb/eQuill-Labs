@@ -787,6 +787,31 @@
     "shortDescription": "Intelligent text batching library that uses k-means clustering to group sentences by length for optimal processing.",
     "slug": "k-batch"
   },
+  "32679977aefe63e9cb55c6e8d8ea6850db3318021979018e9d87e9c47c6c56f1": {
+    "generatedAt": "2026-08-27T05:24:42.167Z",
+    "longDescription": "Plan2Code is a spec-driven workflow that keeps planning and building separate for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time, so progress lives in files instead of chat history and the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. Installation requires Node.js 18 or later and network access and runs through the skills CLI: the installer builds the workflow as Agent Skills, delegates installation to skills add, cleans up after itself, and presents a menu covering install, install with dev tools, uninstall, and custom options. It supports every agent supported by the skills CLI, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini CLI, Cline and Roo. Version 2.2.0 is MIT licensed.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents. Send the plan",
+      "the build follows",
+      "An AI agent is a fine builder and a terrible client.",
+      "you approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time",
+      "Progress lives in files instead of chat history",
+      "the next session, the next agent, and the next engineer all start from the same specs",
+      "Six commands, each posted separately. Two of them are optional.",
+      "Requires [Node.js](https://nodejs.org/) 18 or later and network access",
+      "installation runs through the [skills CLI](https://skills.sh)",
+      "builds the workflow as Agent Skills, delegates installation to `skills add`, and cleans up after itself",
+      "I.  INSTALL    Install Plan2Code skills everywhere",
+      "A.  ALL        Install Plan2Code + dev tools",
+      "U.  UNINSTALL  Remove Plan2Code skills and dev tools",
+      "C.  CUSTOM     Advanced options",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code",
+      "Version 2.2.0 · MIT"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents. Send the plan, the build follows.",
+    "slug": "plan2code"
+  },
   "330c900e0a6b91c946440de75106dc364b22105537fc93d293f9257c64d84d19": {
     "generatedAt": "2026-06-03T22:35:00.000Z",
     "longDescription": "A service that lets you spin up your own custom OpenAI API compatible server endpoint that proxies calls to AWS Bedrock for LLM text inference, using the standard `baseUrl` and `apiKey` params. It is aimed at keeping applications platform-agnostic and avoiding the need to format inference calls for the Bedrock SDK or reconcile per-model configuration differences. It is useful for getting existing OpenAI API compatible applications working with AWS Bedrock. The endpoint can be run from source with Node.js, or via Docker using a pre-built image from GitHub Container Registry (GHCR) or a local build, with configuration supplied through environment variables and an optional docker-compose setup.",
@@ -1364,6 +1389,26 @@
     "shortDescription": "Advance Dining Reservation checker for Walt Disney World, as a bookmarklet you install in your browser.",
     "slug": "wdw-adr-checker"
   },
+  "75fe6cc3b26e3c947c0b61c58bad703fa2d751d7dd5de7beeb275845633720fa": {
+    "generatedAt": "2026-08-27T05:13:14.527Z",
+    "longDescription": "Groundhog is a recurring reminder that counts from when you started it and then actually interrupts you, shipped for Windows, macOS and Linux as one self-contained binary each. Settings documentation lives only on the project site, on purpose, since two copies drift and the one that drifts is always the one you are reading. Nothing Groundhog ships is code signed: there are no signing certificates anywhere in the project and no credentials in CI, a deliberate choice whose price is one extra click the first time you run it (More info then Run anyway on Windows, Open Anyway under Privacy & Security on macOS, nothing at all on Linux). On Windows 11 installations that have Smart App Control switched on, an unsigned executable can be blocked with no \"Run anyway\" offered at all, and the README is explicit that those users should not disable a security feature permanently in order to run it. The Linux binary is built on Ubuntu 24.04 and needs glibc 2.39 or newer.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+      "Windows, macOS and Linux, one self-contained binary each.",
+      "The site is the only copy of the settings documentation, on purpose: two copies drift, and the one that drifts is always the one you are reading.",
+      "Nothing Groundhog ships is code signed. There are no signing certificates anywhere in this project and no credentials in CI, which is a deliberate choice rather than an oversight, and the price of it is one extra click the first time you run it.",
+      "SmartScreen shows \"Windows protected your PC\". Click **More info**, then **Run anyway**.",
+      "Open **System Settings > Privacy & Security**",
+      "**Linux.** Nothing blocks anything.",
+      "On Windows 11 installations that have **Smart App Control** switched on, an unsigned executable can be blocked with no \"Run anyway\" offered at all.",
+      "should not disable a security feature permanently in order to",
+      "The Linux binary is built on Ubuntu 24.04.",
+      "Linux needs glibc 2.39 or newer"
+    ],
+    "shortDescription": "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+    "slug": "groundhog"
+  },
   "760780bc1ea3b566cd54ed9ff63bca1b780791db6623679e59462e79f45372a9": {
     "generatedAt": "2026-04-17T16:36:01.775Z",
     "longDescription": "Reads an image URL from a frontmatter or inline field and renders the image in the note, accepting size and alignment values. Live preview is not supported.",
@@ -1406,6 +1451,26 @@
     ],
     "shortDescription": "Collection of prompts and rules for use within AI agent settings.",
     "slug": "ai-assistant-prompts"
+  },
+  "79e7998aaa778972ab57451dabd47404286def032dbae3c95748d1e0bb7f6e00": {
+    "generatedAt": "2026-08-22T05:16:31.592Z",
+    "longDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro and TypeScript, styled with Tailwind CSS 4, CSS custom properties, and the Geist and Instrument Serif typefaces. Project content lives in Astro Content Collections as Markdown parsed with gray-matter and remark, kept in sync with live repositories by a GitHub-driven data pipeline that reads the GitHub GraphQL API through @octokit/graphql and the gh CLI. OG images are generated by Satori (HTML to SVG) and resvg (SVG to PNG), search is a static Pagefind index, icons come from Lucide, and the site is hosted on GitHub Pages. Testing covers accessibility via Playwright and axe-core, alongside Lighthouse CI and html-validate.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+      "Framework | Astro 6, TypeScript",
+      "Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts",
+      "Content | Astro Content Collections, Markdown, gray-matter, remark",
+      "Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "OG Images | Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Search | Pagefind (static search index)",
+      "Icons | Lucide",
+      "Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker.",
+    "slug": "equill-labs"
   },
   "7b09189d22b5270471d2787c8fcb5215244c5545ef7abfdf91c291192e43eda2": {
     "generatedAt": "2026-06-03T22:35:00.000Z",
@@ -1540,6 +1605,31 @@
     ],
     "shortDescription": "Lightweight, self-hosted web application for curating and managing your frequently visited links.",
     "slug": "simple-linkz"
+  },
+  "82ad6614da5c81d72dec78fc77c1a3b0958ae4000d99b5ada66a5d23f99874db": {
+    "generatedAt": "2026-08-27T05:13:14.527Z",
+    "longDescription": "Plan2Code is a spec-driven workflow that keeps planning and building separate for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time, so progress lives in files instead of chat history and the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. Installation requires Node.js 18 or later and network access and runs through the skills CLI: the installer builds the workflow as Agent Skills, delegates installation to skills add, cleans up after itself, and presents a menu covering install, install with dev tools, uninstall, and custom options. It supports every agent supported by the skills CLI, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini CLI, Cline and Roo. Version 2.2.0 is MIT licensed.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents. Send the plan",
+      "the build follows",
+      "An AI agent is a fine builder and a terrible client.",
+      "you approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time",
+      "Progress lives in files instead of chat history",
+      "the next session, the next agent, and the next engineer all start from the same specs",
+      "Six commands, each posted separately. Two of them are optional.",
+      "Requires [Node.js](https://nodejs.org/) 18 or later and network access",
+      "installation runs through the [skills CLI](https://skills.sh)",
+      "builds the workflow as Agent Skills, delegates installation to `skills add`, and cleans up after itself",
+      "I.  INSTALL    Install Plan2Code skills everywhere",
+      "A.  ALL        Install Plan2Code + dev tools",
+      "U.  UNINSTALL  Remove Plan2Code skills and dev tools",
+      "C.  CUSTOM     Advanced options",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code",
+      "Version 2.2.0 · MIT"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents. Send the plan, the build follows.",
+    "slug": "plan2code"
   },
   "85140e3d9a23227d53fde6e3822b7c6b518543eb276277dbaeaabf4be39a328e": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -1756,6 +1846,24 @@
     ],
     "shortDescription": "Interactive web application for designing and visualizing colored patterns and image textures on a clover quilt template.",
     "slug": "clover-quilt-designer"
+  },
+  "ac3720e8ec8f6801dfd4166cfd35fa0b16a95d771946245cc514445eeaca5829": {
+    "generatedAt": "2026-08-22T05:16:31.592Z",
+    "longDescription": "A small, growing toolbox of plain-spoken helpers for the home gardener, covering how to feed your beds, pair your plants, and tend a cottage border. Every tool is a self-contained, single-file HTML page dressed as a pressed-herbarium specimen sheet, with warm recycled-paper surfaces, deep botanical ink, and an old-press serif over a clean grotesque. The collection pairs a landing hub page with The Fertilizer Plot, which turns any N-P-K ratio into a generative, hand-drawn plant and then works out feed dose, timing and cost, and The Companion Bed, which covers 139 plants with ranked companion and \"keep apart\" relationships plus why each pair works, and deep-links a recommended feed straight into the Fertilizer Plot. There is no build system, no dependencies, and no backend: each .html file opens directly from disk and the pages are designed to work fully from file://, with the only network request being the Google Fonts link for Fraunces and Hanken Grotesk. More tools are taking root, including a sowing calendar and a watering guide.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A small, growing toolbox of plain-spoken helpers for the home gardener — *feed your beds, pair your plants, and tend a cottage border with a little more confidence.*",
+      "Every tool is a **self-contained, single-file HTML page** dressed as a pressed-herbarium specimen sheet: warm recycled-paper surfaces, deep botanical ink, and an old-press serif over a clean grotesque.",
+      "Landing/hub page linking the collection.",
+      "Turns any **N–P–K** ratio into a generative, hand-drawn plant, then works out feed dose, timing and cost.",
+      "**139 plants** with ranked companion + \"keep apart\" relationships, and why each pair works — deep-links a recommended feed straight into the Fertilizer Plot.",
+      "There is **no build system, no dependencies, and no backend** — each tool is one `.html` file that opens directly from disk.",
+      "The pages are designed to work fully from `file://`.",
+      "The **only** network request is the Google Fonts `<link>` (Fraunces + Hanken Grotesk); everything else — logic, data, and SVG artwork — is inline.",
+      "More tools are *taking root* (a sowing calendar, a watering guide, and more to come)."
+    ],
+    "shortDescription": "A toolbox of plain-spoken helpers for the home gardener, each one a self-contained single-file HTML page.",
+    "slug": "cottage-garden"
   },
   "ae15e7993dfa68ce077e4f8ec8e3cc23d9effc98531a8d54ac8f0b300e29065b": {
     "generatedAt": "2026-06-03T22:30:00.000Z",
@@ -2102,6 +2210,48 @@
     "shortDescription": "Chrome Extension for adding scene search links for tv episodes when viewing NzbDrone's show page.",
     "slug": "nzbdrone-xtender"
   },
+  "c9b1f8fc7622430b01e7401c33e2d597ee93d7ab8dfdb0521c7dcae7090188de": {
+    "generatedAt": "2026-08-27T05:13:14.527Z",
+    "longDescription": "AI-Assist Skills packages recurring engineering workflows as agent skills that install once and work across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so re-running it is the way to stay current. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf and GitHub Copilot. For authoring, the skills add command accepts a local path as its source, so a skill installs directly from your working tree and can be tested before committing or pushing; the same command overwrites the installed copy, so there is no separate update step. Installed skills can be listed back with npx skills list -g to verify what is in place.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
+      "This single command removes any stale or renamed skills, then installs the latest version of every skill from this repo. Run it any time to stay current",
+      "Skills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.).",
+      "you need to install it locally to test it **before** committing or pushing",
+      "The `skills add` command accepts a local path as the source, so it installs directly from your working tree",
+      "The same command overwrites the installed copy",
+      "there is no separate \"update\" step",
+      "npx skills list -g"
+    ],
+    "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows across multiple AI coding assistants.",
+    "slug": "ai-assist-skills"
+  },
+  "caf77174739eb10b83e1a8a4ded1bc8a276909b8aba13fb2c0ea692a1f0970e4": {
+    "generatedAt": "2026-08-27T05:20:40.563Z",
+    "longDescription": "Plan2Code is a spec-driven workflow that keeps planning and building separate for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time, so progress lives in files instead of chat history and the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. Installation requires Node.js 18 or later and network access and runs through the skills CLI: the installer builds the workflow as Agent Skills, delegates installation to skills add, cleans up after itself, and presents a menu covering install, install with dev tools, uninstall, and custom options. It supports every agent supported by the skills CLI, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini CLI, Cline and Roo. Version 2.2.0 is MIT licensed.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents. Send the plan",
+      "the build follows",
+      "An AI agent is a fine builder and a terrible client.",
+      "you approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time",
+      "Progress lives in files instead of chat history",
+      "the next session, the next agent, and the next engineer all start from the same specs",
+      "Six commands, each posted separately. Two of them are optional.",
+      "Requires [Node.js](https://nodejs.org/) 18 or later and network access",
+      "installation runs through the [skills CLI](https://skills.sh)",
+      "builds the workflow as Agent Skills, delegates installation to `skills add`, and cleans up after itself",
+      "I.  INSTALL    Install Plan2Code skills everywhere",
+      "A.  ALL        Install Plan2Code + dev tools",
+      "U.  UNINSTALL  Remove Plan2Code skills and dev tools",
+      "C.  CUSTOM     Advanced options",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code",
+      "Version 2.2.0 · MIT"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents. Send the plan, the build follows.",
+    "slug": "plan2code"
+  },
   "ccf3cb71864dbf82fdf77f43b30f7b28725c6e9dc995161d3b2c7d3650f4165d": {
     "generatedAt": "2026-06-03T22:35:00.000Z",
     "longDescription": "Two PowerShell scripts for managing and cleaning up old directories. `purge-files-in-folder.ps1` deletes all files in a specified folder using the `robocopy /purge` command and removes the folder itself if it is empty afterward. `purge-old-folders.ps1` calls that script for directories older than a specified number of months, cleaning up a target path in batches. Both accept a `-Force` flag to run without confirmation, and `purge-old-folders.ps1` can run interactively with a folder-browser dialog and prompts when no parameters are supplied.",
@@ -2146,6 +2296,20 @@
     ],
     "shortDescription": "A cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built in Go and Charm's Bubble Tea.",
     "slug": "shrinkray"
+  },
+  "cf0729b9b26b4d4971d3c8156770ee04fa9ab0f17c8be3ece06d129dd20cc15a": {
+    "generatedAt": "2026-08-22T05:16:31.592Z",
+    "longDescription": "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so it can be run any time to stay current. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf, and GitHub Copilot. For authoring, the `skills add` command accepts a local path as the source, so a skill installs directly from the working tree with no git push required; re-running the same command overwrites the installed copy, as there is no separate update step.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
+      "This single command removes any stale or renamed skills, then installs the latest version of every skill from this repo. Run it any time to stay current:",
+      "Skills are installed globally via [skills.sh](https://skills.sh) and auto-detected by 40+ AI agents (Claude Code, Cursor, Windsurf, GitHub Copilot, etc.).",
+      "The `skills add` command accepts a local path as the source, so it installs directly from your working tree — no git push required.",
+      "The same command overwrites the installed copy — there is no separate \"update\" step:"
+    ],
+    "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows, installable across multiple AI coding assistants.",
+    "slug": "ai-assist-skills"
   },
   "cf0a36cb205681e7e5e1b05ce469c16229290a906571c2ec96c3a81d93d440c4": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
@@ -2402,6 +2566,25 @@
     ],
     "shortDescription": "Simple Boilerplate Site — Single Page, Owl Carousel, Smooth Scroll, Gulp workflow with cache busting.",
     "slug": "simplesite-boilerplate"
+  },
+  "e1c0a39bfd52a34cece2f0af7b92300111289bed91c2075b23cc8f6b2ef2fdf8": {
+    "generatedAt": "2026-08-27T05:13:14.527Z",
+    "longDescription": "The Cottage Garden Companion is a collection of browser tools for feeding beds, pairing plants, and tending a cottage border. The Fertilizer Plot turns any N-P-K ratio into a generative, hand-drawn plant and then works out feed dose, timing and cost, while The Companion Bed covers 139 plants with ranked companion and \"keep apart\" relationships, explains why each pair works, and deep-links a recommended feed straight into the Fertilizer Plot. Every tool is a self-contained, single-file HTML page dressed as a pressed-herbarium specimen sheet, with warm recycled-paper surfaces, deep botanical ink, and an old-press serif over a clean grotesque. There is no build system, no dependencies, and no backend: each tool is one .html file that opens directly from disk, and the only network request is the Google Fonts link for Fraunces and Hanken Grotesk. More tools are taking root, including a sowing calendar and a watering guide.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A small, growing toolbox of plain-spoken helpers for the home gardener",
+      "feed your beds, pair your plants, and tend a cottage border",
+      "Turns any **N-P-K** ratio into a generative, hand-drawn plant, then works out feed dose, timing and cost.",
+      "**139 plants** with ranked companion + \"keep apart\" relationships, and why each pair works",
+      "deep-links a recommended feed straight into the Fertilizer Plot",
+      "Every tool is a **self-contained, single-file HTML page** dressed as a pressed-herbarium specimen sheet: warm recycled-paper surfaces, deep botanical ink, and an old-press serif over a clean grotesque.",
+      "There is **no build system, no dependencies, and no backend**",
+      "each tool is one `.html` file that opens directly from disk",
+      "The **only** network request is the Google Fonts `<link>` (Fraunces + Hanken Grotesk)",
+      "More tools are *taking root* (a sowing calendar, a watering guide, and more to come)."
+    ],
+    "shortDescription": "A growing toolbox of plain-spoken helpers for the home gardener, each one a self-contained single-file HTML page.",
+    "slug": "cottage-garden"
   },
   "e205a0dbcdda05dfeaff8d1dc1b03d2ca1d5ba6ba2c12c4df298b0f2f39b1b68": {
     "generatedAt": "2026-06-03T22:35:00.000Z",

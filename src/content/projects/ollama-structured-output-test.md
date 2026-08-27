@@ -43,7 +43,7 @@ lastCommit: '2026-04-17T16:19:00Z'
 _source:
   repo: 'https://github.com/jparkerweb/ollama-structured-output-test'
   sha: HEAD
-  fetchedAt: '2026-08-22T04:26:17.944Z'
+  fetchedAt: '2026-08-27T05:24:27.142Z'
 ---
 A Node.js application that demonstrates how to get structured JSON responses from Ollama using Zod schemas. It queries a locally or remotely running Ollama model and returns a structured response built from a defined schema, shown with an example that asks about Disney World and returns fields such as name, city, attractions, rides, and fun facts. It relies on the ollama JavaScript client, zod for schema validation, zod-to-json-schema to convert schemas to JSON Schema, and dotenv for environment configuration. The Ollama host and model are set via a `.env` file.
 

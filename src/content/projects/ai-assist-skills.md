@@ -8,18 +8,19 @@ tagline: >-
 description:
   short: >-
     A collection of AI agent skills that automate recurring engineering
-    workflows, installable across multiple AI coding assistants.
+    workflows across multiple AI coding assistants.
   long: >-
-    A collection of AI agent skills that automate recurring engineering
-    workflows and can be installed across multiple AI coding assistants. A
-    single sync command removes any stale or renamed skills, then installs the
-    latest version of every skill from the repo, so re-running it is the way to
-    stay current. Skills are installed globally via skills.sh and auto-detected
-    by more than 40 AI agents, including Claude Code, Cursor, Windsurf, and
-    GitHub Copilot. For authoring, the skills add command accepts a local path
-    as its source, so a skill installs directly from your working tree with no
-    git push required, and re-running the same command overwrites the installed
-    copy rather than requiring a separate update step.
+    AI-Assist Skills packages recurring engineering workflows as agent skills
+    that install once and work across multiple AI coding assistants. A single
+    sync command removes any stale or renamed skills, then installs the latest
+    version of every skill from the repo, so re-running it is the way to stay
+    current. Skills are installed globally via skills.sh and auto-detected by
+    40+ AI agents, including Claude Code, Cursor, Windsurf and GitHub Copilot.
+    For authoring, the skills add command accepts a local path as its source, so
+    a skill installs directly from your working tree and can be tested before
+    committing or pushing; the same command overwrites the installed copy, so
+    there is no separate update step. Installed skills can be listed back with
+    npx skills list -g to verify what is in place.
 banner:
   src: >-
     https://github.com/jparkerweb/ai-assist-skills/blob/main/ai-assist-skills.jpg?raw=true
@@ -33,23 +34,25 @@ topics:
   - ai-skills
 category: plugin
 theme: utilities
-primaryLanguage: JavaScript
+primaryLanguage: HTML
 languages:
   - name: JavaScript
-    percent: 100
+    percent: 34.96
+  - name: HTML
+    percent: 65.04
 stars: 88
 links:
   repo: 'https://github.com/jparkerweb/ai-assist-skills'
 featured: true
 sortOrder: 3
 status: active
-lastCommit: '2026-08-20T20:40:53Z'
+lastCommit: '2026-08-22T17:35:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-assist-skills'
   sha: HEAD
-  fetchedAt: '2026-08-22T04:26:17.944Z'
+  fetchedAt: '2026-08-27T05:24:27.142Z'
 ---
-A collection of AI agent skills that automate recurring engineering workflows and can be installed across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so re-running it is the way to stay current. Skills are installed globally via skills.sh and auto-detected by more than 40 AI agents, including Claude Code, Cursor, Windsurf, and GitHub Copilot. For authoring, the skills add command accepts a local path as its source, so a skill installs directly from your working tree with no git push required, and re-running the same command overwrites the installed copy rather than requiring a separate update step.
+AI-Assist Skills packages recurring engineering workflows as agent skills that install once and work across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so re-running it is the way to stay current. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf and GitHub Copilot. For authoring, the skills add command accepts a local path as its source, so a skill installs directly from your working tree and can be tested before committing or pushing; the same command overwrites the installed copy, so there is no separate update step. Installed skills can be listed back with npx skills list -g to verify what is in place.
 
 ## Installation
 

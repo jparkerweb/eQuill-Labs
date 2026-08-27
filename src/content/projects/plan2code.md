@@ -7,22 +7,27 @@ tagline: >-
   follows.
 description:
   short: >-
-    A spec-driven workflow for AI coding agents: you approve a plan, and the
-    agent builds to phase documents committed in your repo.
+    A spec-driven workflow for AI coding agents. Send the plan, the build
+    follows.
   long: >-
-    Plan2Code turns an approved plan into a set of phase documents in your
-    repository, then has the coding agent build against those documents one
-    phase at a time. Progress lives in files instead of chat history, so the
+    Plan2Code is a spec-driven workflow that keeps planning and building
+    separate for AI coding agents. You approve a plan, the plan becomes a set of
+    phase documents in your repo, and the agent builds to those documents one
+    phase at a time, so progress lives in files instead of chat history and the
     next session, the next agent, and the next engineer all start from the same
     specs. The workflow is six commands, each posted separately, two of which
-    are optional. It installs as Agent Skills through the skills CLI and works
-    with every agent that CLI supports, including Claude Code, Cursor, GitHub
-    Copilot, Windsurf, Codex, and Gemini CLI. It is written in TypeScript,
-    released under MIT, and requires Node.js 18 or later.
+    are optional. Installation requires Node.js 18 or later and network access
+    and runs through the skills CLI: the installer builds the workflow as Agent
+    Skills, delegates installation to skills add, cleans up after itself, and
+    presents a menu covering install, install with dev tools, uninstall, and
+    custom options. It supports every agent supported by the skills CLI,
+    including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini
+    CLI, Cline and Roo. Version 2.2.0 is MIT licensed.
 banner:
-  src: docs/banner.png
+  src: 'https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png'
   alt: plan2code banner
   source: repo
+  style: 'object-fit:contain'
 topics:
   - ai-developer-tools
   - ai-engineering
@@ -44,13 +49,13 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-08-20T20:48:42Z'
+lastCommit: '2026-08-27T05:24:02Z'
 _source:
   repo: 'https://github.com/jparkerweb/plan2code'
   sha: HEAD
-  fetchedAt: '2026-08-22T04:26:17.944Z'
+  fetchedAt: '2026-08-27T05:24:27.142Z'
 ---
-Plan2Code turns an approved plan into a set of phase documents in your repository, then has the coding agent build against those documents one phase at a time. Progress lives in files instead of chat history, so the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. It installs as Agent Skills through the skills CLI and works with every agent that CLI supports, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, and Gemini CLI. It is written in TypeScript, released under MIT, and requires Node.js 18 or later.
+Plan2Code is a spec-driven workflow that keeps planning and building separate for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time, so progress lives in files instead of chat history and the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. Installation requires Node.js 18 or later and network access and runs through the skills CLI: the installer builds the workflow as Agent Skills, delegates installation to skills add, cleans up after itself, and presents a menu covering install, install with dev tools, uninstall, and custom options. It supports every agent supported by the skills CLI, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini CLI, Cline and Roo. Version 2.2.0 is MIT licensed.
 
 ## Install
 

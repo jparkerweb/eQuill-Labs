@@ -1,12 +1,12 @@
 {
   "aiModel": null,
-  "buildId": "cd694c75-8d3f-4118-935a-42363f98aaa5",
-  "builtAt": "2026-08-22T04:27:42.188Z",
+  "buildId": "1917751b-6e3d-4e9e-ab68-969d39cb76c2",
+  "builtAt": "2026-08-27T05:24:57.708Z",
   "generator": {
     "name": "equill-labs-update",
     "version": "1.0.0"
   },
-  "inputsHash": "cae5938cf071ae549e8a34aea04645c503ec8a36189c9fe06af572dbbe794466",
+  "inputsHash": "c29fc2ae3af5f12f41d259b31f87c9be88fc5513fd86945cc0bcab0d9a613037",
   "projects": [
     {
       "contentHash": "7b09189d22b5270471d2787c8fcb5215244c5545ef7abfdf91c291192e43eda2",
@@ -14,7 +14,7 @@
       "slug": "add-block-to-hosts"
     },
     {
-      "contentHash": "36657bf5525cdb3f8abf3f79d44d920554cf23f5017ea8cd1dee8285e13c441e",
+      "contentHash": "c9b1f8fc7622430b01e7401c33e2d597ee93d7ab8dfdb0521c7dcae7090188de",
       "hasOverride": true,
       "slug": "ai-assist-skills"
     },
@@ -59,7 +59,7 @@
       "slug": "clip-to-file"
     },
     {
-      "contentHash": "8173971bab07bb656dc7cf2ee404aa52b44c0d49b548a324b22d4cc188131ee7",
+      "contentHash": "e1c0a39bfd52a34cece2f0af7b92300111289bed91c2075b23cc8f6b2ef2fdf8",
       "hasOverride": false,
       "slug": "cottage-garden"
     },
@@ -134,7 +134,7 @@
       "slug": "pixel-banner"
     },
     {
-      "contentHash": "0c7c7ab935a2dfdd87c7ca8ad69b9a2ea8a8cd59efe572d70b6440ebcc9830ea",
+      "contentHash": "32679977aefe63e9cb55c6e8d8ea6850db3318021979018e9d87e9c47c6c56f1",
       "hasOverride": false,
       "slug": "plan2code"
     },
@@ -242,312 +242,312 @@
   "skillVersion": null,
   "sources": [
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/add-block-to-hosts",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/ai-assist-skills",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/ai-skill--git-worktree",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/bedrock-proxy-endpoint",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/bedrock-wrapper",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/bgg-keyboard-select",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/Bivariate",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/Bivariate-test-helper",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/caps-left-right",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/card-generator-sob",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/chunk-match",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/clip-expand",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/clip-to-file",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/clover-quilt-designer",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/cottage-garden",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/down-craft",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/embedding-utils",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/eQuill-Labs",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/extract-topics",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/fast-topic-analysis",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/groundhog",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/htmldiff-example",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/indigestion",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/InferIQ",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/jparkerweb",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/k-batch",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/kdm-cards",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/llm-distillery",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/mcp-sqlite",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/node-webkit-example",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/obsidian-bullet-cards",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/obsidian-element-enhancer",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/obsidian-image-from-field",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/ollama-structured-output-test",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/pixel-banner",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/plan2code",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/pptx-in-html-out",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/print-mark",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/ps-win-dir-size",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/punctuation-restore",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/purge-old-directories",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/queue-tha-llama",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/random",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/random-pexels-image",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/ref",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/release-notes",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/replicate-ai-models-for-photoshop-plugin",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/rich-foot",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/scribd-cli",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/semantic-chunking",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/sentence-parse",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/shrinkray",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/simple-linkz",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/SimpleSite-Boilerplate",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/simply-dark",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/splitter-vs-splitter",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/steph-shot",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/summit-ridge-wiki",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/trim-style",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/vector-it",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/wdw-adr-checker",
       "sha": "HEAD"
     },
     {
-      "fetchedAt": "2026-08-22T04:26:17.944Z",
+      "fetchedAt": "2026-08-27T05:24:27.142Z",
       "repo": "https://github.com/jparkerweb/web-augmented-generation",
       "sha": "HEAD"
     }

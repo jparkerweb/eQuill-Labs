@@ -54,18 +54,18 @@ languages:
     percent: 1.96
   - name: CSS
     percent: 5.39
-stars: 11
+stars: 10
 links:
   repo: 'https://github.com/jparkerweb/down-craft'
   homepage: 'https://www.npmjs.com/package/down-craft'
 featured: false
-sortOrder: 989
+sortOrder: 990
 status: active
 lastCommit: '2025-01-03T14:48:21Z'
 _source:
   repo: 'https://github.com/jparkerweb/down-craft'
   sha: HEAD
-  fetchedAt: '2026-08-22T04:26:17.944Z'
+  fetchedAt: '2026-08-27T05:24:27.142Z'
 ---
 A Node.js package that converts documents -- PDF, DOCX, PPTX, and XLSX -- into Markdown. It uses tesseract.js, mammoth, pdf.js, and turndown for conversion, and for PDFs it offers a choice of standard text extraction, Tesseract OCR, or vLLM-based OCR via the OpenAI API for higher-fidelity results. The main `downCraft(fileBuffer, fileType?, options?)` function accepts a document buffer and optional file type (auto-detected when omitted) and returns the Markdown string. The vLLM converter extracts embedded images, renders PDF pages to high-quality images, runs vLLM OCR, and cleans up temporary files, with LLM parameters configurable directly or via environment variables.
 

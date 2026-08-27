@@ -19,7 +19,7 @@ description:
     archive of reference bitmaps. It runs on Node and headless Chrome, and is
     typically installed globally via npm.
 banner:
-  src: bivariate.png
+  src: 'https://raw.githubusercontent.com/jparkerweb/Bivariate/master/bivariate.png'
   alt: Bivariate banner
   source: repo
 topics:
@@ -51,7 +51,7 @@ lastCommit: '2023-05-25T14:33:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/Bivariate'
   sha: HEAD
-  fetchedAt: '2026-08-22T04:26:17.944Z'
+  fetchedAt: '2026-08-27T05:24:27.142Z'
 ---
 An opinionated interface for writing, running, and saving BackstopJS tests, aimed at making visual regression testing approachable for projects of any size without overwhelming complexity. It enforces a grouping structure and lets tests be written as manageable JavaScript object files rather than a single BackstopJS JSON config, while exposing all of BackstopJS's commands through the interface. All tests, scripts, and configuration live under a `bivariate_data` folder, with separate areas for test scripts, Puppeteer engine scripts that interact with the Chrome DOM before screenshots, and an archive of reference bitmaps. It runs on Node and headless Chrome, and is typically installed globally via npm.
 
