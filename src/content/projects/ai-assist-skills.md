@@ -50,7 +50,7 @@ lastCommit: '2026-08-22T17:35:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/ai-assist-skills'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:37:42.638Z'
+  fetchedAt: '2026-08-30T03:22:22.116Z'
 ---
 AI-Assist Skills packages recurring engineering workflows as agent skills that install once and work across multiple AI coding assistants. A single sync command removes any stale or renamed skills, then installs the latest version of every skill from the repo, so re-running it is the way to stay current. Skills are installed globally via skills.sh and auto-detected by 40+ AI agents, including Claude Code, Cursor, Windsurf and GitHub Copilot. For authoring, the skills add command accepts a local path as its source, so a skill installs directly from your working tree and can be tested before committing or pushing; the same command overwrites the installed copy, so there is no separate update step. Installed skills can be listed back with npx skills list -g to verify what is in place.
 

@@ -43,7 +43,7 @@ lastCommit: '2026-05-12T04:42:47Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-bullet-cards'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:37:42.638Z'
+  fetchedAt: '2026-08-30T03:22:22.116Z'
 ---
 A CSS snippet that renders bulleted list items as cards in Obsidian's Reading View (live preview is not supported). It depends on the obsidian-element-enhancer script to inject custom classes into the Reading View, and is enabled by copying the `bullet-cards.css` file into the Obsidian snippets folder. Cards are activated by adding a div with the `bullet-cards` class plus optional modifier classes. A range of modifier classes control vertical stacking, alignment, card width, content alignment, padding, and borders so the look can be mixed and matched.
 

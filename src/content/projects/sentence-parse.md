@@ -44,7 +44,7 @@ lastCommit: '2025-01-30T18:30:42Z'
 _source:
   repo: 'https://github.com/jparkerweb/sentence-parse'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:37:42.638Z'
+  fetchedAt: '2026-08-30T03:22:22.116Z'
 ---
 A utility that parses text into sentences, accepting either a string or file contents through its async `parseSentences` function. It offers options to treat multiple consecutive line breaks as separate sentences, remove specified start-of-line sequences, preserve HTML `<br>` and `<p>` tags as line breaks, and preserve list items with a configurable prefix. An option to exclude segments that contain no letters is also available. The package returns an array of parsed sentences and includes runnable examples.
 

@@ -42,7 +42,7 @@ lastCommit: '2026-04-17T16:15:40Z'
 _source:
   repo: 'https://github.com/jparkerweb/InferIQ'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:37:42.638Z'
+  fetchedAt: '2026-08-30T03:22:22.116Z'
 ---
 A Node.js LLM evaluation framework that uses LLMs to evaluate other LLMs. It generates answers to questions from a sample dataset across the LLMs in an evaluation pool, then has a group of Judge LLMs assess and rate each response. Results are visualized across several graphs to show overall accuracy, and additional metrics such as BERT Score and inference time are reported per LLM. It is set up with an npm setup script and started with `npm run server` or `npm start`.
 

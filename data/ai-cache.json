@@ -1295,6 +1295,26 @@
     "shortDescription": "npm package that adapts OpenAI-compatible API objects to AWS Bedrock serverless inference LLMs.",
     "slug": "bedrock-wrapper"
   },
+  "6e096a46a39ed625708ebbb3078b4ac888fa43cf687fb85b13509a599646c63a": {
+    "generatedAt": "2026-08-30T03:23:29.293Z",
+    "longDescription": "A recurring reminder that counts from when you started it and then interrupts you, written in Go and shipped for Windows, macOS, and Linux as one self-contained binary each. The settings documentation lives only on the project docs site, on the reasoning that two copies drift and the one that drifts is always the one being read. Nothing Groundhog ships is code signed, a deliberate choice rather than an oversight, so the first launch costs one extra click: Windows SmartScreen needs More info then Run anyway, and macOS refuses the first launch until Groundhog is allowed through System Settings > Privacy & Security. On Windows 11 machines with Smart App Control switched on, an unsigned executable can be blocked with no Run anyway offered at all, and turning that feature off is one way, so some Windows 11 users cannot run it. The Linux binary is built on Ubuntu 24.04 and requires glibc 2.39 or newer.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+      "Windows, macOS and Linux, one self-contained binary each.",
+      "The site is the only copy of the settings documentation, on purpose: two copies drift, and the one\nthat drifts is always the one you are reading.",
+      "Nothing Groundhog ships is code signed. There are no signing certificates anywhere in this project\nand no credentials in CI, which is a deliberate choice rather than an oversight, and the price of it\nis one extra click the first time you run it.",
+      "**Windows.** SmartScreen shows \"Windows protected your PC\". Click **More info**, then **Run anyway**.",
+      "**macOS.** The first launch is refused. Open **System Settings > Privacy & Security**",
+      "On Windows 11 installations that have **Smart App Control** switched on, an unsigned executable can\nbe blocked with no \"Run anyway\" offered at all.",
+      "Turning Smart App Control off is **one way**",
+      "some Windows 11 users cannot run\nGroundhog",
+      "The Linux binary is built on Ubuntu 24.04.",
+      "Linux needs glibc 2.39 or newer"
+    ],
+    "shortDescription": "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+    "slug": "groundhog"
+  },
   "6fe9cfdfba13cad3f5020ea612d86c5e403f88fdf102a90e263ac00ddba319ba": {
     "generatedAt": "2026-06-03T22:35:00.000Z",
     "longDescription": "A Photoshop plugin that integrates eight Replicate AI models into the editing workflow, turning a selection into a new layer while keeping lighting, shadows, and materials consistent. Generation models include Nano Banana, Seedream 4 with 1K/2K/4K resolution control, and Flux Kontext for context-aware edits and typography, while restoration and enhancement models cover GFPGAN face restoration, a background remover, SwinIR photo enhancement, and DDColor black-and-white colorization. Smart features include using the Photoshop foreground color in prompts, reference image support with automatic scaling, automatic aspect-ratio handling, real-time progress updates, and layer management with easy undo. Setup requires a Replicate account and API token.",
@@ -2065,6 +2085,28 @@
     ],
     "shortDescription": "Simple web app for generating formatted release notes with support for multiple platforms.",
     "slug": "release-notes"
+  },
+  "bbd0eb2975be34711c991272dc077ac8a02b7e247b820eac2ac908660086a6b0": {
+    "generatedAt": "2026-08-30T03:23:29.293Z",
+    "longDescription": "The portfolio site for eQuill Labs, presenting a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and TypeScript, with project content held in Astro Content Collections as Markdown and kept in sync with live repositories by a GitHub-driven data pipeline. That pipeline reads the GitHub GraphQL API through @octokit/graphql and the gh CLI, then fetches, curates, and renders each project into the collection alongside a build manifest and an AI cache. Open Graph images are generated with Satori and resvg, search is a static Pagefind index, and icons come from Lucide. Quality is checked with Playwright and axe-core for accessibility, Lighthouse CI, and html-validate, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+      "Framework | Astro 6, TypeScript",
+      "Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts",
+      "Content | Astro Content Collections, Markdown, gray-matter, remark",
+      "Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "OG Images | Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Search | Pagefind (static search index)",
+      "Icons | Lucide",
+      "Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate",
+      "Hosting | GitHub Pages",
+      "scripts/                # Data pipeline (fetch, curate, render, blurbs)",
+      "data/                   # GitHub snapshot, build manifest, AI cache"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker.",
+    "slug": "equill-labs"
   },
   "be21e8bb62725c7922f61ac9bf35dd5e65c9be9e034991983f5b28681e77e62b": {
     "generatedAt": "2026-04-21T18:19:31.431Z",

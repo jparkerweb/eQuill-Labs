@@ -45,6 +45,6 @@ lastCommit: '2026-07-05T17:55:47Z'
 _source:
   repo: 'https://github.com/jparkerweb/vector-it'
   sha: HEAD
-  fetchedAt: '2026-08-27T05:37:42.638Z'
+  fetchedAt: '2026-08-30T03:22:22.116Z'
 ---
 An open-source desktop application that converts raster images into vector graphics. It accepts PNG, JPG, BMP, GIF, and TIFF input and produces clean SVG, EPS, PDF, and DXF output. The app is built with Rust and uses Tauri v2 for a desktop shell of roughly 5 MB, wrapped in a React and TypeScript frontend, and is licensed under Apache-2.0. It runs on Windows, macOS, and Linux, distributed as an NSIS installer or MSI, a disk image, and AppImage, .deb, or .rpm packages. macOS builds are not code-signed or notarized, so the first launch requires opening the app explicitly through the right-click Open flow.
