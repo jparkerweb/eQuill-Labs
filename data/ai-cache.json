@@ -714,6 +714,30 @@
     "shortDescription": "Web-based chat application that integrates LLM capabilities with Bull Queue, Redis, and Chroma.",
     "slug": "queue-tha-llama"
   },
+  "2cabe8ebd98a8183c7c0fc292de94a044c0316b7dc811aa629e0fa302d5cf5a9": {
+    "generatedAt": "2026-09-04T20:03:54.204Z",
+    "longDescription": "azw3-to-pdf reads `.azw3`, `.azw`, `.mobi` and `.prc` files and lays them out as PDFs. The MOBI/KF8 parser, the layout engine and the PDF writer are all part of the binary, so there is no Calibre, no Python and no Ghostscript to install alongside it. Run it with no arguments to get a file browser in the terminal and pick a book, or drive it from the shell with `--no-tui` to convert a single file, a whole folder recursively, or several books at once with `--jobs`. Layout presets cover e-reader, paperback, print and large print, and every setting can be tuned by hand. Output keeps chapter breaks, headings, illustrations, the cover, hanging indents and justified text taken from the book's own stylesheet, and produces real PDFs with selectable text, outline bookmarks from the book's headings, page numbers and document metadata. A `probe` subcommand inspects a book without converting it.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Turn Kindle books into PDFs, from a terminal interface or a single command.",
+      "reads `.azw3`, `.azw`, `.mobi` and `.prc` files and lays them out as PDFs",
+      "the MOBI/KF8 parser, the layout engine and the PDF writer are all part of the binary",
+      "There is no Calibre, no Python, no Ghostscript and nothing else to install.",
+      "**A file browser in the terminal.** Run it with no arguments and pick a book.",
+      "**Batch conversion.** Select several books, or point it at a folder.",
+      "**Layout presets.** E-reader, paperback, print, large print and more, or tune",
+      "every setting yourself.",
+      "**Faithful pages.** Chapter breaks, headings, illustrations, the cover,",
+      "hanging indents and justified text, taken from the book's own stylesheet.",
+      "**Real PDFs.** Selectable text, outline bookmarks from the book's headings,",
+      "page numbers and document metadata.",
+      "azw3-to-pdf ~/Books --recursive --no-tui --output-dir ~/PDFs --jobs 4",
+      "azw3-to-pdf book.azw3 --no-tui",
+      "azw3-to-pdf probe book.azw3 --verbose"
+    ],
+    "shortDescription": "Go CLI and terminal browser that converts Kindle .azw3, .azw, .mobi and .prc books into PDFs.",
+    "slug": "azw3-to-pdf"
+  },
   "2efe6af4a8a3b723ca3164b61b22c3b8b90288bfea00ae3538d6e4c8ccf82dbf": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Blocks access to specific websites or domains by redirecting them to 0.0.0.0 in your Windows hosts file. Features automatic administrator privilege elevation, input validation and duplicate detection, optional backup creation with timestamps, and DNS cache flushing after modification.",
@@ -842,6 +866,25 @@
     ],
     "shortDescription": "A collection of AI agent skills that automate recurring engineering workflows, installable across multiple AI coding assistants.",
     "slug": "ai-assist-skills"
+  },
+  "3b63b77f7bda62728cee122476360fdfa8cb826d04d3b701d624304dbbd1326e": {
+    "generatedAt": "2026-09-04T20:03:54.204Z",
+    "longDescription": "Plan2Code is a spec-driven workflow for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time. Because progress lives in files instead of chat history, the next session, the next agent and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of them optional. It requires Node.js 18 or later and installs through the skills CLI, which builds the workflow as Agent Skills and delegates installation to `skills add`; the installed skills work independently from then on. Supported tools include every agent supported by the skills CLI, among them Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Continue, Codeium and Zed.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents. Send the plan",
+      "the build follows",
+      "you approve a\nplan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents\none phase at a time",
+      "Progress lives in files instead of chat history",
+      "so the next session, the next\nagent, and the next engineer all start from the same specs.",
+      "Six commands, each posted separately. Two of them are optional.",
+      "Requires [Node.js](https://nodejs.org/) 18 or later and network access",
+      "installation runs through\nthe [skills CLI](https://skills.sh)",
+      "builds the workflow as Agent Skills, delegates\ninstallation to `skills add`, and cleans up after itself. The installed skills work independently\nfrom then on.",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents: you approve a plan, and the agent builds to it one phase at a time.",
+    "slug": "plan2code"
   },
   "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -1266,6 +1309,24 @@
     "shortDescription": "Portfolio site for eQuill Labs — a catalog of open-source projects by Justin Parker, built with Astro 6 and a GitHub-driven data pipeline.",
     "slug": "equill-labs"
   },
+  "6a65b0d7ba3ea85b439d044fb6476dc8bfa692afeb8e2a31a4676f0855f7a819": {
+    "generatedAt": "2026-09-04T20:03:54.204Z",
+    "longDescription": "Shrinkray is a cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea. The interactive wizard gives step-by-step guided compression with real-time preview, and ships 18 built-in presets spanning quality tiers, purpose-driven profiles and platform-specific targets such as Discord, YouTube and TikTok. It analyzes a video and suggests the optimal preset, and auto-detects hardware acceleration across NVIDIA NVENC, AMD AMF, Apple VideoToolbox and Intel QSV. Entire folders can be compressed with parallel workers and progress tracking, and a headless `--no-tui` mode with stdin pipe support makes it scriptable for CI/CD pipelines. It ships as a single static binary for Windows, macOS and Linux.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "A cross-platform CLI video compression tool powered by FFmpeg,",
+      "featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "**Interactive TUI wizard** -- step-by-step guided compression with real-time preview",
+      "**18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)",
+      "**Smart recommendations** -- analyzes your video and suggests the optimal preset",
+      "**Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV",
+      "**Batch processing** -- compress entire folders with parallel workers and progress tracking",
+      "**Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines",
+      "**Cross-platform** -- single static binary for Windows, macOS, and Linux"
+    ],
+    "shortDescription": "Cross-platform CLI video compression tool powered by FFmpeg, with a wizard-style TUI built in Go.",
+    "slug": "shrinkray"
+  },
   "6b4b7fe2225942923f545f05a704e8581b9e08aa042f754ae4e603fdeb1aa869": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
     "longDescription": "Adds hotkeys that work on the BGG Subscriptions Feed page and on forum Thread pages. The v2.0.0 rewrite supports the new Angular-based Subscriptions Feed using heuristic DOM discovery plus a `MutationObserver` so it adapts when BGG tweaks class names or IDs. The existing keymap is unchanged from the original version.",
@@ -1364,6 +1425,24 @@
     ],
     "shortDescription": "A Chrome extension that provides a customizable dark mode for any website.",
     "slug": "simply-dark"
+  },
+  "728ba5083e13af922b714652087c458c2b6d513fd83bf5318361f92755cc150c": {
+    "generatedAt": "2026-09-04T20:03:54.204Z",
+    "longDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories. Project data comes from the GitHub GraphQL API via `@octokit/graphql` and the `gh` CLI, and lands in Astro Content Collections as Markdown processed with gray-matter and remark. OG images are rendered with Satori and resvg, search is a static Pagefind index, and the site is hosted on GitHub Pages. Testing covers accessibility with Playwright and axe-core, alongside Lighthouse CI and html-validate.",
+    "model": "claude-opus-5",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com)",
+      "a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+      "GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "Astro Content Collections, Markdown, gray-matter, remark",
+      "Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Pagefind (static search index)",
+      "Playwright + axe-core (a11y), Lighthouse CI, html-validate",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, built with Astro 6 and a GitHub-driven data pipeline.",
+    "slug": "equill-labs"
   },
   "74e5ef6a6b7a77af8da6fa095423ae3161398ebb5bd1b560618db4b4e72248b3": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
@@ -2253,9 +2332,9 @@
     "slug": "nzbdrone-xtender"
   },
   "c89a33452edc86b8a5367c826b24fc0e47a06aed95fe601fb1d3db042ba043ea": {
-    "slug": "equill-labs",
-    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker.",
+    "generatedAt": "2026-08-27T05:38:56.429Z",
     "longDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories, pulling repo data through the GitHub GraphQL API via @octokit/graphql and the gh CLI. Project pages come from Astro Content Collections and Markdown processed with gray-matter and remark, while Open Graph images are rendered by Satori and resvg and search runs on a static Pagefind index. Testing covers accessibility with Playwright and axe-core alongside Lighthouse CI and html-validate, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-5",
     "quotedSpans": [
       "Portfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
       "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
@@ -2266,8 +2345,8 @@
       "Playwright + axe-core (a11y), Lighthouse CI, html-validate",
       "Hosting | GitHub Pages"
     ],
-    "model": "claude-opus-5",
-    "generatedAt": "2026-08-27T05:38:56.429Z"
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker.",
+    "slug": "equill-labs"
   },
   "c9b1f8fc7622430b01e7401c33e2d597ee93d7ab8dfdb0521c7dcae7090188de": {
     "generatedAt": "2026-08-27T05:13:14.527Z",
@@ -2769,9 +2848,9 @@
     "slug": "mcp-sqlite"
   },
   "e859909af9405b48fd76f1672925daef3d1d4e9e4b80e1ee270b2213d8b6dd87": {
-    "slug": "groundhog",
-    "shortDescription": "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+    "generatedAt": "2026-08-27T05:38:56.429Z",
     "longDescription": "A recurring reminder that counts from when you started it, and then actually interrupts you rather than waiting to be noticed. It ships for Windows, macOS and Linux as one self-contained binary each, written in Go, with all of the settings documentation kept on a single docs site so two copies cannot drift. Nothing it ships is code signed, a deliberate choice rather than an oversight, so the first launch costs one extra click past SmartScreen on Windows or Privacy & Security on macOS. It contacts the network exactly once, and only when you press Check for updates in the settings window: it downloads nothing, installs nothing, and there is no background check and no telemetry of any kind. The Linux binary is built on Ubuntu 24.04 and needs glibc 2.39 or newer, with sound provided through libasound.so.2. Licensed under Apache License 2.0.",
+    "model": "claude-opus-5",
     "quotedSpans": [
       "One recurring reminder that counts from when you started it, and then actually interrupts you.",
       "Windows, macOS and Linux, one self-contained binary each.",
@@ -2786,8 +2865,8 @@
       "Sound needs `libasound.so.2`",
       "Apache License 2.0."
     ],
-    "model": "claude-opus-5",
-    "generatedAt": "2026-08-27T05:38:56.429Z"
+    "shortDescription": "One recurring reminder that counts from when you started it, and then actually interrupts you.",
+    "slug": "groundhog"
   },
   "e8f13df6ff02a7f70363db5f73212d417c431ca39d1fb2d97104286be46e3c3c": {
     "generatedAt": "2026-04-15T23:30:00.000Z",

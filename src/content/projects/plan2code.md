@@ -7,22 +7,20 @@ tagline: >-
   follows.
 description:
   short: >-
-    A spec-driven workflow for AI coding agents. Send the plan, the build
-    follows.
+    A spec-driven workflow for AI coding agents: you approve a plan, and the
+    agent builds to it one phase at a time.
   long: >-
-    Plan2Code is a spec-driven workflow that keeps planning and building
-    separate for AI coding agents. You approve a plan, the plan becomes a set of
-    phase documents in your repo, and the agent builds to those documents one
-    phase at a time, so progress lives in files instead of chat history and the
-    next session, the next agent, and the next engineer all start from the same
-    specs. The workflow is six commands, each posted separately, two of which
-    are optional. Installation requires Node.js 18 or later and network access
-    and runs through the skills CLI: the installer builds the workflow as Agent
-    Skills, delegates installation to skills add, cleans up after itself, and
-    presents a menu covering install, install with dev tools, uninstall, and
-    custom options. It supports every agent supported by the skills CLI,
-    including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini
-    CLI, Cline and Roo. Version 2.2.0 is MIT licensed.
+    Plan2Code is a spec-driven workflow for AI coding agents. You approve a
+    plan, the plan becomes a set of phase documents in your repo, and the agent
+    builds to those documents one phase at a time. Because progress lives in
+    files instead of chat history, the next session, the next agent and the next
+    engineer all start from the same specs. The workflow is six commands, each
+    posted separately, two of them optional. It requires Node.js 18 or later and
+    installs through the skills CLI, which builds the workflow as Agent Skills
+    and delegates installation to `skills add`; the installed skills work
+    independently from then on. Supported tools include every agent supported by
+    the skills CLI, among them Claude Code, Cursor, GitHub Copilot, Windsurf,
+    Codex, Continue, Codeium and Zed.
 banner:
   src: 'https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png'
   alt: plan2code banner
@@ -49,13 +47,13 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-08-27T05:24:02Z'
+lastCommit: '2026-09-03T14:18:47Z'
 _source:
   repo: 'https://github.com/jparkerweb/plan2code'
   sha: HEAD
-  fetchedAt: '2026-08-30T03:22:22.116Z'
+  fetchedAt: '2026-09-04T20:01:18.794Z'
 ---
-Plan2Code is a spec-driven workflow that keeps planning and building separate for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time, so progress lives in files instead of chat history and the next session, the next agent, and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of which are optional. Installation requires Node.js 18 or later and network access and runs through the skills CLI: the installer builds the workflow as Agent Skills, delegates installation to skills add, cleans up after itself, and presents a menu covering install, install with dev tools, uninstall, and custom options. It supports every agent supported by the skills CLI, including Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Zed, Gemini CLI, Cline and Roo. Version 2.2.0 is MIT licensed.
+Plan2Code is a spec-driven workflow for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time. Because progress lives in files instead of chat history, the next session, the next agent and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of them optional. It requires Node.js 18 or later and installs through the skills CLI, which builds the workflow as Agent Skills and delegates installation to `skills add`; the installed skills work independently from then on. Supported tools include every agent supported by the skills CLI, among them Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Continue, Codeium and Zed.
 
 ## Install
 

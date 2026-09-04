@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-30T03:22:22.116Z",
+  "fetchedAt": "2026-09-04T20:01:18.794Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast & Engineer  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,234 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2026-09-04T18:09:18Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "CLI to convert azw to pdf",
+      "forkCount": 0,
+      "homepageUrl": "azw3-to-pdf.equilllabs.com",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "Makefile"
+            },
+            "size": 866
+          },
+          {
+            "node": {
+              "name": "Go"
+            },
+            "size": 239821
+          }
+        ],
+        "totalSize": 240687
+      },
+      "licenseInfo": {
+        "spdxId": "MIT"
+      },
+      "name": "azw3-to-pdf",
+      "primaryLanguage": {
+        "color": "#00ADD8",
+        "name": "Go"
+      },
+      "pushedAt": "2026-09-04T19:54:38Z",
+      "readme": {
+        "text": "# azw3-to-pdf\n\nTurn Kindle books into PDFs, from a terminal interface or a single command.\n\n<img src=\"azw3-to-pdf.jpg\" style=\"max-width:800px;\" alt=\"banner\">\n\n`azw3-to-pdf` reads `.azw3`, `.azw`, `.mobi` and `.prc` files and lays them out as PDFs.  \nEverything is built in: the MOBI/KF8 parser, the layout engine and the PDF writer are all part of the binary.  \nThere is no Calibre, no Python, no Ghostscript and nothing else to install.\n\n- **A file browser in the terminal.** Run it with no arguments and pick a book.\n- **Batch conversion.** Select several books, or point it at a folder.\n- **Layout presets.** E-reader, paperback, print, large print and more, or tune\n  every setting yourself.\n- **Faithful pages.** Chapter breaks, headings, illustrations, the cover,\n  hanging indents and justified text, taken from the book's own stylesheet.\n- **Real PDFs.** Selectable text, outline bookmarks from the book's headings,\n  page numbers and document metadata.\n\n## Install\n\n```sh\ngo install github.com/jparkerweb/azw3-to-pdf/cmd/azw3-to-pdf@latest\n```\n\nOr clone and build:\n\n```sh\ngit clone https://github.com/jparkerweb/azw3-to-pdf.git\ncd azw3-to-pdf\nmake build\n```\n\n## Use\n\nOpen the interface and browse for a book:\n\n```sh\nazw3-to-pdf\n```\n\nConvert one book from the shell:\n\n```sh\nazw3-to-pdf book.azw3 --no-tui\n```\n\nConvert a whole folder into a separate output directory, four at a time:\n\n```sh\nazw3-to-pdf ~/Books --recursive --no-tui --output-dir ~/PDFs --jobs 4\n```\n\nLook inside a book without converting it:\n\n```sh\nazw3-to-pdf probe book.azw3 --verbose\n```\n\n### In the interface\n\n| Key | Does |\n| --- | --- |\n| `enter` | Open a folder, choose a book, confirm |\n| `space` | Add the highlighted book to a batch |\n| `b` | Convert the batch |\n| `tab` | Type a path instead of browsing |\n| `d` | Switch drive (Windows) |\n| `h` | Jump to your home folder |\n| `l` / `p` | Fine-tune the layout / pick a preset |\n| `?` | Keyboard shortcuts |\n| `ctrl+t` | Switch between the two colour themes |\n| `ctrl+c` | Quit |\n\n## Presets\n\n```sh\nazw3-to-pdf presets\n```\n\n| Preset | Layout |\n| --- | --- |\n| `ereader` | A5, 11 pt serif, tight margins. The default. |\n| `paperback` | 6 × 9 in with book margins and a running header. |\n| `print` | US Letter with generous margins for printing. |\n| `a4` | A4 with standard margins. |\n| `compact` | Small type and thin margins; about a third fewer pages. |\n| `large-print` | A4, 16 pt sans, open leading. |\n| `phone` | A narrow page that fills a phone screen. |\n| `manuscript` | Double-spaced Letter pages for mark-up. |\n\nAny preset can be overridden:\n\n```sh\nazw3-to-pdf book.azw3 --no-tui \\\n  --preset paperback \\\n  --page-size 120x160mm \\\n  --font-size 12 \\\n  --line-spacing 1.5 \\\n  --margin 12 \\\n  --no-justify\n```\n\n`azw3-to-pdf page-sizes` lists the built-in sizes. A measurement works too:\n`120x160mm`, `6x9in` or `432x648pt`.\n\n## Fonts\n\nThe body text uses a system serif face (Georgia, Times New Roman, DejaVu Serif\nor Liberation Serif, whichever is found first). `--font sans` and `--font mono`\npick a system face of that kind, and `--font /path/to/Font.ttf` uses your own.\nIf nothing suitable is installed, the Go typefaces embedded in the binary are\nused, so a conversion never fails for want of a font.\n\nOnly TrueType (`.ttf`) files can be embedded. OpenType/CFF (`.otf`) and font\ncollections (`.ttc`) are skipped in favour of the next candidate.\n\n## Configuration\n\nSettings are read from `config.yaml` in your configuration directory\n(`azw3-to-pdf version` prints the path). Everything is optional:\n\n```yaml\npreset: paperback\n\noutput:\n  dir: ~/PDFs\n  suffix: \"\"\n  conflict: rename   # fail, overwrite, rename or skip\n\nlayout:\n  page_size: trade\n  margin_mm: 18\n  font: serif\n  font_size: 11.5\n  line_spacing: 1.42\n  images: true\n  cover: true\n  title_page: true\n  page_numbers: true\n  bookmarks: true\n\nui:\n  theme: midnight-ink   # or paper-sepia\n```\n\nCommand-line flags override the file, which overrides the preset.\n\n## What it understands\n\n| | |\n| --- | --- |\n| Containers | Palm database (`.azw3`, `.azw`, `.mobi`, `.prc`) |\n| Formats | KF8 (MOBI 8) and MOBI 6, including dual-format files |\n| Compression | None, PalmDOC (LZ77) and HUFF/CDIC |\n| Text | UTF-8 and Windows-1252 |\n| Images | JPEG, PNG, GIF and BMP |\n| Styling | The book's own stylesheet: alignment, relative font sizes, hanging indents and page breaks |\n\n**DRM is not removed.** A book bought from the Kindle store and never\nde-authorised is encrypted, and `azw3-to-pdf` will say so rather than produce a\nPDF of noise. Convert books you own in an unencrypted form.\n\n`.kfx`, the newest Kindle format, is a different container and is not supported.\n\n## Development\n\n```sh\nmake build     # build ./azw3-to-pdf\nmake test      # go test ./...\nmake lint      # golangci-lint run ./...\nmake ci        # lint, test and build, as CI does\nmake run       # build and open the interface\nmake snapshot  # cross-platform build with goreleaser\n```\n\nReleases are cut by pushing a tag: `git tag v0.1.0 && git push origin v0.1.0`\nruns the tests and then publishes binaries for Linux, macOS and Windows on both\namd64 and arm64 through GoReleaser. See [CHANGELOG.md](CHANGELOG.md) for what\nhas changed in each version.\n\nThe code is laid out in stages, each of which can be read on its own:\n\n| Package | Does |\n| --- | --- |\n| `internal/ebook` | Palm container, MOBI/KF8 headers, decompression, resources |\n| `internal/htmldoc` | Book markup and CSS to a flat list of layout blocks |\n| `internal/pdfout` | Blocks to pages: wrapping, images, bookmarks, fonts |\n| `internal/engine` | Conversion jobs, output naming, progress |\n| `internal/presets` | Named layouts |\n| `internal/tui` | The terminal interface |\n| `internal/cli` | Flags, subcommands, headless conversion |\n\n## Licence\n\nMIT.\n"
+      },
+      "repositoryTopics": {
+        "nodes": []
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-09-04T19:55:07Z",
+      "url": "https://github.com/jparkerweb/azw3-to-pdf"
+    },
+    {
+      "createdAt": "2026-03-22T03:47:16Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
+      "forkCount": 0,
+      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "Ruby"
+            },
+            "size": 1516
+          },
+          {
+            "node": {
+              "name": "Makefile"
+            },
+            "size": 707
+          },
+          {
+            "node": {
+              "name": "Go"
+            },
+            "size": 388320
+          },
+          {
+            "node": {
+              "name": "PowerShell"
+            },
+            "size": 9700
+          },
+          {
+            "node": {
+              "name": "Shell"
+            },
+            "size": 12426
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 27460
+          }
+        ],
+        "totalSize": 440129
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "shrinkray",
+      "primaryLanguage": {
+        "color": "#00ADD8",
+        "name": "Go"
+      },
+      "pushedAt": "2026-09-04T19:47:08Z",
+      "readme": {
+        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n---\n\n### [Watch the promo YouTube video](https://www.youtube.com/watch?v=mhFh5wgaruQ)\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ffmpeg"
+            }
+          },
+          {
+            "topic": {
+              "name": "golang"
+            }
+          },
+          {
+            "topic": {
+              "name": "movie-processing"
+            }
+          },
+          {
+            "topic": {
+              "name": "shrink"
+            }
+          },
+          {
+            "topic": {
+              "name": "video-compression"
+            }
+          },
+          {
+            "topic": {
+              "name": "equill-cli"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 1,
+      "updatedAt": "2026-09-04T19:47:12Z",
+      "url": "https://github.com/jparkerweb/shrinkray"
+    },
+    {
+      "createdAt": "2025-12-03T04:59:18Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "📝 spec-driven workflow for AI coding agents. Send the plan, the build follows",
+      "forkCount": 0,
+      "homepageUrl": "https://plan2code.jparkerweb.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 105989
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 306086
+          }
+        ],
+        "totalSize": 412075
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "plan2code",
+      "primaryLanguage": {
+        "color": "#3178c6",
+        "name": "TypeScript"
+      },
+      "pushedAt": "2026-09-03T14:18:47Z",
+      "readme": {
+        "text": "\n# Plan2Code\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png\" alt=\"banner\" data=\"object-fit:contain;\" style=\"max-width:1024px;\">\n\n**A spec-driven workflow for AI coding agents. Send the plan — the build follows.**\n\nAn AI agent is a fine builder and a terrible client. Plan2Code stops making it both: you approve a\nplan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents\none phase at a time. Progress lives in files instead of chat history — so the next session, the next\nagent, and the next engineer all start from the same specs.\n\nSix commands, each posted separately. Two of them are optional.\n\nVersion 2.3.0 · MIT · 📖 [plan2code.jparkerweb.com](https://plan2code.jparkerweb.com)\n\n---\n\n## Install\n\nRequires [Node.js](https://nodejs.org/) 18 or later and network access — installation runs through\nthe [skills CLI](https://skills.sh). Re-run any time to update.\n\n```bash\nnpx --allow-git=all git+https://github.com/jparkerweb/plan2code.git\n```\n\nThis fetches the installer to a temp directory, builds the workflow as Agent Skills, delegates\ninstallation to `skills add`, and cleans up after itself. The installed skills work independently\nfrom then on.\n\nEither route lands you on the same menu:\n\n```\n╔═════════════════════════════════════════════════════════╗\n║ INSTALL PLAN2CODE                                       ║\n╠═════════════════════════════════════════════════════════╣\n║  I.  INSTALL    Install Plan2Code skills everywhere     ║\n║  A.  ALL        Install Plan2Code + dev tools           ║\n║  U.  UNINSTALL  Remove Plan2Code skills and dev tools   ║\n║  C.  CUSTOM     Advanced options                        ║\n║  Q.  QUIT       Exit                                    ║\n╚═════════════════════════════════════════════════════════╝\n```\n\n**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed · Amp · OpenCode · Devin · Crush · Pi ·\nGemini CLI · Cline · Roo · Kilo · Goose · Trae · Qwen Code.\n\nThe installer keeps one canonical copy of each skill under `~/.agents/skills/` and links it into\nagents that maintain their own directory. Update later with `npx skills update -g`.\n\nUse the installer rather than calling `skills add` against the repository root: recursive discovery\nwould also find maintainer-only skills under `.claude/skills/`. The installer targets `skills/`\nexplicitly.\n\n<details>\n<summary>Prefer to clone?</summary>\n\n```bash\ngit clone https://github.com/jparkerweb/plan2code.git\ncd plan2code\nnode install.js\n\n# Only if you plan to modify or contribute to Plan2Code itself\nnpm install && npx husky\n```\n</details>\n\n---\n\n## The workflow\n\n```\n ┌╴╴╴╴╴╴╴╴╴╴╴╴┐\n ╎0 PATHFINDER╎ optional · new in 2.0 · for an idea too big or unclear to plan\n └╴╴╴╴╴╴┬╴╴╴╴╴┘\n        ▼\n ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌╴╴╴╴╴╴╴╴╴╴╴╴┐  ┌────────────┐\n │  1  PLAN   │─>│ 2 DOCUMENT │─>│3 IMPLEMENT │─>╎   REVIEW   ╎─>│ 4 FINALIZE │\n │decide what │  │ draw it as │  │build to the│  ╎  optional  ╎  │verify, sum,│\n │  to build  │  │phase specs │  │  drawing   │  ╎  any time  ╎  │  archive   │\n └────────────┘  └────────────┘  └────────────┘  └╴╴╴╴╴╴╴╴╴╴╴╴┘  └────────────┘\n    new chat        new chat     new chat/phase     new chat        new chat\n ├◀─────────────── one feature, start to archive ──────────────────▶┤\n```\n\nEvery box is its own conversation. That is not a style preference — planning context leaking into\nimplementation is where most agent drift starts.\n\n| Command | Use it when |\n|---------|-------------|\n| `/plan2code-0-pathfinder` | The idea is too big and unclear to plan. Charts it as decisions, clears them one at a time, hands a hot plan draft to Step 1 |\n| `/plan2code-1-plan` | Starting a feature. Full requirements → architecture pass |\n| `/plan2code-2-document` | Planning is done. Turn the plan into phase specs |\n| `/plan2code-3-implement` | Build the next phase (one per conversation) |\n| `/plan2code-review` | Independent second opinion on local changes, then optional fixes |\n| `/plan2code-4-finalize` | All phases done. Validate, summarize, archive |\n| `/plan2code-init` | Generate this repo's `AGENTS.md` so every agent starts informed |\n| `/plan2code-init-update` | Fold what you learned this session back into `AGENTS.md` |\n| `/plan2code-quick-task` | A small change that doesn't warrant the full sequence |\n| `/plan2code-1b-revise-plan` | Requirements moved mid-build. Revise the specs, not the code |\n| `/plan2code-handoff` | Compact this conversation into a doc the next one resumes from |\n\n---\n\n## The four rules that do most of the work\n\n**1 · A fresh conversation for each step, and each implementation phase.**\nStep 3 gets a new chat per phase, not one chat for all of them.\n\n**2 · No code until the plan hits 90% confidence.**\nStep 1 will not finalize below the threshold. Under it, the agent keeps asking and keeps reading your\ncode — and writes every assumption down where you can argue with it.\n\n**3 · Checkboxes are the state, not the chat.**\nProgress lives in the spec files. Any agent, any session, resumes cold from them.\n\n**4 · Reply `approved` to close a phase.**\nNothing advances on a guess about what you meant.\n\n---\n\n## What lands in your repo\n\n```\nyour-project/\n├── specs/\n│   └── task-api/                     ← in progress\n│       ├── pathfinder/               ← only if you charted it in Step 0\n│       │   ├── map.md                    the destination, the decisions, the fog\n│       │   ├── questions/NN-<slug>.md    one decision per file\n│       │   └── briefs/brief-<date>.md    plain-English decision summaries\n│       ├── PLAN-DRAFT-20260804.md    ← Step 1: the verified plan\n│       ├── PLAN-CONVERSATION-*.md    ← Step 1: how you got there\n│       ├── overview.md               ← Step 2: phase list + parallel groups\n│       └── Phase 1.md … Phase N.md   ← Step 2: one-point tasks, self-contained\n├── specs--completed/\n│   └── auth-refresh/                 ← Step 4 files finished work here\n└── ...your code\n```\n\n`specs/` is gitignored by default — it's your working drawing, not a deliverable. Share a folder\ndeliberately with `git add -f` when you want to.\n\n### Progress marks\n\n| Mark | Status | Meaning |\n|------|--------|---------|\n| `[ ]` | Open | Unclaimed. Any agent picks it up cold. |\n| `[/]` | In progress | Claimed right now — which is how two agents run parallel phases without colliding. |\n| `[x]` | Done | Built, self-reviewed against the spec, approved by you. |\n\n```markdown\n## Phases\n\n- [x] Phase 1: Project setup\n- [x] Phase 2: Data model\n- [/] Phase 3: API endpoints        ← an agent is on this now\n- [ ] Phase 4: Authentication       ← next available\n```\n\nStep 2 marks which phases don't share files. Open a second agent on one of those, and the `[/]` marks\nkeep the two out of each other's way.\n\n---\n\n## The six steps in detail\n\nEach one travels on its own — a fresh conversation, opened and closed, with the specs on disk as the\nonly thing carried between them.\n\n### 0 · Pathfinder 🧭 — optional, new in 2.0\n\nSome ideas are too big and unclear to plan: you can feel the shape of the work but you can't write\nit as requirements, so planning would just invent the answers. Pathfinder finds the *way* to the\ndestination; Step 1 then walks it.\n\n1. **Name the destination** — one or two lines fixing what this effort is finding its way to. Settled\n   first, because it fixes scope. It also asks where the map should live: **local files** under\n   gitignored `specs/` (private, solo — the default), or **GitHub Issues** (a map issue with one\n   sub-issue per decision, native blocking, so your team can see and work the frontier in the tracker).\n2. **Chart the map** — a breadth-first grilling surfaces the open decisions. Anything you can phrase\n   *sharply* becomes a question file; anything you can only sense stays listed as fog.\n3. **Clear the questions one at a time** — resolving one burns off the fog behind it, graduating\n   whatever just became sharp into new questions. After each decision it offers a menu: take the next\n   question here, or start fresh — recommended after about three, to keep the agent sharp.\n   Ask for a **brief** at any point and you get a dated, plain-English summary of what has been\n   decided, what is still open, and what is next — meeting minutes, with no jargon in them.\n4. **Hand off** — when nothing is left to decide, it writes a `PLAN-DRAFT` that\n   `/plan2code-1-plan` resumes from at Phase 4, with requirements, context, and scope already\n   answered.\n\n**Question types:** `grill` (a decision only you can make — the default) · `research` (a fact gates\nit; background agents resolve these, several in parallel) · `sketch` (you need something concrete to\nreact to) · `legwork` (manual work that has to happen before a decision is possible).\n\nIt never answers its own questions, and it **plans, it never builds.** When the urge to just build it\narrives, the map is done. Skip Step 0 entirely when you already know what you're building.\n\n**Out:** `specs/<feature>/pathfinder/map.md` + `questions/` (or a `pathfinder:map` issue and its\nsub-issues) → `PLAN-DRAFT-<date>.md`. The draft is always a local file — that is what Step 1 reads.\n\n### 1 · Plan 🤔\n\nThe agent works as a senior architect through six phases, stopping for you after each: requirements\nanalysis · system context (reading your actual codebase) · tech stack (needs your explicit sign-off) ·\narchitecture design · technical specification · transition decision.\n\nIt won't finalize below **90% confidence**, and every assumption it makes is written into the draft.\n\n**In:** a description of the feature. **Out:** `PLAN-DRAFT-<date>.md` + `PLAN-CONVERSATION-<date>.md`\n\n### 2 · Document 📝\n\nThe plan becomes the drawing. One `overview.md` with the phase checklist, plus one file per phase of\none-story-point tasks. Each phase is **self-contained** — an agent opening `Phase 3.md` cold needs\nnothing else to build it. Unit and E2E tests are excluded unless you ask for them.\n\nThe overview also identifies the **parallel execution groups**: phases with no shared files or\ndependencies, safe to run in separate agents at once.\n\n**In:** the `PLAN-DRAFT`. **Out:** `overview.md` + `Phase 1…N.md`\n\n### 3 · Implement ⚡\n\nPoint it at `overview.md` and it does the rest: finds the next unchecked phase, implements every task\nexactly as specified, ticks tasks off as they land, then reviews its own work against the spec and\nwrites a completion summary.\n\nOne phase per conversation. It won't run tests unless the phase says to.\n\n**In:** `specs/<feature>/overview.md`. **Out:** working code, and updated checkboxes.\n\n### Review 🔬 — optional, any time\n\nAn independent second opinion, not a rubber stamp. It figures out its own scope (conversation\ncontext, your instruction, or the git diff as a fallback), analyses across 11 dimensions, and ranks\nfindings Critical / Warning / Suggestion. Every finding cites a file and a line, or it gets dropped —\nand the review pass is read-only. It fixes things only if you ask, and verifies each fix afterwards.\n\nSpec-aware when `specs/` exists, and works fine without it. Most useful right after a planning or\nimplementation step, but there's no wrong time to run it.\n\n### 4 · Finalize 🧹\n\nValidates every task against its phase spec, writes the summary and the list of files touched, flags\nthe docs that drifted (`README`, `CHANGELOG`, `AGENTS.md`), then archives the whole spec folder —\n`pathfinder/` included — to `specs--completed/`. That folder is the record of *why* the code looks\nlike this.\n\n**In:** `specs/<feature>/overview.md`. **Out:** archived specs.\n\n---\n\n## What to bring to each step\n\n| Step | Required input |\n|------|----------------|\n| 0 · Pathfinder | Nothing to start — just describe the idea. To continue: the feature name; it finds its own map |\n| 1 · Plan | Nothing — describe the feature |\n| 2 · Document | `specs/<feature>/PLAN-DRAFT-<date>.md`, or the planning conversation |\n| 3 · Implement | `specs/<feature>/overview.md` — it detects the phase itself |\n| Review | Scope guidance, e.g. \"the last two phases\", \"just the auth module\", \"the whole PR\". Auto-detects if you give none |\n| 4 · Finalize | `specs/<feature>/overview.md` |\n\n---\n\n## Troubleshooting\n\n**The skills aren't recognised.** Re-run the installer and restart your AI tool. Confirm the global\ninstall with `npx skills list -g`. For a project install, check the generated directories aren't\ngitignored.\n\n**Your tool doesn't read Agent Skills.** Since v2.2.0, Plan2Code ships only as skills. If your tool\nhas no skill support, paste the relevant `src/plan2code-*.md` manually or point it at the installed\ncopy under `~/.agents/skills/`.\n\n**The agent starts coding during planning.** The prompts forbid it, but models drift. Say: \"Stay in\nplanning mode. Do not write code yet.\"\n\n**The agent doesn't know what to implement.** Give it the path to `overview.md` — it reads the phase\nfile itself from there.\n\n**You lost track between sessions.** `overview.md` has the phase status; the phase files have the\ntask status. That's the whole state.\n\n**The agent isn't following the spec.** Point at the specific phase document and tell it to re-read\nthe requirements.\n\n**Too many or too few phases.** Fix it in Step 2 — a phase should be a logical grouping of work, not\na fixed size.\n\n---\n\n## Customizing\n\nThe prompts are yours to edit. Common changes: add testing requirements in Step 2, move the 90%\nconfidence threshold in Step 1, restructure the `specs/` layout, or add review gates to Step 3.\nSource files live in `src/`; run `npm run build:skills`, then re-run `node install.js` to push your\nedits out through the skills CLI.\n\n---\n\n## Dive deeper\n\nCore reference:\n\n- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** — the one-page card: commands, inputs, outputs, decision tree\n- **[.readme/walkthrough.md](.readme/walkthrough.md)** — one feature from a sentence to archived specs, session by session\n- **[AGENTS.md](AGENTS.md)** — architecture and contributor guide for this repo\n- **[CHANGELOG.md](CHANGELOG.md)** — what changed, and why\n\nOptional tooling — none of it is required to use the workflow:\n\n- **[.readme/autonomous-loop.md](.readme/autonomous-loop.md)** — `plan2code-loop`, a hands-off alternative to Step 3\n- **[.readme/status-line.md](.readme/status-line.md)** — three-line Claude Code status bar: model, context, quota, diff\n- **[.readme/metrics.md](.readme/metrics.md)** — `plan2code-metrics`, measuring and improving the prompts themselves\n- **[.readme/test-bot.md](.readme/test-bot.md)** — `plan2code-bot`, maintainer harness that runs the whole workflow unattended\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ai-developer-tools"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-engineering"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-sdlc"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-sdlc-framework"
+            }
+          },
+          {
+            "topic": {
+              "name": "spec-driven-development"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-09-03T14:26:09Z",
+      "url": "https://github.com/jparkerweb/plan2code"
+    },
     {
       "createdAt": "2024-11-16T21:22:07Z",
       "defaultBranchRef": {
@@ -68,7 +296,7 @@
         "color": "#e34c26",
         "name": "HTML"
       },
-      "pushedAt": "2026-08-27T05:43:18Z",
+      "pushedAt": "2026-08-30T03:29:36Z",
       "readme": {
         "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Banner framing | A `data=\"…\"` attribute on that same `<img>`, holding CSS declarations | Applied as an inline `style` on the card and project-page banner `<img>` |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\n#### Framing the banner with `data=\"…\"`\n\nA banner that looks right at full width in a README is often cropped badly by the card, which renders it in a short fixed-height box with `object-fit: cover`. To steer that crop from the repo itself, put CSS declarations in a `data` attribute on the banner `<img>`:\n\n```html\n<img\n  src=\"https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg\"\n  alt=\"banner\"\n  data=\"object-position:bottom;\"\n  style=\"max-height:400px\">\n```\n\n`refresh:render` stores that value as `banner.style` in the project's frontmatter, and `ProjectCard.astro` / `ProjectLayout.astro` apply it as an inline `style` on the banner `<img>`, layering over the component's own CSS. The example above keeps the bottom of the image in frame instead of the default centered crop.\n\nNotes:\n\n- Only the `data` attribute is read. The `style` attribute on the README `<img>` is ignored (it governs how the image renders on GitHub, which is a different box).\n- Values are sanitized before use: only well-formed `prop: value` declarations survive, and anything containing markup characters, braces, or `url(...)` is dropped. The result is capped at 300 characters.\n- `object-position`, `object-fit`, `transform`, and `filter` are the useful ones in practice. The banner box sizing itself stays under the site's control.\n- Relative image paths (`docs/banner.png`) are resolved to `raw.githubusercontent.com` on the repo's default branch, so a banner does not need an absolute URL in the README.\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
       },
@@ -82,83 +310,8 @@
         ]
       },
       "stargazerCount": 1,
-      "updatedAt": "2026-08-27T05:43:35Z",
+      "updatedAt": "2026-08-30T03:29:41Z",
       "url": "https://github.com/jparkerweb/eQuill-Labs"
-    },
-    {
-      "createdAt": "2025-12-03T04:59:18Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "📝 spec-driven workflow for AI coding agents. Send the plan, the build follows",
-      "forkCount": 0,
-      "homepageUrl": "https://plan2code.jparkerweb.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 105989
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 306086
-          }
-        ],
-        "totalSize": 412075
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "plan2code",
-      "primaryLanguage": {
-        "color": "#3178c6",
-        "name": "TypeScript"
-      },
-      "pushedAt": "2026-08-27T05:24:02Z",
-      "readme": {
-        "text": "\n# Plan2Code\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png\" alt=\"banner\" data=\"object-fit:contain;\" style=\"max-width:1024px;\">\n\n**A spec-driven workflow for AI coding agents. Send the plan — the build follows.**\n\nAn AI agent is a fine builder and a terrible client. Plan2Code stops making it both: you approve a\nplan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents\none phase at a time. Progress lives in files instead of chat history — so the next session, the next\nagent, and the next engineer all start from the same specs.\n\nSix commands, each posted separately. Two of them are optional.\n\nVersion 2.2.0 · MIT · 📖 [plan2code.jparkerweb.com](https://plan2code.jparkerweb.com)\n\n---\n\n## Install\n\nRequires [Node.js](https://nodejs.org/) 18 or later and network access — installation runs through\nthe [skills CLI](https://skills.sh). Re-run any time to update.\n\n```bash\nnpx --allow-git=all git+https://github.com/jparkerweb/plan2code.git\n```\n\nThis fetches the installer to a temp directory, builds the workflow as Agent Skills, delegates\ninstallation to `skills add`, and cleans up after itself. The installed skills work independently\nfrom then on.\n\nEither route lands you on the same menu:\n\n```\n╔═════════════════════════════════════════════════════════╗\n║ INSTALL PLAN2CODE                                       ║\n╠═════════════════════════════════════════════════════════╣\n║  I.  INSTALL    Install Plan2Code skills everywhere     ║\n║  A.  ALL        Install Plan2Code + dev tools           ║\n║  U.  UNINSTALL  Remove Plan2Code skills and dev tools   ║\n║  C.  CUSTOM     Advanced options                        ║\n║  Q.  QUIT       Exit                                    ║\n╚═════════════════════════════════════════════════════════╝\n```\n\n**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed · Amp · OpenCode · Devin · Crush · Pi ·\nGemini CLI · Cline · Roo · Kilo · Goose · Trae · Qwen Code.\n\nThe installer keeps one canonical copy of each skill under `~/.agents/skills/` and links it into\nagents that maintain their own directory. Update later with `npx skills update -g`.\n\nUse the installer rather than calling `skills add` against the repository root: recursive discovery\nwould also find maintainer-only skills under `.claude/skills/`. The installer targets `skills/`\nexplicitly.\n\n<details>\n<summary>Prefer to clone?</summary>\n\n```bash\ngit clone https://github.com/jparkerweb/plan2code.git\ncd plan2code\nnode install.js\n\n# Only if you plan to modify or contribute to Plan2Code itself\nnpm install && npx husky\n```\n</details>\n\n---\n\n## The workflow\n\n```\n ┌╴╴╴╴╴╴╴╴╴╴╴╴┐\n ╎0 PATHFINDER╎ optional · new in 2.0 · for an idea too big or unclear to plan\n └╴╴╴╴╴╴┬╴╴╴╴╴┘\n        ▼\n ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌╴╴╴╴╴╴╴╴╴╴╴╴┐  ┌────────────┐\n │  1  PLAN   │─>│ 2 DOCUMENT │─>│3 IMPLEMENT │─>╎   REVIEW   ╎─>│ 4 FINALIZE │\n │decide what │  │ draw it as │  │build to the│  ╎  optional  ╎  │verify, sum,│\n │  to build  │  │phase specs │  │  drawing   │  ╎  any time  ╎  │  archive   │\n └────────────┘  └────────────┘  └────────────┘  └╴╴╴╴╴╴╴╴╴╴╴╴┘  └────────────┘\n    new chat        new chat     new chat/phase     new chat        new chat\n ├◀─────────────── one feature, start to archive ──────────────────▶┤\n```\n\nEvery box is its own conversation. That is not a style preference — planning context leaking into\nimplementation is where most agent drift starts.\n\n| Command | Use it when |\n|---------|-------------|\n| `/plan2code-0-pathfinder` | The idea is too big and unclear to plan. Charts it as decisions, clears one per session, hands a hot plan draft to Step 1 |\n| `/plan2code-1-plan` | Starting a feature. Full requirements → architecture pass |\n| `/plan2code-2-document` | Planning is done. Turn the plan into phase specs |\n| `/plan2code-3-implement` | Build the next phase (one per conversation) |\n| `/plan2code-review` | Independent second opinion on local changes, then optional fixes |\n| `/plan2code-4-finalize` | All phases done. Validate, summarize, archive |\n| `/plan2code-init` | Generate this repo's `AGENTS.md` so every agent starts informed |\n| `/plan2code-init-update` | Fold what you learned this session back into `AGENTS.md` |\n| `/plan2code-quick-task` | A small change that doesn't warrant the full sequence |\n| `/plan2code-1b-revise-plan` | Requirements moved mid-build. Revise the specs, not the code |\n| `/plan2code-handoff` | Compact this conversation into a doc the next one resumes from |\n\n---\n\n## The four rules that do most of the work\n\n**1 · A fresh conversation for each step, and each implementation phase.**\nStep 3 gets a new chat per phase, not one chat for all of them.\n\n**2 · No code until the plan hits 90% confidence.**\nStep 1 will not finalize below the threshold. Under it, the agent keeps asking and keeps reading your\ncode — and writes every assumption down where you can argue with it.\n\n**3 · Checkboxes are the state, not the chat.**\nProgress lives in the spec files. Any agent, any session, resumes cold from them.\n\n**4 · Reply `approved` to close a phase.**\nNothing advances on a guess about what you meant.\n\n---\n\n## What lands in your repo\n\n```\nyour-project/\n├── specs/\n│   └── task-api/                     ← in progress\n│       ├── pathfinder/               ← only if you charted it in Step 0\n│       │   ├── map.md                    the destination, the decisions, the fog\n│       │   └── questions/NN-<slug>.md    one decision per file\n│       ├── PLAN-DRAFT-20260804.md    ← Step 1: the verified plan\n│       ├── PLAN-CONVERSATION-*.md    ← Step 1: how you got there\n│       ├── overview.md               ← Step 2: phase list + parallel groups\n│       └── Phase 1.md … Phase N.md   ← Step 2: one-point tasks, self-contained\n├── specs--completed/\n│   └── auth-refresh/                 ← Step 4 files finished work here\n└── ...your code\n```\n\n`specs/` is gitignored by default — it's your working drawing, not a deliverable. Share a folder\ndeliberately with `git add -f` when you want to.\n\n### Progress marks\n\n| Mark | Status | Meaning |\n|------|--------|---------|\n| `[ ]` | Open | Unclaimed. Any agent picks it up cold. |\n| `[/]` | In progress | Claimed right now — which is how two agents run parallel phases without colliding. |\n| `[x]` | Done | Built, self-reviewed against the spec, approved by you. |\n\n```markdown\n## Phases\n\n- [x] Phase 1: Project setup\n- [x] Phase 2: Data model\n- [/] Phase 3: API endpoints        ← an agent is on this now\n- [ ] Phase 4: Authentication       ← next available\n```\n\nStep 2 marks which phases don't share files. Open a second agent on one of those, and the `[/]` marks\nkeep the two out of each other's way.\n\n---\n\n## The six steps in detail\n\nEach one travels on its own — a fresh conversation, opened and closed, with the specs on disk as the\nonly thing carried between them.\n\n### 0 · Pathfinder 🧭 — optional, new in 2.0\n\nSome ideas are too big and unclear to plan: you can feel the shape of the work but you can't write\nit as requirements, so planning would just invent the answers. Pathfinder finds the *way* to the\ndestination; Step 1 then walks it.\n\n1. **Name the destination** — one or two lines fixing what this effort is finding its way to. Settled\n   first, because it fixes scope. It also asks where the map should live: **local files** under\n   gitignored `specs/` (private, solo — the default), or **GitHub Issues** (a map issue with one\n   sub-issue per decision, native blocking, so your team can see and work the frontier in the tracker).\n2. **Chart the map** — a breadth-first grilling surfaces the open decisions. Anything you can phrase\n   *sharply* becomes a question file; anything you can only sense stays listed as fog.\n3. **Clear one question per session** — resolving a question burns off the fog behind it, graduating\n   whatever just became sharp into new questions.\n4. **Hand off** — when nothing is left to decide, it writes a `PLAN-DRAFT` that\n   `/plan2code-1-plan` resumes from at Phase 4, with requirements, context, and scope already\n   answered.\n\n**Question types:** `grill` (a decision only you can make — the default) · `research` (a fact gates\nit; background agents resolve these, several in parallel) · `sketch` (you need something concrete to\nreact to) · `legwork` (manual work that has to happen before a decision is possible).\n\nIt never answers its own questions, and it **plans, it never builds.** When the urge to just build it\narrives, the map is done. Skip Step 0 entirely when you already know what you're building.\n\n**Out:** `specs/<feature>/pathfinder/map.md` + `questions/` (or a `pathfinder:map` issue and its\nsub-issues) → `PLAN-DRAFT-<date>.md`. The draft is always a local file — that is what Step 1 reads.\n\n### 1 · Plan 🤔\n\nThe agent works as a senior architect through six phases, stopping for you after each: requirements\nanalysis · system context (reading your actual codebase) · tech stack (needs your explicit sign-off) ·\narchitecture design · technical specification · transition decision.\n\nIt won't finalize below **90% confidence**, and every assumption it makes is written into the draft.\n\n**In:** a description of the feature. **Out:** `PLAN-DRAFT-<date>.md` + `PLAN-CONVERSATION-<date>.md`\n\n### 2 · Document 📝\n\nThe plan becomes the drawing. One `overview.md` with the phase checklist, plus one file per phase of\none-story-point tasks. Each phase is **self-contained** — an agent opening `Phase 3.md` cold needs\nnothing else to build it. Unit and E2E tests are excluded unless you ask for them.\n\nThe overview also identifies the **parallel execution groups**: phases with no shared files or\ndependencies, safe to run in separate agents at once.\n\n**In:** the `PLAN-DRAFT`. **Out:** `overview.md` + `Phase 1…N.md`\n\n### 3 · Implement ⚡\n\nPoint it at `overview.md` and it does the rest: finds the next unchecked phase, implements every task\nexactly as specified, ticks tasks off as they land, then reviews its own work against the spec and\nwrites a completion summary.\n\nOne phase per conversation. It won't run tests unless the phase says to.\n\n**In:** `specs/<feature>/overview.md`. **Out:** working code, and updated checkboxes.\n\n### Review 🔬 — optional, any time\n\nAn independent second opinion, not a rubber stamp. It figures out its own scope (conversation\ncontext, your instruction, or the git diff as a fallback), analyses across 11 dimensions, and ranks\nfindings Critical / Warning / Suggestion. Every finding cites a file and a line, or it gets dropped —\nand the review pass is read-only. It fixes things only if you ask, and verifies each fix afterwards.\n\nSpec-aware when `specs/` exists, and works fine without it. Most useful right after a planning or\nimplementation step, but there's no wrong time to run it.\n\n### 4 · Finalize 🧹\n\nValidates every task against its phase spec, writes the summary and the list of files touched, flags\nthe docs that drifted (`README`, `CHANGELOG`, `AGENTS.md`), then archives the whole spec folder —\n`pathfinder/` included — to `specs--completed/`. That folder is the record of *why* the code looks\nlike this.\n\n**In:** `specs/<feature>/overview.md`. **Out:** archived specs.\n\n---\n\n## What to bring to each step\n\n| Step | Required input |\n|------|----------------|\n| 0 · Pathfinder | Nothing to start — just describe the idea. To continue: the feature name; it finds its own map |\n| 1 · Plan | Nothing — describe the feature |\n| 2 · Document | `specs/<feature>/PLAN-DRAFT-<date>.md`, or the planning conversation |\n| 3 · Implement | `specs/<feature>/overview.md` — it detects the phase itself |\n| Review | Scope guidance, e.g. \"the last two phases\", \"just the auth module\", \"the whole PR\". Auto-detects if you give none |\n| 4 · Finalize | `specs/<feature>/overview.md` |\n\n---\n\n## Troubleshooting\n\n**The skills aren't recognised.** Re-run the installer and restart your AI tool. Confirm the global\ninstall with `npx skills list -g`. For a project install, check the generated directories aren't\ngitignored.\n\n**Your tool doesn't read Agent Skills.** Since v2.2.0, Plan2Code ships only as skills. If your tool\nhas no skill support, paste the relevant `src/plan2code-*.md` manually or point it at the installed\ncopy under `~/.agents/skills/`.\n\n**The agent starts coding during planning.** The prompts forbid it, but models drift. Say: \"Stay in\nplanning mode. Do not write code yet.\"\n\n**The agent doesn't know what to implement.** Give it the path to `overview.md` — it reads the phase\nfile itself from there.\n\n**You lost track between sessions.** `overview.md` has the phase status; the phase files have the\ntask status. That's the whole state.\n\n**The agent isn't following the spec.** Point at the specific phase document and tell it to re-read\nthe requirements.\n\n**Too many or too few phases.** Fix it in Step 2 — a phase should be a logical grouping of work, not\na fixed size.\n\n---\n\n## Customizing\n\nThe prompts are yours to edit. Common changes: add testing requirements in Step 2, move the 90%\nconfidence threshold in Step 1, restructure the `specs/` layout, or add review gates to Step 3.\nSource files live in `src/`; run `npm run build:skills`, then re-run `node install.js` to push your\nedits out through the skills CLI.\n\n---\n\n## Dive deeper\n\nCore reference:\n\n- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** — the one-page card: commands, inputs, outputs, decision tree\n- **[.readme/walkthrough.md](.readme/walkthrough.md)** — one feature from a sentence to archived specs, session by session\n- **[AGENTS.md](AGENTS.md)** — architecture and contributor guide for this repo\n- **[CHANGELOG.md](CHANGELOG.md)** — what changed, and why\n\nOptional tooling — none of it is required to use the workflow:\n\n- **[.readme/autonomous-loop.md](.readme/autonomous-loop.md)** — `plan2code-loop`, a hands-off alternative to Step 3\n- **[.readme/status-line.md](.readme/status-line.md)** — three-line Claude Code status bar: model, context, quota, diff\n- **[.readme/metrics.md](.readme/metrics.md)** — `plan2code-metrics`, measuring and improving the prompts themselves\n- **[.readme/test-bot.md](.readme/test-bot.md)** — `plan2code-bot`, maintainer harness that runs the whole workflow unattended\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ai-developer-tools"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-engineering"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-sdlc"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-sdlc-framework"
-            }
-          },
-          {
-            "topic": {
-              "name": "spec-driven-development"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-08-27T05:24:39Z",
-      "url": "https://github.com/jparkerweb/plan2code"
     },
     {
       "createdAt": "2026-06-29T03:52:57Z",
@@ -208,99 +361,6 @@
       "stargazerCount": 0,
       "updatedAt": "2026-08-27T05:03:55Z",
       "url": "https://github.com/jparkerweb/cottage-garden"
-    },
-    {
-      "createdAt": "2026-08-09T23:03:36Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "🐿️ One recurring reminder that counts from when you started it, and then actually interrupts you.",
-      "forkCount": 0,
-      "homepageUrl": "https://jparkerweb.github.io/groundhog/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "Go"
-            },
-            "size": 318148
-          },
-          {
-            "node": {
-              "name": "C"
-            },
-            "size": 2310
-          },
-          {
-            "node": {
-              "name": "Objective-C"
-            },
-            "size": 6643
-          },
-          {
-            "node": {
-              "name": "Shell"
-            },
-            "size": 1705
-          },
-          {
-            "node": {
-              "name": "Inno Setup"
-            },
-            "size": 3332
-          }
-        ],
-        "totalSize": 332138
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "groundhog",
-      "primaryLanguage": {
-        "color": "#00ADD8",
-        "name": "Go"
-      },
-      "pushedAt": "2026-08-27T01:00:54Z",
-      "readme": {
-        "text": "# Groundhog\n\n<img src=\"groundhog.jpg\" style=\"max-width:1024px;\" alt=\"banner\">\n\nOne recurring reminder that counts from when you started it, and then actually interrupts you.\nWindows, macOS and Linux, one self-contained binary each.\n\n**[Downloads and what every setting means ⇢ 📖 DOCS](https://jparkerweb.github.io/groundhog/)**\n\nThe site is the only copy of the settings documentation, on purpose: two copies drift, and the one\nthat drifts is always the one you are reading. This file carries the things the site does not.\n\n## Getting past the first launch\n\nNothing Groundhog ships is code signed. There are no signing certificates anywhere in this project\nand no credentials in CI, which is a deliberate choice rather than an oversight, and the price of it\nis one extra click the first time you run it.\n\n**Windows.** SmartScreen shows \"Windows protected your PC\". Click **More info**, then **Run anyway**.\n\n**macOS.** The first launch is refused. Open **System Settings > Privacy & Security**, scroll to the\nmessage naming Groundhog and click **Open Anyway**, then confirm with your login password. That\nbutton is only offered for about an hour after the refusal; if you miss the window, try to launch\nGroundhog again and it will come back.\n\n**Linux.** Nothing blocks anything. Mark the binary executable if your extraction did not\n(`chmod +x groundhog`) and run it.\n\n### Smart App Control may refuse outright\n\nOn Windows 11 installations that have **Smart App Control** switched on, an unsigned executable can\nbe blocked with no \"Run anyway\" offered at all. There is no way around this from Groundhog's side.\n\nTurning Smart App Control off is **one way**: Windows will not let you turn it back on without\nreinstalling the operating system. So the honest summary is that some Windows 11 users cannot run\nGroundhog, and should not disable a security feature permanently in order to.\n\n## Linux needs glibc 2.39 or newer\n\nThe Linux binary is built on Ubuntu 24.04. **It does not run on Debian 12 or Ubuntu 22.04**, which\nship glibc 2.36 and 2.35. Check yours with `ldd --version`.\n\nThe `.deb` declares `Depends: libc6 (>= 2.39)`, so `dpkg` refuses readably rather than letting the\nbinary die at exec. The tarball has nobody to declare it to, which is why it says so in its own\nREADME and why it is said again here.\n\nSound needs `libasound.so.2`, the one runtime library Groundhog depends on beyond the C library. On\na stock PipeWire desktop you may also need `pipewire-alsa`; the `.deb` recommends it. Without any of\nit Groundhog still alerts, silently.\n\n## Hearing about new versions\n\nGroundhog contacts the network exactly once, and only when you press **Check for updates** in the\nsettings window. It downloads nothing and installs nothing. There is no background check and no\ntelemetry of any kind.\n\nTo be told without pressing anything, either use **Watch > Custom > Releases** on this repository,\nor subscribe to the Atom feed:\n\n    https://github.com/jparkerweb/groundhog/releases.atom\n\nWhat changed in each version is in [CHANGELOG.md](CHANGELOG.md).\n\n## Licence\n\nApache License 2.0. See [LICENSE](LICENSE).\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "alarm"
-            }
-          },
-          {
-            "topic": {
-              "name": "golang"
-            }
-          },
-          {
-            "topic": {
-              "name": "reminder"
-            }
-          },
-          {
-            "topic": {
-              "name": "timer"
-            }
-          },
-          {
-            "topic": {
-              "name": "not-portfolio"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-08-30T03:21:22Z",
-      "url": "https://github.com/jparkerweb/groundhog"
     },
     {
       "createdAt": "2024-09-17T15:49:53Z",
@@ -822,110 +882,6 @@
       "stargazerCount": 53,
       "updatedAt": "2026-07-23T15:42:22Z",
       "url": "https://github.com/jparkerweb/rich-foot"
-    },
-    {
-      "createdAt": "2026-03-22T03:47:16Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "📽️ A cross-platform CLI video compression tool powered by FFmpeg, featuring a wizard-style TUI built with Go and Charm's Bubble Tea.",
-      "forkCount": 0,
-      "homepageUrl": "https://jparkerweb.github.io/shrinkray/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "Ruby"
-            },
-            "size": 1516
-          },
-          {
-            "node": {
-              "name": "Makefile"
-            },
-            "size": 707
-          },
-          {
-            "node": {
-              "name": "Go"
-            },
-            "size": 388320
-          },
-          {
-            "node": {
-              "name": "PowerShell"
-            },
-            "size": 9700
-          },
-          {
-            "node": {
-              "name": "Shell"
-            },
-            "size": 12426
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 27460
-          }
-        ],
-        "totalSize": 440129
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "shrinkray",
-      "primaryLanguage": {
-        "color": "#00ADD8",
-        "name": "Go"
-      },
-      "pushedAt": "2026-06-12T20:16:45Z",
-      "readme": {
-        "text": "# Shrinkray\n\n**Less bytes, same vibes.**\n\n<img src=\"https://github.com/jparkerweb/shrinkray/blob/main/docs/shrinkray.jpg?raw=true\" width=\"600\">\n\nA cross-platform CLI video compression tool powered by FFmpeg,  \nfeaturing a wizard-style TUI built with Go and Charm's Bubble Tea.\n\n### Maintained by\n<a href=\"https://www.equilllabs.com\">\n  <img src=\"https://raw.githubusercontent.com/jparkerweb/eQuill-Labs/refs/heads/main/src/static/images/logo-text-outline.png\" alt=\"eQuill Labs\" height=\"40\">\n</a>\n\n<br>\n<br>\n\n---\n\n### [Watch the promo YouTube video](https://www.youtube.com/watch?v=mhFh5wgaruQ)\n\n## Features\n\n- **Interactive TUI wizard** -- step-by-step guided compression with real-time preview\n- **18 built-in presets** -- quality tiers, purpose-driven, and platform-specific (Discord, YouTube, TikTok, etc.)\n- **Smart recommendations** -- analyzes your video and suggests the optimal preset\n- **Hardware acceleration** -- auto-detects NVIDIA NVENC, AMD AMF, Apple VideoToolbox, Intel QSV\n- **Batch processing** -- compress entire folders with parallel workers and progress tracking\n- **Headless mode** -- scriptable `--no-tui` mode with stdin pipe support for CI/CD pipelines\n- **Cross-platform** -- single static binary for Windows, macOS, and Linux\n\n## Quick Install\n\n### GitHub Releases\n\nDownload the latest binary for your platform from the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n### Shell Script (macOS / Linux)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.sh | bash\n```\n\n### PowerShell (Windows)\n\n```powershell\nirm https://raw.githubusercontent.com/jparkerweb/shrinkray/main/scripts/install.ps1 | iex\n```\n\n### Go Install\n\n```bash\ngo install github.com/jparkerweb/shrinkray/cmd/shrinkray@latest\n```\n\n## Quick Start\n\n```bash\n# Interactive TUI mode (default)\nshrinkray\n\n# Compress a single video with a preset\nshrinkray -i video.mp4 -p balanced --no-tui\n\n# Batch compress a folder\nshrinkray -i ./videos/ -p compact -j 4 --recursive --no-tui\n```\n\n## Presets\n\n### Quality Tier\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `lossless` | Lossless | Mathematically identical output -- no quality loss |\n| `ultra` | Ultra Quality | Near-lossless H.265 -- ideal for archival or mastering |\n| `high` | High Quality | Excellent quality with good compression |\n| `balanced` | Balanced | Best trade-off between quality and file size (recommended) |\n| `compact` | Compact | Smaller files capped at 720p -- good for sharing |\n| `tiny` | Tiny | Maximum compression at 480p -- smallest files |\n\n### Purpose-Driven\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `web` | Web Delivery | Optimized for web streaming and downloads |\n| `email` | Email Friendly | Targets ~20MB output for email attachments |\n| `archive` | Archive | Maximum quality retention with H.265 |\n| `slideshow` | Slideshow / Screencast | Optimized for low-motion content |\n| `4k-to-1080` | 4K to 1080p | Downscale 4K footage to 1080p |\n\n### Platform-Specific\n\n| Key | Name | Description |\n|-----|------|-------------|\n| `discord` | Discord | Fits within Discord's 10MB free-tier limit |\n| `discord-nitro` | Discord Nitro | Fits within Discord Nitro's 50MB limit at 1080p |\n| `whatsapp` | WhatsApp | Fits within WhatsApp's 16MB limit, capped at 30fps |\n| `twitter` | Twitter / X | Optimized for Twitter upload -- 1080p max, 60fps |\n| `instagram` | Instagram | Optimized for Instagram -- 1080p max, 30fps |\n| `tiktok` | TikTok | Optimized for TikTok -- 1080p max, 60fps, portrait-aware |\n| `youtube` | YouTube Upload | Upload-optimized for YouTube |\n\nView preset details:\n\n```bash\nshrinkray presets              # List all presets\nshrinkray presets show compact # Show detailed settings for a preset\n```\n\n## CLI Reference\n\n```\nshrinkray [flags]\nshrinkray [command]\n```\n\n### Commands\n\n| Command | Description |\n|---------|-------------|\n| `version` | Print version information |\n| `presets` | List all available encoding presets |\n| `presets show <key>` | Show detailed info about a preset |\n| `probe` | Probe a video file and display metadata |\n| `completion` | Generate shell completion scripts |\n| `help` | Help about any command |\n\n### Flags\n\n| Flag | Short | Description |\n|------|-------|-------------|\n| `--input` | `-i` | Input video file or directory |\n| `--inputs` | | Additional input video file paths (repeatable) |\n| `--preset` | `-p` | Preset name (e.g., balanced, compact, tiny) |\n| `--output` | `-o` | Output file path |\n| `--no-tui` | | Disable interactive TUI, use headless mode |\n| `--crf` | | CRF value override |\n| `--codec` | | Video codec (h264, h265, av1, vp9) |\n| `--resolution` | | Output resolution (e.g., 1920x1080) |\n| `--fps` | | Maximum output framerate |\n| `--speed-preset` | | Encoder speed preset (e.g., fast, medium, slow) |\n| `--target-size` | | Target output size (e.g., 25mb, 1gb) -- forces two-pass |\n| `--two-pass` | | Force two-pass encoding |\n| `--hw-accel` | | Auto-detect and use hardware encoder |\n| `--no-hw-accel` | | Force software encoding |\n| `--audio-codec` | | Audio codec: aac, opus, copy, none |\n| `--audio-bitrate` | | Audio bitrate: 64k, 96k, 128k, 192k, 256k |\n| `--audio-channels` | | Audio channels: stereo, mono, source |\n| `--suffix` | | Output filename suffix (default: _shrunk) |\n| `--output-dir` | | Output directory (mirrors input structure) |\n| `--overwrite` | | Overwrite existing output files |\n| `--auto-rename` | | Auto-rename output if file exists |\n| `--in-place` | | Replace source files after verification |\n| `--jobs` | `-j` | Number of parallel encoding workers |\n| `--recursive` | `-r` | Recurse into directories for video files |\n| `--sort` | | Sort order: size-asc, size-desc, name, duration |\n| `--skip-existing` | | Skip files whose output already exists |\n| `--skip-optimal` | | Skip files already compressed with target codec |\n| `--retry-failed` | | Retry failed jobs from persisted queue |\n| `--max-retries` | | Maximum retry attempts per file (default: 2) |\n| `--dry-run` | | Print FFmpeg command without executing |\n| `--stdin` | | Read file paths from stdin (one per line) |\n| `--extra-args` | | Extra FFmpeg arguments (repeatable) |\n| `--strip-metadata` | | Remove all metadata from output |\n| `--keep-metadata` | | Preserve source metadata (default: true) |\n| `--metadata-title` | | Set output title metadata |\n| `--open` | | Open output folder after completion |\n| `--config` | | Path to config file |\n| `--log-level` | | Log level (debug, info, warn, error) |\n| `--no-color` | | Disable color output |\n\n## Configuration\n\nshrinkray looks for a config file at:\n\n- **Linux/macOS:** `~/.config/shrinkray/config.yaml`\n- **Windows:** `%APPDATA%\\shrinkray\\config.yaml`\n\nExample config:\n\n```yaml\ndefaults:\n  preset: balanced\n  codec: h265\n\noutput:\n  suffix: _shrunk\n  mode: suffix\n  conflict: rename\n\nbatch:\n  jobs: 2\n  skipExisting: false\n  sort: size-asc\n\nui:\n  theme: neon-dusk\n  animations: true\n\nffmpeg:\n  ffmpegPath: \"\"\n  ffprobePath: \"\"\n```\n\n## Requirements\n\n- **FFmpeg** and **FFprobe** must be installed and available on your PATH\n  - macOS: `brew install ffmpeg`\n  - Linux: `sudo apt install ffmpeg` (or your distro's package manager)\n  - Windows: `scoop install ffmpeg` or `choco install ffmpeg`\n- **Go 1.25+** (only required for building from source)\n\n## Development\n\n### Building from Source\n\n```bash\ngit clone https://github.com/jparkerweb/shrinkray.git\ncd shrinkray\nmake build\n./shrinkray version\n```\n\n### Local Development (Windows)\n\nBuild and install to your local PATH for testing:\n\n```powershell\n.\\scripts\\install-local.ps1\n```\n\nThis builds with version info from `git describe --tags`, installs to `%LOCALAPPDATA%\\shrinkray\\`, and adds it to your user PATH. The version string (e.g., `v0.2.0-3-gabcdef-dirty`) reflects the latest tag, commits since that tag, and whether there are uncommitted changes.\n\n### Running Tests\n\n```bash\nmake test          # Run tests\nmake lint          # Run linter\nmake ci            # Run lint + test + build (full CI pipeline locally)\n```\n\n### Releasing\n\nThis project uses [Semantic Versioning](https://semver.org/) with automated releases via GoReleaser.\n\n**Workflow:**\n\n1. Ensure all changes are committed and `CHANGELOG.md` `[Unreleased]` section is up to date\n2. Rename `[Unreleased]` to `[X.Y.Z] - YYYY-MM-DD` in `CHANGELOG.md`\n3. Add a fresh `[Unreleased]` section and update comparison links at the bottom\n4. Commit: `git commit -m \"Release vX.Y.Z\"`\n5. Tag: `git tag -a vX.Y.Z -m \"vX.Y.Z\"`\n6. Push: `git push origin main --tags`\n\nPushing a `v*` tag triggers the GitHub Actions [release workflow](.github/workflows/release.yml), which runs tests and then GoReleaser builds binaries for Windows, macOS, and Linux (amd64 + arm64). Binaries appear on the [Releases page](https://github.com/jparkerweb/shrinkray/releases).\n\n**Version bumping:**\n- Breaking changes → major (X+1.0.0)\n- New features → minor (X.Y+1.0)\n- Bug fixes only → patch (X.Y.Z+1)\n\nIf using Claude Code, you can run `/release` to automate this workflow.\n\n## License\n\nMIT\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ffmpeg"
-            }
-          },
-          {
-            "topic": {
-              "name": "golang"
-            }
-          },
-          {
-            "topic": {
-              "name": "movie-processing"
-            }
-          },
-          {
-            "topic": {
-              "name": "shrink"
-            }
-          },
-          {
-            "topic": {
-              "name": "video-compression"
-            }
-          },
-          {
-            "topic": {
-              "name": "equill-cli"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-06-12T20:17:04Z",
-      "url": "https://github.com/jparkerweb/shrinkray"
     },
     {
       "createdAt": "2026-06-06T19:16:20Z",
