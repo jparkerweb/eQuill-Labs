@@ -37,6 +37,6 @@ lastCommit: '2026-04-17T15:12:14Z'
 _source:
   repo: 'https://github.com/jparkerweb/htmldiff-example'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 An example project that demonstrates `htmldiff.js` running in the browser, with a hosted demo page.

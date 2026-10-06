@@ -2,27 +2,27 @@
 id: plan2code
 name: plan2code
 slug: plan2code
-tagline: >-
-  A spec-driven workflow for AI coding agents. Send the plan — the build
-  follows.
+tagline: A spec-driven workflow for AI coding agents.
 description:
   short: >-
-    A spec-driven workflow for AI coding agents: you approve a plan, and the
-    agent builds to it one phase at a time.
+    A spec-driven workflow for AI coding agents, worked through on a browser
+    dashboard where every step is a card.
   long: >-
-    Plan2Code is a spec-driven workflow for AI coding agents. You approve a
-    plan, the plan becomes a set of phase documents in your repo, and the agent
-    builds to those documents one phase at a time. Because progress lives in
-    files instead of chat history, the next session, the next agent and the next
-    engineer all start from the same specs. The workflow is six commands, each
-    posted separately, two of them optional. It requires Node.js 18 or later and
-    installs through the skills CLI, which builds the workflow as Agent Skills
-    and delegates installation to `skills add`; the installed skills work
-    independently from then on. Supported tools include every agent supported by
-    the skills CLI, among them Claude Code, Cursor, GitHub Copilot, Windsurf,
-    Codex, Continue, Codeium and Zed.
+    Plan2Code is a spec-driven workflow for AI coding agents that you work
+    through on a page in your browser. The dashboard lists every step as a card,
+    and each step's questions, progress and sign-offs arrive on that same page
+    while the agent does the work. Decisions still land in your repo as plain
+    files: an approved plan becomes phase documents, and the agent builds to
+    them one phase at a time, so the next session, the next agent and the next
+    engineer all start from the same specs. The steps run from an optional
+    Pathfinder through Plan, Document, Implement and Finalize, with Quick task,
+    Review and Handoff cards always available. The `plan2code` command starts
+    Claude Code or Devin on the dashboard, and the workflow installs as Agent
+    Skills through the skills CLI for every agent it supports, including Cursor,
+    GitHub Copilot, Windsurf, Codex and Gemini CLI. Version 2.4.1 is MIT
+    licensed.
 banner:
-  src: 'https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png'
+  src: 'https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.jpg'
   alt: plan2code banner
   source: repo
   style: 'object-fit:contain'
@@ -34,12 +34,16 @@ topics:
   - spec-driven-development
 category: app
 theme: utilities
-primaryLanguage: TypeScript
+primaryLanguage: JavaScript
 languages:
   - name: JavaScript
-    percent: 25.72
+    percent: 72.45
   - name: TypeScript
-    percent: 74.28
+    percent: 2.24
+  - name: CSS
+    percent: 13.35
+  - name: HTML
+    percent: 11.96
 stars: 0
 links:
   repo: 'https://github.com/jparkerweb/plan2code'
@@ -47,63 +51,10 @@ links:
 featured: false
 sortOrder: 1000
 status: active
-lastCommit: '2026-09-03T14:18:47Z'
+lastCommit: '2026-10-05T03:14:54Z'
 _source:
   repo: 'https://github.com/jparkerweb/plan2code'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
-Plan2Code is a spec-driven workflow for AI coding agents. You approve a plan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents one phase at a time. Because progress lives in files instead of chat history, the next session, the next agent and the next engineer all start from the same specs. The workflow is six commands, each posted separately, two of them optional. It requires Node.js 18 or later and installs through the skills CLI, which builds the workflow as Agent Skills and delegates installation to `skills add`; the installed skills work independently from then on. Supported tools include every agent supported by the skills CLI, among them Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Continue, Codeium and Zed.
-
-## Install
-
-Requires [Node.js](https://nodejs.org/) 18 or later and network access — installation runs through
-the [skills CLI](https://skills.sh). Re-run any time to update.
-
-```bash
-npx --allow-git=all git+https://github.com/jparkerweb/plan2code.git
-```
-
-This fetches the installer to a temp directory, builds the workflow as Agent Skills, delegates
-installation to `skills add`, and cleans up after itself. The installed skills work independently
-from then on.
-
-Either route lands you on the same menu:
-
-```
-╔═════════════════════════════════════════════════════════╗
-║ INSTALL PLAN2CODE                                       ║
-╠═════════════════════════════════════════════════════════╣
-║  I.  INSTALL    Install Plan2Code skills everywhere     ║
-║  A.  ALL        Install Plan2Code + dev tools           ║
-║  U.  UNINSTALL  Remove Plan2Code skills and dev tools   ║
-║  C.  CUSTOM     Advanced options                        ║
-║  Q.  QUIT       Exit                                    ║
-╚═════════════════════════════════════════════════════════╝
-```
-
-**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·
-GitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed · Amp · OpenCode · Devin · Crush · Pi ·
-Gemini CLI · Cline · Roo · Kilo · Goose · Trae · Qwen Code.
-
-The installer keeps one canonical copy of each skill under `~/.agents/skills/` and links it into
-agents that maintain their own directory. Update later with `npx skills update -g`.
-
-Use the installer rather than calling `skills add` against the repository root: recursive discovery
-would also find maintainer-only skills under `.claude/skills/`. The installer targets `skills/`
-explicitly.
-
-<details>
-<summary>Prefer to clone?</summary>
-
-```bash
-git clone https://github.com/jparkerweb/plan2code.git
-cd plan2code
-node install.js
-
-# Only if you plan to modify or contribute to Plan2Code itself
-npm install && npx husky
-```
-</details>
-
----
+Plan2Code is a spec-driven workflow for AI coding agents that you work through on a page in your browser. The dashboard lists every step as a card, and each step's questions, progress and sign-offs arrive on that same page while the agent does the work. Decisions still land in your repo as plain files: an approved plan becomes phase documents, and the agent builds to them one phase at a time, so the next session, the next agent and the next engineer all start from the same specs. The steps run from an optional Pathfinder through Plan, Document, Implement and Finalize, with Quick task, Review and Handoff cards always available. The `plan2code` command starts Claude Code or Devin on the dashboard, and the workflow installs as Agent Skills through the skills CLI for every agent it supports, including Cursor, GitHub Copilot, Windsurf, Codex and Gemini CLI. Version 2.4.1 is MIT licensed.

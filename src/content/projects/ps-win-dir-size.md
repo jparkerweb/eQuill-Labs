@@ -34,16 +34,16 @@ primaryLanguage: PowerShell
 languages:
   - name: PowerShell
     percent: 100
-stars: 0
+stars: 1
 links:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
 featured: false
-sortOrder: 1000
+sortOrder: 999
 status: active
 lastCommit: '2026-05-12T04:42:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/ps-win-dir-size'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 A PowerShell script for analyzing disk space usage on local and network paths, quickly identifying which top-level subdirectories consume the most storage. It supports SMB network shares, shows real-time progress as directories are scanned, and can resume an interrupted scan from where it left off. It gracefully continues when access to specific folders is denied, then displays the top 100 largest directories ranked by size with last-modified dates and sizes in bytes, MB, and GB. It requires PowerShell 5.0 or higher and read access to the target path.

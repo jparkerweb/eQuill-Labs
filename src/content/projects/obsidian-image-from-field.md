@@ -35,16 +35,16 @@ languages:
     percent: 36.9
   - name: JavaScript
     percent: 63.1
-stars: 2
+stars: 1
 links:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
 featured: false
-sortOrder: 998
+sortOrder: 999
 status: active
 lastCommit: '2026-05-12T04:43:49Z'
 _source:
   repo: 'https://github.com/jparkerweb/obsidian-image-from-field'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 A DataviewJS script that renders a Markdown image in Obsidian's Reading View using an image URL stored in a frontmatter or inline field. It addresses the case where an image URL is kept in a field for dataview queries but should also display on its own note, avoiding the duplication of embedding the image separately. The script reads the URL from the supplied field and renders the image, and additionally accepts size and alignment values. It requires the Dataview plugin with JavaScript Queries enabled and is invoked through a `dv.view` call passing size, alignment, and field name.

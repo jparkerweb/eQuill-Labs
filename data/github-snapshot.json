@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-04T20:01:18.794Z",
+  "fetchedAt": "2026-10-06T01:55:55.892Z",
   "profile": {
     "avatarUrl": "https://avatars.githubusercontent.com/u/3073864?u=48639f7b86f8df7c3b23c7e4b0edf27a3ca22fdb&v=4",
     "bio": "🤖 AI Enthusiast & Engineer  ⋅ \r\n🎨 Front End Engineer & Manger  ⋅ \r\n🎲 Avid Board Gamer  ⋅ \r\n😇 Husband / Father / Christian",
@@ -8,6 +8,170 @@
     "url": "https://github.com/jparkerweb"
   },
   "repos": [
+    {
+      "createdAt": "2025-12-03T04:59:18Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "📝 spec-driven workflow for AI coding agents. Send the plan, the build follows",
+      "forkCount": 0,
+      "homepageUrl": "https://plan2code.jparkerweb.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 9912118
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 306104
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 1826244
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 1636516
+          }
+        ],
+        "totalSize": 13680982
+      },
+      "licenseInfo": {
+        "spdxId": "Apache-2.0"
+      },
+      "name": "plan2code",
+      "primaryLanguage": {
+        "color": "#f1e05a",
+        "name": "JavaScript"
+      },
+      "pushedAt": "2026-10-05T03:14:54Z",
+      "readme": {
+        "text": "\n# Plan2Code\n\n**A spec-driven workflow for AI coding agents.**\n\n<img src=\"docs/banner.jpg\" alt=\"Plan2Code: plan and build with your AI agent, on one page. Planny, the mascot, acts out the five steps: Pathfinder, Plan, Document, Implement and Finalize.\" data=\"object-fit:contain;\" style=\"max-width:1024px;\">\n\nYou work through Plan2Code on a page in your browser. The dashboard lists every step as a card, and\neach step's questions, progress and sign-offs arrive on that same page while your agent does the\nwork. What you decide still lands in your repo as plain files: an approved plan becomes phase\ndocuments, and the agent builds to them one phase at a time, so the next session, the next agent and\nthe next engineer all start from the same specs.\n\nOne command opens it, every step is a card, and the terminal is always there if you prefer it.\n\nVersion 2.4.1 · MIT · 📖 [plan2code.jparkerweb.com](https://plan2code.jparkerweb.com)\n\n---\n\n## See it\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/screenshots/dashboard-dark.webp\">\n  <img src=\"docs/screenshots/dashboard-light.webp\" alt=\"The Plan2Code dashboard for a project mid-build: a Set up card, then the steps in order, with the Implement card marked Suggested and reading Phase 3 of 4 is next.\">\n</picture>\n\nThe dashboard, in a project halfway through a build. It suggests the next step for the spec you pick.\n\n---\n\n## Install and start\n\nRequires [Node.js](https://nodejs.org/) 18 or later and network access — installation runs through\nthe [skills CLI](https://skills.sh). To update, re-run the install command.\n\n```bash\nnpx --allow-git=all git+https://github.com/jparkerweb/plan2code.git\n```\n\nThis fetches the installer to a temp directory, builds the workflow as Agent Skills, delegates\ninstallation to `skills add`, and cleans up after itself. The installed skills work independently\nfrom then on.\n\nThe installer opens this menu (cloning and running `node install.js`, below, opens the same one):\n\n```\n╔═════════════════════════════════════════════════════════╗\n║ INSTALL PLAN2CODE                                       ║\n╠═════════════════════════════════════════════════════════╣\n║  I.  INSTALL    Install Plan2Code skills everywhere     ║\n║  A.  ALL        Install Plan2Code + dev tools           ║\n║  U.  UNINSTALL  Remove Plan2Code skills and dev tools   ║\n║  C.  CUSTOM     Advanced options                        ║\n║  Q.  QUIT       Exit                                    ║\n╚═════════════════════════════════════════════════════════╝\n```\n\n### Start\n\n1. In any project, run `plan2code`. It starts Claude Code or Devin on the dashboard, and the\n   dashboard opens in your browser.\n2. In a project without an `AGENTS.md`, pick **Set up this project** first: Plan and Quick task\n   need it.\n3. Pick a card.\n\nAlready inside your agent? Type `/plan2code` instead.\n\n<details>\n<summary>About the plan2code command</summary>\n\nThe installer adds `plan2code` as a global command (Custom `C` → `D` adds just the command). Run it from any project and the Plan2Code\ndashboard opens right there, in **Claude Code** or **Devin**. With both installed it asks which and\nremembers your pick; `plan2code --cli claude` or `--cli devin` skips the question, and `--model <name>`\nchooses the model. It works in cmd, PowerShell, Git Bash, macOS and Linux shells, and needs the\nClaude Code or Devin CLI on your `PATH`. It starts the agent with permission prompts off\n(`--permission-mode bypassPermissions` in Claude Code, `--permission-mode bypass` in Devin); run\n`claude /plan2code` yourself if you want prompts. The installer then offers a desktop shortcut (answer `y`),\nwhich opens a folder picker first. Uninstalling (`U`) removes both.\n</details>\n\n**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed · Amp · OpenCode · Devin · Crush · Pi ·\nGemini CLI · Cline · Roo · Kilo · Goose · Trae · Qwen Code.\n\nThe installer keeps one canonical copy of each skill under `~/.agents/skills/` and links it into\nagents that maintain their own directory. To update, re-run the install command.\n\nUse the installer rather than calling `skills add` against the repository root: recursive discovery\nwould also find maintainer-only skills under `.claude/skills/`. The installer targets `skills/`\nexplicitly.\n\n<details>\n<summary>Prefer to clone?</summary>\n\n```bash\ngit clone https://github.com/jparkerweb/plan2code.git\ncd plan2code\nnode install.js\n\n# Only if you plan to modify or contribute to Plan2Code itself\nnpm install && npx husky\n```\n</details>\n\n---\n\n## A session on the page\n\n**Answer the questions.** They arrive a few at a time, each option with its trade-off written beside\nit, and a progress bar says how far along you are.\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/screenshots/question-dark.webp\">\n  <img src=\"docs/screenshots/question-light.webp\" alt=\"A Plan question card, How tasks are paged, with three options, the first marked Suggested, each with its trade-off underneath.\">\n</picture>\n\n**Watch the build.** Tasks tick off as they land, and the line beside Planny says what is being\nworked on right now.\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/screenshots/build-dark.webp\">\n  <img src=\"docs/screenshots/build-light.webp\" alt=\"A phase of a task API being built: 5 of 11 done on the progress bar, and the phase's task list with the first five ticked.\">\n</picture>\n\n**Sign off.** Read the completion report, then approve the phase or ask for changes. In Implement,\nyou can also have the code reviewed first; Implement + review has already done it.\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/screenshots/signoff-dark.webp\">\n  <img src=\"docs/screenshots/signoff-light.webp\" alt=\"The Approve this phase card, with a button to read the completion report and three choices: Review the code first, Approve this phase, and I want changes.\">\n</picture>\n\n**Ask a quick question any time.** The Ask tab is a chat beside the cards, answered at the agent's\nnext check-in, and it never holds up your answers.\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/screenshots/ask-dark.webp\">\n  <img src=\"docs/screenshots/ask-light.webp\" alt=\"The Ask tab: the question Where are tasks paged? and Plan2Code's answer naming the file.\">\n</picture>\n\nThere is more on the page when you need it. Notes on any question can carry screenshots and\ndocuments. The folder label in the bottom bar opens your workspace, where you add other folders\nas read-only context and point at them by `@name`. The session meter in the top bar turns from green\nto red as a session grows long and suggests a fresh one. **Stop session** saves your place and gives\nyou the command to carry on later, and **Back to the dashboard** takes you home to pick the next\nstep in the same session.\n\n---\n\n## The workflow\n\n```\n ┌╴╴╴╴╴╴╴╴╴╴╴╴┐\n ╎0 PATHFINDER╎ optional · for an idea too big or unclear to plan\n └╴╴╴╴╴╴┬╴╴╴╴╴┘\n        ▼\n ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌╴╴╴╴╴╴╴╴╴╴╴╴┐  ┌────────────┐\n │  1  PLAN   │─>│ 2 DOCUMENT │─>│3 IMPLEMENT │─>╎   REVIEW   ╎─>│ 4 FINALIZE │\n │decide what │  │ draw it as │  │build to the│  ╎  optional  ╎  │verify, sum,│\n │  to build  │  │phase specs │  │  drawing   │  ╎  any time  ╎  │  archive   │\n └────────────┘  └────────────┘  └────────────┘  └╴╴╴╴╴╴╴╴╴╴╴╴┘  └────────────┘\n     short sessions: fresh when the meter turns red, and before a big step\n ├◀─────────────── one feature, start to archive ──────────────────▶┤\n```\n\nEach box is a card on the dashboard. Chaining a couple of small steps in one session is fine, but\nstart a fresh session before a big plan or build step: planning context leaking into implementation\nis where most agent drift starts.\n\nThe dashboard's cards, and when each one lights up for the spec you pick:\n\n| Card | What it is for | Lights up when |\n|------|----------------|----------------|\n| Set up this project | Reads your project and writes AGENTS.md, the guide every later step works from. | The project has no AGENTS.md yet |\n| Refresh AGENTS.md | Brings AGENTS.md and its notes up to date with what the project has learned lately. | The project has an AGENTS.md |\n| Pathfinder | A foggy idea becomes a clear list of decisions, settled one question at a time. | You start fresh, or the spec is still being explored |\n| Plan | Requirements, technical design and your approval: the shape of what gets built. | You start fresh, or the spec has a finished Pathfinder map or a drafted plan |\n| Revise the plan | Requirements changed mid-build? Adjust the plan without starting over. | The spec is written up into phases and not fully built |\n| Document | The plan becomes a checklist of small tasks, grouped into phases, that a developer can just do. | The spec has a drafted plan |\n| Implement | Builds the next phase, task by task, with a report and your sign-off at the end. | The spec has phases with tasks still to build |\n| Implement + review | One phase built, then a careful review of the changes, then your sign-off. All in one run. | The spec has phases with tasks still to build |\n| Finalize | Checks the work, writes the summary, files the specs away and suggests the commit message. | Every task in the spec is done |\n| Quick task | Too small for the full process? A quick plan, then it just builds it. | Always |\n| Review | A second opinion on the changes. Problems ranked, and you pick what gets fixed. | Always |\n| Handoff | Pack this conversation into a document a fresh session can pick up cold. | Always |\n\n---\n\n## The four rules that do most of the work\n\n**1 · Keep each session short.**\nChaining a couple of small skills on the dashboard is fine. Start a fresh console session when the session meter turns red, and always before a big planning or build step. The specs on disk carry everything between sessions.\n\n**2 · No code until the plan hits 90% confidence.**\nStep 1 will not finalize below the threshold. Under it, the agent keeps asking and keeps reading your\ncode — and writes every assumption down where you can argue with it.\n\n**3 · Checkboxes are the state, not the chat.**\nProgress lives in the spec files. Any agent, any session, resumes cold from them.\n\n**4 · Approve a phase to close it.**\nOn the sign-off card, or by replying `approved` in the terminal. Nothing advances on a guess about\nwhat you meant.\n\n---\n\n## What lands in your repo\n\nEach feature gets a folder under `specs/` (the plan, the overview and one file per phase), and Step 4\nmoves it to `specs--completed/`. The layout and progress marks are on the\n[quick reference](QUICK-REFERENCE.md#file-structure).\n\nAdd `specs/` to your project's `.gitignore` (`plan2code-loop` adds it for you): it's your working\ndrawing, not a deliverable. Share a folder deliberately with `git add -f` when you want to.\n\nStep 2 marks which phases don't share files. Open a second agent on one of those, and the `[/]` marks\nkeep the two out of each other's way.\n\n---\n\n## The six steps in detail\n\nEach step is its own run, and the specs on disk are the only thing carried from one to the next.\nChain a small one onto the last, or start a fresh session for a big one (rule 1).\n\n### 0 · Pathfinder 🧭 (optional)\n\nOn the page: one question at a time with the options and their trade-offs, the map growing in its own\ntab, and a **Write a brief** button for a printable summary.\n\nSome ideas are too big and unclear to plan: you can feel the shape of the work but you can't write\nit as requirements, so planning would just invent the answers. Pathfinder finds the *way* to the\ndestination; Step 1 then walks it.\n\n1. **Name the destination** — one or two lines fixing what this effort is finding its way to. Settled\n   first, because it fixes scope. It also asks where the map should live: **local files** under\n   gitignored `specs/` (private, solo — the default), or **GitHub Issues** (a map issue with one\n   sub-issue per decision, native blocking, so your team can see and work the frontier in the tracker).\n2. **Chart the map** — a breadth-first grilling surfaces the open decisions. Anything you can phrase\n   *sharply* becomes a question file; anything you can only sense stays listed as fog.\n3. **Clear the questions one at a time** — resolving one burns off the fog behind it, graduating\n   whatever just became sharp into new questions. After each decision it offers a menu: take the next\n   question here, or start fresh — recommended after about three, to keep the agent sharp.\n   Ask for a **brief** at any point and you get a dated, plain-English summary of what has been\n   decided, what is still open, and what is next — meeting minutes, with no jargon in them.\n4. **Hand off** — when nothing is left to decide, it writes a `PLAN-DRAFT` that\n   `/plan2code-1-plan` resumes from at Phase 4, with requirements, context, and scope already\n   answered.\n\n**Question types:** `grill` (a decision only you can make — the default) · `research` (a fact gates\nit; background agents resolve these, several in parallel) · `sketch` (you need something concrete to\nreact to) · `legwork` (manual work that has to happen before a decision is possible).\n\nIt never answers its own questions, and it **plans, it never builds.** When the urge to just build it\narrives, the map is done. Skip Step 0 entirely when you already know what you're building.\n\n**Out:** `specs/<feature>/pathfinder/map.md` + `questions/` (or a `pathfinder:map` issue and its\nsub-issues) → `PLAN-DRAFT-<date>.md`. The draft is always a local file — that is what Step 1 reads.\n\n### 1 · Plan 🤔\n\nOn the page: questions in batches of up to three, the phase breakdown as a list you can reorder and\nedit, and a sign-off at each stage.\n\nThe agent works as a senior architect through seven phases, stopping for you after each: requirements\nanalysis · system context (reading your actual codebase) · scope assessment (a large project saves and\nresumes in a fresh session) · tech stack (needs your explicit sign-off) · architecture design ·\ntechnical specification · transition decision.\n\nIt won't finalize below **90% confidence**, and every assumption it makes is written into the draft.\n\n**In:** a description of the feature. **Out:** `PLAN-DRAFT-<date>.md` + `PLAN-CONVERSATION-<date>.md`\n\n### 2 · Document 📝\n\nOn the page: a question only where the plan leaves something open, each phase file appearing as its\nown tab as it is written, and one sign-off at the end.\n\nThe plan becomes the drawing. One `overview.md` with the phase checklist, plus one file per phase of\none-story-point tasks. Each phase is **self-contained** — an agent opening `phase-3.md` cold needs\nnothing else to build it. Unit and E2E tests are excluded unless you ask for them.\n\nThe overview also identifies the **parallel execution groups**: phases with no shared files or\ndependencies, safe to run in separate agents at once.\n\n**In:** the `PLAN-DRAFT`. **Out:** `overview.md` + `phase-1…N.md`\n\n### 3 · Implement ⚡\n\nOn the page: a progress bar and the phase's task list ticking over as tasks land, then the completion\nreport and a sign-off card where you approve, ask for changes, or have the code reviewed first.\n\nPoint it at `overview.md` and it does the rest: finds the next unchecked phase, implements every task\nexactly as specified, ticks tasks off as they land, then reviews its own work against the spec and\nwrites a completion summary.\n\nOne phase per conversation. It won't run tests unless the phase says to.\n\n**In:** `specs/<feature>/overview.md`. **Out:** working code, and updated checkboxes.\n\nWant a second pair of eyes before you sign off? `/plan2code-3-implement-review` builds the phase the\nsame way, runs a focused review and the fixes you pick, and only then asks for approval.\n\n### Review 🔬 — optional, any time\n\nOn the page: a few questions on scope, the findings as a report you can read in full, and a list\nwhere you tick what gets fixed.\n\nAn independent second opinion, not a rubber stamp. It figures out its own scope (conversation\ncontext, your instruction, or the git diff as a fallback), analyses across 11 dimensions, and ranks\nfindings Critical / Warning / Suggestion. Every finding cites a file and a line, or it gets dropped —\nand the review pass is read-only. It fixes things only if you ask, and verifies each fix afterwards.\n\nSpec-aware when `specs/` exists, and works fine without it. Most useful right after a planning or\nimplementation step, but there's no wrong time to run it.\n\n### 4 · Finalize 🧹\n\nOn the page: the task audit and the summary as reports, a list of the doc updates to approve, and a\nconfirmation before anything is archived.\n\nValidates every task against its phase spec, writes the summary and the list of files touched, flags\nthe docs that drifted (`README`, `CHANGELOG`, `AGENTS.md`), then archives the whole spec folder —\n`pathfinder/` included — to `specs--completed/`. That folder is the record of *why* the code looks\nlike this.\n\n**In:** `specs/<feature>/overview.md`. **Out:** archived specs.\n\n---\n\n## Prefer the terminal?\n\nEvery skill also runs right in the terminal. Each one asks at the start whether you want the web\nconsole or the terminal; add `--web` to skip the question and go straight to the web console:\n`/plan2code-1-plan --web plan a REST API for tasks`.\n\n| Command | Use it when |\n|---------|-------------|\n| `/plan2code` | Open the dashboard in the web console: every skill below as a card, launched on the page |\n| `/plan2code-0-pathfinder` | The idea is too big and unclear to plan. Charts it as decisions, clears them one at a time, hands a hot plan draft to Step 1 |\n| `/plan2code-1-plan` | Starting a feature. Full requirements → architecture pass |\n| `/plan2code-2-document` | Planning is done. Turn the plan into phase specs |\n| `/plan2code-3-implement` | Build the next phase (one per conversation) |\n| `/plan2code-3-implement-review` | Build the next phase and review it before you approve it (instead of `/plan2code-3-implement`) |\n| `/plan2code-review` | Independent second opinion on local changes, then optional fixes |\n| `/plan2code-4-finalize` | All phases done. Validate, summarize, archive |\n| `/plan2code-init` | Generate this repo's `AGENTS.md` so every agent starts informed |\n| `/plan2code-init-update` | Fold what you learned this session back into `AGENTS.md` |\n| `/plan2code-quick-task` | A small change that doesn't warrant the full sequence |\n| `/plan2code-1b-revise-plan` | Requirements moved mid-build. Revise the specs, not the code |\n| `/plan2code-handoff` | Compact this conversation into a doc the next one resumes from |\n\n---\n\n## Troubleshooting\n\n**The skills aren't recognised.** Re-run the installer and restart your AI tool. Confirm the global\ninstall with `npx skills list -g`. For a project install, check the generated directories aren't\ngitignored.\n\n**Your tool doesn't read Agent Skills.** Since v2.2.0, Plan2Code ships only as skills. If your tool\nhas no skill support, paste the relevant `src/plan2code-*.md` manually or point it at the installed\ncopy under `~/.agents/skills/`.\n\n**The agent starts coding during planning.** The prompts forbid it, but models drift. Say: \"Stay in\nplanning mode. Do not write code yet.\"\n\n**The agent doesn't know what to implement.** Give it the path to `overview.md` — it reads the phase\nfile itself from there.\n\n**You lost track between sessions.** `overview.md` has the phase status; the phase files have the\ntask status. That's the whole state.\n\n**The agent isn't following the spec.** Point at the specific phase document and tell it to re-read\nthe requirements.\n\n**Too many or too few phases.** Fix it in Step 2 — a phase should be a logical grouping of work, not\na fixed size.\n\n**The agent runs on another machine, or over SSH.** The page is served on `127.0.0.1` of the machine\nthe agent runs on, so your browser can only reach it there. A forwarded port often works; otherwise\nwork in the terminal, which loses nothing.\n\n**Web console problems** (lost contact, a closed tab, a dead link): see\n[.readme/web-console.md](.readme/web-console.md#troubleshooting).\n\n---\n\n## Customizing\n\nThe prompts are yours to edit. Common changes: add testing requirements in Step 2, move the 90%\nconfidence threshold in Step 1, restructure the `specs/` layout, or add review gates to Step 3.\nSource files live in `src/`; run `npm run build:skills`, then re-run `node install.js` to push your\nedits out through the skills CLI.\n\n---\n\n## Dive deeper\n\nCore reference:\n\n- **[.readme/web-console.md](.readme/web-console.md)**: the full guide to the web console, from the dashboard to the last sign-off\n- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** — the one-page card: commands, inputs, outputs, decision tree\n- **[.readme/walkthrough.md](.readme/walkthrough.md)** — one feature from a sentence to archived specs, session by session\n- **[AGENTS.md](AGENTS.md)** — architecture and contributor guide for this repo\n- **[CHANGELOG.md](CHANGELOG.md)** — what changed, and why\n\nOptional tooling — none of it is required to use the workflow:\n\n- **[.readme/autonomous-loop.md](.readme/autonomous-loop.md)** — `plan2code-loop`, a hands-off alternative to Step 3\n- **[.readme/status-line.md](.readme/status-line.md)** — three-line Claude Code status bar: model, context, quota, diff\n- **[.readme/metrics.md](.readme/metrics.md)** — `plan2code-metrics`, measuring and improving the prompts themselves\n- **[.readme/test-bot.md](.readme/test-bot.md)** — `plan2code-bot`, maintainer harness that runs the whole workflow unattended\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "ai-developer-tools"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-engineering"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-sdlc"
+            }
+          },
+          {
+            "topic": {
+              "name": "ai-sdlc-framework"
+            }
+          },
+          {
+            "topic": {
+              "name": "spec-driven-development"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-10-04T21:24:27Z",
+      "url": "https://github.com/jparkerweb/plan2code"
+    },
+    {
+      "createdAt": "2024-11-16T21:22:07Z",
+      "defaultBranchRef": {
+        "name": "main"
+      },
+      "description": "🖋️ eQuill Labs website and digital assets",
+      "forkCount": 0,
+      "homepageUrl": "https://www.equilllabs.com/",
+      "isArchived": false,
+      "isFork": false,
+      "issues": {
+        "totalCount": 0
+      },
+      "languages": {
+        "edges": [
+          {
+            "node": {
+              "name": "JavaScript"
+            },
+            "size": 820
+          },
+          {
+            "node": {
+              "name": "CSS"
+            },
+            "size": 4099
+          },
+          {
+            "node": {
+              "name": "HTML"
+            },
+            "size": 9096932
+          },
+          {
+            "node": {
+              "name": "Go Template"
+            },
+            "size": 166
+          },
+          {
+            "node": {
+              "name": "TypeScript"
+            },
+            "size": 60392
+          },
+          {
+            "node": {
+              "name": "Astro"
+            },
+            "size": 109563
+          }
+        ],
+        "totalSize": 9271972
+      },
+      "licenseInfo": null,
+      "name": "eQuill-Labs",
+      "primaryLanguage": {
+        "color": "#e34c26",
+        "name": "HTML"
+      },
+      "pushedAt": "2026-09-04T20:08:18Z",
+      "readme": {
+        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Banner framing | A `data=\"…\"` attribute on that same `<img>`, holding CSS declarations | Applied as an inline `style` on the card and project-page banner `<img>` |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\n#### Framing the banner with `data=\"…\"`\n\nA banner that looks right at full width in a README is often cropped badly by the card, which renders it in a short fixed-height box with `object-fit: cover`. To steer that crop from the repo itself, put CSS declarations in a `data` attribute on the banner `<img>`:\n\n```html\n<img\n  src=\"https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg\"\n  alt=\"banner\"\n  data=\"object-position:bottom;\"\n  style=\"max-height:400px\">\n```\n\n`refresh:render` stores that value as `banner.style` in the project's frontmatter, and `ProjectCard.astro` / `ProjectLayout.astro` apply it as an inline `style` on the banner `<img>`, layering over the component's own CSS. The example above keeps the bottom of the image in frame instead of the default centered crop.\n\nNotes:\n\n- Only the `data` attribute is read. The `style` attribute on the README `<img>` is ignored (it governs how the image renders on GitHub, which is a different box).\n- Values are sanitized before use: only well-formed `prop: value` declarations survive, and anything containing markup characters, braces, or `url(...)` is dropped. The result is capped at 300 characters.\n- `object-position`, `object-fit`, `transform`, and `filter` are the useful ones in practice. The banner box sizing itself stays under the site's control.\n- Relative image paths (`docs/banner.png`) are resolved to `raw.githubusercontent.com` on the repo's default branch, so a banner does not need an absolute URL in the README.\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
+      },
+      "repositoryTopics": {
+        "nodes": [
+          {
+            "topic": {
+              "name": "not-portfolio"
+            }
+          }
+        ]
+      },
+      "stargazerCount": 0,
+      "updatedAt": "2026-09-26T05:34:24Z",
+      "url": "https://github.com/jparkerweb/eQuill-Labs"
+    },
     {
       "createdAt": "2026-09-04T18:09:18Z",
       "defaultBranchRef": {
@@ -162,158 +326,6 @@
       "url": "https://github.com/jparkerweb/shrinkray"
     },
     {
-      "createdAt": "2025-12-03T04:59:18Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "📝 spec-driven workflow for AI coding agents. Send the plan, the build follows",
-      "forkCount": 0,
-      "homepageUrl": "https://plan2code.jparkerweb.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 105989
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 306086
-          }
-        ],
-        "totalSize": 412075
-      },
-      "licenseInfo": {
-        "spdxId": "Apache-2.0"
-      },
-      "name": "plan2code",
-      "primaryLanguage": {
-        "color": "#3178c6",
-        "name": "TypeScript"
-      },
-      "pushedAt": "2026-09-03T14:18:47Z",
-      "readme": {
-        "text": "\n# Plan2Code\n\n<img src=\"https://raw.githubusercontent.com/jparkerweb/plan2code/main/docs/banner.png\" alt=\"banner\" data=\"object-fit:contain;\" style=\"max-width:1024px;\">\n\n**A spec-driven workflow for AI coding agents. Send the plan — the build follows.**\n\nAn AI agent is a fine builder and a terrible client. Plan2Code stops making it both: you approve a\nplan, the plan becomes a set of phase documents in your repo, and the agent builds to those documents\none phase at a time. Progress lives in files instead of chat history — so the next session, the next\nagent, and the next engineer all start from the same specs.\n\nSix commands, each posted separately. Two of them are optional.\n\nVersion 2.3.0 · MIT · 📖 [plan2code.jparkerweb.com](https://plan2code.jparkerweb.com)\n\n---\n\n## Install\n\nRequires [Node.js](https://nodejs.org/) 18 or later and network access — installation runs through\nthe [skills CLI](https://skills.sh). Re-run any time to update.\n\n```bash\nnpx --allow-git=all git+https://github.com/jparkerweb/plan2code.git\n```\n\nThis fetches the installer to a temp directory, builds the workflow as Agent Skills, delegates\ninstallation to `skills add`, and cleans up after itself. The installed skills work independently\nfrom then on.\n\nEither route lands you on the same menu:\n\n```\n╔═════════════════════════════════════════════════════════╗\n║ INSTALL PLAN2CODE                                       ║\n╠═════════════════════════════════════════════════════════╣\n║  I.  INSTALL    Install Plan2Code skills everywhere     ║\n║  A.  ALL        Install Plan2Code + dev tools           ║\n║  U.  UNINSTALL  Remove Plan2Code skills and dev tools   ║\n║  C.  CUSTOM     Advanced options                        ║\n║  Q.  QUIT       Exit                                    ║\n╚═════════════════════════════════════════════════════════╝\n```\n\n**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex · Continue · Codeium · Zed · Amp · OpenCode · Devin · Crush · Pi ·\nGemini CLI · Cline · Roo · Kilo · Goose · Trae · Qwen Code.\n\nThe installer keeps one canonical copy of each skill under `~/.agents/skills/` and links it into\nagents that maintain their own directory. Update later with `npx skills update -g`.\n\nUse the installer rather than calling `skills add` against the repository root: recursive discovery\nwould also find maintainer-only skills under `.claude/skills/`. The installer targets `skills/`\nexplicitly.\n\n<details>\n<summary>Prefer to clone?</summary>\n\n```bash\ngit clone https://github.com/jparkerweb/plan2code.git\ncd plan2code\nnode install.js\n\n# Only if you plan to modify or contribute to Plan2Code itself\nnpm install && npx husky\n```\n</details>\n\n---\n\n## The workflow\n\n```\n ┌╴╴╴╴╴╴╴╴╴╴╴╴┐\n ╎0 PATHFINDER╎ optional · new in 2.0 · for an idea too big or unclear to plan\n └╴╴╴╴╴╴┬╴╴╴╴╴┘\n        ▼\n ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌╴╴╴╴╴╴╴╴╴╴╴╴┐  ┌────────────┐\n │  1  PLAN   │─>│ 2 DOCUMENT │─>│3 IMPLEMENT │─>╎   REVIEW   ╎─>│ 4 FINALIZE │\n │decide what │  │ draw it as │  │build to the│  ╎  optional  ╎  │verify, sum,│\n │  to build  │  │phase specs │  │  drawing   │  ╎  any time  ╎  │  archive   │\n └────────────┘  └────────────┘  └────────────┘  └╴╴╴╴╴╴╴╴╴╴╴╴┘  └────────────┘\n    new chat        new chat     new chat/phase     new chat        new chat\n ├◀─────────────── one feature, start to archive ──────────────────▶┤\n```\n\nEvery box is its own conversation. That is not a style preference — planning context leaking into\nimplementation is where most agent drift starts.\n\n| Command | Use it when |\n|---------|-------------|\n| `/plan2code-0-pathfinder` | The idea is too big and unclear to plan. Charts it as decisions, clears them one at a time, hands a hot plan draft to Step 1 |\n| `/plan2code-1-plan` | Starting a feature. Full requirements → architecture pass |\n| `/plan2code-2-document` | Planning is done. Turn the plan into phase specs |\n| `/plan2code-3-implement` | Build the next phase (one per conversation) |\n| `/plan2code-review` | Independent second opinion on local changes, then optional fixes |\n| `/plan2code-4-finalize` | All phases done. Validate, summarize, archive |\n| `/plan2code-init` | Generate this repo's `AGENTS.md` so every agent starts informed |\n| `/plan2code-init-update` | Fold what you learned this session back into `AGENTS.md` |\n| `/plan2code-quick-task` | A small change that doesn't warrant the full sequence |\n| `/plan2code-1b-revise-plan` | Requirements moved mid-build. Revise the specs, not the code |\n| `/plan2code-handoff` | Compact this conversation into a doc the next one resumes from |\n\n---\n\n## The four rules that do most of the work\n\n**1 · A fresh conversation for each step, and each implementation phase.**\nStep 3 gets a new chat per phase, not one chat for all of them.\n\n**2 · No code until the plan hits 90% confidence.**\nStep 1 will not finalize below the threshold. Under it, the agent keeps asking and keeps reading your\ncode — and writes every assumption down where you can argue with it.\n\n**3 · Checkboxes are the state, not the chat.**\nProgress lives in the spec files. Any agent, any session, resumes cold from them.\n\n**4 · Reply `approved` to close a phase.**\nNothing advances on a guess about what you meant.\n\n---\n\n## What lands in your repo\n\n```\nyour-project/\n├── specs/\n│   └── task-api/                     ← in progress\n│       ├── pathfinder/               ← only if you charted it in Step 0\n│       │   ├── map.md                    the destination, the decisions, the fog\n│       │   ├── questions/NN-<slug>.md    one decision per file\n│       │   └── briefs/brief-<date>.md    plain-English decision summaries\n│       ├── PLAN-DRAFT-20260804.md    ← Step 1: the verified plan\n│       ├── PLAN-CONVERSATION-*.md    ← Step 1: how you got there\n│       ├── overview.md               ← Step 2: phase list + parallel groups\n│       └── Phase 1.md … Phase N.md   ← Step 2: one-point tasks, self-contained\n├── specs--completed/\n│   └── auth-refresh/                 ← Step 4 files finished work here\n└── ...your code\n```\n\n`specs/` is gitignored by default — it's your working drawing, not a deliverable. Share a folder\ndeliberately with `git add -f` when you want to.\n\n### Progress marks\n\n| Mark | Status | Meaning |\n|------|--------|---------|\n| `[ ]` | Open | Unclaimed. Any agent picks it up cold. |\n| `[/]` | In progress | Claimed right now — which is how two agents run parallel phases without colliding. |\n| `[x]` | Done | Built, self-reviewed against the spec, approved by you. |\n\n```markdown\n## Phases\n\n- [x] Phase 1: Project setup\n- [x] Phase 2: Data model\n- [/] Phase 3: API endpoints        ← an agent is on this now\n- [ ] Phase 4: Authentication       ← next available\n```\n\nStep 2 marks which phases don't share files. Open a second agent on one of those, and the `[/]` marks\nkeep the two out of each other's way.\n\n---\n\n## The six steps in detail\n\nEach one travels on its own — a fresh conversation, opened and closed, with the specs on disk as the\nonly thing carried between them.\n\n### 0 · Pathfinder 🧭 — optional, new in 2.0\n\nSome ideas are too big and unclear to plan: you can feel the shape of the work but you can't write\nit as requirements, so planning would just invent the answers. Pathfinder finds the *way* to the\ndestination; Step 1 then walks it.\n\n1. **Name the destination** — one or two lines fixing what this effort is finding its way to. Settled\n   first, because it fixes scope. It also asks where the map should live: **local files** under\n   gitignored `specs/` (private, solo — the default), or **GitHub Issues** (a map issue with one\n   sub-issue per decision, native blocking, so your team can see and work the frontier in the tracker).\n2. **Chart the map** — a breadth-first grilling surfaces the open decisions. Anything you can phrase\n   *sharply* becomes a question file; anything you can only sense stays listed as fog.\n3. **Clear the questions one at a time** — resolving one burns off the fog behind it, graduating\n   whatever just became sharp into new questions. After each decision it offers a menu: take the next\n   question here, or start fresh — recommended after about three, to keep the agent sharp.\n   Ask for a **brief** at any point and you get a dated, plain-English summary of what has been\n   decided, what is still open, and what is next — meeting minutes, with no jargon in them.\n4. **Hand off** — when nothing is left to decide, it writes a `PLAN-DRAFT` that\n   `/plan2code-1-plan` resumes from at Phase 4, with requirements, context, and scope already\n   answered.\n\n**Question types:** `grill` (a decision only you can make — the default) · `research` (a fact gates\nit; background agents resolve these, several in parallel) · `sketch` (you need something concrete to\nreact to) · `legwork` (manual work that has to happen before a decision is possible).\n\nIt never answers its own questions, and it **plans, it never builds.** When the urge to just build it\narrives, the map is done. Skip Step 0 entirely when you already know what you're building.\n\n**Out:** `specs/<feature>/pathfinder/map.md` + `questions/` (or a `pathfinder:map` issue and its\nsub-issues) → `PLAN-DRAFT-<date>.md`. The draft is always a local file — that is what Step 1 reads.\n\n### 1 · Plan 🤔\n\nThe agent works as a senior architect through six phases, stopping for you after each: requirements\nanalysis · system context (reading your actual codebase) · tech stack (needs your explicit sign-off) ·\narchitecture design · technical specification · transition decision.\n\nIt won't finalize below **90% confidence**, and every assumption it makes is written into the draft.\n\n**In:** a description of the feature. **Out:** `PLAN-DRAFT-<date>.md` + `PLAN-CONVERSATION-<date>.md`\n\n### 2 · Document 📝\n\nThe plan becomes the drawing. One `overview.md` with the phase checklist, plus one file per phase of\none-story-point tasks. Each phase is **self-contained** — an agent opening `Phase 3.md` cold needs\nnothing else to build it. Unit and E2E tests are excluded unless you ask for them.\n\nThe overview also identifies the **parallel execution groups**: phases with no shared files or\ndependencies, safe to run in separate agents at once.\n\n**In:** the `PLAN-DRAFT`. **Out:** `overview.md` + `Phase 1…N.md`\n\n### 3 · Implement ⚡\n\nPoint it at `overview.md` and it does the rest: finds the next unchecked phase, implements every task\nexactly as specified, ticks tasks off as they land, then reviews its own work against the spec and\nwrites a completion summary.\n\nOne phase per conversation. It won't run tests unless the phase says to.\n\n**In:** `specs/<feature>/overview.md`. **Out:** working code, and updated checkboxes.\n\n### Review 🔬 — optional, any time\n\nAn independent second opinion, not a rubber stamp. It figures out its own scope (conversation\ncontext, your instruction, or the git diff as a fallback), analyses across 11 dimensions, and ranks\nfindings Critical / Warning / Suggestion. Every finding cites a file and a line, or it gets dropped —\nand the review pass is read-only. It fixes things only if you ask, and verifies each fix afterwards.\n\nSpec-aware when `specs/` exists, and works fine without it. Most useful right after a planning or\nimplementation step, but there's no wrong time to run it.\n\n### 4 · Finalize 🧹\n\nValidates every task against its phase spec, writes the summary and the list of files touched, flags\nthe docs that drifted (`README`, `CHANGELOG`, `AGENTS.md`), then archives the whole spec folder —\n`pathfinder/` included — to `specs--completed/`. That folder is the record of *why* the code looks\nlike this.\n\n**In:** `specs/<feature>/overview.md`. **Out:** archived specs.\n\n---\n\n## What to bring to each step\n\n| Step | Required input |\n|------|----------------|\n| 0 · Pathfinder | Nothing to start — just describe the idea. To continue: the feature name; it finds its own map |\n| 1 · Plan | Nothing — describe the feature |\n| 2 · Document | `specs/<feature>/PLAN-DRAFT-<date>.md`, or the planning conversation |\n| 3 · Implement | `specs/<feature>/overview.md` — it detects the phase itself |\n| Review | Scope guidance, e.g. \"the last two phases\", \"just the auth module\", \"the whole PR\". Auto-detects if you give none |\n| 4 · Finalize | `specs/<feature>/overview.md` |\n\n---\n\n## Troubleshooting\n\n**The skills aren't recognised.** Re-run the installer and restart your AI tool. Confirm the global\ninstall with `npx skills list -g`. For a project install, check the generated directories aren't\ngitignored.\n\n**Your tool doesn't read Agent Skills.** Since v2.2.0, Plan2Code ships only as skills. If your tool\nhas no skill support, paste the relevant `src/plan2code-*.md` manually or point it at the installed\ncopy under `~/.agents/skills/`.\n\n**The agent starts coding during planning.** The prompts forbid it, but models drift. Say: \"Stay in\nplanning mode. Do not write code yet.\"\n\n**The agent doesn't know what to implement.** Give it the path to `overview.md` — it reads the phase\nfile itself from there.\n\n**You lost track between sessions.** `overview.md` has the phase status; the phase files have the\ntask status. That's the whole state.\n\n**The agent isn't following the spec.** Point at the specific phase document and tell it to re-read\nthe requirements.\n\n**Too many or too few phases.** Fix it in Step 2 — a phase should be a logical grouping of work, not\na fixed size.\n\n---\n\n## Customizing\n\nThe prompts are yours to edit. Common changes: add testing requirements in Step 2, move the 90%\nconfidence threshold in Step 1, restructure the `specs/` layout, or add review gates to Step 3.\nSource files live in `src/`; run `npm run build:skills`, then re-run `node install.js` to push your\nedits out through the skills CLI.\n\n---\n\n## Dive deeper\n\nCore reference:\n\n- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** — the one-page card: commands, inputs, outputs, decision tree\n- **[.readme/walkthrough.md](.readme/walkthrough.md)** — one feature from a sentence to archived specs, session by session\n- **[AGENTS.md](AGENTS.md)** — architecture and contributor guide for this repo\n- **[CHANGELOG.md](CHANGELOG.md)** — what changed, and why\n\nOptional tooling — none of it is required to use the workflow:\n\n- **[.readme/autonomous-loop.md](.readme/autonomous-loop.md)** — `plan2code-loop`, a hands-off alternative to Step 3\n- **[.readme/status-line.md](.readme/status-line.md)** — three-line Claude Code status bar: model, context, quota, diff\n- **[.readme/metrics.md](.readme/metrics.md)** — `plan2code-metrics`, measuring and improving the prompts themselves\n- **[.readme/test-bot.md](.readme/test-bot.md)** — `plan2code-bot`, maintainer harness that runs the whole workflow unattended\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "ai-developer-tools"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-engineering"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-sdlc"
-            }
-          },
-          {
-            "topic": {
-              "name": "ai-sdlc-framework"
-            }
-          },
-          {
-            "topic": {
-              "name": "spec-driven-development"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 0,
-      "updatedAt": "2026-09-03T14:26:09Z",
-      "url": "https://github.com/jparkerweb/plan2code"
-    },
-    {
-      "createdAt": "2024-11-16T21:22:07Z",
-      "defaultBranchRef": {
-        "name": "main"
-      },
-      "description": "🖋️ eQuill Labs website and digital assets",
-      "forkCount": 0,
-      "homepageUrl": "https://www.equilllabs.com/",
-      "isArchived": false,
-      "isFork": false,
-      "issues": {
-        "totalCount": 0
-      },
-      "languages": {
-        "edges": [
-          {
-            "node": {
-              "name": "JavaScript"
-            },
-            "size": 820
-          },
-          {
-            "node": {
-              "name": "CSS"
-            },
-            "size": 4099
-          },
-          {
-            "node": {
-              "name": "HTML"
-            },
-            "size": 9096932
-          },
-          {
-            "node": {
-              "name": "Go Template"
-            },
-            "size": 166
-          },
-          {
-            "node": {
-              "name": "TypeScript"
-            },
-            "size": 60392
-          },
-          {
-            "node": {
-              "name": "Astro"
-            },
-            "size": 109563
-          }
-        ],
-        "totalSize": 9271972
-      },
-      "licenseInfo": null,
-      "name": "eQuill-Labs",
-      "primaryLanguage": {
-        "color": "#e34c26",
-        "name": "HTML"
-      },
-      "pushedAt": "2026-08-30T03:29:36Z",
-      "readme": {
-        "text": "# eQuill Labs\n\nPortfolio site for [eQuill Labs](https://www.equilllabs.com) — a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.\n\nBuilt with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.\n\nDiscord: https://discord.gg/sp8AQQhMJ7\n\n---\n\n## Tech Stack\n\n| Layer | Tools |\n|-------|-------|\n| Framework | Astro 6, TypeScript |\n| Styling | Tailwind CSS 4, CSS custom properties, Geist + Instrument Serif fonts |\n| Content | Astro Content Collections, Markdown, gray-matter, remark |\n| Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI |\n| OG Images | Satori (HTML to SVG) + resvg (SVG to PNG) |\n| Search | Pagefind (static search index) |\n| Icons | Lucide |\n| Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate |\n| Hosting | GitHub Pages |\n\n## Project Structure\n\n```\nsrc/\n├── components/\n│   ├── brand/          # Logo, wordmark, slash glyph\n│   ├── hero/           # Homepage hero (LivingIndex)\n│   ├── layout/         # Header, footer, theme toggle\n│   ├── projects/       # ProjectCard, ProjectGrid, filters, fallback art\n│   └── seo/            # Meta tags, JSON-LD structured data\n├── content/\n│   ├── projects/       # Markdown files for each project (auto-generated)\n│   └── pages/          # Static page content (about)\n├── layouts/            # BaseLayout, ProjectLayout\n├── lib/                # Utilities (OG rendering, README parsing, animations)\n├── pages/              # File-based routing\n│   ├── index.astro\n│   ├── about.astro\n│   ├── 404.astro\n│   ├── projects/       # Listing + dynamic [slug] detail pages\n│   └── og/             # Dynamic OG image endpoints\n└── styles/             # Global CSS, design tokens, dark/light themes\n\nscripts/                # Data pipeline (fetch, curate, render, blurbs)\ndata/                   # GitHub snapshot, build manifest, AI cache\nsite/                   # Curation config (featured.json)\ndocs/                   # Production build output (GitHub Pages)\npublic/                 # Static assets (brand, favicons, project images)\ntests/                  # E2E accessibility tests\n```\n\n## Getting Started\n\n**Requirements:** Node.js >= 20\n\n```bash\n# Install dependencies\nnpm ci\n\n# Start dev server\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Preview production build\nnpm run preview\n```\n\n## Data Pipeline\n\nProject content is pulled from GitHub and rendered into Astro content collections. The pipeline requires the `gh` CLI authenticated with repo scope (`gh auth login -s repo`).\n\n```bash\n# Fetch repos from GitHub → data/github-snapshot.json\nnpm run refresh:fetch\n\n# Render snapshot into content markdown → src/content/projects/*.md\nnpm run refresh:render\n\n# Run both steps\nnpm run refresh:all\n```\n\n**Flow:**\n1. `refresh:fetch` queries the GitHub GraphQL API for all public repos\n2. `refresh:render` reads the snapshot + `site/featured.json` curation config, then generates markdown files with full frontmatter (stars, languages, topics, links, etc.)\n3. `astro build` compiles the site to `docs/`\n4. Pagefind indexes the output for client-side search\n\n### README Conventions\n\nWhen rendering project content, the pipeline scrapes each repo's README for extra metadata via `src/lib/readme-parse.ts`. Authoring your repo README with these conventions lets the generator pick things up automatically:\n\n| Signal | How to mark it in the README | Where it shows up |\n|--------|------------------------------|-------------------|\n| Hero banner | First `<img>` or `![alt](…)` whose alt contains `banner` (falls back to first image) | Card banner + project page hero |\n| Banner framing | A `data=\"…\"` attribute on that same `<img>`, holding CSS declarations | Applied as an inline `style` on the card and project-page banner `<img>` |\n| Tagline | First paragraph after the H1 | Card tagline + project page subtitle |\n| Features | Bulleted list under a heading matching `features` / `why` / `highlights` | (reserved for future use) |\n| Demo link | Any `<a>` tag with `data-tag=\"demo\"` , e.g. `<a href=\"https://semantic-chunking.equilllabs.com/\" data-tag=\"demo\">semantic-chunking.equilllabs.com</a>` | \"Demo\" link on the project page sidebar, rendered above the Repository link |\n| Install snippet | First fenced code block whose first line starts with `npm` / `pnpm` / `yarn` / `bun` / `npx` | (reserved for future use) |\n\n#### Framing the banner with `data=\"…\"`\n\nA banner that looks right at full width in a README is often cropped badly by the card, which renders it in a short fixed-height box with `object-fit: cover`. To steer that crop from the repo itself, put CSS declarations in a `data` attribute on the banner `<img>`:\n\n```html\n<img\n  src=\"https://raw.githubusercontent.com/jparkerweb/cottage-garden/refs/heads/main/cottage-garden.jpg\"\n  alt=\"banner\"\n  data=\"object-position:bottom;\"\n  style=\"max-height:400px\">\n```\n\n`refresh:render` stores that value as `banner.style` in the project's frontmatter, and `ProjectCard.astro` / `ProjectLayout.astro` apply it as an inline `style` on the banner `<img>`, layering over the component's own CSS. The example above keeps the bottom of the image in frame instead of the default centered crop.\n\nNotes:\n\n- Only the `data` attribute is read. The `style` attribute on the README `<img>` is ignored (it governs how the image renders on GitHub, which is a different box).\n- Values are sanitized before use: only well-formed `prop: value` declarations survive, and anything containing markup characters, braces, or `url(...)` is dropped. The result is capped at 300 characters.\n- `object-position`, `object-fit`, `transform`, and `filter` are the useful ones in practice. The banner box sizing itself stays under the site's control.\n- Relative image paths (`docs/banner.png`) are resolved to `raw.githubusercontent.com` on the repo's default branch, so a banner does not need an absolute URL in the README.\n\nThe `data-tag=\"demo\"` attribute is the canonical, explicit marker for a live demo URL — it takes priority over the older heuristic that matched link text/URLs containing `demo`, `live`, `playground`, or `try it`. Prefer the attribute in new READMEs so the intent is unambiguous.\n\n### Project Categories (GitHub Topics → Type)\n\nEvery project on the site is tagged with a **category** (shown as the \"Type\" filter on the projects page and as `data-type` on each card). The category is **auto-derived** from the repo's GitHub topics and homepage URL during `npm run refresh:render`, by `deriveCategory()` in [`scripts/curate.ts`](scripts/curate.ts).\n\n**The 7 categories:**\n\n| Category | What it means | Examples |\n|----------|---------------|----------|\n| `library` | Reusable package / importable code (npm, etc.) | `semantic-chunking`, `chunk-match`, `down-craft` |\n| `plugin` | Extension to a host app (Obsidian, browser, etc.) | `pixel-banner`, `rich-foot` |\n| `cli` | Command-line tool or shell script | `ps-win-dir-size`, `add-block-to-hosts` |\n| `service` | Deployable server, API, proxy, MCP server, container | `mcp-sqlite`, `bedrock-proxy-endpoint` |\n| `utility` | General-purpose helper tool that doesn't fit the shapes above | *(tag with `util`, `utility`, or `tool`)* |\n| `app` | Standalone application with a live site/demo | `shrinkray`, `web-augmented-generation` |\n| `demo` | Example / experiment / learning project (the default) | `htmldiff-example`, `ollama-structured-output-test` |\n\n#### How to control a project's category\n\nThe derivation checks rules in priority order — the **first rule that matches wins**. Use these by adding the corresponding **GitHub topics** to your repo (Settings → About → Topics) or by setting its **homepage URL**.\n\n1. **Explicit override (always wins)** — add one of these topics to force a category:\n   - `equill-library` · `equill-plugin` · `equill-cli` · `equill-service` · `equill-utility` · `equill-app` · `equill-demo`\n\n2. **Service** — any of: `mcp`, `mcp-server`, `api`, `proxy`, `endpoint`, `serverless`, or homepage on `hub.docker.com`\n\n3. **Plugin** — any of: `obsidian-plugin`, `obsidian`, `plugin`, `browser-extension`\n\n4. **Library** — any of: `npm`, `npm-package`, `library`, or homepage on `npmjs.com/package/…`\n\n5. **CLI** — any of: `cli`, `powershell`, `bash-script`, `shell-script`\n\n6. **Utility** — any of: `util`, `utility`, `tool`\n\n7. **App** — repo name ends in `-app`, OR a non-npm / non-dockerhub homepage URL is set\n\n8. **Demo** — the fallback when nothing else matches\n\n#### Tips\n\n- **Adding `equill-<category>` is the safest way to lock in a category** regardless of other topics. Use it when the automatic rules pick the wrong bucket.\n- Topic order doesn't matter — matching is set-based.\n- Topics are case-insensitive on our side, but GitHub stores them lowercase.\n- After changing topics on GitHub, run `npm run refresh:all` to re-pull the snapshot and regenerate the markdown.\n- **Want a new category?** Edit the `deriveCategory()` function in `scripts/curate.ts`, then update the three enum locations: `scripts/render-content.ts`, `src/content.config.ts`, and the `TYPES` array in `src/components/projects/ProjectFilters.astro`.\n\n### Curation\n\n`site/featured.json` controls which projects are featured, hidden, or reordered:\n\n```json\n{\n  \"featured\": [\"pixel-banner\", \"semantic-chunking\", \"mcp-sqlite\"],\n  \"hidden\": [\"dotfiles*\", \"*-personal\"],\n  \"hideTopics\": [\"not-portfolio\", \"private-project\"],\n  \"order\": { \"semantic-chunking\": 1 }\n}\n```\n\n## Scripts\n\n| Script | Description |\n|--------|-------------|\n| `npm run dev` | Astro dev server with hot reload |\n| `npm run build` | Production build + Pagefind indexing |\n| `npm run preview` | Serve production build locally |\n| `npm run check` | Type-check Astro files |\n| `npm run format` | Format code with Prettier |\n| `npm run refresh:fetch` | Fetch GitHub data |\n| `npm run refresh:render` | Generate content from snapshot |\n| `npm run refresh:all` | Fetch + render |\n| `npm run validate:html` | Validate build output HTML |\n| `npm run test:a11y` | Accessibility tests (Playwright + axe-core) |\n| `npm run test:lighthouse` | Lighthouse CI performance audit |\n\n## Pages\n\n- **Home** (`/`) — Featured projects grid, hero section, about teaser\n- **Projects** (`/projects/`) — Full catalog with search and filtering\n- **Project Detail** (`/projects/[slug]/`) — Banner, metadata, README content, sidebar links\n- **About** (`/about/`) — Bio, focus areas, timeline\n- **OG Images** (`/og/[slug].png`) — Dynamically rendered social preview images\n\n## Analytics\n\nThe site uses self-hosted **[Umami](https://umami.is/)** (cookieless, GDPR-friendly) at `https://umami.jparkerweb.com`. The tracker snippet lives in `src/layouts/BaseLayout.astro` and only fires on the production domains, so dev and preview traffic isn't counted. Every page inherits tracking automatically through `BaseLayout`. See [`AGENTS.md → Analytics`](./AGENTS.md#analytics) for the website ID, custom-event API, and operational notes.\n\n## Theming\n\nDark theme is the default. Light theme is available via toggle. Design tokens live in `src/styles/tokens.css` with theme overrides in `src/styles/themes/`.\n\n## Deployment\n\nThe site deploys to GitHub Pages from the `docs/` directory. The custom domain `www.equilllabs.com` is configured via `public/CNAME`.\n\n```bash\nnpm run build    # outputs to docs/\ngit add docs/\ngit commit -m \"build: update site\"\ngit push\n```\n"
-      },
-      "repositoryTopics": {
-        "nodes": [
-          {
-            "topic": {
-              "name": "not-portfolio"
-            }
-          }
-        ]
-      },
-      "stargazerCount": 1,
-      "updatedAt": "2026-08-30T03:29:41Z",
-      "url": "https://github.com/jparkerweb/eQuill-Labs"
-    },
-    {
       "createdAt": "2026-06-29T03:52:57Z",
       "defaultBranchRef": {
         "name": "main"
@@ -368,7 +380,7 @@
         "name": "main"
       },
       "description": "🤖 A collection of AI agent skills that automate recurring engineering workflows that can be installed across multiple AI coding assistants.",
-      "forkCount": 12,
+      "forkCount": 13,
       "homepageUrl": "",
       "isArchived": false,
       "isFork": false,
@@ -431,8 +443,8 @@
           }
         ]
       },
-      "stargazerCount": 88,
-      "updatedAt": "2026-08-22T17:34:04Z",
+      "stargazerCount": 90,
+      "updatedAt": "2026-09-29T16:12:01Z",
       "url": "https://github.com/jparkerweb/ai-assist-skills"
     },
     {
@@ -524,7 +536,7 @@
         "name": "main"
       },
       "description": "🍱 Semantically create chunks from large document for passing to LLM workflows",
-      "forkCount": 13,
+      "forkCount": 14,
       "homepageUrl": "https://www.npmjs.com/package/semantic-chunking",
       "isArchived": false,
       "isFork": false,
@@ -621,8 +633,8 @@
           }
         ]
       },
-      "stargazerCount": 142,
-      "updatedAt": "2026-08-14T21:07:04Z",
+      "stargazerCount": 144,
+      "updatedAt": "2026-10-05T09:04:16Z",
       "url": "https://github.com/jparkerweb/semantic-chunking"
     },
     {
@@ -879,8 +891,8 @@
           }
         ]
       },
-      "stargazerCount": 53,
-      "updatedAt": "2026-07-23T15:42:22Z",
+      "stargazerCount": 52,
+      "updatedAt": "2026-09-26T05:34:14Z",
       "url": "https://github.com/jparkerweb/rich-foot"
     },
     {
@@ -1022,8 +1034,8 @@
           }
         ]
       },
-      "stargazerCount": 9,
-      "updatedAt": "2026-05-27T18:12:13Z",
+      "stargazerCount": 8,
+      "updatedAt": "2026-09-26T05:34:30Z",
       "url": "https://github.com/jparkerweb/fast-topic-analysis"
     },
     {
@@ -1111,8 +1123,8 @@
           }
         ]
       },
-      "stargazerCount": 9,
-      "updatedAt": "2026-05-16T13:09:42Z",
+      "stargazerCount": 8,
+      "updatedAt": "2026-09-26T05:34:02Z",
       "url": "https://github.com/jparkerweb/bedrock-wrapper"
     },
     {
@@ -1258,8 +1270,8 @@
           }
         ]
       },
-      "stargazerCount": 2,
-      "updatedAt": "2026-05-12T04:43:52Z",
+      "stargazerCount": 1,
+      "updatedAt": "2026-09-26T05:33:35Z",
       "url": "https://github.com/jparkerweb/obsidian-image-from-field"
     },
     {
@@ -1337,8 +1349,8 @@
           }
         ]
       },
-      "stargazerCount": 6,
-      "updatedAt": "2026-05-12T04:43:05Z",
+      "stargazerCount": 7,
+      "updatedAt": "2026-09-24T19:16:20Z",
       "url": "https://github.com/jparkerweb/pptx-in-html-out"
     },
     {
@@ -1394,8 +1406,8 @@
           }
         ]
       },
-      "stargazerCount": 10,
-      "updatedAt": "2026-07-25T14:58:40Z",
+      "stargazerCount": 9,
+      "updatedAt": "2026-09-26T05:33:49Z",
       "url": "https://github.com/jparkerweb/obsidian-bullet-cards"
     },
     {
@@ -1526,8 +1538,8 @@
           }
         ]
       },
-      "stargazerCount": 0,
-      "updatedAt": "2026-05-12T04:42:09Z",
+      "stargazerCount": 1,
+      "updatedAt": "2026-09-25T20:17:22Z",
       "url": "https://github.com/jparkerweb/ps-win-dir-size"
     },
     {
@@ -2402,8 +2414,8 @@
           }
         ]
       },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-21T15:41:58Z",
+      "stargazerCount": 0,
+      "updatedAt": "2026-09-26T05:34:30Z",
       "url": "https://github.com/jparkerweb/ollama-structured-output-test"
     },
     {
@@ -2468,8 +2480,8 @@
           }
         ]
       },
-      "stargazerCount": 1,
-      "updatedAt": "2026-04-21T15:42:37Z",
+      "stargazerCount": 0,
+      "updatedAt": "2026-09-26T05:34:01Z",
       "url": "https://github.com/jparkerweb/InferIQ"
     },
     {
@@ -2531,8 +2543,8 @@
           }
         ]
       },
-      "stargazerCount": 2,
-      "updatedAt": "2026-04-21T15:43:37Z",
+      "stargazerCount": 1,
+      "updatedAt": "2026-09-26T05:34:08Z",
       "url": "https://github.com/jparkerweb/random-pexels-image"
     },
     {
@@ -2907,7 +2919,7 @@
       "isArchived": false,
       "isFork": false,
       "issues": {
-        "totalCount": 29
+        "totalCount": 30
       },
       "languages": {
         "edges": [
@@ -2977,8 +2989,8 @@
           }
         ]
       },
-      "stargazerCount": 211,
-      "updatedAt": "2026-08-29T09:13:44Z",
+      "stargazerCount": 208,
+      "updatedAt": "2026-09-26T05:34:14Z",
       "url": "https://github.com/jparkerweb/pixel-banner"
     },
     {
@@ -3067,8 +3079,8 @@
           }
         ]
       },
-      "stargazerCount": 8,
-      "updatedAt": "2026-04-24T10:01:42Z",
+      "stargazerCount": 6,
+      "updatedAt": "2026-09-26T05:34:19Z",
       "url": "https://github.com/jparkerweb/web-augmented-generation"
     },
     {
@@ -3270,7 +3282,7 @@
         "name": "main"
       },
       "description": "🐇 Model Context Protocol (MCP) server that provides comprehensive SQLite database interaction capabilities",
-      "forkCount": 16,
+      "forkCount": 17,
       "homepageUrl": "https://www.npmjs.com/package/mcp-sqlite",
       "isArchived": false,
       "isFork": false,
@@ -3350,7 +3362,7 @@
         ]
       },
       "stargazerCount": 127,
-      "updatedAt": "2026-08-29T09:21:32Z",
+      "updatedAt": "2026-09-30T12:33:31Z",
       "url": "https://github.com/jparkerweb/mcp-sqlite"
     },
     {
@@ -4139,8 +4151,8 @@
           }
         ]
       },
-      "stargazerCount": 7,
-      "updatedAt": "2026-07-23T15:39:37Z",
+      "stargazerCount": 6,
+      "updatedAt": "2026-09-26T05:33:33Z",
       "url": "https://github.com/jparkerweb/obsidian-element-enhancer"
     },
     {
@@ -4356,8 +4368,8 @@
           }
         ]
       },
-      "stargazerCount": 2,
-      "updatedAt": "2026-04-21T17:35:15Z",
+      "stargazerCount": 3,
+      "updatedAt": "2026-10-02T14:53:00Z",
       "url": "https://github.com/jparkerweb/kdm-cards"
     },
     {

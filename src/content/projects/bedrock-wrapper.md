@@ -41,18 +41,18 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 9
+stars: 8
 links:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   homepage: 'https://www.npmjs.com/package/bedrock-wrapper'
 featured: false
-sortOrder: 991
+sortOrder: 992
 status: active
 lastCommit: '2026-05-16T13:18:45Z'
 _source:
   repo: 'https://github.com/jparkerweb/bedrock-wrapper'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 An npm package that simplifies the integration of existing OpenAI-compatible API objects with AWS Bedrock's serverless inference LLMs. It accepts an `awsCreds` object and an OpenAI chat-completions-style request object, then streams the Bedrock response back chunk by chunk. Messages use OpenAI's role/content format, and the request's `model` value maps to a supported Bedrock model name. For an even simpler setup, it can be paired with the companion Bedrock Proxy Endpoint project to stand up a full OpenAI-compatible server endpoint using the standard `baseUrl` and `apiKey` params.
 

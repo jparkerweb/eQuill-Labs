@@ -34,18 +34,18 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 6
+stars: 7
 links:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   homepage: 'https://www.npmjs.com/package/pptx-in-html-out'
 featured: false
-sortOrder: 994
+sortOrder: 993
 status: active
 lastCommit: '2026-05-12T04:43:01Z'
 _source:
   repo: 'https://github.com/jparkerweb/pptx-in-html-out'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 An npm package that converts PowerPoint presentations to HTML with high fidelity. It preserves images, shapes, and text formatting, includes OCR support for extracting text from images, and produces responsive output that works across devices as a modern ESM package. The main `PPTXInHTMLOut` class is constructed from a PPTX file buffer, and its `toHTML(options)` method returns the generated HTML, optionally including default styles or omitting them for custom styling.
 

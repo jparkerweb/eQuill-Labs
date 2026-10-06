@@ -42,7 +42,7 @@ primaryLanguage: JavaScript
 languages:
   - name: JavaScript
     percent: 100
-stars: 9
+stars: 8
 links:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   homepage: 'https://www.equilllabs.com/projects/fast-topic-analysis'
@@ -53,7 +53,7 @@ lastCommit: '2026-05-27T18:13:06Z'
 _source:
   repo: 'https://github.com/jparkerweb/fast-topic-analysis'
   sha: HEAD
-  fetchedAt: '2026-09-04T20:01:18.794Z'
+  fetchedAt: '2026-10-06T01:55:55.892Z'
 ---
 A tool for analyzing text against predefined topics using average weight embeddings and cosine similarity. It creates several weighted average embeddings for each topic instead of a single representation, capturing different semantic variations, and groups similar phrases within topics into coherent clusters using agglomerative or HDBSCAN algorithms. Cluster quality is measured via per-cluster cohesion and a global silhouette score, and preset configurations are offered for high precision, balanced, and performance use cases. The project centers on a generator that creates topic embeddings from training data and an interactive demo that analyzes text against them, powered by the embedding-utils library.
 

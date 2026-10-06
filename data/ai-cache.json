@@ -886,6 +886,28 @@
     "shortDescription": "A spec-driven workflow for AI coding agents: you approve a plan, and the agent builds to it one phase at a time.",
     "slug": "plan2code"
   },
+  "3b65b9c73230a3d22aa05fcb25daeb4b232c045d282aba8e330bc0f6182171d0": {
+    "generatedAt": "2026-10-06T01:56:41.353Z",
+    "longDescription": "Plan2Code is a spec-driven workflow for AI coding agents that you work through on a page in your browser. The dashboard lists every step as a card, and each step's questions, progress and sign-offs arrive on that same page while the agent does the work. Decisions still land in your repo as plain files: an approved plan becomes phase documents, and the agent builds to them one phase at a time, so the next session, the next agent and the next engineer all start from the same specs. The steps run from an optional Pathfinder through Plan, Document, Implement and Finalize, with Quick task, Review and Handoff cards always available. The `plan2code` command starts Claude Code or Devin on the dashboard, and the workflow installs as Agent Skills through the skills CLI for every agent it supports, including Cursor, GitHub Copilot, Windsurf, Codex and Gemini CLI. Version 2.4.1 is MIT licensed.",
+    "model": "claude-opus-5-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents.",
+      "You work through Plan2Code on a page in your browser. The dashboard lists every step as a card",
+      "each step's questions, progress and sign-offs arrive on that same page while your agent does the\nwork.",
+      "What you decide still lands in your repo as plain files: an approved plan becomes phase\ndocuments, and the agent builds to them one phase at a time, so the next session, the next agent and\nthe next engineer all start from the same specs.",
+      "acts out the five steps: Pathfinder, Plan, Document, Implement and Finalize.",
+      "| Quick task | Too small for the full process? A quick plan, then it just builds it. | Always |",
+      "| Review | A second opinion on the changes. Problems ranked, and you pick what gets fixed. | Always |",
+      "| Handoff | Pack this conversation into a document a fresh session can pick up cold. | Always |",
+      "In any project, run `plan2code`. It starts Claude Code or Devin on the dashboard",
+      "builds the workflow as Agent Skills, delegates\ninstallation to `skills add`",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex",
+      "Gemini CLI",
+      "Version 2.4.1 · MIT"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents, worked through on a browser dashboard where every step is a card.",
+    "slug": "plan2code"
+  },
   "3c56acfb5ba9a502b4dbe681be32fa51d6f38687a2aa682bebe7e696799b7721": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
     "longDescription": "Automatically detects images and text in your clipboard, and one command saves clipboard content with zero configuration. Files are saved with clean timestamps and duplicate filenames get a number appended. INI-based configuration with sensible defaults.",
@@ -2320,6 +2342,25 @@
     ],
     "shortDescription": "AutoHotkey script that remaps Capslock+Left and Capslock+Right to Home and End.",
     "slug": "caps-left-right"
+  },
+  "c78af61ecf1d6fcb4adb027132e20ce7fe23b136f41112717df7b5d4a3ea262a": {
+    "generatedAt": "2026-10-06T01:56:41.353Z",
+    "longDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem. It is built with Astro 6, Tailwind CSS 4, and a GitHub-driven data pipeline that keeps project content in sync with live repositories, reading the GitHub GraphQL API through `@octokit/graphql` and the `gh` CLI. Project content lives in Astro Content Collections as Markdown processed with gray-matter and remark. OG images are rendered with Satori and resvg, search is a static Pagefind index, and icons come from Lucide. Testing covers accessibility with Playwright and axe-core, alongside Lighthouse CI and html-validate, and the site is hosted on GitHub Pages.",
+    "model": "claude-opus-5-5",
+    "quotedSpans": [
+      "Portfolio site for [eQuill Labs](https://www.equilllabs.com)",
+      "a catalog of open-source projects by Justin Parker spanning LLM infrastructure, semantic NLP, MCP tooling, and the Obsidian ecosystem.",
+      "Built with **Astro 6**, **Tailwind CSS 4**, and a GitHub-driven data pipeline that keeps project content in sync with live repositories.",
+      "Data | GitHub GraphQL API via `@octokit/graphql`, `gh` CLI",
+      "Content | Astro Content Collections, Markdown, gray-matter, remark",
+      "OG Images | Satori (HTML to SVG) + resvg (SVG to PNG)",
+      "Search | Pagefind (static search index)",
+      "Icons | Lucide",
+      "Testing | Playwright + axe-core (a11y), Lighthouse CI, html-validate",
+      "Hosting | GitHub Pages"
+    ],
+    "shortDescription": "Portfolio site for eQuill Labs, a catalog of open-source projects by Justin Parker.",
+    "slug": "equill-labs"
   },
   "c7cc79abcd70e381c570b8a6933a700d7d31dc5dfdc2e97e4b58dcf51eb0739b": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
