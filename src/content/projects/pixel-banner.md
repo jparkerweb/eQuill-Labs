@@ -18,14 +18,17 @@ description:
   long: >-
     An Obsidian plugin that adds customizable banner images to notes. It can
     generate banners with AI, browse the Pixel Banner Plus Collection of images
-    and videos, or fetch images by keyword from third-party APIs including
-    Pexels, Pixabay, Flickr, and Unsplash, and it also supports local vault
-    images, external `file:///` references, direct URLs, and MP4/MOV video
-    banners. All banner aspects are controlled through Obsidian's note
-    properties, with control over position, transparency, border radius,
-    animation, display mode, and banner icons. Workflow features include a
-    visual banner selection modal, command-palette and hotkey integration, quick
-    action icons, and folder-specific default settings.
+    and videos, or fetch images by keyword from Pexels, Pixabay, Flickr, and
+    Unsplash, and it also supports local vault images, external `file:///`
+    references, direct URLs, and MP4/MOV video banners. All banner aspects are
+    controlled through Obsidian's note properties, with control over position,
+    transparency, border radius, animation, display mode, and banner icons; a
+    note can also carry just an icon, shown as a compact header. Notes exported
+    with Obsidian's Export to PDF keep their banner at the top of the first
+    page. Workflow features include a visual banner selection modal,
+    command-palette and hotkey integration, quick action icons, and
+    folder-specific default settings. The plugin collects no analytics and
+    contacts outside services only when you set them up.
 banner:
   src: >-
     https://raw.githubusercontent.com/jparkerweb/pixel-banner/main/img/pixel-banner.jpg
@@ -44,20 +47,20 @@ theme: obsidian
 primaryLanguage: JavaScript
 languages:
   - name: CSS
-    percent: 1.43
+    percent: 1.77
   - name: JavaScript
-    percent: 98.57
-stars: 208
+    percent: 98.23
+stars: 210
 links:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   homepage: 'https://www.equilllabs.com/projects/pixel-banner.html'
 featured: true
 sortOrder: 4
 status: active
-lastCommit: '2026-04-17T15:05:23Z'
+lastCommit: '2026-10-20T01:58:24Z'
 _source:
   repo: 'https://github.com/jparkerweb/pixel-banner'
   sha: HEAD
-  fetchedAt: '2026-10-06T01:55:55.892Z'
+  fetchedAt: '2026-10-26T13:01:16.359Z'
 ---
-An Obsidian plugin that adds customizable banner images to notes. It can generate banners with AI, browse the Pixel Banner Plus Collection of images and videos, or fetch images by keyword from third-party APIs including Pexels, Pixabay, Flickr, and Unsplash, and it also supports local vault images, external `file:///` references, direct URLs, and MP4/MOV video banners. All banner aspects are controlled through Obsidian's note properties, with control over position, transparency, border radius, animation, display mode, and banner icons. Workflow features include a visual banner selection modal, command-palette and hotkey integration, quick action icons, and folder-specific default settings.
+An Obsidian plugin that adds customizable banner images to notes. It can generate banners with AI, browse the Pixel Banner Plus Collection of images and videos, or fetch images by keyword from Pexels, Pixabay, Flickr, and Unsplash, and it also supports local vault images, external `file:///` references, direct URLs, and MP4/MOV video banners. All banner aspects are controlled through Obsidian's note properties, with control over position, transparency, border radius, animation, display mode, and banner icons; a note can also carry just an icon, shown as a compact header. Notes exported with Obsidian's Export to PDF keep their banner at the top of the first page. Workflow features include a visual banner selection modal, command-palette and hotkey integration, quick action icons, and folder-specific default settings. The plugin collects no analytics and contacts outside services only when you set them up.

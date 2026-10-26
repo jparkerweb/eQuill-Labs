@@ -1221,6 +1221,29 @@
     "shortDescription": "Converts Markdown to printable HTML with live preview and PDF export.",
     "slug": "print-mark"
   },
+  "58225854a35abca403c8321f4f314956d1ab560a96680361ef2790bbcde816f2": {
+    "generatedAt": "2026-10-26T13:02:58.417Z",
+    "longDescription": "An Obsidian plugin that adds customizable banner images to notes. It can generate banners with AI, browse the Pixel Banner Plus Collection of images and videos, or fetch images by keyword from Pexels, Pixabay, Flickr, and Unsplash, and it also supports local vault images, external `file:///` references, direct URLs, and MP4/MOV video banners. All banner aspects are controlled through Obsidian's note properties, with control over position, transparency, border radius, animation, display mode, and banner icons; a note can also carry just an icon, shown as a compact header. Notes exported with Obsidian's Export to PDF keep their banner at the top of the first page. Workflow features include a visual banner selection modal, command-palette and hotkey integration, quick action icons, and folder-specific default settings. The plugin collects no analytics and contacts outside services only when you set them up.",
+    "model": "claude-opus-5-5",
+    "quotedSpans": [
+      "AI-Generated Banners: Create stunning, custom banners using AI generation",
+      "Browse and use professional banner images and videos from the integrated Pixel Banner Plus Collection",
+      "Connect to Pexels, Pixabay, Flickr, and Unsplash to automatically fetch banner images based on keywords",
+      "Reference images outside your vault using the `file:///` protocol",
+      "Add dynamic MP4 and MOV videos from your vault as animated banners",
+      "Control all banner aspects through Obsidian's `properties` feature",
+      "Choose between display modes (cover, auto, contain)",
+      "Give a note just an icon (emoji, text or image) and it shows as a compact header",
+      "Notes exported with Obsidian's Export to PDF keep their banner at the top of the first page",
+      "Banner Selection Modal: Quick visual picker for local images",
+      "Access all banner functions via command palette and hot keys",
+      "Folder-Specific Settings: Configure default banner behavior per folder",
+      "it contacts the other services below only when you set them up",
+      "It collects no analytics and sends nothing about your notes."
+    ],
+    "shortDescription": "Obsidian plugin that adds customizable banner images to notes, including AI-generated banners and images from Pexels, Pixabay, Flickr, and Unsplash.",
+    "slug": "pixel-banner"
+  },
   "59b0c51868c0e94774824802f0b410542f796c5e9caba199f552a5a688e0536a": {
     "generatedAt": "2026-04-21T18:19:31.431Z",
     "longDescription": "Requires the `obsidian-element-enhancer` script to inject custom classes into Reading View, then enable `bullet-cards.css` as a snippet in Appearance preferences. Modifier classes control orientation (vertical), alignment (centered, justified, left, right), and card width across ten size tiers. Live preview is not supported.",
@@ -1251,6 +1274,36 @@
     ],
     "shortDescription": "An interactive Windows terminal app that downloads public Scribd documents as visually faithful PDFs from a document ID or pasted URL.",
     "slug": "scribd-cli"
+  },
+  "5da94da5a7f43557396975df292fac477efc869d20ffa42496e6dab81e567e78": {
+    "generatedAt": "2026-10-26T13:02:58.417Z",
+    "longDescription": "ebook-to-pdf reads `.epub`, `.azw3`, `.azw`, `.mobi`, `.prc`, `.cbz`, `.fb2`, `.fb2.zip`, `.txt`, `.html`, `.htm` and `.xhtml` files and lays them out as PDFs. Every format reader, the layout engine and the PDF writer are part of the binary, so there is no Calibre, no Python and no Ghostscript to install. Run it with no arguments to browse for a book in the terminal interface, or pass `--no-tui` to convert a single book or a whole folder, several at a time with `--jobs`. Layout presets cover e-reader, paperback, print, A4, compact, large print, phone and manuscript, and any preset can be overridden with flags or a `config.yaml` file. Output keeps chapter breaks, headings, illustrations, the cover and hanging indents from the book's own stylesheet, with selectable text, outline bookmarks, page numbers and document metadata. DRM is not removed: a locked EPUB or Kindle book is refused. The project was renamed from azw3-to-pdf.",
+    "model": "claude-opus-5-5",
+    "quotedSpans": [
+      "Turn ebooks into PDFs, from a terminal interface or a single command: EPUB,\nKindle, comic archives, FictionBook, plain text and HTML.",
+      "reads `.epub`, `.azw3`, `.azw`, `.mobi`, `.prc`, `.cbz`, `.fb2`, `.fb2.zip`, `.txt`, `.html`, `.htm` and `.xhtml` files and lays them out as PDFs",
+      "every format reader, the layout engine and the PDF writer are all part of the binary",
+      "There is no Calibre, no Python, no Ghostscript and nothing else to install.",
+      "**A file browser in the terminal.** Run it with no arguments and pick a book.",
+      "ebook-to-pdf book.azw3 --no-tui",
+      "ebook-to-pdf ~/Books --recursive --no-tui --output-dir ~/PDFs --jobs 4",
+      "| `ereader` |",
+      "| `paperback` |",
+      "| `print` |",
+      "| `a4` |",
+      "| `compact` |",
+      "| `large-print` |",
+      "| `phone` |",
+      "| `manuscript` |",
+      "Any preset can be overridden",
+      "Settings are read from `config.yaml` in your configuration directory",
+      "**Faithful pages.** Chapter breaks, headings, illustrations, the cover,\n  hanging indents and justified text, taken from the book's own stylesheet.",
+      "**Real PDFs.** Selectable text, outline bookmarks from the book's headings,\n  page numbers and document metadata.",
+      "**DRM is not removed.** A locked EPUB or Kindle book is refused",
+      "This project was renamed from azw3-to-pdf."
+    ],
+    "shortDescription": "Go CLI and terminal browser that converts EPUB, Kindle, comic archive, FictionBook, plain text and HTML ebooks into PDFs.",
+    "slug": "ebook-to-pdf"
   },
   "60cb5a662e421f196bb414b679d8aa51f8569e650efc6885e1ddef802c039b86": {
     "generatedAt": "2026-04-15T23:30:00.000Z",
@@ -2274,6 +2327,39 @@
     ],
     "shortDescription": "Select and delete forum posts from your subscription list on Board Game Geek using keyboard shortcuts.",
     "slug": "bgg-keyboard-select"
+  },
+  "c2a8cb8004f01903b7761d10794e3d1a64c1a603f81150211903d61899cb7995": {
+    "generatedAt": "2026-10-26T13:02:58.417Z",
+    "longDescription": "Plan2Code is a spec-driven workflow for AI coding agents that you work through on a page in your browser. The dashboard lists every step as a card, and each step's questions, progress and sign-offs arrive on that same page while the agent does the work. Decisions still land in your repo as plain files: an approved plan becomes phase documents, and the agent builds to them one phase at a time, so the next session, the next agent and the next engineer all start from the same specs. The steps run from an optional Pathfinder through Plan, Document, Implement and Finalize, with cards such as Quick task, Review, Handoff, Codebase X-ray, Diagnose a bug, Changelog and Git always available. The page also carries an Ask tab for quick questions, a private Notebook the agent never sees, and a session meter that suggests a fresh session as one grows long. The `plan2code` command opens the dashboard in Claude Code, Devin or Codex, and the workflow installs as Agent Skills through the skills CLI for every agent it supports, including Cursor, GitHub Copilot, Windsurf and Gemini CLI. Version 2.11.0 is MIT licensed.",
+    "model": "claude-opus-5-5",
+    "quotedSpans": [
+      "A spec-driven workflow for AI coding agents.",
+      "You work through Plan2Code on a page in your browser. The dashboard lists every step as a card",
+      "each step's questions, progress and sign-offs arrive on that same page while your agent does the\nwork.",
+      "What you decide still lands in your repo as plain files: an approved plan becomes phase\ndocuments, and the agent builds to them one phase at a time, so the next session, the next agent and\nthe next engineer all start from the same specs.",
+      "0 PATHFINDER╎ optional",
+      "1  PLAN",
+      "2 DOCUMENT",
+      "3 IMPLEMENT",
+      "4 FINALIZE",
+      "| Quick task |",
+      "| Review |",
+      "| Handoff |",
+      "| Codebase X-ray |",
+      "| Diagnose a bug |",
+      "| Changelog |",
+      "| Git |",
+      "The Ask tab is a chat beside the cards",
+      "The **Notebook** in the top bar is a private pad of your own for the\nfolder, in Markdown with pictures, that the agent never sees.",
+      "The session meter in the top bar turns from green\nto red as a session grows long and suggests a fresh one.",
+      "Run it from any project and the Plan2Code\ndashboard opens right there, in **Claude Code**, **Devin** or **Codex**.",
+      "builds the workflow as Agent Skills, delegates\ninstallation to `skills add`",
+      "**Supported tools:** every agent supported by the skills CLI, including Claude Code · Cursor ·\nGitHub Copilot · Windsurf · Codex",
+      "Gemini CLI",
+      "Version 2.11.0 · MIT"
+    ],
+    "shortDescription": "A spec-driven workflow for AI coding agents, worked through on a browser dashboard where every step is a card.",
+    "slug": "plan2code"
   },
   "c4435b639b60916043f73aa365b81b3873e0b5a4e0937addd504f661e2a54eec": {
     "generatedAt": "2026-04-17T16:36:01.775Z",

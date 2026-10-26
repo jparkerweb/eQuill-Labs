@@ -45,7 +45,7 @@ lastCommit: '2026-04-17T03:48:39Z'
 _source:
   repo: 'https://github.com/jparkerweb/extract-topics'
   sha: HEAD
-  fetchedAt: '2026-10-06T01:55:55.892Z'
+  fetchedAt: '2026-10-26T13:01:16.359Z'
 ---
 An npm package that uses Latent Dirichlet Allocation (LDA) for topic modeling on text inputs. The main `extractTopics(text, options)` function analyzes input text and returns a Promise resolving to the LDA result, with options for the number of topics to extract and the number of terms per topic. LDA is an unsupervised learning method that discovers topics in documents, viewing each document as a random mixture over latent topics where every topic is characterized by a distribution over words.
 
