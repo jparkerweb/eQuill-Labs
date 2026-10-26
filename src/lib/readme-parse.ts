@@ -22,7 +22,7 @@ const DEMO_TEXT = /demo|live|playground|try it/i;
 // variants. Deliberately excludes incidental matches like "Install Note" so the
 // page only surfaces a real `## Installation` block.
 const INSTALL_HEADING =
-	/^(installation|install|installing|setup|getting started)(\s*&\s*setup|\s+guide|\s+steps|\s+instructions)?$/i;
+	/^(installation|install|installing|setup|getting started)(\s*(?:&|and)\s*(?:setup|start)|\s+guide|\s+steps|\s+instructions)?$/i;
 
 export function parseReadme(markdown: string): ReadmeExtract {
 	const result: ReadmeExtract = { features: [], demos: [] };
